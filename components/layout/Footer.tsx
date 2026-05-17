@@ -49,8 +49,8 @@ export default function Footer() {
           <div className="foot-col">
             <h4>Legal</h4>
             <ul>
-              <li><Link href="/about/">Privacy Policy</Link></li>
-              <li><Link href="/about/">Terms of Use</Link></li>
+              <li><Link href="/privacy/">Privacy Policy</Link></li>
+              <li><Link href="/terms/">Terms of Use</Link></li>
               <li><Link href="/about/">Disclaimer</Link></li>
               <li><Link href="/about/">Corrections</Link></li>
             </ul>
@@ -59,8 +59,8 @@ export default function Footer() {
         <div className="foot-bot">
           <span className="legal">© 2026 Fitlab Reviews LLC · All rights reserved</span>
           <div className="links">
-            <Link href="/about/">Privacy</Link>
-            <Link href="/about/">Terms</Link>
+            <Link href="/privacy/">Privacy</Link>
+            <Link href="/terms/">Terms</Link>
             <Link href="/methodology/">Methodology</Link>
             <Link href="/about/">Contact</Link>
           </div>

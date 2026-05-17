@@ -1,11 +1,19 @@
+import bestRaw from '@/data/best.json';
+import indiaRaw from '@/data/india.json';
 import brandsRaw from '@/data/brands.json';
 import reviewsRaw from '@/data/reviews.json';
 import ingredientsRaw from '@/data/ingredients.json';
 import researchRaw from '@/data/research.json';
 import blogRaw from '@/data/blog.json';
+import stacksRaw from '@/data/stacks.json';
+import comparisonsRaw from '@/data/comparisons.json';
 import type { Brand, Review, Ingredient, ResearchBrief, BlogPost } from './types';
 
+export const bestPages = ((bestRaw as unknown) as { pages: any[] }).pages;
+export const indiaPages = ((indiaRaw as unknown) as { pages: any[] }).pages;
 export const brands: Brand[] = ((brandsRaw as unknown) as { brands: Brand[] }).brands;
+export const stacks = ((stacksRaw as unknown) as { stacks: any[] }).stacks;
+export const comparisons = ((comparisonsRaw as unknown) as { comparisons: any[] }).comparisons;
 export const reviews: Review[] = ((reviewsRaw as unknown) as { reviews: Review[] }).reviews;
 export const ingredients: Ingredient[] = ((ingredientsRaw as unknown) as { ingredients: Ingredient[] }).ingredients;
 export const researchBriefs: ResearchBrief[] = ((researchRaw as unknown) as { briefs: ResearchBrief[] }).briefs;
@@ -25,6 +33,9 @@ export function getResearchBySlug(slug: string): ResearchBrief | undefined {
 }
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return blogPosts.find(p => p.slug === slug);
+}
+export function getStackBySlug(slug: string): any | undefined {
+  return stacks.find((s: any) => s.slug === slug);
 }
 
 export function scoreClass(score: number): string {

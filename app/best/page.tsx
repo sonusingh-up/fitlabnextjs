@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { bestPages } from '@/lib/data';
 
 export const metadata: Metadata = {
   title: 'Best Supplements by Category — 2026 Edition',
@@ -7,19 +8,10 @@ export const metadata: Metadata = {
     'Lab-tested, rubric-scored best-of picks for whey protein, pre-workout, creatine, multivitamins, omega-3, and greens. Updated quarterly. No affiliate commissions.',
 };
 
-const CATEGORY_TABS = [
-  { label: 'Whey Protein', href: '/best/' },
-  { label: 'Plant Protein', href: '/best/' },
-  { label: 'Creatine', href: '/best/' },
-  { label: 'Pre-Workout', href: '/best/' },
-  { label: 'Multivitamin', href: '/best/' },
-  { label: 'Omega-3', href: '/best/' },
-  { label: 'Magnesium', href: '/best/' },
-  { label: 'Greens', href: '/best/' },
-  { label: 'Sleep', href: '/best/' },
-  { label: 'Probiotics', href: '/best/' },
-  { label: 'Vitamin D', href: '/best/' },
-] as const;
+const CATEGORY_TABS = bestPages.map((p: any) => ({
+  label: p.cat as string,
+  href: `/best/${p.slug}/`,
+}));
 
 type QuickPick = {
   icon: string;
@@ -122,14 +114,16 @@ const FAILED = [
   { name: 'Bare Performance', reason: 'Lead 0.31ppm', score: 6.4 },
 ];
 
-const CATEGORY_CARDS: CategoryCard[] = [
-  { slug: 'whey-protein', label: 'Whey Protein', numTested: 42, topProduct: 'Transparent Labs WPI', topScore: 9.4, blurb: '90.4% protein by mass. Best-in-class disclosure. 4 lots clean.' },
-  { slug: 'pre-workout', label: 'Pre-Workout', numTested: 31, topProduct: 'Legion Pulse', topScore: 9.1, blurb: 'Full-dose citrulline (8g). Clinical beta-alanine. No prop blend.' },
-  { slug: 'creatine', label: 'Creatine', numTested: 18, topProduct: 'Thorne Creatine', topScore: 9.2, blurb: 'Cheapest evidence-backed supplement. Purity is the only metric that matters.' },
-  { slug: 'multivitamin', label: 'Multivitamin', numTested: 61, topProduct: 'Thorne Basic Nutrients', topScore: 8.8, blurb: 'Methylfolate. Adenosylcobalamin. Correct forms of D3, K2-MK7.' },
-  { slug: 'omega-3', label: 'Omega-3', numTested: 24, topProduct: 'Nordic Naturals Ultimate', topScore: 9.0, blurb: 'Lowest TOTOX score in category. Triglyceride form. No fishy oxidation.' },
-  { slug: 'greens', label: 'Greens Powder', numTested: 14, topProduct: 'AG1', topScore: 7.4, blurb: 'Highest score in a difficult category. Cadmium improved vs. 2025.' },
-];
+const CATEGORY_CARDS: CategoryCard[] = bestPages.map((p: any) => ({
+  slug: p.slug,
+  label: p.cat,
+  numTested: p.n_tested,
+  topProduct: p.products[0]?.name ?? '—',
+  topScore: p.products[0]?.score ?? 0,
+  blurb: p.products[0]?.blurb
+    ? p.products[0].blurb.slice(0, 90) + (p.products[0].blurb.length > 90 ? '…' : '')
+    : '',
+}));
 
 export default function BestPage() {
   return (
@@ -318,7 +312,7 @@ export default function BestPage() {
 
           <div className="cat-strip">
             {CATEGORY_CARDS.map((card, i) => (
-              <Link key={card.slug} href="/best/" className="cat-card">
+              <Link key={card.slug} href={`/best/${card.slug}/`} className="cat-card">
                 <span className="num-mark">/ {String(i + 1).padStart(2, '0')}</span>
                 <span className="cn">{card.label}</span>
                 <span className="ct">

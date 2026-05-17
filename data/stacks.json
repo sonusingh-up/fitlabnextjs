@@ -1,0 +1,442 @@
+{
+  "stacks": [
+    {
+      "slug": "cognitive-focus",
+      "title": "Cognitive Focus Stack",
+      "goal": "Focus",
+      "meta": "Evidence-based cognitive focus supplement stack \u2014 caffeine, L-theanine, lion's mane, bacopa monnieri. Clinical doses and honest evidence ratings for brain supplements.",
+      "blurb": "Evidence-based cognitive focus supplement stack \u2014 caffeine, L-theanine, lion's mane, bacopa monnieri. Clinical doses and honest evidence ratings for brain suppl",
+      "n_ingredients": 4,
+      "cost_day": "~$1.10/day",
+      "tldr": "Popular: ON Gold Standard BULK Black Best Creatine Sleep Stack Compare Products",
+      "ingredients": [
+        {
+          "name": "Reviews",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Best Of 2026",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Ingredients",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Blog",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Company",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "slug": "complete-supplement-stack",
+      "title": "Building a Complete Supplement Stack \u2014 The Right Priority Order (2026)",
+      "goal": "Complete",
+      "meta": "Complete supplement stack guide 2026 \u2014 evidence-based 4-tier priority order from foundation (Vitamin D, Omega-3, Magnesium) through performance (creatine, protein) to optimisation (nootropics, pre-workout). Sample budgets $15-85/month.",
+      "blurb": "Complete supplement stack guide 2026 \u2014 evidence-based 4-tier priority order from foundation (Vitamin D, Omega-3, Magnesium) through performance (creatine, prote",
+      "n_ingredients": 9,
+      "cost_day": "~$1.50/day",
+      "tldr": "Popular: ON Gold Standard BULK Black Best Creatine Sleep Stack Compare Products",
+      "ingredients": [
+        {
+          "name": "\ud83d\udccb In This Article",
+          "evidence": "",
+          "dose": "",
+          "desc": "The supplement industry profits from decision paralysis \u2014 presenting dozens of products as equally important when the evidence clearly shows a priority order. Getting your foundation right before addi"
+        },
+        {
+          "name": "\ud83d\udccb In This Article",
+          "evidence": "",
+          "dose": "",
+          "desc": "Have a question about this topic or your supplement stack?"
+        },
+        {
+          "name": "\ud83d\udd17 Related Articles",
+          "evidence": "",
+          "dose": "",
+          "desc": "Have a question about this topic or your supplement stack?"
+        },
+        {
+          "name": "Ask Jake",
+          "evidence": "",
+          "dose": "",
+          "desc": "Have a question about this topic or your supplement stack?"
+        },
+        {
+          "name": "Reviews",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Best Of 2026",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Ingredients",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Blog",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "slug": "endurance",
+      "title": "Endurance & Cardio Stack",
+      "goal": "Endurance",
+      "meta": "Evidence-based endurance supplement stack \u2014 beta-alanine, beetroot nitrates, electrolytes, caffeine. Clinical doses and timing for runners, cyclists, and endurance athletes.",
+      "blurb": "Evidence-based endurance supplement stack \u2014 beta-alanine, beetroot nitrates, electrolytes, caffeine. Clinical doses and timing for runners, cyclists, and endura",
+      "n_ingredients": 4,
+      "cost_day": "~$1.20/day",
+      "tldr": "Popular: ON Gold Standard BULK Black Best Creatine Sleep Stack Compare Products",
+      "ingredients": [
+        {
+          "name": "Reviews",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Best Of 2026",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Ingredients",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Blog",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Company",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "slug": "fat-loss",
+      "title": "Fat Loss Support Stack",
+      "goal": "Fat Loss",
+      "meta": "Evidence-based fat loss supplement stack \u2014 caffeine, green tea EGCG, protein, glucomannan. Honest review of what actually works and what doesn't.",
+      "blurb": "Evidence-based fat loss supplement stack \u2014 caffeine, green tea EGCG, protein, glucomannan. Honest review of what actually works and what doesn't.",
+      "n_ingredients": 4,
+      "cost_day": "~$1.50/day",
+      "tldr": "Popular: ON Gold Standard BULK Black Best Creatine Sleep Stack Compare Products",
+      "ingredients": [
+        {
+          "name": "Reviews",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Best Of 2026",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Ingredients",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Blog",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Company",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "slug": "foundational-health",
+      "title": "Foundational Health Stack",
+      "goal": "Foundation",
+      "meta": "Foundational health supplement stack \u2014 vitamin D3/K2, omega-3, magnesium, zinc. The evidence-based essentials before any performance supplements.",
+      "blurb": "Foundational health supplement stack \u2014 vitamin D3/K2, omega-3, magnesium, zinc. The evidence-based essentials before any performance supplements.",
+      "n_ingredients": 4,
+      "cost_day": "~$0.65/day",
+      "tldr": "Popular: ON Gold Standard BULK Black Best Creatine Sleep Stack Compare Products",
+      "ingredients": [
+        {
+          "name": "Reviews",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Best Of 2026",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Ingredients",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Blog",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Company",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "slug": "muscle-gain",
+      "title": "Muscle Gain Stack",
+      "goal": "Muscle",
+      "meta": "Evidence-based muscle gain supplement stack \u2014 creatine, whey protein, vitamin D3, and ZMA with clinical doses, timing, and honest cost breakdown.",
+      "blurb": "Evidence-based muscle gain supplement stack \u2014 creatine, whey protein, vitamin D3, and ZMA with clinical doses, timing, and honest cost breakdown.",
+      "n_ingredients": 4,
+      "cost_day": "~$1.20/day",
+      "tldr": "Popular: ON Gold Standard BULK Black Best Creatine Sleep Stack Compare Products",
+      "ingredients": [
+        {
+          "name": "Reviews",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Best Of 2026",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Ingredients",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Blog",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Company",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "slug": "pre-workout-performance",
+      "title": "Pre-Workout Performance Stack",
+      "goal": "Performance",
+      "meta": "Evidence-based pre-workout supplement stack \u2014 citrulline malate, beta-alanine, creatine, caffeine. Clinical doses and timing for real training performance gains.",
+      "blurb": "Evidence-based pre-workout supplement stack \u2014 citrulline malate, beta-alanine, creatine, caffeine. Clinical doses and timing for real training performance gains",
+      "n_ingredients": 4,
+      "cost_day": "~$1.80/day",
+      "tldr": "Popular: ON Gold Standard BULK Black Best Creatine Sleep Stack Compare Products",
+      "ingredients": [
+        {
+          "name": "Reviews",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Best Of 2026",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Ingredients",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Blog",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Company",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "slug": "recovery",
+      "title": "Recovery & Repair Stack",
+      "goal": "Recovery",
+      "meta": "Evidence-based recovery supplement stack \u2014 creatine, omega-3, magnesium glycinate, collagen peptides. Clinical doses and timing for faster post-workout recovery.",
+      "blurb": "Evidence-based recovery supplement stack \u2014 creatine, omega-3, magnesium glycinate, collagen peptides. Clinical doses and timing for faster post-workout recovery",
+      "n_ingredients": 4,
+      "cost_day": "~$1.60/day",
+      "tldr": "Popular: ON Gold Standard BULK Black Best Creatine Sleep Stack Compare Products",
+      "ingredients": [
+        {
+          "name": "Reviews",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Best Of 2026",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Ingredients",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Blog",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Company",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "slug": "sleep-optimization",
+      "title": "Sleep Optimization Stack",
+      "goal": "Sleep",
+      "meta": "Evidence-based sleep supplement stack \u2014 magnesium glycinate, L-theanine, apigenin, low-dose melatonin. Clinical doses and timing for better sleep quality.",
+      "blurb": "Evidence-based sleep supplement stack \u2014 magnesium glycinate, L-theanine, apigenin, low-dose melatonin. Clinical doses and timing for better sleep quality.",
+      "n_ingredients": 4,
+      "cost_day": "~$0.80/day",
+      "tldr": "Popular: ON Gold Standard BULK Black Best Creatine Sleep Stack Compare Products",
+      "ingredients": [
+        {
+          "name": "Reviews",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Best Of 2026",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Ingredients",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Blog",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Company",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        }
+      ]
+    },
+    {
+      "slug": "stress-cortisol",
+      "title": "Stress & Cortisol Support Stack",
+      "goal": "Stress",
+      "meta": "Evidence-based stress and cortisol supplement stack \u2014 ashwagandha KSM-66, L-theanine, magnesium, rhodiola rosea. Clinical doses and honest evidence review.",
+      "blurb": "Evidence-based stress and cortisol supplement stack \u2014 ashwagandha KSM-66, L-theanine, magnesium, rhodiola rosea. Clinical doses and honest evidence review.",
+      "n_ingredients": 4,
+      "cost_day": "~$1.00/day",
+      "tldr": "Popular: ON Gold Standard BULK Black Best Creatine Sleep Stack Compare Products",
+      "ingredients": [
+        {
+          "name": "Reviews",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Best Of 2026",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Ingredients",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Blog",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        },
+        {
+          "name": "Company",
+          "evidence": "",
+          "dose": "",
+          "desc": ""
+        }
+      ]
+    }
+  ]
+}

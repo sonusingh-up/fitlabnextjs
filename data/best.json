@@ -1,0 +1,622 @@
+{
+  "pages": [
+    {
+      "slug": "best-creatine",
+      "title": "Best Creatine Supplements 2026 \u2014 Ranked by Purity & Value",
+      "cat": "Creatine",
+      "meta": "The 5 best creatine supplements of 2026 \u2014 Creapure\u00ae monohydrate, HCL, and certified options ranked by evidence, purity, and value.",
+      "n_ranked": 5,
+      "n_tested": 14,
+      "updated": "2026",
+      "products": [
+        {
+          "rank": 1,
+          "badge": "Editor's Choice",
+          "name": "Creatine (Creapure\u00ae)",
+          "brand": "Thorne",
+          "price": "$39.00",
+          "score": 9.5,
+          "blurb": "Pharmaceutical-grade from Creapure\u00ae \u2014 the gold-standard German facility. >99.9% purity. NSF Certified for Sport. 5g per serving, unflavoured, mixes into anything.",
+          "pros": [
+            "Creapure\u00ae \u2014 >99.9% purity",
+            "NSF Certified for Sport",
+            "5g clinical dose"
+          ],
+          "cons": [
+            "\u2717 More expensive than generic"
+          ]
+        },
+        {
+          "rank": 2,
+          "badge": "Best Value",
+          "name": "Creatine Monohydrate",
+          "brand": "Bulk Supplements",
+          "price": "$17.96 (500g)",
+          "score": 9.1,
+          "blurb": "Pure creatine monohydrate at ~$0.10 per serving. Lab-verified purity, available up to 5kg. For those who just want the ingredient without the packaging premium.",
+          "pros": [
+            "~$0.10/serving \u2014 lowest cost",
+            "Pure monohydrate \u00b7 Lab-verified"
+          ],
+          "cons": [
+            "\u2717 No NSF certification"
+          ]
+        },
+        {
+          "rank": 3,
+          "badge": "India Pick",
+          "name": "MuscleBlaze Creatine Monohydrate",
+          "brand": "MuscleBlaze",
+          "price": "\u20b9599",
+          "score": 8.2,
+          "blurb": "Micronised creatine monohydrate at one of the best price points in South Asia. Widely available, good quality control, popular among Indian lifters.",
+          "pros": [
+            "Best value in India",
+            "Micronised for easy mixing",
+            "Widely available"
+          ],
+          "cons": [
+            "\u2717 No international certification"
+          ]
+        },
+        {
+          "rank": 4,
+          "badge": "Best HCL",
+          "name": "Creatine HCL",
+          "brand": "Kaged",
+          "price": "$29.99",
+          "score": 8.0,
+          "blurb": "If GI discomfort on monohydrate is genuine, HCL's superior solubility may help. Clean label, no loading phase needed. Don't pay the premium expecting better muscle gains \u2014 evidence doesn't support it.",
+          "pros": [
+            "Better solubility \u2014 less GI discomfort",
+            "No loading phase"
+          ],
+          "cons": [
+            "\u2717 3\u20135\u00d7 more expensive per effective dose"
+          ]
+        },
+        {
+          "rank": 5,
+          "badge": "Best Stack Pick",
+          "name": "Creatine Monohydrate",
+          "brand": "Transparent Labs",
+          "price": "$24.99",
+          "score": 7.9,
+          "blurb": "Creapure-sourced, third-party tested, 5g dose. If you already order Transparent Labs, adding their creatine simplifies your stack.",
+          "pros": [
+            "Creapure\u00ae-sourced",
+            "5g dose \u00b7 Third-party tested"
+          ],
+          "cons": [
+            "\u2717 More expensive than Bulk Supplements"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "best-fat-burners",
+      "title": "Best Fat Burner Supplements 2026 \u2014 Honest Rankings",
+      "cat": "Fat Burners",
+      "meta": "The 5 best fat burner supplements of 2026 separated from the overpriced caffeine pills. Ranked on evidence, clinical dosing, and transparency.",
+      "n_ranked": 5,
+      "n_tested": 22,
+      "updated": "2026",
+      "products": [
+        {
+          "rank": 1,
+          "badge": "Best Overall",
+          "name": "Instant Knockout Cut",
+          "brand": "Roar Ambition",
+          "price": "$65.00",
+          "score": 8.4,
+          "blurb": "Originally developed for MMA fighters. Most transparent fat burner available \u2014 500mg green tea at 50% EGCG, Capsimax\u00ae cayenne, glucomannan. Zero prop blends.",
+          "pros": [
+            "Full label transparency",
+            "500mg green tea (50% EGCG)",
+            "3g glucomannan"
+          ],
+          "cons": [
+            "\u2717 $65/month \u2014 premium",
+            "\u2717 4 capsules/day"
+          ]
+        },
+        {
+          "rank": 2,
+          "badge": "Best Multi-Mechanism",
+          "name": "PhenQ",
+          "brand": "Wolfson Brands",
+          "price": "$69.99",
+          "score": 8.0,
+          "blurb": "Five mechanisms: thermogenesis, appetite suppression, energy, fat oxidation, mood. \u03b1-Lacys Reset\u00ae + InnoSlim + Capsimax provides comprehensive fat-loss support.",
+          "pros": [
+            "5-mechanism approach",
+            "\u03b1-Lacys Reset\u00ae + InnoSlim"
+          ],
+          "cons": [
+            "\u2717 \u03b1-Lacys Reset\u00ae dose undisclosed"
+          ]
+        },
+        {
+          "rank": 3,
+          "badge": "Best for Women",
+          "name": "Leanbean",
+          "brand": "Ultimate Life",
+          "price": "$59.99",
+          "score": 7.6,
+          "blurb": "Designed for women with lower stimulant profile and 3g glucomannan \u2014 the clinical dose for appetite suppression. Good for caffeine-sensitive users.",
+          "pros": [
+            "3g glucomannan \u2014 clinical dose",
+            "Lower stimulant profile"
+          ],
+          "cons": [
+            "\u2717 6 capsules/day"
+          ]
+        },
+        {
+          "rank": 4,
+          "badge": "Best Stim-Free",
+          "name": "Citrus Burn",
+          "brand": "Citrus Burn",
+          "price": "$49.99",
+          "score": 7.1,
+          "blurb": "P-synephrine as the primary thermogenic \u2014 a non-CNS alternative to caffeine. Berberine for glucose control, EGCG for fat oxidation. Best for stimulant-avoiding users.",
+          "pros": [
+            "P-synephrine \u2014 non-stimulant",
+            "Berberine for glucose metabolism"
+          ],
+          "cons": [
+            "\u2717 Weaker than caffeinated options"
+          ]
+        },
+        {
+          "rank": 5,
+          "badge": "Budget Pick",
+          "name": "Vintage Burn",
+          "brand": "Old School Labs",
+          "price": "$44.99",
+          "score": 7.0,
+          "blurb": "Most honest budget fat burner available. Green coffee + green tea + 150mg caffeine at ~$1.50/day delivers real thermogenic value.",
+          "pros": [
+            "~$1.50/day \u2014 great value",
+            "Green coffee + green tea combo"
+          ],
+          "cons": [
+            "\u2717 Raspberry ketones \u2014 no human evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "best-mass-gainers",
+      "title": "Best Mass Gainers 2026 \u2014 Ranked by Caloric Quality & Value",
+      "cat": "Mass Gainers",
+      "meta": "Best mass gainers 2026 ranked by caloric quality, protein content, carbohydrate source, cost per calorie, and honest verdict on who needs a mass gainer.",
+      "n_ranked": 5,
+      "n_tested": 14,
+      "updated": "2026",
+      "products": [
+        {
+          "rank": 1,
+          "badge": "",
+          "name": "ON Serious Mass",
+          "brand": "Optimum Nutrition",
+          "price": "~$30.99",
+          "score": 8.3,
+          "blurb": "",
+          "pros": [],
+          "cons": [
+            "Maltodextrin is high-GI; 0g fibre",
+            "Very large serving \u2014 needs blender"
+          ]
+        },
+        {
+          "rank": 2,
+          "badge": "",
+          "name": "MuscleBlaze Super Mass Gainer (India)",
+          "brand": "MuscleBlaze",
+          "price": "\u20b93,499",
+          "score": 8.2,
+          "blurb": "",
+          "pros": [],
+          "cons": [
+            "Only available in India",
+            "Maltodextrin carb base"
+          ]
+        },
+        {
+          "rank": 3,
+          "badge": "",
+          "name": "Naked Mass (Natural Gainer)",
+          "brand": "Naked Nutrition",
+          "price": "~$109.99",
+          "score": 7.8,
+          "blurb": "",
+          "pros": [],
+          "cons": [
+            "Most expensive per 1,000 kcal",
+            "Unflavoured base is chalky"
+          ]
+        },
+        {
+          "rank": 4,
+          "badge": "",
+          "name": "Dymatize Super Mass Gainer",
+          "brand": "Dymatize",
+          "price": "~$54.99",
+          "score": 8.1,
+          "blurb": "",
+          "pros": [],
+          "cons": [
+            "1g creatine only \u2014 add 4g separately",
+            "Heavy maltodextrin reliance"
+          ]
+        },
+        {
+          "rank": 5,
+          "badge": "",
+          "name": "ON Pro Gainer (Lean Mass)",
+          "brand": "Optimum Nutrition",
+          "price": "~$49.99",
+          "score": 7.5,
+          "blurb": "",
+          "pros": [],
+          "cons": [
+            "Not for extreme hardgainers (650 kcal only)",
+            "No creatine"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "best-nootropics-under-30",
+      "title": "Best Nootropics Under $30/Month \u2014 Ranked by Evidence Quality",
+      "cat": "Nootropics",
+      "meta": "Best nootropics under $30/month 2026 \u2014 L-theanine, Magtein, Bacopa, Ashwagandha, and Lion's Mane ranked by clinical evidence quality, effective doses, and real monthly cost.",
+      "n_ranked": 5,
+      "n_tested": 14,
+      "updated": "2026",
+      "products": [
+        {
+          "rank": 1,
+          "badge": "",
+          "name": "L-Theanine 200mg",
+          "brand": "Best pick: NOW Foods L-Theanine 200mg",
+          "price": "~$7/mo",
+          "score": 8.9,
+          "blurb": "Best daily cognitive base. Reduces anxiety, enhances alpha brain waves, synergises with caffeine at 2:1 ratio. Fastest onset (45 min) and most consistent daily effect of any compound at this price.",
+          "pros": [],
+          "cons": []
+        },
+        {
+          "rank": 2,
+          "badge": "",
+          "name": "Magnesium L-Threonate (Magtein\u00ae)",
+          "brand": "Best pick: Life Extension Neuro-Mag",
+          "price": "~$22/mo",
+          "score": 8.3,
+          "blurb": "Only magnesium form proven to raise CNS magnesium. Memory and anxiety improvement at 4-6 weeks. Life Extension Neuro-Mag uses the same Magtein\u00ae compound as Momentous at $22/month vs $49/month.",
+          "pros": [],
+          "cons": []
+        },
+        {
+          "rank": 3,
+          "badge": "",
+          "name": "Ashwagandha KSM-66",
+          "brand": "Best pick: Standardised 5% withanolides extract",
+          "price": "~$15/mo",
+          "score": 8.1,
+          "blurb": "Most consistent cortisol and anxiety reduction available in this price range. Testosterone increases are modest but real. Requires 4-6 weeks. Choose KSM-66 or Sensoril standardised extracts only \u2014 gen",
+          "pros": [],
+          "cons": []
+        },
+        {
+          "rank": 4,
+          "badge": "",
+          "name": "Bacopa Monnieri (Bacognize\u00ae / KeenMind)",
+          "brand": "Best pick: Bacognize\u00ae standardised extract",
+          "price": "~$12/mo",
+          "score": 7.8,
+          "blurb": "Best nootropic for memory formation and learning retention. Requires the longest onset (8-12 weeks) of any compound here. Use standardised extracts \u2014 generic Bacopa powder produces inconsistent result",
+          "pros": [],
+          "cons": []
+        },
+        {
+          "rank": 5,
+          "badge": "",
+          "name": "Lion's Mane Mushroom",
+          "brand": "Best pick: Host Defense / standardised fruiting body",
+          "price": "~$20/mo",
+          "score": 7.5,
+          "blurb": "Most promising emerging nootropic for long-term neuroplasticity. Nerve growth factor stimulation mechanism is compelling. Human evidence is more limited than L-theanine or Bacopa. Fruiting body extrac",
+          "pros": [],
+          "cons": []
+        }
+      ]
+    },
+    {
+      "slug": "best-pre-workouts",
+      "title": "Best Pre-Workout Supplements 2026 \u2014 Ranked by Science",
+      "cat": "Pre-Workouts",
+      "meta": "The 5 best pre-workout supplements of 2026 ranked by clinical dosing, ingredient transparency, and real performance.",
+      "n_ranked": 5,
+      "n_tested": 28,
+      "updated": "2026",
+      "products": [
+        {
+          "rank": 1,
+          "badge": "Editor's Choice",
+          "name": "Transparent Labs BULK Black",
+          "brand": "Transparent Labs",
+          "price": "$59.99",
+          "score": 9.4,
+          "blurb": "Every major ingredient at clinical dose \u2014 8,000mg citrulline, 4g beta-alanine, dual-caffeine system. Zero hidden blends. The benchmark for pre-workout transparency.",
+          "pros": [
+            "8,000mg L-Citrulline",
+            "Zero prop blends",
+            "Informed Sport certified"
+          ],
+          "cons": [
+            "\u2717 275mg caffeine \u2014 not for beginners"
+          ]
+        },
+        {
+          "rank": 2,
+          "badge": "Runner-Up",
+          "name": "Gorilla Mode",
+          "brand": "Gorilla Mind",
+          "price": "$49.99",
+          "score": 8.9,
+          "blurb": "9,000mg citrulline \u2014 the highest dose of any mainstream pre-workout. 5g betaine at full clinical dose. Outstanding pump and power output.",
+          "pros": [
+            "9,000mg L-Citrulline \u2014 highest dose",
+            "5g Betaine Anhydrous"
+          ],
+          "cons": [
+            "\u2717 Nootropic blend partially undisclosed"
+          ]
+        },
+        {
+          "rank": 3,
+          "badge": "Best Value",
+          "name": "Pulse Pre-Workout",
+          "brand": "Legion Athletics",
+          "price": "$44.99",
+          "score": 8.3,
+          "blurb": "Clinical citrulline dose, CarnoSyn\u00ae beta-alanine, natural sweeteners, zero artificial dyes. Lower stim profile suits those who want performance without jitters.",
+          "pros": [
+            "8,000mg L-Citrulline",
+            "CarnoSyn\u00ae beta-alanine",
+            "Natural sweeteners only"
+          ],
+          "cons": [
+            "\u2717 Lower caffeine than competitors"
+          ]
+        },
+        {
+          "rank": 4,
+          "badge": "Recommended",
+          "name": "Pre-Kaged Elite",
+          "brand": "Kaged",
+          "price": "$54.99",
+          "score": 7.8,
+          "blurb": "Informed Sport certified with solid 6.5g citrulline and clean electrolyte addition. Well-tested formula slightly let down by an undisclosed focus blend.",
+          "pros": [
+            "Informed Sport certified",
+            "6.5g citrulline",
+            "Electrolytes included"
+          ],
+          "cons": [
+            "\u2717 Proprietary focus blend"
+          ]
+        },
+        {
+          "rank": 5,
+          "badge": "Best Beginner",
+          "name": "C4 Original Pre-Workout",
+          "brand": "Cellucor",
+          "price": "$29.99",
+          "score": 7.2,
+          "blurb": "The right entry point for beginners. 150mg caffeine, manageable doses across the board, ~$1/serving. When you outgrow it, upgrade to BULK Black.",
+          "pros": [
+            "150mg caffeine \u2014 manageable",
+            "~$1/serving",
+            "Widely available"
+          ],
+          "cons": [
+            "\u2717 Sub-clinical doses"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "best-protein-powders",
+      "title": "Best Protein Powders 2026 \u2014 Ranked by Amino Profile & Value",
+      "cat": "Protein",
+      "meta": "The 5 best protein powders of 2026 ranked by amino acid profile, cost per gram, mixability, and third-party testing.",
+      "n_ranked": 5,
+      "n_tested": 14,
+      "updated": "2026",
+      "products": [
+        {
+          "rank": 1,
+          "badge": "Editor's Choice",
+          "name": "Gold Standard 100% Whey",
+          "brand": "Optimum Nutrition",
+          "price": "$39.99 (2lb)",
+          "score": 9.8,
+          "blurb": "The benchmark for 15+ years. 24g protein, 5.5g BCAAs, Informed Sport certified, best-in-class mixability. 20+ flavours. Start here and stay here.",
+          "pros": [
+            "24g protein \u00b7 5.5g BCAAs",
+            "Informed Sport certified",
+            "Best-in-class mixability"
+          ],
+          "cons": [
+            "\u2717 Contains lactose"
+          ]
+        },
+        {
+          "rank": 2,
+          "badge": "Best Isolate",
+          "name": "ISO100 Hydrolyzed Whey",
+          "brand": "Dymatize",
+          "price": "$49.99",
+          "score": 9.0,
+          "blurb": "Zero lactose, 25g hydrolysed whey isolate, ultra-fast absorption, Informed Sport certified. The cleanest whey available. Best for lactose-intolerant users.",
+          "pros": [
+            "100% hydrolysed isolate \u2014 zero lactose",
+            "25g protein \u00b7 Informed Sport"
+          ],
+          "cons": [
+            "\u2717 More expensive than concentrate"
+          ]
+        },
+        {
+          "rank": 3,
+          "badge": "Best Value",
+          "name": "Impact Whey Protein",
+          "brand": "MyProtein",
+          "price": "~$55 (5.5lb)",
+          "score": 8.5,
+          "blurb": "~$0.80 per serving in bulk \u2014 best cost-per-gram available. 80+ flavours, 21g protein. Best for budget-conscious buyers hitting daily protein targets.",
+          "pros": [
+            "~$0.80/serving \u2014 lowest cost/gram",
+            "80+ flavour options"
+          ],
+          "cons": [
+            "\u2717 No third-party testing"
+          ]
+        },
+        {
+          "rank": 4,
+          "badge": "Best Plant",
+          "name": "Sport Organic Plant Protein",
+          "brand": "Garden of Life",
+          "price": "$44.99",
+          "score": 8.2,
+          "blurb": "Best plant protein with complete amino acid profile. 30g protein from pea + rice + chia. USDA Organic, NSF Certified for Sport.",
+          "pros": [
+            "30g protein per serving",
+            "NSF Certified \u00b7 USDA Organic"
+          ],
+          "cons": [
+            "\u2717 ~$2.50/serving",
+            "\u2717 Grittier texture"
+          ]
+        },
+        {
+          "rank": 5,
+          "badge": "Best Casein",
+          "name": "Gold Standard 100% Casein",
+          "brand": "Optimum Nutrition",
+          "price": "$36.99 (2lb)",
+          "score": 8.0,
+          "blurb": "Digests in 6\u20138 hours \u2014 ideal before bed for overnight muscle protein synthesis. 28g protein per serving with ON's reliable quality.",
+          "pros": [
+            "28g protein \u00b7 6\u20138hr digestion",
+            "Trusted ON quality"
+          ],
+          "cons": [
+            "\u2717 Not suited post-workout"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "best-sleep-supplements",
+      "title": "Best Sleep Supplements 2026 \u2014 Science-Backed Rankings",
+      "cat": "Sleep",
+      "meta": "The 5 best sleep supplements of 2026 \u2014 ranked by ingredient evidence, bioavailability, and real sleep tracking data. Melatonin, magnesium, L-theanine, and full-formula options.",
+      "n_ranked": 5,
+      "n_tested": 14,
+      "updated": "2026",
+      "products": [
+        {
+          "rank": 1,
+          "badge": "Best Overall",
+          "name": "Yu Sleep Nano Formula",
+          "brand": "YuSleep",
+          "price": "$69.00",
+          "score": 8.7,
+          "blurb": "The most innovative sleep supplement we've tested. Nano-emulsion delivery achieves ~95% bioavailability vs ~20% from standard capsules. Multi-mechanism formula \u2014 GABA, melatonin, L-theanine, 5-HTP. 90-day sleep tracker data shows consistent deep sleep improvement.",
+          "pros": [
+            "Nano-emulsion \u2014 95% bioavailability",
+            "Multi-mechanism full formula",
+            "Real sleep tracker data"
+          ],
+          "cons": [
+            "\u2717 $69/month \u2014 premium",
+            "\u2717 Liquid \u2014 less convenient"
+          ]
+        },
+        {
+          "rank": 2,
+          "badge": "Best Magnesium",
+          "name": "Magnesium L-Threonate",
+          "brand": "Momentous",
+          "price": "$55.00",
+          "score": 8.4,
+          "blurb": "Magtein\u00ae \u2014 the only magnesium form clinically shown to cross the blood-brain barrier effectively. Part of Andrew Huberman's sleep protocol. Noticeably improves deep sleep quality. NSF Certified for Sport.",
+          "pros": [
+            "Crosses blood-brain barrier (Magtein\u00ae)",
+            "NSF Certified for Sport",
+            "Improves deep sleep specifically"
+          ],
+          "cons": [
+            "\u2717 3 capsules/day \u00b7 Expensive"
+          ]
+        },
+        {
+          "rank": 3,
+          "badge": "Best Theanine",
+          "name": "L-Theanine 200mg",
+          "brand": "NOW Foods",
+          "price": "$14.99",
+          "score": 8.1,
+          "blurb": "Suntheanine\u00ae-sourced at 200mg \u2014 promotes alpha brain waves and reduces sleep latency without morning grogginess. Non-habit-forming. Works synergistically with low-dose melatonin. Exceptional value.",
+          "pros": [
+            "Suntheanine\u00ae \u2014 pharmaceutical grade",
+            "200mg clinical dose",
+            "Non-sedating \u00b7 No grogginess"
+          ],
+          "cons": [
+            "\u2717 Subtle alone for severe insomnia"
+          ]
+        },
+        {
+          "rank": 4,
+          "badge": "Best Melatonin",
+          "name": "Melatonin 0.5mg",
+          "brand": "Life Extension",
+          "price": "$9.00",
+          "score": 7.8,
+          "blurb": "Most products dose melatonin at 5-10mg \u2014 10-30\u00d7 higher than research supports. Life Extension's 0.5mg is evidence-backed per MIT research (0.3mg equals 10mg for sleep onset) without suppressing natural production.",
+          "pros": [
+            "0.5mg \u2014 evidence-backed dose",
+            "No morning grogginess",
+            "Doesn't suppress natural melatonin"
+          ],
+          "cons": [
+            "\u2717 Underdosing perception issue"
+          ]
+        },
+        {
+          "rank": 5,
+          "badge": "Best Full Stack",
+          "name": "Sleep & Recover",
+          "brand": "Momentous",
+          "price": "$69.95",
+          "score": 7.5,
+          "blurb": "Andrew Huberman's three-ingredient sleep stack \u2014 magnesium threonate, L-theanine, and apigenin \u2014 combined at clinical doses in one product. NSF Certified for Sport.",
+          "pros": [
+            "Huberman stack in one capsule",
+            "Clinical doses \u00b7 NSF Certified",
+            "Magnesium + Theanine + Apigenin"
+          ],
+          "cons": [
+            "\u2717 Expensive vs buying separately"
+          ]
+        }
+      ]
+    }
+  ]
+}
