@@ -211,7 +211,7 @@ button { font: inherit; cursor: pointer; }
 .foot-bot .links a:hover { color: var(--paper); }
 
 /* ===== Layout: list with sidebar ===== */
-.with-rail { display: grid; grid-template-columns: var(--rail) 1fr; gap: 32px; align-items: start; }
+.with-rail { display: grid; grid-template-columns: var(--rail) 1fr; gap: 32px; align-items: flex-start; }
 .rail { position: sticky; top: 80px; align-self: start; border-right: 1px solid var(--line); padding-right: 32px; margin-right: -16px; }
 .rail-block { padding: 22px 0; border-bottom: 1px solid var(--line); }
 .rail-block:first-child { padding-top: 8px; }
@@ -504,7 +504,7 @@ button { font: inherit; cursor: pointer; }
   display: grid;
   grid-template-columns: 1fr 420px;
   gap: 56px;
-  align-items: end;
+  align-items: flex-end;
   padding-bottom: 36px;
 }
 .hero-headline {
@@ -984,9 +984,9 @@ button { font: inherit; cursor: pointer; }
   .brand-sub { display: none; }
   .section { padding: 40px 0; }
   .foot-top { grid-template-columns: 1fr; gap: 32px; padding-bottom: 32px; }
-  .foot-bot { flex-direction: column; align-items: start; gap: 12px; }
+  .foot-bot { flex-direction: column; align-items: flex-start; gap: 12px; }
   .foot-bot .links { flex-wrap: wrap; gap: 12px; }
-  .sec-head { flex-direction: column; align-items: start; gap: 12px; }
+  .sec-head { flex-direction: column; align-items: flex-start; gap: 12px; }
   .sec-head .right { width: 100%; justify-content: space-between; }
   .toolbar { flex-direction: column; align-items: stretch; gap: 10px; }
   .toolbar .actions { justify-content: space-between; }
