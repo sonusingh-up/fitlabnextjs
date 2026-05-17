@@ -349,7 +349,7 @@ button { font: inherit; cursor: pointer; }
 
 /* ===== Section heads ===== */
 .sec-head {
-  display: flex; align-items: end; justify-content: space-between;
+  display: flex; align-items: flex-end; justify-content: space-between;
   gap: 24px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--ink);
 }
 .sec-head .left { display: flex; flex-direction: column; gap: 6px; }
@@ -528,7 +528,7 @@ button { font: inherit; cursor: pointer; }
   gap: 24px;
 }
 .hero-meta-row {
-  display: flex; gap: 32px; align-items: start;
+  display: flex; gap: 32px; align-items: flex-start;
   padding-bottom: 18px;
   border-bottom: 1px solid var(--line-2);
 }
