@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Methodology · Fitlab</title>
+<link rel="stylesheet" href="assets/tokens.css"/>
+<link rel="stylesheet" href="assets/shared.css"/>
+<style>
+  .m-hero {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 80px 0 96px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .m-hero .super {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .m-hero h1 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(64px, 9vw, 168px);
+    line-height: 0.84;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+    margin: 0 0 32px;
+  }
+  .m-hero h1 em { color: var(--red); font-style: normal; }
+  .m-hero .dek {
+    font-size: 22px;
+    line-height: 1.45;
+    max-width: 760px;
+    color: rgba(246,244,239,0.85);
+    margin: 0 0 32px;
+  }
+  .m-hero .version-row {
+    display: flex; gap: 24px; align-items: center;
+    padding-top: 24px; border-top: 1px solid var(--ink-3);
+    font-family: var(--f-mono); font-size: 11px;
+    letter-spacing: 0.12em; color: var(--mute-2);
+    text-transform: uppercase;
+  }
+  .m-hero .version-row b { color: var(--red); }
+
+  /* Pipeline diagram */
+  .pipeline {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .pipeline-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    margin-top: 32px;
+    border: 1px solid var(--ink);
+  }
+  .pip-step {
+    padding: 20px 18px 24px;
+    border-right: 1px solid var(--ink);
+    position: relative;
+    min-height: 240px;
+    background: var(--paper);
+  }
+  .pip-step:last-child { border-right: 0; }
+  .pip-step .step-num {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 48px; line-height: 0.85;
+    color: var(--paper-3);
+    margin-bottom: 8px;
+  }
+  .pip-step .step-name {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 18px; line-height: 1.0;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .pip-step .step-desc {
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .pip-step .step-meta {
+    margin-top: 14px;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    color: var(--mute);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .pip-step::after {
+    content: "→";
+    position: absolute;
+    right: -10px; top: 32px;
+    background: var(--paper);
+    width: 20px; height: 20px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--red);
+    font-weight: 700;
+    z-index: 2;
+  }
+  .pip-step:last-child::after { display: none; }
+
+  /* Rubric (deep) */
+  .rubric-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 32px;
+  }
+  .rubric-item {
+    display: grid;
+    grid-template-columns: 120px 1fr 280px;
+    gap: 40px;
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+    align-items: start;
+  }
+  .rubric-item:first-child { border-top: 1px solid var(--ink); }
+  .rubric-item:last-child { border-bottom: 1px solid var(--ink); }
+  .rubric-item .rn {
+    font-family: var(--f-mono);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--red);
+  }
+  .rubric-item .rt {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 36px; line-height: 0.94;
+    text-transform: uppercase;
+    margin: 0 0 14px;
+    letter-spacing: -0.005em;
+  }
+  .rubric-item p {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0 0 14px;
+    max-width: 620px;
+  }
+  .rubric-item p b { color: var(--ink); }
+  .rubric-item .examples {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .rubric-item .ex {
+    padding: 10px 12px;
+    border-left: 3px solid var(--green);
+    background: var(--paper-2);
+    font-size: 12.5px;
+    line-height: 1.4;
+    color: var(--ink-2);
+  }
+  .rubric-item .ex.bad { border-left-color: var(--red); }
+  .rubric-item .ex b { color: var(--ink); }
+  .rubric-item .ex .kicker {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--green-deep);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .rubric-item .ex.bad .kicker { color: var(--red-deep); }
+
+  .weight-card {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 24px;
+    align-self: start;
+  }
+  .weight-card .wl {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    color: var(--mute-2);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .weight-card .wv {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    color: var(--red);
+  }
+  .weight-card .wv small { font-size: 0.5em; color: var(--paper); opacity: 0.6; }
+  .weight-card .what-measures {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--ink-3);
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mute-2);
+  }
+  .weight-card ul { list-style: none; padding: 0; margin: 8px 0 0; }
+  .weight-card li {
+    padding: 4px 0;
+    font-size: 11px;
+    color: var(--paper);
+    display: flex; gap: 6px;
+  }
+  .weight-card li::before { content: "·"; color: var(--red); font-weight: 700; }
+
+  /* Score formula */
+  .formula-card {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    padding: 32px;
+    margin: 32px 0;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 32px;
+    align-items: center;
+  }
+  .formula-card .label {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--mute);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .formula-card .eq {
+    font-family: var(--f-mono);
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .formula-card .eq sub { font-size: 0.7em; }
+  .formula-card .where {
+    font-size: 13px;
+    color: var(--ink-3);
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+  .formula-card .where b { color: var(--ink); }
+  .formula-card .pie-vis {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    padding: 20px;
+  }
+  .pie-row {
+    display: grid;
+    grid-template-columns: 90px 1fr 36px;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+    font-family: var(--f-mono);
+  }
+  .pie-row .pl { font-size: 10.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-2); }
+  .pie-row .pb { height: 16px; background: var(--paper); border: 1px solid var(--line); position: relative; }
+  .pie-row .pb i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--red); }
+  .pie-row .pv { font-size: 12px; font-weight: 700; text-align: right; }
+
+  /* Lab partners */
+  .lab-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--ink);
+    margin: 24px 0;
+  }
+  .lab-item {
+    padding: 24px;
+    border-right: 1px solid var(--ink);
+  }
+  .lab-item:last-child { border-right: 0; }
+  .lab-item h4 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 22px; line-height: 1.0;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+  }
+  .lab-item .accred {
+    font-family: var(--f-mono); font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--red); text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .lab-item p {
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.45;
+    margin: 0;
+  }
+  .lab-item .scope {
+    margin-top: 14px;
+    font-family: var(--f-mono); font-size: 10px;
+    color: var(--mute);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* Section heading */
+  .m-section {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .m-section h2 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+  }
+  .m-section .super {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .m-section p.lede {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 760px;
+    margin: 0 0 24px;
+  }
+
+  /* Q-A */
+  .qa-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+  }
+  .qa {
+    padding: 24px;
+    border-left: 4px solid var(--red);
+    background: var(--paper-2);
+  }
+  .qa .q {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 20px; line-height: 1.0;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  .qa .a {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .qa .a b { color: var(--ink); }
+
+  @media (max-width: 980px) {
+    .pipeline-grid { grid-template-columns: 1fr 1fr; }
+    .pip-step::after { display: none; }
+    .pip-step { border-right: 0; border-bottom: 1px solid var(--ink); min-height: 180px; }
+    .rubric-item { grid-template-columns: 1fr; gap: 16px; }
+    .formula-card { grid-template-columns: 1fr; }
+    .lab-grid { grid-template-columns: 1fr; }
+    .lab-item { border-right: 0; border-bottom: 1px solid var(--ink); }
+    .qa-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 720px) {
+    .m-hero { padding: 56px 0 64px; }
+    .m-hero h1 { font-size: clamp(52px, 16vw, 96px); }
+    .m-hero .dek { font-size: 17px; }
+    .m-hero .version-row { flex-wrap: wrap; gap: 10px; font-size: 10px; }
+
+    .pipeline { padding: 44px 0; }
+    .pipeline-grid { grid-template-columns: 1fr; }
+    .pip-step { padding: 18px; min-height: auto; }
+    .pip-step .step-num { font-size: 36px; }
+    .pip-step .step-name { font-size: 16px; }
+
+    .m-section { padding: 44px 0; }
+    .m-section h2 { font-size: clamp(32px, 8vw, 52px); }
+    .m-section p.lede { font-size: 16px; }
+
+    .rubric-item { padding: 28px 0; }
+    .rubric-item .rt { font-size: 28px; }
+    .rubric-item p { font-size: 14.5px; }
+    .rubric-item .examples { grid-template-columns: 1fr; }
+    .weight-card .wv { font-size: 56px; }
+
+    .formula-card { padding: 24px; }
+    .formula-card .eq { font-size: 15px; }
+
+    .lab-item { padding: 20px; }
+    .lab-item h4 { font-size: 20px; }
+
+    .qa { padding: 20px; }
+    .qa .q { font-size: 18px; }
+    .qa .a { font-size: 13.5px; }
+  }
+
+  @media (max-width: 480px) {
+    .m-hero h1 { font-size: clamp(44px, 16vw, 72px); }
+    .pip-step .step-num { font-size: 32px; }
+    .rubric-item .rt { font-size: 24px; }
+  }
+</style>
+</head>
+<body data-page="methodology">
+
+<div id="site-head-mount"></div>
+
+<section class="m-hero">
+  <div class="container">
+    <div class="super">METHODOLOGY · V3.2 · MAY 2026</div>
+    <h1>How we<br/>actually <em>test.</em></h1>
+    <p class="dek">Every Fitlab review follows the same pipeline. Same procurement (retail). Same lab (Eurofins, ISO-17025). Same rubric (five weighted questions). Same scoring formula. Same re-test cadence (18 months). Every detail of the protocol is in this document, including the things that have changed over time, including our mistakes.</p>
+    <div class="version-row">
+      <span>Version <b>3.2</b></span>
+      <span style="opacity: 0.4;">·</span>
+      <span>Effective <b>Feb 10, 2026</b></span>
+      <span style="opacity: 0.4;">·</span>
+      <span>Next review · Q4 2026</span>
+      <span style="opacity: 0.4;">·</span>
+      <span>Source on <b>GitHub</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- Pipeline -->
+<section class="pipeline">
+  <div class="container">
+    <div class="super" style="font-family: var(--f-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; color: var(--red); text-transform: uppercase; margin-bottom: 14px;">01 — PIPELINE</div>
+    <h2 class="d-2" style="margin: 0 0 12px;">From shelf to score, in six steps.</h2>
+    <p class="lede" style="font-size: 18px; line-height: 1.5; color: var(--ink-2); max-width: 720px; margin: 0;">No brand ever sends us a sample. No brand ever sees the score before publication. No brand has any contact with us between procurement and publication, except to answer specific technical questions on the record.</p>
+
+    <div class="pipeline-grid">
+      <div class="pip-step">
+        <div class="step-num">01</div>
+        <div class="step-name">Procure</div>
+        <div class="step-desc">An anonymous buyer purchases the product at full retail from a randomized retailer. We never accept samples, comp products, or pre-release units.</div>
+        <div class="step-meta">~3 days · $35–$220</div>
+      </div>
+      <div class="pip-step">
+        <div class="step-num">02</div>
+        <div class="step-name">Catalog</div>
+        <div class="step-desc">Lot number, expiration, manufacturer code, retail price, retailer, and receipt are catalogued. Two scoops are weighed and bagged for chain-of-custody to lab.</div>
+        <div class="step-meta">~2 hours · 4 samples</div>
+      </div>
+      <div class="pip-step">
+        <div class="step-num">03</div>
+        <div class="step-name">Lab assay</div>
+        <div class="step-desc">Eurofins or Covance, both ISO-17025 accredited, run protein content, amino acid panel, heavy metals (ICP-MS), microbial, and selected ingredient assays.</div>
+        <div class="step-meta">~14 days · $480/run</div>
+      </div>
+      <div class="pip-step">
+        <div class="step-num">04</div>
+        <div class="step-name">Score</div>
+        <div class="step-desc">Two reviewers independently score against the five-question rubric. Disagreements > 0.3 points are arbitrated by a third reviewer.</div>
+        <div class="step-meta">~6 hours · 2 reviewers</div>
+      </div>
+      <div class="pip-step">
+        <div class="step-num">05</div>
+        <div class="step-name">Right-of-reply</div>
+        <div class="step-desc">Manufacturer receives a 72-hour right-of-reply on factual claims before publication. They cannot influence scoring; they can correct errors of fact.</div>
+        <div class="step-meta">72 hours · manufacturer</div>
+      </div>
+      <div class="pip-step">
+        <div class="step-num">06</div>
+        <div class="step-name">Publish</div>
+        <div class="step-desc">Score, lab data, raw CoA, and all author notes are published. CoA PDF is publicly hosted. Re-test date is scheduled 18 months out.</div>
+        <div class="step-meta">Live · permanent</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Rubric -->
+<section class="m-section">
+  <div class="container">
+    <div class="super">02 — THE RUBRIC · 5 QUESTIONS · 100 POINTS</div>
+    <h2>Five questions. Same five. Every time.</h2>
+    <p class="lede">The rubric is intentionally narrow. We do not score on packaging, branding, customer service, or "feel." We score on what's in the bottle and how it relates to what the bottle claims.</p>
+
+    <div class="rubric-list">
+
+      <div class="rubric-item">
+        <div class="rn">Q.01</div>
+        <div>
+          <h3 class="rt">Ingredient quality</h3>
+          <p>Form, source, bioavailability. Is the ingredient the actual molecule that worked in the clinical trial — or a cheaper analogue that pretends to be? Synthetic vs. natural where it matters (vitamin E), specific isomers (magnesium glycinate vs. oxide), specific salt forms (folate vs. folic acid).</p>
+          <div class="examples">
+            <div class="ex"><span class="kicker">✓ Full points</span><b>Methylfolate (5-MTHF)</b> — the bioactive form, no MTHFR gene barrier.</div>
+            <div class="ex bad"><span class="kicker">✗ Low score</span><b>Folic acid</b> — synthetic, requires conversion, masks B12 deficiency in genotypes.</div>
+          </div>
+        </div>
+        <aside class="weight-card">
+          <div class="wl">Weight</div>
+          <div class="wv">25<small>%</small></div>
+          <div class="what-measures">What we measure</div>
+          <ul>
+            <li>Active form on label</li>
+            <li>HPLC/NMR verification</li>
+            <li>Source disclosure</li>
+            <li>Excipient profile</li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="rubric-item">
+        <div class="rn">Q.02</div>
+        <div>
+          <h3 class="rt">Clinical dosing</h3>
+          <p>Does the per-serving dose match the dose that worked in published human trials? Or is the ingredient "pixie-dusted" at 5% of the clinical effect range? Our threshold for "clinical" is the median dose in the meta-analyzed RCT pool for the primary endpoint.</p>
+          <div class="examples">
+            <div class="ex"><span class="kicker">✓ Full points</span><b>L-Citrulline 8.0g</b> — within or above clinical range (6–8g).</div>
+            <div class="ex bad"><span class="kicker">✗ Low score</span><b>L-Citrulline 1.5g</b> — pixie dust; no clinical signal at this dose.</div>
+          </div>
+        </div>
+        <aside class="weight-card">
+          <div class="wl">Weight</div>
+          <div class="wv">25<small>%</small></div>
+          <div class="what-measures">What we measure</div>
+          <ul>
+            <li>Per-serving dose</li>
+            <li>vs. clinical range</li>
+            <li>Lab-assayed actual</li>
+            <li>Cumulative if multi-dose</li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="rubric-item">
+        <div class="rn">Q.03</div>
+        <div>
+          <h3 class="rt">Transparency</h3>
+          <p>Full ingredient amounts disclosed on label, not hidden behind "proprietary blends." Manufacturer named. Certificates of Analysis published per-lot. Marketing claims align with the dose actually in the product. Brand discloses any third-party relationships.</p>
+          <div class="examples">
+            <div class="ex"><span class="kicker">✓ Full points</span>Per-lot CoA, manufacturer named, no prop. blends, accurate marketing.</div>
+            <div class="ex bad"><span class="kicker">✗ Low score</span>"Energy Matrix 3,200mg" — five ingredients hidden, no CoA, generic mfr.</div>
+          </div>
+        </div>
+        <aside class="weight-card">
+          <div class="wl">Weight</div>
+          <div class="wv">20<small>%</small></div>
+          <div class="what-measures">What we measure</div>
+          <ul>
+            <li>Per-lot CoA</li>
+            <li>Proprietary blend?</li>
+            <li>Manufacturer named</li>
+            <li>Marketing/dose match</li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="rubric-item">
+        <div class="rn">Q.04</div>
+        <div>
+          <h3 class="rt">Third-party verification</h3>
+          <p>Independent testing by NSF, Informed Sport, USP, or equivalent. We re-test independently and compare our findings to the brand's published CoA. A brand's first CoA mismatch loses points; a second triggers a public recall flag.</p>
+          <div class="examples">
+            <div class="ex"><span class="kicker">✓ Full points</span><b>NSF Certified for Sport + Informed Sport</b>, both verified by us at re-test.</div>
+            <div class="ex bad"><span class="kicker">✗ Low score</span>"GMP facility" claim only; no third-party batch testing or banned-subst screening.</div>
+          </div>
+        </div>
+        <aside class="weight-card">
+          <div class="wl">Weight</div>
+          <div class="wv">15<small>%</small></div>
+          <div class="what-measures">What we measure</div>
+          <ul>
+            <li>NSF / IS / USP cert</li>
+            <li>Banned-subst panel</li>
+            <li>Re-assay vs CoA match</li>
+            <li>Facility audit status</li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="rubric-item">
+        <div class="rn">Q.05</div>
+        <div>
+          <h3 class="rt">Value</h3>
+          <p>Cost-per-clinical-serving, not cost-per-scoop. We calculate the cost-per-unit of the dose that produces a clinically meaningful effect, normalized across the category. Value is therefore a function of dosing accuracy, not raw price. A "cheap" supplement at half-dose costs more per clinical serving than a "premium" one at full dose.</p>
+          <div class="examples">
+            <div class="ex"><span class="kicker">✓ Full points</span><b>$1.86</b> per 25g clinical-serving of whey isolate — top-decile efficiency.</div>
+            <div class="ex bad"><span class="kicker">✗ Low score</span>$0.92 per 25g labeled but 21g assayed = $1.10 per clinical-serving.</div>
+          </div>
+        </div>
+        <aside class="weight-card">
+          <div class="wl">Weight</div>
+          <div class="wv">15<small>%</small></div>
+          <div class="what-measures">What we measure</div>
+          <ul>
+            <li>Cost / clinical serving</li>
+            <li>Category percentile</li>
+            <li>Bulk-pricing adjusted</li>
+            <li>Cost stability 24mo</li>
+          </ul>
+        </aside>
+      </div>
+
+    </div>
+
+    <!-- Scoring formula -->
+    <div class="formula-card">
+      <div>
+        <div class="label">Scoring formula · v3.2</div>
+        <div class="eq">
+          Score = <b>0.25</b>·Q<sub>1</sub> + <b>0.25</b>·Q<sub>2</sub> + <b>0.20</b>·Q<sub>3</sub> + <b>0.15</b>·Q<sub>4</sub> + <b>0.15</b>·Q<sub>5</sub>
+        </div>
+        <div class="where">
+          where each Q is the average of two reviewers' independent 0–10 scores on the given question. Disagreements &gt;0.3 are arbitrated by a third reviewer. <b>Hard failures</b> (heavy metals above Prop. 65, mislabeling &gt;20%, banned substances) trigger a maximum score cap of 5.0 regardless of weighted average.
+        </div>
+      </div>
+      <div class="pie-vis">
+        <div style="font-family: var(--f-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mute); margin-bottom: 12px;">Weight distribution</div>
+        <div class="pie-row"><span class="pl">Q.01 Ingr.</span><span class="pb"><i style="width:50%; background: var(--red);"></i></span><span class="pv">25%</span></div>
+        <div class="pie-row"><span class="pl">Q.02 Dose</span><span class="pb"><i style="width:50%; background: var(--ink);"></i></span><span class="pv">25%</span></div>
+        <div class="pie-row"><span class="pl">Q.03 Transp.</span><span class="pb"><i style="width:40%; background: var(--green);"></i></span><span class="pv">20%</span></div>
+        <div class="pie-row"><span class="pl">Q.04 3rd-pty</span><span class="pb"><i style="width:30%; background: var(--amber);"></i></span><span class="pv">15%</span></div>
+        <div class="pie-row"><span class="pl">Q.05 Value</span><span class="pb"><i style="width:30%; background: var(--blue);"></i></span><span class="pv">15%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lab partners -->
+<section class="m-section">
+  <div class="container">
+    <div class="super">03 — LAB PARTNERS</div>
+    <h2>Where we send the samples.</h2>
+    <p class="lede">We use two independent third-party labs. Both are ISO-17025 accredited. We rotate samples between labs as a continuous internal validity check.</p>
+
+    <div class="lab-grid">
+      <div class="lab-item">
+        <h4>Eurofins · Madison</h4>
+        <div class="accred">ISO-17025 · A2LA #2856 · Primary</div>
+        <p>Our primary lab partner since 2024. Performs all heavy metals (ICP-MS), protein content (combustion N), amino acid panels (HPLC), and ingredient-specific assays.</p>
+        <div class="scope">Scope: Active ingredients · Heavy metals · Micro</div>
+      </div>
+      <div class="lab-item">
+        <h4>Covance / Labcorp</h4>
+        <div class="accred">ISO-17025 · Backup + cross-check</div>
+        <p>10% of samples are sent to Covance for cross-validation. Any &gt;5% discrepancy between labs triggers a third blind run.</p>
+        <div class="scope">Scope: Cross-validation · Specialty assays</div>
+      </div>
+      <div class="lab-item">
+        <h4>Internal Lab · BK</h4>
+        <div class="accred">In-house · Brooklyn, NY · Pre-screen</div>
+        <p>Visual inspection, label transcription, pH, density, dissolution time. Used to flag obvious red flags before sending to a paid lab; never used for primary scoring.</p>
+        <div class="scope">Scope: Triage · Photography · Receipt</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Re-test cadence + corrections -->
+<section class="m-section">
+  <div class="container">
+    <div class="super">04 — RE-TESTING · CORRECTIONS · ARGUMENTS</div>
+    <h2>How we update, when we're wrong, and what brands can do about it.</h2>
+
+    <div class="qa-grid">
+      <div class="qa">
+        <h4 class="q">When do you re-test?</h4>
+        <p class="a">Every 18 months. Every time a brand reformulates. Every time we receive a credible reader-flagged anomaly. Re-tests use the methodology version current at the time of the re-test, and we publish a versioned change-log on every review page.</p>
+      </div>
+      <div class="qa">
+        <h4 class="q">What happens when a re-test changes the score?</h4>
+        <p class="a">The new score replaces the old. The old score remains visible in the review's changelog with the date and a note about what changed. We do not retroactively edit prior scores or pretend a downgrade didn't happen.</p>
+      </div>
+      <div class="qa">
+        <h4 class="q">What if you make a mistake?</h4>
+        <p class="a">We log corrections on the page where the mistake was made, dated, with a description. Major errors (off-by-a-decimal in a dose, wrong ingredient form, mistaken claim about a brand) get a banner at the top of the review until a re-test is run. Substantive corrections from 2024 onward are listed on our <a href="about.html" style="color: var(--red);">corrections page</a>.</p>
+      </div>
+      <div class="qa">
+        <h4 class="q">Can a brand contest a score?</h4>
+        <p class="a">Yes, on factual grounds only. We accept written appeals with new lab data or corrected information. We do not accept appeals based on tone, branding, or "you should have weighted this differently." All appeals and our responses are published in a public archive.</p>
+      </div>
+      <div class="qa">
+        <h4 class="q">What's the right-of-reply window?</h4>
+        <p class="a">72 hours before publication. The manufacturer sees factual claims (lab values, dose calculations, ingredient identification) and can flag errors of fact. They cannot see the score. They cannot prevent publication. They can ensure the published review is factually accurate before it goes live.</p>
+      </div>
+      <div class="qa">
+        <h4 class="q">Have you ever been sued?</h4>
+        <p class="a">Twice. Both cases withdrew before discovery. We carry libel insurance and publish nothing that isn't backed by lab data or documented sources. Brands that don't like the score have better options than litigation — submit better data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Versioned changelog -->
+<section class="m-section" style="border-bottom: 0;">
+  <div class="container">
+    <div class="super">05 — METHODOLOGY CHANGELOG</div>
+    <h2>How this document has evolved.</h2>
+    <p class="lede">We keep this file under version control because methodology changes are not edits — they are events. Every change is dated and explained.</p>
+
+    <div style="border: 1px solid var(--line); background: var(--paper-2); padding: 24px;">
+      <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+        <li style="display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px dashed var(--line);">
+          <div style="font-family: var(--f-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.14em;"><b style="color: var(--red);">v3.2 · FEB '26</b></div>
+          <div style="font-size: 14px;">Rebalanced Q.04 (Third-party) from 20% to 15%. Added Q.05 (Value) at 15%. Heavy metals threshold tightened to Prop. 65 (was FDA action levels).</div>
+        </li>
+        <li style="display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px dashed var(--line);">
+          <div style="font-family: var(--f-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.14em;"><b>v3.0 · SEP '25</b></div>
+          <div style="font-size: 14px;">Added "right-of-reply" formal window. Doubled per-product lab budget from $240 to $480/run, enabling HPLC + ICP-MS on every product.</div>
+        </li>
+        <li style="display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px dashed var(--line);">
+          <div style="font-family: var(--f-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.14em;"><b>v2.0 · MAR '25</b></div>
+          <div style="font-size: 14px;">Two-reviewer scoring became mandatory. Disagreement arbitration formalized.</div>
+        </li>
+        <li style="display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 12px 0;">
+          <div style="font-family: var(--f-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.14em;"><b>v1.0 · JAN '24</b></div>
+          <div style="font-size: 14px;">Original Fitlab methodology published. Five-question rubric, Eurofins as sole lab, single-reviewer scoring.</div>
+        </li>
+      </ul>
+    </div>
+
+    <div style="margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--ink); display: flex; gap: 16px; align-items: center;">
+      <a href="#" class="btn btn-red btn-lg">Read the source on GitHub →</a>
+      <a href="about.html" class="btn btn-ghost btn-lg">Conflicts policy</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-foot-mount"></div>
+
+<script src="assets/illus.js"></script>
+<script src="assets/chrome.js"></script>
+</body>
+</html>

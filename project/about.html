@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function() {
+  var pn = window.location.pathname;
+  var preview = pn.match(/^(.*\/serve\/)/);
+  var base;
+  if (preview) {
+    base = preview[1];
+  } else {
+    var depth = pn.replace(/\/[^\/]*$/, '').split('/').filter(Boolean).length;
+    base = depth === 0 ? './' : new Array(depth + 1).join('../');
+  }
+  document.write('<base href="' + base + '">');
+})();
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About · Fitlab</title>
+<link rel="stylesheet" href="assets/tokens.css"/>
+<link rel="stylesheet" href="assets/shared.css"/>
+<style>
+  .a-hero {
+    padding: 56px 0 64px;
+    border-bottom: 1px solid var(--ink);
+    background: var(--paper);
+  }
+  .a-hero .super {
+    font-family: var(--f-mono); font-size: 11px;
+    font-weight: 600; letter-spacing: 0.2em;
+    color: var(--red); text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .a-hero h1 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(64px, 9vw, 168px);
+    line-height: 0.84;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+  }
+  .a-hero h1 .strike {
+    text-decoration: line-through;
+    text-decoration-thickness: 6px;
+    text-decoration-color: var(--red);
+    opacity: 0.55;
+  }
+  .a-hero p {
+    font-size: 22px; line-height: 1.45;
+    color: var(--ink-2);
+    max-width: 820px;
+    margin: 0;
+  }
+
+  /* Stats strip */
+  .a-stats {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 28px 0;
+  }
+  .a-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .a-stats-grid > div {
+    padding: 6px 24px;
+    border-right: 1px solid var(--ink-3);
+  }
+  .a-stats-grid > div:last-child { border-right: 0; }
+  .a-stats-grid .k {
+    font-family: var(--f-mono); font-size: 10.5px;
+    letter-spacing: 0.16em; color: var(--mute);
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .a-stats-grid .v {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 42px; line-height: 0.95;
+  }
+
+  /* Section frame */
+  .a-section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .a-section .super {
+    font-family: var(--f-mono); font-size: 11px;
+    font-weight: 600; letter-spacing: 0.18em;
+    color: var(--red); text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .a-section h2 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(40px, 5.5vw, 80px);
+    line-height: 0.9; letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+  }
+  .a-section .lede {
+    font-size: 18px; line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 760px;
+    margin: 0 0 28px;
+  }
+
+  /* Team grid */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .team-card {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .team-card .av {
+    width: 96px; height: 96px;
+    background: var(--ink); color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 36px;
+    border-radius: 50%;
+    border: 4px solid var(--red);
+  }
+  .team-card h3 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 26px; line-height: 1.0;
+    text-transform: uppercase; margin: 0 0 4px;
+  }
+  .team-card .role {
+    font-family: var(--f-mono); font-size: 10.5px;
+    font-weight: 600; color: var(--red);
+    letter-spacing: 0.14em; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .team-card p {
+    font-size: 14px; line-height: 1.5;
+    color: var(--ink-2); margin: 0 0 12px;
+  }
+  .team-card .creds {
+    display: flex; gap: 6px; flex-wrap: wrap;
+  }
+  .team-card .creds .cred {
+    font-family: var(--f-mono); font-size: 9.5px;
+    padding: 3px 6px;
+    border: 1px solid var(--line-2);
+    background: var(--paper-2);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* Funding split (visual) */
+  .funding-vis {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    padding: 32px;
+    margin-top: 24px;
+  }
+  .funding-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 100px;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .funding-row:last-child { border-bottom: 0; }
+  .funding-row .fr-lbl {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 20px; line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .funding-row .fr-sub {
+    font-family: var(--f-mono); font-size: 11px;
+    color: var(--mute); letter-spacing: 0.06em;
+    margin-top: 4px;
+    text-transform: none;
+    font-weight: 500;
+  }
+  .funding-row .fr-bar {
+    height: 24px;
+    background: var(--paper-2);
+    border: 1px solid var(--line-2);
+    position: relative;
+  }
+  .funding-row .fr-bar i {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    background: var(--ink);
+  }
+  .funding-row .fr-bar i.red { background: var(--red); }
+  .funding-row .fr-bar i.green { background: var(--green); }
+  .funding-row .fr-bar i.zero { background: var(--line-3); }
+  .funding-row .fr-pct {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 28px; line-height: 1.0;
+    text-align: right;
+  }
+  .funding-row .fr-pct.zero { color: var(--red-deep); }
+
+  /* Big NO list */
+  .no-list {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 48px;
+    margin: 32px 0 0;
+  }
+  .no-list h3 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 48px; line-height: 0.92;
+    text-transform: uppercase;
+    margin: 0 0 28px;
+  }
+  .no-list h3 em { color: var(--red); font-style: normal; }
+  .no-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+  .no-item {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 16px;
+    padding: 18px 24px 18px 0;
+    border-bottom: 1px solid var(--ink-3);
+  }
+  .no-item:nth-child(odd) { padding-right: 24px; border-right: 1px solid var(--ink-3); }
+  .no-item:nth-child(even) { padding-left: 24px; }
+  .no-item .mark {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 24px; line-height: 1.0;
+    color: var(--red);
+  }
+  .no-item .nm {
+    font-family: var(--f-mono); font-size: 11.5px;
+    font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--paper);
+    margin-bottom: 4px;
+  }
+  .no-item .nd {
+    font-size: 13px; line-height: 1.5;
+    color: rgba(246,244,239,0.75);
+  }
+
+  /* Corrections log */
+  .corr-list {
+    border: 1px solid var(--line);
+    background: var(--paper);
+  }
+  .corr-row {
+    display: grid;
+    grid-template-columns: 100px 1.5fr 1fr 100px;
+    gap: 16px;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .corr-row:last-child { border-bottom: 0; }
+  .corr-row .cd {
+    font-family: var(--f-mono); font-size: 11px;
+    font-weight: 600; letter-spacing: 0.1em;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+  .corr-row .cwhat {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 16px; line-height: 1.1;
+    text-transform: uppercase;
+  }
+  .corr-row .cdetail {
+    font-size: 13px; line-height: 1.4;
+    color: var(--ink-2);
+  }
+  .corr-row .csev {
+    font-family: var(--f-mono); font-size: 10px;
+    font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    background: var(--paper-2);
+    border: 1px solid var(--line-2);
+    text-align: center;
+    align-self: start;
+  }
+  .corr-row .csev.major { background: var(--red); color: var(--paper); border-color: var(--red); }
+  .corr-row .csev.minor { background: var(--paper-2); }
+
+  /* Contact card */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 1px solid var(--ink);
+  }
+  .contact-cell {
+    padding: 28px;
+    border-right: 1px solid var(--ink);
+  }
+  .contact-cell:last-child { border-right: 0; }
+  .contact-cell .ckl {
+    font-family: var(--f-mono); font-size: 10.5px;
+    font-weight: 600; letter-spacing: 0.16em;
+    color: var(--red); text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .contact-cell h4 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 22px; line-height: 1.0;
+    text-transform: uppercase; margin: 0 0 10px;
+  }
+  .contact-cell p {
+    font-size: 13.5px; line-height: 1.5;
+    color: var(--ink-2); margin: 0 0 16px;
+  }
+  .contact-cell a.link {
+    font-family: var(--f-mono); font-size: 11.5px;
+    font-weight: 700; letter-spacing: 0.1em;
+    color: var(--ink); text-transform: uppercase;
+    border-bottom: 2px solid var(--red);
+    padding-bottom: 2px;
+  }
+
+  /* Side-by-side declared interests */
+  .conflicts-table {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    margin-top: 24px;
+  }
+  .ct-row {
+    display: grid;
+    grid-template-columns: 1.3fr 2fr 1fr;
+    gap: 16px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .ct-row.head {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--f-mono); font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 12px 24px;
+  }
+  .ct-row:last-child { border-bottom: 0; }
+  .ct-row .nm { font-family: var(--f-display); font-weight: 700; font-size: 16px; text-transform: uppercase; line-height: 1.0; }
+  .ct-row .ds { font-size: 13px; line-height: 1.4; color: var(--ink-2); }
+  .ct-row .st {
+    font-family: var(--f-mono); font-size: 10.5px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    font-weight: 600;
+  }
+  .ct-row .st.none { color: var(--green-deep); }
+  .ct-row .st.flag { color: var(--amber); }
+
+  @media (max-width: 980px) {
+    .a-stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .team-grid { grid-template-columns: 1fr; }
+    .no-grid { grid-template-columns: 1fr; }
+    .no-item:nth-child(odd) { border-right: 0; padding-right: 0; }
+    .no-item:nth-child(even) { padding-left: 0; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-cell { border-right: 0; border-bottom: 1px solid var(--ink); }
+    .corr-row { grid-template-columns: 1fr; gap: 6px; }
+    .funding-row { grid-template-columns: 1fr; }
+    .ct-row { grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  @media (max-width: 720px) {
+    .a-hero { padding: 36px 0 48px; }
+    .a-hero h1 { font-size: clamp(48px, 14vw, 88px); }
+    .a-hero p { font-size: 17px; }
+    .a-hero h1 .strike { text-decoration-thickness: 4px; }
+
+    .a-stats { padding: 18px 0; }
+    .a-stats-grid > div { padding: 6px 14px; }
+    .a-stats-grid .v { font-size: 30px; }
+    .a-stats-grid .k { font-size: 9.5px; }
+
+    .a-section { padding: 44px 0; }
+    .a-section h2 { font-size: clamp(34px, 9vw, 56px); }
+    .a-section .lede { font-size: 16px; }
+
+    .team-card { grid-template-columns: 60px 1fr; padding: 20px; gap: 16px; }
+    .team-card .av { width: 60px; height: 60px; font-size: 22px; border-width: 3px; }
+    .team-card h3 { font-size: 22px; }
+
+    .funding-vis { padding: 20px; }
+    .funding-row .fr-lbl { font-size: 16px; }
+    .funding-row .fr-bar { height: 18px; }
+    .funding-row .fr-pct { font-size: 22px; }
+
+    .no-list { padding: 28px 20px; }
+    .no-list h3 { font-size: 36px; }
+    .no-item { padding: 14px 0; }
+    .no-item .mark { font-size: 20px; }
+    .no-item .nm { font-size: 11px; }
+    .no-item .nd { font-size: 12px; }
+
+    .conflicts-table { font-size: 13px; }
+    .ct-row { padding: 12px 16px; }
+    .ct-row.head { font-size: 10px; }
+    .ct-row .nm { font-size: 14px; }
+    .ct-row .ds { font-size: 12.5px; }
+
+    .corr-list { font-size: 13px; }
+    .corr-row { padding: 14px 16px; }
+    .corr-row .cwhat { font-size: 14px; }
+    .corr-row .cdetail { font-size: 12.5px; }
+
+    .contact-cell { padding: 20px; }
+    .contact-cell h4 { font-size: 20px; }
+  }
+
+  @media (max-width: 480px) {
+    .a-stats-grid { grid-template-columns: 1fr 1fr; }
+    .a-stats-grid > div:nth-child(odd) { border-right: 1px solid var(--ink-3); }
+    .a-stats-grid > div:nth-child(-n+4) { border-bottom: 1px solid var(--ink-3); }
+    .team-card { grid-template-columns: 1fr; }
+    .team-card .av { margin: 0 auto; }
+    .no-list h3 { font-size: 30px; }
+  }
+</style>
+</head>
+<body data-page="about">
+
+<div id="site-head-mount"></div>
+
+<!-- Hero -->
+<section class="a-hero">
+  <div class="container">
+    <div class="super">ABOUT · POLICY · CONFLICTS</div>
+    <h1>We accept <span class="strike">samples</span>.<br/>We accept <span class="strike">deals</span>.<br/>We accept <span class="strike">money</span>.</h1>
+    <p>Fitlab Reviews is an independent supplement testing site. We buy 100% of products at retail. We earn nothing from any brand we cover. Our reviewers are PhDs in pharmacology, exercise physiology, and analytical chemistry — not "wellness experts," not influencers, not founders moonlighting as brand consultants.</p>
+  </div>
+</section>
+
+<section class="a-stats">
+  <div class="container">
+    <div class="a-stats-grid">
+      <div><div class="k">Founded</div><div class="v">2024</div></div>
+      <div><div class="k">Tests run</div><div class="v">512</div></div>
+      <div><div class="k">Affiliate $</div><div class="v" style="color: #ff7a5a;">$0</div></div>
+      <div><div class="k">Sub. readers</div><div class="v">28k</div></div>
+      <div><div class="k">Lawsuits</div><div class="v">2</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="a-section">
+  <div class="container">
+    <div class="super">01 — TEAM</div>
+    <h2>The people who score.</h2>
+    <p class="lede">Six people. Three PhDs. Two journalists. One operations lead. Everyone listed below has signed a no-supplement-consulting clause. None of us holds equity, advisory roles, or paid speaking arrangements with brands we cover.</p>
+
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="av">AK</div>
+        <div>
+          <h3>Adrian Kojima, PhD</h3>
+          <div class="role">Editor-in-chief · Pharmacology</div>
+          <p>Six years at the FDA's Office of Pharmaceutical Quality before Fitlab. Reviews most of our pharmacokinetic briefs and oversees the rubric weighting. Caffeine slow-metabolizer; takes 100mg pre-lift, max.</p>
+          <div class="creds">
+            <span class="cred">PhD UCSF</span><span class="cred">FDA Alum</span><span class="cred">No brand ties</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="av">SP</div>
+        <div>
+          <h3>Sarah Park, PhD</h3>
+          <div class="role">Head of analytical chemistry</div>
+          <p>Built the lab pipeline. Spent eight years at a contract testing lab running ICP-MS and HPLC before joining. The reason a Fitlab CoA is more thorough than the brand's own.</p>
+          <div class="creds">
+            <span class="cred">PhD MIT</span><span class="cred">ISO-17025</span><span class="cred">No brand ties</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="av">MJ</div>
+        <div>
+          <h3>Mira Jansen</h3>
+          <div class="role">Senior reporter · Field & industry</div>
+          <p>Eight years at Reuters covering FDA, FTC, and consumer-product safety beats. Writes most of our field reports and the closely-watched supplement-industry pieces.</p>
+          <div class="creds">
+            <span class="cred">Ex-Reuters</span><span class="cred">Polk Award '21</span><span class="cred">No brand ties</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="av">DR</div>
+        <div>
+          <h3>David Romero, PhD</h3>
+          <div class="role">Exercise physiology · Reviewer</div>
+          <p>Postdoc at McMaster, then Stanford. Wrote the dosing protocols we use to calibrate Q.02 scores. Will fight you about protein timing.</p>
+          <div class="creds">
+            <span class="cred">PhD McMaster</span><span class="cred">No brand ties</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="av">SL</div>
+        <div>
+          <h3>Sam Liu</h3>
+          <div class="role">Reporter · Recalls & adverse events</div>
+          <p>Tracks FDA recall notices, NSF watch lists, and our reader-submitted adverse-event reports. The person who reads every product label so you don't have to.</p>
+          <div class="creds">
+            <span class="cred">M.S. Columbia J-school</span><span class="cred">No brand ties</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="av">EM</div>
+        <div>
+          <h3>Erin Mendez</h3>
+          <div class="role">Operations & procurement lead</div>
+          <p>The anonymous buyer who actually purchases the products. The chain-of-custody dictator. The reason we have receipts for every test. Will not be photographed.</p>
+          <div class="creds">
+            <span class="cred">Internal</span><span class="cred">No brand ties</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Funding -->
+<section class="a-section">
+  <div class="container">
+    <div class="super">02 — FUNDING · WHERE THE MONEY COMES FROM</div>
+    <h2>Subscribers + one annual report.<br/>That's it.</h2>
+    <p class="lede">Fitlab Reviews LLC is privately owned by the founding team. We are not VC-backed. We do not run programmatic ads. We do not earn affiliate commissions. Our 2025 revenue mix:</p>
+
+    <div class="funding-vis">
+      <div class="funding-row">
+        <div>
+          <div class="fr-lbl">Reader subscriptions</div>
+          <div class="fr-sub">$6/mo · 28,412 paying readers · paid via Stripe</div>
+        </div>
+        <div class="fr-bar"><i style="width: 72%;"></i></div>
+        <div class="fr-pct">72%</div>
+      </div>
+      <div class="funding-row">
+        <div>
+          <div class="fr-lbl">Annual enterprise report</div>
+          <div class="fr-sub">Sold to 14 institutional customers · gyms, sports teams, retailers</div>
+        </div>
+        <div class="fr-bar"><i style="width: 26%;"></i></div>
+        <div class="fr-pct">26%</div>
+      </div>
+      <div class="funding-row">
+        <div>
+          <div class="fr-lbl">Print zine + merch</div>
+          <div class="fr-sub">Two issues/yr · sold direct from site · no third-party retailers</div>
+        </div>
+        <div class="fr-bar"><i class="green" style="width: 2%;"></i></div>
+        <div class="fr-pct">2%</div>
+      </div>
+      <div class="funding-row">
+        <div>
+          <div class="fr-lbl">Affiliate / referral commissions</div>
+          <div class="fr-sub">Zero. We do not run affiliate links anywhere on this site.</div>
+        </div>
+        <div class="fr-bar"><i class="zero" style="width: 100%; background: repeating-linear-gradient(45deg, var(--paper-3), var(--paper-3) 6px, var(--paper-2) 6px, var(--paper-2) 12px);"></i></div>
+        <div class="fr-pct zero">0%</div>
+      </div>
+      <div class="funding-row">
+        <div>
+          <div class="fr-lbl">Brand sponsorship / advertising</div>
+          <div class="fr-sub">Zero. We do not accept sponsored content or display advertising.</div>
+        </div>
+        <div class="fr-bar"><i class="zero" style="width: 100%; background: repeating-linear-gradient(45deg, var(--paper-3), var(--paper-3) 6px, var(--paper-2) 6px, var(--paper-2) 12px);"></i></div>
+        <div class="fr-pct zero">0%</div>
+      </div>
+    </div>
+
+    <!-- The big NO list -->
+    <div class="no-list">
+      <h3>Things we <em>don't</em> do.</h3>
+      <div class="no-grid">
+        <div class="no-item">
+          <div class="mark">✗</div>
+          <div>
+            <div class="nm">No samples</div>
+            <div class="nd">We do not accept any product, sample, or comp from a brand we cover.</div>
+          </div>
+        </div>
+        <div class="no-item">
+          <div class="mark">✗</div>
+          <div>
+            <div class="nm">No affiliate links</div>
+            <div class="nd">Every retailer link on this site goes to the retailer with zero commission to us.</div>
+          </div>
+        </div>
+        <div class="no-item">
+          <div class="mark">✗</div>
+          <div>
+            <div class="nm">No ad revenue</div>
+            <div class="nd">No programmatic display ads. No newsletter sponsorships. No promoted reviews.</div>
+          </div>
+        </div>
+        <div class="no-item">
+          <div class="mark">✗</div>
+          <div>
+            <div class="nm">No paid consulting</div>
+            <div class="nd">Staff cannot consult for, advise, or hold equity in any supplement brand.</div>
+          </div>
+        </div>
+        <div class="no-item">
+          <div class="mark">✗</div>
+          <div>
+            <div class="nm">No paid speaking</div>
+            <div class="nd">Staff do not accept paid speaking invitations from brands or industry trade groups.</div>
+          </div>
+        </div>
+        <div class="no-item">
+          <div class="mark">✗</div>
+          <div>
+            <div class="nm">No tracking pixels</div>
+            <div class="nd">No third-party trackers in newsletter. No Google Analytics. We log aggregate page-views only.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Declared conflicts (transparency) -->
+<section class="a-section">
+  <div class="container">
+    <div class="super">03 — DECLARED INTERESTS</div>
+    <h2>Things we still have to disclose.</h2>
+    <p class="lede">Even with strict policies, our staff are humans with personal histories. Below is every potentially-relevant relationship we are aware of among current staff. We update this list when anything changes.</p>
+
+    <div class="conflicts-table">
+      <div class="ct-row head">
+        <div>Staff · Brand or entity</div>
+        <div>Relationship</div>
+        <div>Status</div>
+      </div>
+      <div class="ct-row">
+        <div class="nm">AK · Thorne Research</div>
+        <div class="ds">Adrian's wife is a research scientist at Thorne. Adrian recuses himself from all Thorne-product scoring. Thorne reviews are scored by SP + DR + a third external reviewer.</div>
+        <div class="st flag">⚠ Recused</div>
+      </div>
+      <div class="ct-row">
+        <div class="nm">SP · Bulletproof</div>
+        <div class="ds">Sarah consulted briefly (2019) on lab method development. Last contact 2021. Disclosed at hire; recuses from Bulletproof scoring.</div>
+        <div class="st flag">⚠ Recused</div>
+      </div>
+      <div class="ct-row">
+        <div class="nm">MJ · Reuters / Bloomberg</div>
+        <div class="ds">Holds shares in former employer parent companies. Neither company has a supplement business; no conflict identified.</div>
+        <div class="st none">✓ Cleared</div>
+      </div>
+      <div class="ct-row">
+        <div class="nm">DR · McMaster Univ.</div>
+        <div class="ds">Co-authored 2022 paper sponsored partly by a casein manufacturer. Disclosed; David recuses from any casein scoring.</div>
+        <div class="st flag">⚠ Recused</div>
+      </div>
+      <div class="ct-row">
+        <div class="nm">SL · None disclosed</div>
+        <div class="ds">No personal investments, family relationships, or prior employment with supplement brands.</div>
+        <div class="st none">✓ Cleared</div>
+      </div>
+      <div class="ct-row">
+        <div class="nm">EM · None disclosed</div>
+        <div class="ds">Anonymous procurement role. No supplement-industry relationships.</div>
+        <div class="st none">✓ Cleared</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Corrections log -->
+<section class="a-section">
+  <div class="container">
+    <div class="super">04 — CORRECTIONS LOG</div>
+    <h2>When we're wrong, we say so here first.</h2>
+    <p class="lede">A complete log of substantive corrections since 2024. We do not silently edit reviews. Every change to a published score, ingredient identification, or claim is logged on the source page <em>and</em> in this central index. Minor typos and copyedits are not logged.</p>
+
+    <div class="corr-list">
+      <div class="corr-row">
+        <div class="cd">MAY 04 '26</div>
+        <div>
+          <div class="cwhat">Onnit Alpha Brain · Posted score corrected</div>
+          <div class="cdetail" style="margin-top: 6px;">Published score was 5.8; corrected to 6.2 after a transcription error in the Q.04 input. Score recalibrated using the same lab data.</div>
+        </div>
+        <div class="cdetail" style="font-size: 12px;">Source: Adrian K.<br/>Page: <a href="/reviews/transparent-labs-wpi/" style="color: var(--red);">review</a></div>
+        <div class="csev minor">Minor</div>
+      </div>
+      <div class="corr-row">
+        <div class="cd">APR 18 '26</div>
+        <div>
+          <div class="cwhat">BSN Syntha-6 · Proprietary blend mischaracterization</div>
+          <div class="cdetail" style="margin-top: 6px;">Original review described the protein blend as "fully disclosed." It is not — a sub-blend of digestive enzymes is hidden. Q.03 (Transparency) reduced from 6.4 to 5.4; total score from 7.2 to 6.8.</div>
+        </div>
+        <div class="cdetail" style="font-size: 12px;">Source: Reader email<br/>Page: <a href="/reviews/transparent-labs-wpi/" style="color: var(--red);">review</a></div>
+        <div class="csev major">Major</div>
+      </div>
+      <div class="corr-row">
+        <div class="cd">FEB 22 '26</div>
+        <div>
+          <div class="cwhat">Magnesium L-threonate brief · Citation error</div>
+          <div class="cdetail" style="margin-top: 6px;">Citation #14 was misattributed to Liu et al. 2020; correct attribution is Lui et al. 2010. Updated with corrected reference.</div>
+        </div>
+        <div class="cdetail" style="font-size: 12px;">Source: Reader email<br/>Page: <a href="/research/r-102-creatine-loading/" style="color: var(--red);">brief R-098</a></div>
+        <div class="csev minor">Minor</div>
+      </div>
+      <div class="corr-row">
+        <div class="cd">JAN 09 '26</div>
+        <div>
+          <div class="cwhat">AG1 · Cadmium reading withdrawn pending re-test</div>
+          <div class="cdetail" style="margin-top: 6px;">Original cadmium assay reading (0.42ppm) was an outlier from lot 9F22. Re-test of three additional lots produced mean 0.18ppm. Reading withdrawn; review updated; score adjusted +0.4.</div>
+        </div>
+        <div class="cdetail" style="font-size: 12px;">Source: Lab re-run<br/>Page: <a href="/reviews/transparent-labs-wpi/" style="color: var(--red);">review</a></div>
+        <div class="csev major">Major</div>
+      </div>
+      <div class="corr-row">
+        <div class="cd">NOV 14 '25</div>
+        <div>
+          <div class="cwhat">Pre-workout methodology · Caffeine dose threshold</div>
+          <div class="cdetail" style="margin-top: 6px;">Threshold incorrectly stated as 100mg/serving for stim-tolerant adults; should be 200mg per Wickham et al. 2017. Threshold updated; six reviews recalibrated upward.</div>
+        </div>
+        <div class="cdetail" style="font-size: 12px;">Source: Internal review<br/>Page: <a href="/methodology/" style="color: var(--red);">methodology</a></div>
+        <div class="csev major">Major</div>
+      </div>
+      <div class="corr-row">
+        <div class="cd">SEP 02 '25</div>
+        <div>
+          <div class="cwhat">Optimum Nutrition · Manufacturer name error</div>
+          <div class="cdetail" style="margin-top: 6px;">Review described ON as manufactured by Glanbia Performance Nutrition; ON is manufactured in-house. Glanbia is the parent company.</div>
+        </div>
+        <div class="cdetail" style="font-size: 12px;">Source: Manufacturer reply<br/>Page: <a href="/reviews/transparent-labs-wpi/" style="color: var(--red);">review</a></div>
+        <div class="csev minor">Minor</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px; display: flex; gap: 16px; align-items: center; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mute);">
+      <a href="#" class="bcard-link">All 41 corrections since 2024 →</a>
+      <span>·</span>
+      <span>Major: 6 · Minor: 35</span>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="a-section" style="border-bottom: 0;">
+  <div class="container">
+    <div class="super">05 — CONTACT</div>
+    <h2>How to reach us.</h2>
+    <p class="lede">We read every email. We do not answer every email. PR pitches and brand-relations introductions go directly to <em>/dev/null</em> — we appreciate your respect for our policy on this.</p>
+
+    <div class="contact-grid">
+      <div class="contact-cell">
+        <div class="ckl">EDITORIAL · TIPS</div>
+        <h4>Tips & corrections</h4>
+        <p>Spotted an error in a review? Have a tip about a brand we should test? Encrypted SecureDrop available for sensitive industry sources.</p>
+        <a href="#" class="link">tips@fitlabreviews.com →</a>
+      </div>
+      <div class="contact-cell">
+        <div class="ckl">REVIEWS · APPEALS</div>
+        <h4>Brand appeals</h4>
+        <p>Disagree with a score? Submit a written appeal with new lab data. We respond on the public record within 14 days. No off-the-record conversations.</p>
+        <a href="#" class="link">appeals@fitlabreviews.com →</a>
+      </div>
+      <div class="contact-cell">
+        <div class="ckl">PRESS · LICENSING</div>
+        <h4>Press & licensing</h4>
+        <p>Republishing our data, citing our reviews in academic work, or scheduling an on-record interview with a Fitlab author. Replies within 48 hours.</p>
+        <a href="#" class="link">press@fitlabreviews.com →</a>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px; padding: 18px 24px; background: var(--paper-2); border-left: 4px solid var(--red);">
+      <div style="font-family: var(--f-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; color: var(--red); margin-bottom: 6px; text-transform: uppercase;">PR & MARKETING PITCHES</div>
+      <p style="font-size: 14px; line-height: 1.5; color: var(--ink-2); margin: 0;">We do not have a media kit. We do not accept demos, samples, or pre-release products. We do not write sponsored content. We will not introduce you to our reviewers. Save us all some time and don't reach out.</p>
+    </div>
+  </div>
+</section>
+
+<div id="site-foot-mount"></div>
+
+<script src="assets/illus.js"></script>
+<script src="assets/data-loader.js"></script>
+<script src="assets/seo.js"></script>
+<script src="assets/consent.js"></script>
+<script src="assets/data-loader.js"></script>
+<script src="assets/seo.js"></script>
+<script src="assets/consent.js"></script>
+<script src="assets/chrome.js"></script>
+</body>
+</html>

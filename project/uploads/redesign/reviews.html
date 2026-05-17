@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>All Reviews · Fitlab</title>
+<link rel="stylesheet" href="assets/tokens.css"/>
+<link rel="stylesheet" href="assets/shared.css"/>
+<style>
+  /* Page hero (smaller than home) */
+  .idx-hero {
+    border-bottom: 1px solid var(--ink);
+    padding: 32px 0 32px;
+  }
+  .idx-hero h1 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(56px, 8vw, 128px);
+    line-height: 0.86;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .idx-hero .meta-grid {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    gap: 32px;
+    align-items: end;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line-2);
+  }
+  .idx-hero .lede {
+    max-width: 540px;
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .idx-hero .stat {
+    border-left: 1px solid var(--line-2);
+    padding-left: 16px;
+    min-width: 100px;
+  }
+  .idx-hero .stat .v {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 0.95;
+  }
+  .idx-hero .stat .k {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--mute);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .idx-hero .stat .v.red { color: var(--red-deep); }
+  .idx-hero .stat .v.green { color: var(--green-deep); }
+
+  @media (max-width: 720px) {
+    .idx-hero { padding: 20px 0 24px; }
+    .idx-hero h1 { font-size: clamp(48px, 13vw, 88px); }
+    .idx-hero .meta-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .idx-hero .lede {
+      grid-column: 1 / -1;
+      font-size: 14.5px;
+      margin-bottom: 8px;
+    }
+    .idx-hero .stat { min-width: 0; padding-left: 12px; }
+    .idx-hero .stat .v { font-size: 28px; }
+    .idx-hero .stat .k { font-size: 9.5px; }
+
+    /* Wide featured bcard stacks */
+    .bcard > .bcard-head[style*="140px"] {
+      grid-template-columns: 64px 1fr 64px !important;
+    }
+    .bcard > .bcard-head[style*="140px"] .bcard-name {
+      font-size: 18px !important;
+    }
+    .bcard-rubric[style*="1fr 1fr 1fr 1fr"] {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+  @media (max-width: 480px) {
+    .idx-hero .meta-grid { grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    .idx-hero .stat:nth-child(2) { padding-left: 12px; }
+    .idx-hero .stat .v { font-size: 22px; }
+  }
+</style>
+</head>
+<body data-page="reviews">
+
+<div id="site-head-mount"></div>
+
+<!-- Sub-nav -->
+<div class="sub-nav">
+  <div class="container">
+    <div class="sub-nav-inner">
+      <a href="reviews.html" class="active">All reviews</a>
+      <a href="best.html">Best of</a>
+      <a href="reviews.html">Editor's picks</a>
+      <a href="reviews.html">Recently tested</a>
+      <a href="reviews.html">Failed lab</a>
+      <a href="reviews.html">Re-tests due</a>
+      <span class="spacer"></span>
+      <span class="meta">Last lab run · May 12, 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="idx-hero">
+  <div class="container">
+    <div class="kicker" style="color: var(--red); margin-bottom: 16px;">REVIEWS · 512 PRODUCTS · 89 BRANDS</div>
+    <h1>All<br/>reviews.</h1>
+    <div class="meta-grid">
+      <p class="lede">Every supplement we've tested. Bought at retail, sent to an ISO-17025 lab, scored against a five-question rubric. <a href="methodology.html" style="color: var(--red); text-decoration: underline;">How we test →</a></p>
+      <div class="stat"><div class="v">512</div><div class="k">Tested</div></div>
+      <div class="stat"><div class="v green">22</div><div class="k">Editor's pick</div></div>
+      <div class="stat"><div class="v red">97</div><div class="k">Failed lab</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Main with sidebar -->
+<div class="container" style="padding-top: 28px; padding-bottom: 56px;">
+  <div class="with-rail">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="rail" id="rail-host"></aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="results"><b>512</b> products · <b>3</b> filters applied</div>
+        <div class="actions">
+          <button class="tabbtn on">Grid</button>
+          <button class="tabbtn">Table</button>
+          <span style="width: 8px;"></span>
+          <select>
+            <option>Sort · Highest scored</option>
+            <option>Recently tested</option>
+            <option>Cheapest per clinical</option>
+            <option>Most ingredients failed</option>
+            <option>Lowest scored</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Active filters -->
+      <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px;">
+        <span class="chip-filter on">Whey Protein <span class="x">×</span></span>
+        <span class="chip-filter on">NSF Certified <span class="x">×</span></span>
+        <span class="chip-filter on">Score ≥ 7.0 <span class="x">×</span></span>
+        <button style="font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; color: var(--mute); background: none; border: 0; text-transform: uppercase; padding: 0 8px; cursor: pointer;">Clear all →</button>
+      </div>
+
+      <!-- Featured card (wide) -->
+      <article class="bcard" style="margin-bottom: 16px;">
+        <span class="bcard-ribbon green">★ Editor's Choice · #1 IN CATEGORY</span>
+        <div class="bcard-head" style="grid-template-columns: 140px 1fr 96px; display: grid;">
+          <div class="bcard-img" style="width: auto;"><div data-illus="tub"></div></div>
+          <div class="bcard-id" style="padding: 18px 22px;">
+            <div class="bcard-cat">Whey Isolate · Grass-fed · 1lb / 5lb bags</div>
+            <h3 class="bcard-name" style="font-size: 28px;">Transparent Labs<br/>100% Grass-Fed WPI</h3>
+            <div class="bcard-tag" style="margin-top: 8px; max-width: 520px;">28g protein/scoop · 90.4% protein by mass · Heavy metals &lt;0.05ppm across 4 lots tested over 18 months. The honest scoop.</div>
+          </div>
+          <div class="bcard-score hi" style="width: auto;">
+            <span class="n">9.4</span>
+            <span class="sub">/10</span>
+          </div>
+        </div>
+        <div class="bcard-rubric" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+          <div class="rb-row"><span class="rb-lbl">Ingredient</span><span class="rb-val">9.6</span><div class="rb-bar"><i class="hi" style="width:96%"></i></div></div>
+          <div class="rb-row"><span class="rb-lbl">Dosing</span><span class="rb-val">9.4</span><div class="rb-bar"><i class="hi" style="width:94%"></i></div></div>
+          <div class="rb-row"><span class="rb-lbl">Transparency</span><span class="rb-val">9.8</span><div class="rb-bar"><i class="hi" style="width:98%"></i></div></div>
+          <div class="rb-row"><span class="rb-lbl">Value</span><span class="rb-val">8.6</span><div class="rb-bar"><i class="mid" style="width:86%"></i></div></div>
+        </div>
+        <div class="bcard-foot">
+          <div class="bcard-tags">
+            <span class="tag green"><span class="dot"></span>Informed Sport</span>
+            <span class="tag green"><span class="dot"></span>NSF Certified</span>
+            <span class="tag">cGMP</span>
+            <span class="tag">$59/lb</span>
+          </div>
+          <a href="review.html" class="bcard-link">Full analysis</a>
+        </div>
+      </article>
+
+      <!-- Grid -->
+      <div class="bgrid-2" id="grid"></div>
+
+      <!-- Pagination -->
+      <div class="pager">
+        <a href="#">←</a>
+        <span class="on">1</span>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <span>…</span>
+        <a href="#">18</a>
+        <a href="#">→</a>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+<div id="site-foot-mount"></div>
+
+<script src="assets/illus.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/sidebar.js"></script>
+<script>
+  // Render sidebar
+  window.renderSidebar(document.getElementById('rail-host'), 'reviews');
+
+  // Card data
+  const cards = [
+    { brand: 'Dymatize ISO-100', cat: 'Whey Isolate · Hydrolyzed', illus: 'tub', score: 9.0, badge: 'Editor\'s Choice', badgeC: 'green',
+      rubric: { 'Ingredient': 9.0, 'Dosing': 9.2, 'Transparency': 8.8, 'Value': 9.6 },
+      tags: [{ t: 'Informed Choice', c: 'green'}, { t: '$48/lb'}, { t: '25g protein'}] },
+    { brand: 'Optimum Nutrition Gold', cat: 'Whey Blend · Established 1987', illus: 'tub', score: 8.4, badge: '', badgeC: '',
+      rubric: { 'Ingredient': 8.6, 'Dosing': 8.4, 'Transparency': 7.6, 'Value': 9.4 },
+      tags: [{ t: 'Informed Sport'}, { t: 'Sm. prop. blend', c: 'amber'}, { t: '$36/lb'}] },
+    { brand: 'Naked Whey', cat: 'Whey Concentrate · Single-ingredient', illus: 'pouch', score: 9.0, badge: 'Editor\'s Choice', badgeC: 'green',
+      rubric: { 'Ingredient': 9.4, 'Dosing': 8.6, 'Transparency': 9.6, 'Value': 8.4 },
+      tags: [{ t: 'cGMP'}, { t: 'No additives', c: 'green'}, { t: '$54/lb'}] },
+    { brand: 'Now Sports Whey', cat: 'Whey Isolate · Unflavored', illus: 'tub', score: 8.6, badge: '', badgeC: '',
+      rubric: { 'Ingredient': 8.4, 'Dosing': 8.6, 'Transparency': 8.8, 'Value': 9.2 },
+      tags: [{ t: 'Informed Sport'}, { t: '$42/lb'}] },
+    { brand: 'Garden of Life Sport', cat: 'Plant Protein · Pea/rice', illus: 'jar', score: 8.4, badge: '', badgeC: '',
+      rubric: { 'Ingredient': 8.6, 'Dosing': 8.2, 'Transparency': 8.0, 'Value': 8.0 },
+      tags: [{ t: 'NSF Sport', c: 'green'}, { t: 'USDA Organic'}, { t: '$48/lb'}] },
+    { brand: 'Body Fortress ISO', cat: 'Whey Iso · Mass-market', illus: 'tub', score: 5.4, badge: 'Fails clinical dose', badgeC: 'red',
+      rubric: { 'Ingredient': 6.0, 'Dosing': 4.2, 'Transparency': 3.8, 'Value': 7.8 },
+      tags: [{ t: 'Prop. blend', c: 'red'}, { t: 'No cert.', c: 'red'}, { t: '$22/lb'}] },
+    { brand: 'Bulk Powders WPI', cat: 'Whey Isolate · Unsweetened', illus: 'pouch', score: 7.8, badge: '', badgeC: '',
+      rubric: { 'Ingredient': 8.0, 'Dosing': 7.6, 'Transparency': 7.8, 'Value': 8.6 },
+      tags: [{ t: 'cGMP'}, { t: 'EU sourced'}, { t: '$32/lb'}] },
+    { brand: 'Ghost Whey', cat: 'Whey · Flavor-forward', illus: 'tub', score: 7.4, badge: '', badgeC: '',
+      rubric: { 'Ingredient': 7.6, 'Dosing': 7.4, 'Transparency': 8.0, 'Value': 6.8 },
+      tags: [{ t: 'Informed Sport'}, { t: 'High sweetener', c: 'amber'}, { t: '$52/lb'}] },
+    { brand: 'Klean Athlete Iso', cat: 'Whey Isolate · NSF Sport', illus: 'tub', score: 8.8, badge: '', badgeC: '',
+      rubric: { 'Ingredient': 9.0, 'Dosing': 8.8, 'Transparency': 9.0, 'Value': 7.4 },
+      tags: [{ t: 'NSF Sport', c: 'green'}, { t: '$64/lb'}] },
+    { brand: 'BSN Syntha-6', cat: 'Whey/Casein blend · Slow-release', illus: 'tub', score: 6.8, badge: '', badgeC: '',
+      rubric: { 'Ingredient': 7.0, 'Dosing': 6.6, 'Transparency': 5.4, 'Value': 7.8 },
+      tags: [{ t: 'Prop. blend', c: 'red'}, { t: 'Informed Choice'}, { t: '$28/lb'}] },
+    { brand: 'Momentous Essential', cat: 'Whey Isolate · Performance', illus: 'tub', score: 8.6, badge: '', badgeC: '',
+      rubric: { 'Ingredient': 8.6, 'Dosing': 8.8, 'Transparency': 8.4, 'Value': 7.6 },
+      tags: [{ t: 'NSF Sport'}, { t: 'A. Huberman'}, { t: '$58/lb'}] },
+    { brand: 'Promix Standard', cat: 'Whey Concentrate · Bulk', illus: 'pouch', score: 7.2, badge: '', badgeC: '',
+      rubric: { 'Ingredient': 7.6, 'Dosing': 7.0, 'Transparency': 6.8, 'Value': 8.2 },
+      tags: [{ t: 'NSF for Sport'}, { t: '$38/lb'}] },
+  ];
+
+  function scoreClass(s) { return s >= 8.5 ? 'hi' : (s >= 7 ? 'mid' : 'lo'); }
+  function rubricRow(label, val) {
+    const cls = val >= 8.5 ? 'hi' : (val >= 7 ? 'mid' : 'lo');
+    return `<div class="rb-row"><span class="rb-lbl">${label}</span><span class="rb-val">${val.toFixed(1)}</span><div class="rb-bar"><i class="${cls}" style="width:${val*10}%"></i></div></div>`;
+  }
+  function cardHTML(d) {
+    const ribbon = d.badge ? `<span class="bcard-ribbon ${d.badgeC}">${d.badgeC==='red' ? '⚠' : '★'} ${d.badge}</span>` : '';
+    const rubrics = Object.entries(d.rubric).map(([k,v]) => rubricRow(k, v)).join('');
+    const tags = d.tags.map(t => `<span class="tag ${t.c||''}">${t.c ? '<span class="dot"></span>' : ''}${t.t}</span>`).join('');
+    return `
+      <article class="bcard">
+        ${ribbon}
+        <div class="bcard-head">
+          <div class="bcard-img">${window.PROD_ILLUS[d.illus]}</div>
+          <div class="bcard-id">
+            <div class="bcard-cat">${d.cat}</div>
+            <h3 class="bcard-name">${d.brand}</h3>
+          </div>
+          <div class="bcard-score ${scoreClass(d.score)}"><span class="n">${d.score.toFixed(1)}</span><span class="sub">/10</span></div>
+        </div>
+        <div class="bcard-rubric">${rubrics}</div>
+        <div class="bcard-foot">
+          <div class="bcard-tags">${tags}</div>
+          <a href="review.html" class="bcard-link">Analysis</a>
+        </div>
+      </article>
+    `;
+  }
+
+  document.getElementById('grid').innerHTML = cards.map(cardHTML).join('');
+
+  // Fix featured card illustration
+  const wide = document.querySelector('[data-illus]');
+  if (wide) wide.outerHTML = window.PROD_ILLUS.tub;
+</script>
+</body>
+</html>

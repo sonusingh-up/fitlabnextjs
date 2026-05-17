@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function() {
+  var pn = window.location.pathname;
+  var preview = pn.match(/^(.*\/serve\/)/);
+  var base;
+  if (preview) {
+    base = preview[1];
+  } else {
+    var depth = pn.replace(/\/[^\/]*$/, '').split('/').filter(Boolean).length;
+    base = depth === 0 ? './' : new Array(depth + 1).join('../');
+  }
+  document.write('<base href="' + base + '">');
+})();
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>All Supplement Brands — Independent Trust Ratings · Fitlab</title>
+<meta name="description" content="Independent trust ratings for 89 supplement brands. Lab-verified manufacturing, CoA practices, recall history, and per-product scores. No paid placements."/>
+<link rel="stylesheet" href="assets/tokens.css"/>
+<link rel="stylesheet" href="assets/shared.css"/>
+<style>
+  /* Reuse idx-hero pattern from reviews.html */
+  .idx-hero { border-bottom: 1px solid var(--ink); padding: 32px 0; }
+  .idx-hero h1 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(56px, 8vw, 128px);
+    line-height: 0.86; letter-spacing: -0.02em;
+    text-transform: uppercase; margin: 0;
+  }
+  .idx-hero .meta-grid {
+    display: grid; grid-template-columns: 1fr auto auto auto auto;
+    gap: 28px; align-items: end; margin-top: 18px;
+    padding-top: 18px; border-top: 1px solid var(--line-2);
+  }
+  .idx-hero .lede { max-width: 560px; font-size: 16px; line-height: 1.45; color: var(--ink-2); }
+  .idx-hero .stat { border-left: 1px solid var(--line-2); padding-left: 16px; min-width: 90px; }
+  .idx-hero .stat .v { font-family: var(--f-display); font-weight: 700; font-size: 36px; line-height: 0.95; }
+  .idx-hero .stat .v.red { color: var(--red-deep); }
+  .idx-hero .stat .v.green { color: var(--green-deep); }
+  .idx-hero .stat .k { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em; color: var(--mute); text-transform: uppercase; margin-top: 4px; }
+
+  /* A-Z quick-jump */
+  .alpha-strip {
+    display: grid;
+    grid-template-columns: repeat(26, 1fr);
+    border: 1px solid var(--line-2);
+    margin-bottom: 24px;
+    background: var(--paper);
+  }
+  .alpha-strip a {
+    text-align: center;
+    padding: 10px 0;
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-right: 1px solid var(--line);
+    color: var(--ink-2);
+    text-transform: uppercase;
+    transition: all 0.1s;
+  }
+  .alpha-strip a:last-child { border-right: 0; }
+  .alpha-strip a:hover { background: var(--ink); color: var(--paper); }
+  .alpha-strip a.has::after {
+    content: "";
+    display: block;
+    width: 4px; height: 4px;
+    background: var(--red);
+    border-radius: 50%;
+    margin: 4px auto -4px;
+  }
+  .alpha-strip a.empty { color: var(--mute-2); cursor: not-allowed; }
+
+  /* ===== Featured brand spotlight ===== */
+  .brand-spotlight {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    margin-bottom: 28px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 220px 1fr 220px;
+    position: relative;
+  }
+  .brand-spotlight::before {
+    content: "BRAND OF Q2 · 2026";
+    position: absolute;
+    top: -1px; left: 24px;
+    background: var(--red);
+    color: var(--paper);
+    padding: 6px 12px 5px;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    z-index: 2;
+  }
+  .spot-mark {
+    background: var(--ink);
+    color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    border-right: 1px solid var(--ink);
+    position: relative;
+  }
+  .spot-mark .letter {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 156px;
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+  }
+  .spot-mark .lbl {
+    position: absolute; bottom: 16px; left: 16px; right: 16px;
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    color: var(--mute-2);
+    text-transform: uppercase;
+  }
+  .spot-body {
+    padding: 36px 32px 28px;
+    display: flex; flex-direction: column;
+    gap: 16px;
+  }
+  .spot-body .cat {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+  .spot-body h2 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(36px, 4.4vw, 64px);
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .spot-body .summary {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 580px;
+    margin: 0;
+  }
+  .spot-body .summary b { color: var(--ink); }
+  .spot-body .certs { display: flex; gap: 6px; flex-wrap: wrap; }
+  .spot-side {
+    border-left: 1px solid var(--ink);
+    background: var(--paper-2);
+    padding: 24px 22px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .spot-side .trust-box {
+    text-align: center;
+    padding: 14px 0 16px;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+  }
+  .spot-side .trust-box .gl {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+  .spot-side .trust-box .gv {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 0.9;
+    color: var(--green-deep);
+    margin-top: 2px;
+  }
+  .spot-side .trust-box .gd {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    color: var(--mute);
+    letter-spacing: 0.06em;
+    margin-top: 4px;
+  }
+  .spot-side .mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .spot-side .mini-stats > div { padding: 8px 10px; background: var(--paper); border: 1px solid var(--line-2); }
+  .spot-side .mini-stats .v {
+    font-family: var(--f-display); font-weight: 700; font-size: 22px; line-height: 0.95;
+  }
+  .spot-side .mini-stats .k {
+    font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.12em; color: var(--mute); text-transform: uppercase; margin-top: 2px;
+  }
+  .spot-side .go {
+    display: block;
+    text-align: center;
+    margin-top: auto;
+    padding: 12px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: 1px solid var(--ink);
+  }
+  .spot-side .go:hover { background: var(--red); border-color: var(--red); }
+
+  /* ===== Brand card ===== */
+  .b-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .bnd {
+    display: grid;
+    grid-template-columns: 80px 1fr 56px;
+    background: var(--paper);
+    border: 1px solid var(--line-2);
+    transition: all 0.15s;
+    position: relative;
+  }
+  .bnd:hover {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+  .bnd .mk {
+    background: var(--ink);
+    color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    border-right: 1px solid var(--ink);
+    position: relative;
+  }
+  .bnd .mk .letter {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+  }
+  .bnd .mk .ridge {
+    position: absolute; bottom: 6px; left: 6px; right: 6px;
+    height: 3px; background: var(--red);
+  }
+  .bnd .mk.alt { background: var(--paper-2); color: var(--ink); border-right: 1px solid var(--ink); }
+  .bnd .mk.alt .ridge { background: var(--ink); }
+  .bnd .body {
+    padding: 14px 16px 12px;
+    display: flex; flex-direction: column;
+    min-width: 0;
+  }
+  .bnd .cat {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--mute);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .bnd .nm {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 0.95;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 0 0 6px;
+  }
+  .bnd .blurb {
+    font-size: 12.5px;
+    color: var(--ink-3);
+    line-height: 1.4;
+    margin: 0 0 10px;
+  }
+  .bnd .row-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-top: 1px dashed var(--line-2);
+    padding-top: 8px;
+    margin-top: auto;
+  }
+  .bnd .row-stats > div { padding-right: 8px; border-right: 1px dashed var(--line-2); }
+  .bnd .row-stats > div:last-child { border-right: 0; }
+  .bnd .row-stats .v {
+    font-family: var(--f-mono);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+  }
+  .bnd .row-stats .v.green { color: var(--green-deep); }
+  .bnd .row-stats .v.red { color: var(--red-deep); }
+  .bnd .row-stats .v.amber { color: #8a6b00; }
+  .bnd .row-stats .k {
+    font-family: var(--f-mono);
+    font-size: 9px;
+    color: var(--mute);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .bnd .row-tags {
+    display: flex; flex-wrap: wrap; gap: 4px;
+    padding-top: 8px;
+    margin-top: 8px;
+    border-top: 1px dashed var(--line-2);
+  }
+  .bnd .trust {
+    background: var(--paper-2);
+    border-left: 1px solid var(--line);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .bnd .trust .gl {
+    font-family: var(--f-mono);
+    font-size: 8.5px;
+    letter-spacing: 0.16em;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+  .bnd .trust .gv {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .bnd .trust .gv.A { color: var(--green-deep); }
+  .bnd .trust .gv.B { color: var(--ink); }
+  .bnd .trust .gv.C { color: #8a6b00; }
+  .bnd .trust .gv.D { color: var(--red-deep); }
+  .bnd .trust .gv.F { color: var(--red-deep); }
+  .bnd .trust .gd {
+    font-family: var(--f-mono);
+    font-size: 8.5px;
+    color: var(--mute);
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+  .bnd .recall {
+    position: absolute; top: 0; right: 56px;
+    background: var(--red);
+    color: var(--paper);
+    padding: 2px 6px 1px;
+    font-family: var(--f-mono);
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* ===== Section divider header ===== */
+  .letter-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin: 32px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .letter-head .l {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+  }
+  .letter-head .n {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+
+  /* ===== Top wide stat strip (failure / passrate by brand) ===== */
+  .ind-strip {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    border: 1px solid var(--ink);
+    margin-bottom: 28px;
+    background: var(--paper);
+  }
+  .ind-strip > div {
+    padding: 18px 22px;
+    border-right: 1px solid var(--ink);
+  }
+  .ind-strip > div:last-child { border-right: 0; }
+  .ind-strip h3 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.0;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+  }
+  .ind-strip p {
+    font-size: 12.5px;
+    color: var(--ink-3);
+    line-height: 1.4;
+    margin: 0;
+  }
+  .ind-strip .v {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 0.9;
+  }
+  .ind-strip .v.red { color: var(--red-deep); }
+  .ind-strip .v.green { color: var(--green-deep); }
+  .ind-strip .v.amber { color: #8a6b00; }
+  .ind-strip .k {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--mute);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 980px) {
+    .brand-spotlight { grid-template-columns: 140px 1fr; }
+    .spot-mark .letter { font-size: 88px; }
+    .spot-side { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--ink); }
+    .ind-strip { grid-template-columns: 1fr 1fr; }
+    .ind-strip > div { border-right: 0; border-bottom: 1px solid var(--ink); }
+    .ind-strip > div:nth-child(2n) { border-right: 0; }
+    .ind-strip > div:nth-child(odd) { border-right: 1px solid var(--ink); }
+    .ind-strip > div:nth-child(1) { grid-column: 1 / -1; border-right: 0; }
+    .alpha-strip { grid-template-columns: repeat(13, 1fr); }
+    .alpha-strip a:nth-child(13) { border-right: 0; }
+    .alpha-strip a:nth-child(-n+13) { border-bottom: 1px solid var(--line); }
+  }
+  @media (max-width: 720px) {
+    .idx-hero { padding: 20px 0 24px; }
+    .idx-hero h1 { font-size: clamp(48px, 14vw, 88px); }
+    .idx-hero .meta-grid { grid-template-columns: 1fr 1fr; gap: 14px 12px; }
+    .idx-hero .lede { grid-column: 1 / -1; font-size: 14.5px; margin-bottom: 4px; }
+    .idx-hero .stat { min-width: 0; padding-left: 10px; }
+    .idx-hero .stat .v { font-size: 24px; }
+    .idx-hero .stat .k { font-size: 9px; }
+
+    .alpha-strip { grid-template-columns: repeat(9, 1fr); }
+    .alpha-strip a { padding: 10px 0; font-size: 12px; }
+    .alpha-strip a:nth-child(9), .alpha-strip a:nth-child(18) { border-right: 0; }
+    .alpha-strip a:nth-child(-n+18) { border-bottom: 1px solid var(--line); }
+
+    .brand-spotlight { grid-template-columns: 1fr; }
+    .spot-mark { padding: 36px 0 24px; border-right: 0; border-bottom: 1px solid var(--ink); aspect-ratio: auto; }
+    .spot-mark .letter { font-size: 120px; }
+    .spot-mark .lbl { position: static; margin-top: 10px; text-align: center; padding: 0 16px; }
+    .spot-body { padding: 22px 18px 18px; gap: 12px; }
+    .spot-body h2 { font-size: clamp(32px, 9vw, 44px); }
+    .spot-body .summary { font-size: 14px; }
+    .spot-side { padding: 16px 18px; gap: 12px; }
+    .spot-side .trust-box .gv { font-size: 44px; }
+    .spot-side .mini-stats .v { font-size: 18px; }
+    .brand-spotlight::before { left: 16px; font-size: 9px; padding: 5px 8px 4px; }
+
+    .b-grid { grid-template-columns: 1fr; gap: 12px; }
+    .bnd { grid-template-columns: 64px 1fr 52px; }
+    .bnd .mk .letter { font-size: 36px; }
+    .bnd .body { padding: 12px 14px 10px; }
+    .bnd .nm { font-size: 17px; }
+    .bnd .blurb { font-size: 12px; line-height: 1.4; -webkit-line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+    .bnd .row-stats .v { font-size: 13px; }
+    .bnd .row-stats .k { font-size: 8.5px; }
+    .bnd .row-tags { gap: 3px; }
+    .bnd .row-tags .tag { font-size: 8.5px; padding: 2px 5px; }
+    .bnd .trust .gv { font-size: 24px; }
+    .bnd .trust .gl, .bnd .trust .gd { font-size: 8px; }
+    .bnd .recall {
+      top: auto; bottom: 4px; right: 60px; left: auto;
+      padding: 2px 5px 1px;
+      font-size: 8px;
+    }
+    .letter-head { margin: 24px 0 12px; padding-bottom: 8px; }
+    .letter-head .l { font-size: 26px; }
+    .letter-head .n { font-size: 10px; }
+    .ind-strip { grid-template-columns: 1fr; }
+    .ind-strip > div { border-right: 0 !important; border-bottom: 1px solid var(--ink); padding: 14px 18px; }
+    .ind-strip > div:last-child { border-bottom: 0; }
+    .ind-strip h3 { font-size: 18px; }
+    .ind-strip p { font-size: 12px; }
+    .ind-strip .v { font-size: 28px; }
+    .ind-strip .k { font-size: 9.5px; }
+
+    /* Mobile toolbar */
+    .toolbar { flex-direction: column; align-items: stretch; gap: 10px; }
+    .toolbar .actions { flex-wrap: wrap; justify-content: flex-start; }
+    .toolbar .actions select { width: 100%; }
+  }
+
+  @media (max-width: 480px) {
+    .alpha-strip { grid-template-columns: repeat(7, 1fr); }
+    .alpha-strip a:nth-child(9), .alpha-strip a:nth-child(18) { border-right: 1px solid var(--line); }
+    .alpha-strip a:nth-child(7n) { border-right: 0; }
+    .alpha-strip a:nth-child(-n+21) { border-bottom: 1px solid var(--line); }
+    .bnd { grid-template-columns: 54px 1fr 46px; }
+    .bnd .mk .letter { font-size: 30px; }
+    .bnd .nm { font-size: 15px; }
+    .bnd .body { padding: 10px 12px 8px; }
+    .spot-body h2 { font-size: clamp(28px, 11vw, 38px); }
+  }
+</style>
+</head>
+<body data-page="brands">
+
+<div id="site-head-mount"></div>
+
+<!-- Sub-nav -->
+<div class="sub-nav">
+  <div class="container">
+    <div class="sub-nav-inner">
+      <a href="brands.html" class="active">All brands</a>
+      <a href="#">By trust grade</a>
+      <a href="#">A-listed (verified)</a>
+      <a href="#">Recall watchlist</a>
+      <a href="#">New this quarter</a>
+      <a href="#">Editor-banned</a>
+      <span class="spacer"></span>
+      <span class="meta">89 brands · 512 products · Last audit May 12</span>
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="idx-hero">
+  <div class="container">
+    <div class="kicker" style="color: var(--red); margin-bottom: 16px;">BRANDS · INDEPENDENT TRUST AUDIT · Q2 2026</div>
+    <h1>Brand<br/>directory.</h1>
+    <div class="meta-grid">
+      <p class="lede">Every brand we've sent to the lab. Trust grades are based on independent CoA verification, recall history, dosing accuracy across their portfolio, and label-vs-assay deviation. <a href="methodology.html" style="color: var(--red); text-decoration: underline;">How we grade →</a></p>
+      <div class="stat"><div class="v">89</div><div class="k">Brands audited</div></div>
+      <div class="stat"><div class="v green">18</div><div class="k">A-grade</div></div>
+      <div class="stat"><div class="v amber" style="color: #8a6b00;">35</div><div class="k">B / C</div></div>
+      <div class="stat"><div class="v red">16</div><div class="k">D / F</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Main with sidebar -->
+<div class="container" style="padding-top: 28px; padding-bottom: 56px;">
+  <div class="with-rail">
+
+    <!-- Mobile filter toggle -->
+    <button class="rail-toggle" id="rail-toggle" aria-expanded="false" type="button">
+      <span class="rt-left">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h10M5 8h6M7 11h2"/></svg>
+        Filters
+        <span class="rt-count">3</span>
+      </span>
+      <span class="rt-arr">▾</span>
+    </button>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="rail" id="rail-host"></aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+
+      <!-- Audit stat strip -->
+      <div class="ind-strip">
+        <div>
+          <h3>The brand audit</h3>
+          <p>Every brand on this directory has been independently graded across 5 trust dimensions. Re-audited every quarter.</p>
+        </div>
+        <div>
+          <div class="v green">81%</div>
+          <div class="k">Brands re-audited Q2</div>
+        </div>
+        <div>
+          <div class="v amber">34%</div>
+          <div class="k">Under-dose ≥1 product</div>
+        </div>
+        <div>
+          <div class="v red">19%</div>
+          <div class="k">Failed lab on ≥1 product</div>
+        </div>
+        <div>
+          <div class="v">±4.8</div>
+          <div class="k">Avg label deviation %</div>
+        </div>
+      </div>
+
+      <!-- Alpha jumper -->
+      <div class="alpha-strip" id="alpha-strip"></div>
+
+      <!-- Featured brand of the quarter -->
+      <article class="brand-spotlight" id="spotlight"></article>
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="results"><b id="ff-count">—</b> brands · <span id="ff-applied">0</span> filters applied</div>
+        <div class="actions">
+          <span style="width: 8px;"></span>
+          <select id="ff-sort">
+            <option value="trust">Sort · Trust grade ↓</option>
+            <option value="score">Avg score ↓</option>
+            <option value="products">Most products</option>
+            <option value="dev">Lowest label deviation</option>
+            <option value="alpha">Alphabetical</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Active filters (rendered by filter engine) -->
+      <div id="ff-active" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px;"></div>
+
+      <!-- Results — letter-grouped grids are rendered here -->
+      <div id="ff-results"></div>
+
+      <!-- Empty state -->
+      <div id="ff-empty" style="display: none; padding: 60px 20px; text-align: center; border: 1px dashed var(--line-2); color: var(--mute);">
+        <div style="font-family: var(--f-display); font-weight: 700; font-size: 32px; text-transform: uppercase; color: var(--ink); margin-bottom: 8px;">No brands match.</div>
+        <p style="font-size: 14px; max-width: 420px; margin: 0 auto 16px;">Try removing some filters or broadening your search.</p>
+        <button class="ff-reset" style="font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; padding: 10px 18px; background: var(--ink); color: var(--paper); border: 0; cursor: pointer;">Reset filters</button>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pager" id="ff-pager"></div>
+    </main>
+
+  </div>
+</div>
+
+<div id="site-foot-mount"></div>
+
+<script src="assets/illus.js"></script>
+<script src="assets/data-loader.js"></script>
+<script src="assets/filters.js"></script>
+<script src="assets/seo.js"></script>
+<script src="assets/consent.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/sidebar.js"></script>
+<script>
+  window.FITLAB.page = { type: 'index' };
+
+  // Mobile rail toggle
+  const rt = document.getElementById('rail-toggle');
+  const rail = document.querySelector('.rail');
+  if (rt && rail) {
+    rt.addEventListener('click', () => {
+      const open = rail.classList.toggle('open');
+      rt.classList.toggle('open', open);
+      rt.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  // Alpha-strip
+  function buildAlphaStrip(brands) {
+    const present = new Set(brands.map(b => b.name[0].toUpperCase()));
+    const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    document.getElementById('alpha-strip').innerHTML = alpha.map(l =>
+      `<a href="#letter-${l}" class="${present.has(l) ? 'has' : 'empty'}">${l}</a>`
+    ).join('');
+  }
+
+  // Spotlight
+  function renderSpotlight(b) {
+    if (!b) return;
+    const html = `
+      <div class="spot-mark">
+        <span class="letter">${b.letter || b.name[0]}</span>
+        <span class="lbl">EST. ${b.founded} · ${(b.hq || '').toUpperCase()}</span>
+      </div>
+      <div class="spot-body">
+        <span class="cat">${(b.cat || '').toUpperCase()}</span>
+        <h2>${b.name}</h2>
+        <p class="summary"><b>The benchmark brand of the quarter.</b> ${b.blurb}</p>
+        <div class="certs">
+          ${(b.certs || []).map(c => `<span class="tag green"><span class="dot"></span>${c}</span>`).join('')}
+          <span class="tag">${b.recalls} recall${b.recalls === 1 ? '' : 's'}</span>
+          <span class="tag">${b.n_prod} products</span>
+        </div>
+      </div>
+      <div class="spot-side">
+        <div class="trust-box">
+          <div class="gl">Trust grade</div>
+          <div class="gv">${b.trust}</div>
+          <div class="gd">Verified · n = 4 audits</div>
+        </div>
+        <div class="mini-stats">
+          <div><div class="v">${b.score.toFixed(1)}</div><div class="k">Avg score</div></div>
+          <div><div class="v">${b.n_prod}</div><div class="k">Products</div></div>
+          <div><div class="v" style="color: ${b.recalls === 0 ? 'var(--green-deep)' : 'var(--red-deep)'};">${b.recalls}</div><div class="k">Recalls</div></div>
+          <div><div class="v" style="color: ${b.dev_pct < 5 ? 'var(--green-deep)' : (b.dev_pct < 10 ? '#8a6b00' : 'var(--red-deep)')};">±${b.dev_pct}%</div><div class="k">Label Δ</div></div>
+        </div>
+        <a href="/brands/${b.slug}/" class="go">View brand →</a>
+      </div>
+    `;
+    document.getElementById('spotlight').innerHTML = html;
+  }
+
+  // Brand card HTML
+  function brandCardHTML(d) {
+    const certs = (d.certs || []).slice(0, 2).map(c => `<span class="tag green"><span class="dot"></span>${c}</span>`).join('');
+    const moreCerts = d.certs && d.certs.length > 2 ? `<span class="tag">+${d.certs.length - 2}</span>` : '';
+    const noCert = !d.certs || d.certs.length === 0 ? `<span class="tag red"><span class="dot"></span>No cert.</span>` : '';
+    const recallTag = d.recalls > 0 ? `<span class="recall">⚠ RECALL</span>` : '';
+    const devCls = d.dev_pct < 5 ? 'green' : (d.dev_pct > 10 ? 'red' : 'amber');
+    const href = '/brands/' + d.slug + '/';
+    return `
+      <a href="${href}" class="bnd">
+        ${recallTag}
+        <div class="mk">
+          <span class="letter">${d.initials || d.name[0]}</span>
+          <span class="ridge"></span>
+        </div>
+        <div class="body">
+          <div class="cat">${d.cat}</div>
+          <h3 class="nm">${d.name}</h3>
+          <p class="blurb">${d.blurb}</p>
+          <div class="row-stats">
+            <div><div class="v">${d.score.toFixed(1)}</div><div class="k">Avg score</div></div>
+            <div><div class="v">${d.n_prod}</div><div class="k">Products</div></div>
+            <div><div class="v ${devCls}">±${d.dev_pct}<small style="font-family: var(--f-mono); font-size: 0.6em; font-weight: 500; color: var(--mute); margin-left: 2px;">%</small></div><div class="k">Label Δ</div></div>
+          </div>
+          <div class="row-tags">
+            ${certs}${moreCerts}${noCert}
+            ${d.recalls > 0 ? `<span class="tag red"><span class="dot"></span>${d.recalls} recall${d.recalls > 1 ? 's' : ''}</span>` : ''}
+          </div>
+        </div>
+        <div class="trust">
+          <div class="gl">Trust</div>
+          <div class="gv ${d.trust[0]}">${d.trust}</div>
+          <div class="gd">grade</div>
+        </div>
+      </a>
+    `;
+  }
+
+  // Render brands grouped by first letter
+  function renderResults(visible) {
+    const empty = document.getElementById('ff-empty');
+    const root = document.getElementById('ff-results');
+    if (!visible.length) { empty.style.display = 'block'; root.innerHTML = ''; return; }
+    empty.style.display = 'none';
+
+    // Group by first letter (only when sort is alphabetical or trust)
+    const sort = filterCtl.state.sort;
+    if (sort === 'alpha' || sort === 'trust') {
+      const groups = {};
+      visible.forEach(b => {
+        const k = (b.name[0] || '?').toUpperCase();
+        (groups[k] = groups[k] || []).push(b);
+      });
+      const html = Object.keys(groups).sort().map(letter => `
+        <div class="letter-head" id="letter-${letter}">
+          <div class="l">${letter}</div>
+          <div class="n">${groups[letter].length} brand${groups[letter].length === 1 ? '' : 's'}</div>
+        </div>
+        <div class="b-grid">${groups[letter].map(brandCardHTML).join('')}</div>
+      `).join('');
+      root.innerHTML = html;
+    } else {
+      root.innerHTML = '<div class="b-grid">' + visible.map(brandCardHTML).join('') + '</div>';
+    }
+  }
+
+  let filterCtl;
+
+  window.FITLAB.ready.then(() => {
+    const brands = (window.FITLAB.data.brands && window.FITLAB.data.brands.brands) || [];
+    if (!brands.length) {
+      document.getElementById('ff-results').innerHTML = '<p style="padding: 40px; text-align: center; color: var(--mute);">Data failed to load. <a href="/" style="color: var(--red);">Reload</a></p>';
+      return;
+    }
+
+    // Render sidebar (after data so recent block can use live data)
+    window.renderSidebar(document.getElementById('rail-host'), 'brands');
+
+    buildAlphaStrip(brands);
+    const featured = brands.find(b => b.featured) || brands[0];
+    renderSpotlight(featured);
+
+    // Wire filter engine
+    filterCtl = window.FITLAB.createFilter({
+      items: brands.filter(b => b.slug !== (featured && featured.slug)), // exclude spotlight
+      searchFields: ['name', 'cat', 'blurb'],
+      pageSize: 12,
+      gridEl: document.getElementById('ff-results'),
+      pagerEl: document.getElementById('ff-pager'),
+      activeEl: document.getElementById('ff-active'),
+      searchEl: document.querySelector('.rail .ff-search'),
+      sortEl: document.getElementById('ff-sort'),
+      defaultSort: 'trust',
+      onCountChange: (n) => {
+        document.getElementById('ff-count').textContent = n;
+        const active = Object.values(filterCtl.state.filters).reduce((s, set) => s + set.size, 0) + (filterCtl.state.query ? 1 : 0);
+        document.getElementById('ff-applied').textContent = active;
+      },
+      render: renderResults,
+      filterLabel: (k, v) => {
+        if (k === 'cert') return v;
+        if (k === 'trust') return 'Trust ' + v;
+        if (k === 'region') return v;
+        if (k === 'cat') return v;
+        return v;
+      },
+      filters: {
+        cat: (b, v) => (b.cat || '').toLowerCase().includes(v.toLowerCase()),
+        region: (b, v) => v === 'US-based' ? b.region === 'US' : (b.region && v.toLowerCase().includes(b.region.toLowerCase())),
+        trust: (b, v) => (b.trust || '').startsWith(v),
+        cert: (b, v) => (b.certs || []).some(c => c.toLowerCase().includes(v.toLowerCase().split(' ')[0])),
+      },
+      sorts: {
+        trust: (a, b) => {
+          const order = { 'A+': 0, A: 1, 'B+': 2, B: 3, C: 4, D: 5, F: 6 };
+          return (order[a.trust] || 9) - (order[b.trust] || 9) || b.score - a.score;
+        },
+        score: (a, b) => b.score - a.score,
+        products: (a, b) => b.n_prod - a.n_prod,
+        dev: (a, b) => a.dev_pct - b.dev_pct,
+        alpha: (a, b) => a.name.localeCompare(b.name),
+      }
+    });
+
+    // Apply SEO metadata
+    window.FITLAB.applySEO({
+      type: 'index',
+      title: 'All Supplement Brands — Independent Trust Ratings · Fitlab',
+      description: 'Independent trust ratings for 89 supplement brands. Lab-verified manufacturing, CoA practices, recall history, and per-product scores. No paid placements.',
+    });
+  });
+</script>
+</body>
+</html>

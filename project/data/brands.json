@@ -1,0 +1,429 @@
+{
+  "meta": {
+    "count": 89,
+    "audited_q2_pct": 81,
+    "under_dose_pct": 34,
+    "fail_pct": 19,
+    "avg_dev_pct": 4.8,
+    "last_audit": "2026-05-12"
+  },
+  "brands": [
+    {
+      "slug": "transparent-labs",
+      "name": "Transparent Labs",
+      "letter": "T",
+      "initials": "T",
+      "cat": "Protein · Pre-workout · Multis",
+      "region": "US",
+      "hq": "Broomfield, CO",
+      "founded": 2012,
+      "blurb": "The only protein brand we cover that has never failed an independent re-assay. Per-lot CoAs published. Manufacturer named. No proprietary blends in any SKU.",
+      "score": 9.2,
+      "n_prod": 14,
+      "recalls": 0,
+      "dev_pct": 1.1,
+      "trust": "A+",
+      "certs": [
+        "NSF for Sport",
+        "Informed Sport",
+        "cGMP",
+        "Per-lot CoAs"
+      ],
+      "featured": true,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 10,
+        "lab_verify": 9.8,
+        "mfg": 9.4,
+        "track_record": 9.9,
+        "pricing": 8.4
+      },
+      "mfg": {
+        "location": "Tennessee, USA",
+        "cgmp_audit": "Annual, last May 2026",
+        "lab_partner": "Eurofins-Madison (ISO-17025)"
+      },
+      "mfg_blurb": "Single contract manufacturer for protein and pre-workout SKUs: Allied Manufacturing in TN, a 280,000 sq ft cGMP-audited facility. Whey sourced from two Wisconsin grass-fed cooperatives. Creatine is Creapure®. Testing partner is Eurofins-Madison.",
+      "who_blurb": "Founded by Jesse Hamonic (chemistry, Univ. of Saskatchewan) in 2012, acquired by Cornerstone Health Brands in 2021. Original technical team — including the formulator who designed the WPI assay — remains in place.",
+      "products": [
+        {
+          "slug": "transparent-labs-wpi",
+          "name": "100% Grass-Fed WPI",
+          "cat": "Whey isolate · 1lb / 5lb",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 4,
+          "last": "May 14, 2026"
+        },
+        {
+          "name": "StimSeries Pre-Workout",
+          "cat": "Pre-workout · Clinical-dose",
+          "illus": "shaker",
+          "score": 9,
+          "pick": true,
+          "audits": 3,
+          "last": "Apr 22, 2026"
+        },
+        {
+          "name": "Creatine HMB",
+          "cat": "Creatine mono · 30 serv.",
+          "illus": "pouch",
+          "score": 9.2,
+          "pick": true,
+          "audits": 3,
+          "last": "Apr 08, 2026"
+        },
+        {
+          "name": "WellnessSeries Multi",
+          "cat": "Multivitamin · Bioactive",
+          "illus": "bottle",
+          "score": 8.8,
+          "pick": true,
+          "audits": 3,
+          "last": "Mar 18, 2026"
+        },
+        {
+          "name": "ProteinSeries Casein",
+          "cat": "Casein · Slow-release",
+          "illus": "tub",
+          "score": 9,
+          "pick": true,
+          "audits": 2,
+          "last": "Mar 02, 2026"
+        },
+        {
+          "name": "ProteinSeries Mass Gainer",
+          "cat": "Mass gainer · 750 kcal",
+          "illus": "tub",
+          "score": 7.8,
+          "pick": false,
+          "audits": 2,
+          "last": "Feb 24, 2026"
+        },
+        {
+          "name": "BCAA Glutamine",
+          "cat": "Recovery · Intra-workout",
+          "illus": "shaker",
+          "score": 8.6,
+          "pick": true,
+          "audits": 1,
+          "last": "Feb 12, 2026"
+        },
+        {
+          "name": "WellnessSeries Women's",
+          "cat": "Multivitamin · Iron + Folate",
+          "illus": "bottle",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "Jan 28, 2026"
+        },
+        {
+          "name": "StimSeries Fat Burner",
+          "cat": "Thermogenic · Caffeine-led",
+          "illus": "bottle",
+          "score": 8,
+          "pick": false,
+          "audits": 2,
+          "last": "Jan 14, 2026"
+        },
+        {
+          "name": "GreensSeries Powder",
+          "cat": "Greens · Whole-food",
+          "illus": "jar",
+          "score": 9,
+          "pick": true,
+          "audits": 2,
+          "last": "Dec 18, 2025"
+        },
+        {
+          "name": "CoreSeries Recovery",
+          "cat": "Post-workout · BCAA + tart cherry",
+          "illus": "pouch",
+          "score": 8.8,
+          "pick": true,
+          "audits": 2,
+          "last": "Nov 11, 2025"
+        },
+        {
+          "name": "Vitamin D3 + K2",
+          "cat": "D3 + MK-7 · Liquid drops",
+          "illus": "bottle",
+          "score": 9.2,
+          "pick": true,
+          "audits": 2,
+          "last": "Oct 22, 2025"
+        },
+        {
+          "name": "Omega-3 Fish Oil",
+          "cat": "EPA/DHA · IFOS 5-star",
+          "illus": "bottle",
+          "score": 8.4,
+          "pick": false,
+          "audits": 2,
+          "last": "Sep 16, 2025"
+        },
+        {
+          "name": "Magnesium Bisglycinate",
+          "cat": "Magnesium · Chelated",
+          "illus": "bottle",
+          "score": 8.6,
+          "pick": false,
+          "audits": 1,
+          "last": "Aug 04, 2025"
+        }
+      ]
+    },
+    {
+      "slug": "dymatize",
+      "name": "Dymatize",
+      "letter": "D",
+      "initials": "D",
+      "cat": "Whey isolate · Hydrolyzed",
+      "region": "US",
+      "hq": "Dallas, TX",
+      "founded": 1994,
+      "blurb": "ISO-100 is one of the few sub-$50/lb whey isolates we recommend. Consistent across 4 audits with strong dosing accuracy and informed-choice certification.",
+      "score": 9,
+      "n_prod": 4,
+      "recalls": 0,
+      "dev_pct": 1.6,
+      "trust": "A",
+      "certs": [
+        "Informed Choice",
+        "cGMP"
+      ],
+      "has_detail": false,
+      "trust_breakdown": {
+        "disclosure": 9.4,
+        "lab_verify": 9,
+        "mfg": 9.2,
+        "track_record": 9.6,
+        "pricing": 9.6
+      }
+    },
+    {
+      "slug": "garden-of-life",
+      "name": "Garden of Life",
+      "letter": "G",
+      "initials": "G",
+      "cat": "Whole-food multivitamin",
+      "region": "US",
+      "hq": "Palm Beach Gardens, FL",
+      "founded": 2000,
+      "blurb": "Whole-food positioning is real, not marketing. mykind line is one of the cleanest multivitamins we test. Acquired by Nestlé in 2017; quality has not visibly slipped.",
+      "score": 8.6,
+      "n_prod": 14,
+      "recalls": 0,
+      "dev_pct": 2.4,
+      "trust": "A",
+      "certs": [
+        "NSF Certified",
+        "USDA Organic",
+        "Non-GMO Project"
+      ],
+      "has_detail": false,
+      "trust_breakdown": {
+        "disclosure": 9,
+        "lab_verify": 8.8,
+        "mfg": 9.4,
+        "track_record": 9,
+        "pricing": 7.4
+      }
+    },
+    {
+      "slug": "thorne",
+      "name": "Thorne",
+      "letter": "T",
+      "initials": "Th",
+      "cat": "Pharmaceutical-grade · Practitioner",
+      "region": "US",
+      "hq": "Summerville, SC",
+      "founded": 1984,
+      "blurb": "The Mayo Clinic's official supplement partner. NSF Certified for Sport across nearly every product. Creapure®-sourced creatine, and pharmaceutical GMP manufacturing.",
+      "score": 9,
+      "n_prod": 18,
+      "recalls": 0,
+      "dev_pct": 1.4,
+      "trust": "A",
+      "certs": [
+        "NSF Certified for Sport",
+        "cGMP",
+        "TGA Listed"
+      ],
+      "has_detail": false,
+      "trust_breakdown": {
+        "disclosure": 9.2,
+        "lab_verify": 9.4,
+        "mfg": 9.8,
+        "track_record": 9.4,
+        "pricing": 7.2
+      }
+    },
+    {
+      "slug": "ghost-lifestyle",
+      "name": "Ghost Lifestyle",
+      "letter": "G",
+      "initials": "Gh",
+      "cat": "Pre-workout · Lifestyle brand",
+      "region": "US",
+      "hq": "Chicago, IL",
+      "founded": 2016,
+      "blurb": "Flavor-forward but actually clinical on caffeine and beta-alanine. Sweetener-heavy. The transparency-first brand for the lifestyle-fitness market.",
+      "score": 7.6,
+      "n_prod": 8,
+      "recalls": 0,
+      "dev_pct": 4.2,
+      "trust": "B",
+      "certs": [
+        "Informed Sport",
+        "cGMP"
+      ],
+      "has_detail": false,
+      "trust_breakdown": {
+        "disclosure": 8.6,
+        "lab_verify": 7.8,
+        "mfg": 8.2,
+        "track_record": 7.8,
+        "pricing": 6.8
+      }
+    },
+    {
+      "slug": "bsn",
+      "name": "BSN",
+      "letter": "B",
+      "initials": "B",
+      "cat": "Bodybuilding · Mass-market",
+      "region": "US",
+      "hq": "Boca Raton, FL",
+      "founded": 2001,
+      "blurb": "Syntha-6 line uses proprietary blends; True-Mass is honest. Brand quality varies by SKU. Owned by Glanbia.",
+      "score": 6.8,
+      "n_prod": 8,
+      "recalls": 0,
+      "dev_pct": 7.8,
+      "trust": "C",
+      "certs": [
+        "Informed Choice"
+      ],
+      "has_detail": false,
+      "trust_breakdown": {
+        "disclosure": 5.4,
+        "lab_verify": 7.2,
+        "mfg": 7.6,
+        "track_record": 7,
+        "pricing": 7.8
+      }
+    },
+    {
+      "slug": "bulk-powders",
+      "name": "Bulk Powders",
+      "letter": "B",
+      "initials": "Bp",
+      "cat": "EU bulk · No frills",
+      "region": "EU",
+      "hq": "Essex, UK",
+      "founded": 2006,
+      "blurb": "EU sourcing, transparent CoAs. The closest UK equivalent to Transparent Labs at half the price. Acquired by The Hut Group in 2018.",
+      "score": 8,
+      "n_prod": 11,
+      "recalls": 0,
+      "dev_pct": 2.4,
+      "trust": "B",
+      "certs": [
+        "cGMP",
+        "Informed Sport"
+      ],
+      "has_detail": false,
+      "trust_breakdown": {
+        "disclosure": 8.4,
+        "lab_verify": 8,
+        "mfg": 8.2,
+        "track_record": 8,
+        "pricing": 8.8
+      }
+    },
+    {
+      "slug": "optimum-nutrition",
+      "name": "Optimum Nutrition",
+      "letter": "O",
+      "initials": "ON",
+      "cat": "Whey blend · Established 1987",
+      "region": "US",
+      "hq": "Aurora, IL",
+      "founded": 1987,
+      "blurb": "Gold Standard line: solid baseline whey, mid-market price, mass-market reach. Some prop. blends in the broader catalog. 38-year track record.",
+      "score": 7.2,
+      "n_prod": 12,
+      "recalls": 1,
+      "dev_pct": 5.8,
+      "trust": "C",
+      "certs": [
+        "Informed Sport"
+      ],
+      "has_detail": false,
+      "trust_breakdown": {
+        "disclosure": 6.6,
+        "lab_verify": 7.4,
+        "mfg": 8,
+        "track_record": 6.8,
+        "pricing": 8.4
+      }
+    },
+    {
+      "slug": "body-fortress",
+      "name": "Body Fortress",
+      "letter": "B",
+      "initials": "Bf",
+      "cat": "Bargain mass-market",
+      "region": "US",
+      "hq": "Bohemia, NY",
+      "founded": 1989,
+      "blurb": "Under-dosed across nearly every SKU. The \"ISO-100\" naming is misleading on protein percentage. Quality has been inconsistent since the 2018 ownership change.",
+      "score": 5.4,
+      "n_prod": 6,
+      "recalls": 1,
+      "dev_pct": 21.6,
+      "trust": "D",
+      "certs": [],
+      "has_detail": false,
+      "alert": true,
+      "trust_breakdown": {
+        "disclosure": 4,
+        "lab_verify": 5.4,
+        "mfg": 5.8,
+        "track_record": 5,
+        "pricing": 7
+      }
+    },
+    {
+      "slug": "momentous",
+      "name": "Momentous",
+      "letter": "M",
+      "initials": "Mo",
+      "cat": "Performance · Recovery",
+      "region": "US",
+      "hq": "Park City, UT",
+      "founded": 2017,
+      "blurb": "NSF Certified for Sport. Andrew Huberman is involved with the brand. Doses are clinical where they matter; pricing is at the high end of the category.",
+      "score": 8.6,
+      "n_prod": 12,
+      "recalls": 0,
+      "dev_pct": 2.8,
+      "trust": "A",
+      "certs": [
+        "NSF for Sport",
+        "Informed Sport"
+      ],
+      "has_detail": false,
+      "trust_breakdown": {
+        "disclosure": 8.8,
+        "lab_verify": 9,
+        "mfg": 8.6,
+        "track_record": 8.4,
+        "pricing": 7
+      }
+    }
+  ]
+}

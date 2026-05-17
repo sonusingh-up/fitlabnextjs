@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function() {
+  var pn = window.location.pathname;
+  var preview = pn.match(/^(.*\/serve\/)/);
+  var base;
+  if (preview) {
+    base = preview[1];
+  } else {
+    var depth = pn.replace(/\/[^\/]*$/, '').split('/').filter(Boolean).length;
+    base = depth === 0 ? './' : new Array(depth + 1).join('../');
+  }
+  document.write('<base href="' + base + '">');
+})();
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Research · Fitlab</title>
+<link rel="stylesheet" href="assets/tokens.css"/>
+<link rel="stylesheet" href="assets/shared.css"/>
+<style>
+  .idx-hero { border-bottom: 1px solid var(--ink); padding: 32px 0; }
+  .idx-hero h1 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(56px, 8vw, 128px);
+    line-height: 0.86; letter-spacing: -0.02em;
+    text-transform: uppercase; margin: 0;
+  }
+  .idx-hero .meta-grid {
+    display: grid; grid-template-columns: 1fr auto auto auto auto;
+    gap: 28px; align-items: end; margin-top: 18px;
+    padding-top: 18px; border-top: 1px solid var(--line-2);
+  }
+  .idx-hero .lede { max-width: 540px; font-size: 16px; line-height: 1.45; color: var(--ink-2); }
+  .idx-hero .stat { border-left: 1px solid var(--line-2); padding-left: 16px; min-width: 84px; }
+  .idx-hero .stat .v { font-family: var(--f-display); font-weight: 700; font-size: 32px; line-height: 0.95; }
+  .idx-hero .stat .k { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; color: var(--mute); text-transform: uppercase; margin-top: 4px; }
+
+  /* Research paper card */
+  .paper {
+    background: var(--paper);
+    border: 1px solid var(--line-2);
+    padding: 24px;
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: 70px 1fr 140px;
+    gap: 24px;
+    transition: all 0.15s;
+  }
+  .paper:hover { border-color: var(--ink); }
+  .paper.lead {
+    grid-template-columns: 80px 1fr 200px;
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+    padding: 32px;
+  }
+  .paper.lead .pid, .paper.lead .meta-row, .paper.lead .key { color: var(--mute-2); }
+  .paper.lead .key b { color: var(--paper); }
+  .paper .pid {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+  .paper .ptype {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .paper h3 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 26px; line-height: 0.96;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    margin: 0 0 10px;
+  }
+  .paper.lead h3 { font-size: 40px; line-height: 0.94; }
+  .paper .key {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 0 0 12px;
+    max-width: 620px;
+  }
+  .paper.lead .key { font-size: 17px; color: rgba(246,244,239,0.85); }
+  .paper .meta-row {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    color: var(--mute);
+    text-transform: uppercase;
+    display: flex; gap: 12px; align-items: center;
+    flex-wrap: wrap;
+  }
+  .paper .meta-row b { color: var(--ink); font-weight: 600; }
+  .paper.lead .meta-row b { color: var(--paper); }
+
+  .grade {
+    text-align: center;
+    align-self: start;
+    padding: 14px;
+    background: var(--paper-2);
+    border: 1px solid var(--line-2);
+  }
+  .paper.lead .grade { background: rgba(255,255,255,0.04); border-color: var(--ink-3); }
+  .grade .gl {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    color: var(--mute);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .grade .gv {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .grade .gv.A { color: var(--green-deep); }
+  .grade .gv.B { color: var(--ink); }
+  .grade .gv.C { color: #8a6b00; }
+  .grade .gv.D { color: var(--red-deep); }
+  .paper.lead .grade .gv.A { color: var(--green); }
+  .grade .gd {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--mute);
+    text-transform: uppercase;
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--line-2);
+  }
+  .paper.lead .grade .gd { border-color: var(--ink-3); }
+
+  @media (max-width: 720px) {
+    .idx-hero { padding: 20px 0 24px; }
+    .idx-hero h1 { font-size: clamp(48px, 14vw, 88px); }
+    .idx-hero .meta-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    .idx-hero .lede {
+      grid-column: 1 / -1;
+      font-size: 14.5px;
+      margin-bottom: 8px;
+    }
+    .idx-hero .stat { min-width: 0; padding-left: 10px; }
+    .idx-hero .stat .v { font-size: 22px; }
+    .idx-hero .stat .k { font-size: 9px; }
+
+    .paper {
+      grid-template-columns: 50px 1fr 90px;
+      gap: 14px;
+      padding: 18px;
+    }
+    .paper.lead {
+      grid-template-columns: 50px 1fr 90px;
+      padding: 22px 18px;
+      gap: 14px;
+    }
+    .paper h3 { font-size: 20px; }
+    .paper.lead h3 { font-size: 26px; }
+    .paper .key { font-size: 13px; }
+    .paper.lead .key { font-size: 14.5px; }
+    .paper .meta-row { font-size: 9.5px; gap: 8px; }
+    .paper .pid { font-size: 10px; }
+    .grade { padding: 10px; }
+    .grade .gv { font-size: 32px; }
+    .grade .gd { font-size: 9px; }
+  }
+
+  @media (max-width: 480px) {
+    .paper, .paper.lead {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .paper .pid { font-size: 10.5px; }
+    .grade { padding: 12px; display: flex; gap: 16px; justify-content: center; align-items: center; }
+    .grade .gl { margin: 0; }
+    .grade .gv { font-size: 28px; }
+    .grade .gd { margin-top: 0; padding-top: 0; border-top: 0; }
+  }
+</style>
+</head>
+<body data-page="research">
+
+<div id="site-head-mount"></div>
+
+<div class="sub-nav">
+  <div class="container">
+    <div class="sub-nav-inner">
+      <a href="research.html" class="active">All briefs</a>
+      <a href="#">Meta-analysis</a>
+      <a href="#">Ingredient deep-dives</a>
+      <a href="#">Lab reports</a>
+      <a href="#">Q-reports</a>
+      <a href="#">Pharmacokinetics</a>
+      <span class="spacer"></span>
+      <span class="meta">102 briefs · 412 citations</span>
+    </div>
+  </div>
+</div>
+
+<section class="idx-hero">
+  <div class="container">
+    <div class="kicker" style="color: var(--red); margin-bottom: 16px;">RESEARCH · PEER-REVIEWED · INTERNAL</div>
+    <h1>Research<br/>briefs.</h1>
+    <div class="meta-grid">
+      <p class="lede">Plain-language summaries of the studies behind our scoring. Every brief is graded on evidence strength (A–F) using a modified GRADE framework. We re-grade quarterly.</p>
+      <div class="stat"><div class="v">102</div><div class="k">Briefs</div></div>
+      <div class="stat"><div class="v">412</div><div class="k">Citations</div></div>
+      <div class="stat"><div class="v">38</div><div class="k">Ingredients</div></div>
+      <div class="stat"><div class="v" style="color: var(--green-deep);">12</div><div class="k">Grade A+</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="container" style="padding-top: 28px; padding-bottom: 56px;">
+  <div class="with-rail">
+    <!-- Mobile filter toggle -->
+    <button class="rail-toggle" id="rail-toggle" aria-expanded="false" type="button">
+      <span class="rt-left">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h10M5 8h6M7 11h2"/></svg>
+        Filters
+        <span class="rt-count">2</span>
+      </span>
+      <span class="rt-arr">▾</span>
+    </button>
+
+    <aside class="rail" id="rail-host"></aside>
+
+    <main>
+      <div class="toolbar">
+        <div class="results"><b id="ff-count">—</b> briefs · <span id="ff-applied">0</span> filters applied</div>
+        <div class="actions">
+          <select id="ff-sort">
+            <option value="recent">Sort · Newest first</option>
+            <option value="grade">Highest evidence grade</option>
+            <option value="cited">Most cited</option>
+            <option value="reads">Most read</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Active filters -->
+      <div id="ff-active" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px;"></div>
+
+      <!-- Featured lead -->
+      <article id="featured-paper"></article>
+
+      <!-- Results -->
+      <div id="ff-results"></div>
+
+      <!-- Empty state -->
+      <div id="ff-empty" style="display: none; padding: 60px 20px; text-align: center; border: 1px dashed var(--line-2); color: var(--mute);">
+        <div style="font-family: var(--f-display); font-weight: 700; font-size: 32px; text-transform: uppercase; color: var(--ink); margin-bottom: 8px;">No briefs match.</div>
+        <p style="font-size: 14px; max-width: 420px; margin: 0 auto 16px;">Try removing some filters or broadening your search.</p>
+        <button class="ff-reset" style="font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; padding: 10px 18px; background: var(--ink); color: var(--paper); border: 0; cursor: pointer;">Reset filters</button>
+      </div>
+
+      <div class="pager" id="ff-pager"></div>
+    </main>
+  </div>
+</div>
+
+<div id="site-foot-mount"></div>
+
+<script src="assets/illus.js"></script>
+<script src="assets/data-loader.js"></script>
+<script src="assets/filters.js"></script>
+<script src="assets/seo.js"></script>
+<script src="assets/consent.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/sidebar.js"></script>
+<script>
+  window.FITLAB.page = { type: 'index' };
+
+  const rt = document.getElementById('rail-toggle');
+  const rail = document.querySelector('.rail');
+  if (rt && rail) rt.addEventListener('click', () => {
+    const open = rail.classList.toggle('open');
+    rt.classList.toggle('open', open);
+    rt.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  function paperHTML(b, lead) {
+    const grade = (b.grade || '').charAt(0);
+    const idParts = b.id.split('-');
+    return `
+      <article class="paper ${lead ? 'lead' : ''}" style="margin-bottom: 16px;">
+        <div class="pid">${idParts[0]}<br/>${idParts[1] || ''}</div>
+        <div>
+          <div class="ptype">${b.type}${b.pick ? ' · ★ Editor\'s pick' : ''}</div>
+          <h3><a href="/research/${b.slug}/" style="color: inherit;">${b.title}</a></h3>
+          <p class="key">${b.key}</p>
+          <div class="meta-row">
+            <span><b>${b.author}</b></span><span>·</span>
+            <span>${window.FITLAB.fmtDateShort(b.date)}</span><span>·</span>
+            <span>${b.mins} min</span>
+            ${b.citations ? '<span>·</span><span>' + b.citations + ' citations</span>' : ''}
+            ${b.reads ? '<span>·</span><span style="color: var(--red);">' + b.reads.toLocaleString() + ' reads</span>' : ''}
+          </div>
+        </div>
+        <div class="grade">
+          <div class="gl">Evidence</div>
+          <div class="gv ${grade}">${b.grade}</div>
+          <div class="gd">${b.evidence || ''}</div>
+        </div>
+      </article>
+    `;
+  }
+
+  let filterCtl;
+
+  window.FITLAB.ready.then(() => {
+    const briefs = (window.FITLAB.data.research && window.FITLAB.data.research.briefs) || [];
+    if (!briefs.length) { document.getElementById('ff-results').innerHTML = '<p style="padding:40px;text-align:center;color:var(--mute);">Data failed to load.</p>'; return; }
+
+    window.renderSidebar(document.getElementById('rail-host'), 'research');
+
+    // Featured lead
+    const featured = briefs.find(b => b.pick) || briefs[0];
+    document.getElementById('featured-paper').innerHTML = paperHTML(featured, true);
+
+    filterCtl = window.FITLAB.createFilter({
+      items: briefs.filter(b => b.slug !== featured.slug),
+      searchFields: ['title', 'key', 'type', 'author'],
+      pageSize: 12,
+      gridEl: document.getElementById('ff-results'),
+      pagerEl: document.getElementById('ff-pager'),
+      activeEl: document.getElementById('ff-active'),
+      searchEl: document.querySelector('.rail .ff-search'),
+      sortEl: document.getElementById('ff-sort'),
+      defaultSort: 'recent',
+      onCountChange: (n) => {
+        document.getElementById('ff-count').textContent = n;
+        const active = Object.values(filterCtl.state.filters).reduce((s, set) => s + set.size, 0) + (filterCtl.state.query ? 1 : 0);
+        document.getElementById('ff-applied').textContent = active;
+      },
+      render: (visible) => {
+        const empty = document.getElementById('ff-empty');
+        const root = document.getElementById('ff-results');
+        if (!visible.length) { empty.style.display = 'block'; root.innerHTML = ''; return; }
+        empty.style.display = 'none';
+        root.innerHTML = visible.map(b => paperHTML(b, false)).join('');
+      },
+      filterLabel: (k, v) => v,
+      filters: {
+        cat: (b, v) => (b.type || '').toLowerCase().includes(v.toLowerCase().split(' ')[0]),
+        grade: (b, v) => (b.grade || '').toUpperCase() === v.toUpperCase(),
+      },
+      sorts: {
+        recent: (a, b) => (b.date || '').localeCompare(a.date || ''),
+        grade: (a, b) => {
+          const o = { 'A+': 0, A: 1, B: 2, C: 3, D: 4, F: 5 };
+          return (o[a.grade] || 9) - (o[b.grade] || 9);
+        },
+        cited: (a, b) => (b.citations || 0) - (a.citations || 0),
+        reads: (a, b) => (b.reads || 0) - (a.reads || 0),
+      }
+    });
+
+    window.FITLAB.applySEO({
+      type: 'index',
+      title: 'Research Briefs — Independent Supplement Science · Fitlab',
+      description: 'Plain-language summaries of the studies behind our scoring. Every brief graded on evidence strength (A–F) using a modified GRADE framework.',
+    });
+  });
+</script>
+</body>
+</html>

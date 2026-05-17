@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "count": 112,
+    "authors": 5
+  },
+  "posts": [
+    {
+      "slug": "proprietary-blends-tax",
+      "cat": "Opinion",
+      "title": "The 'proprietary blend' is the cleanest tax on the people who can't afford a chemist.",
+      "dek": "Brands hide doses behind the phrase 'proprietary blend' because they want to charge clinical-grade prices for sub-clinical doses. The math behind why it works, and a side-by-side reveal of 14 pre-workout labels we ran through the lab last month.",
+      "author": "Adrian Kojima",
+      "author_av": "AK",
+      "date": "2026-05-16",
+      "mins": 12,
+      "reads": 14829,
+      "pick": true,
+      "has_detail": true
+    },
+    {
+      "slug": "costco-supplement-aisle",
+      "cat": "Field report",
+      "title": "I visited four Costco supplement aisles. Here's the dosing spread.",
+      "dek": "The big-box channel has a different supply chain than DTC. Some of it is better. Most of it is worse. None of it is what you'd expect from the price tag.",
+      "author": "Mira J.",
+      "author_av": "MJ",
+      "date": "2026-05-14",
+      "mins": 11,
+      "reads": 8400,
+      "has_detail": false
+    },
+    {
+      "slug": "cost-per-clinical-serving",
+      "cat": "Explainer",
+      "title": "Cost-per-clinical-serving — the only supplement metric that matters.",
+      "dek": "Why we don't compare on cost-per-scoop, cost-per-pill, or cost-per-bottle. The math of clinical-effect dosing, explained with worked examples from the whey, creatine, and magnesium categories.",
+      "author": "Adrian K.",
+      "author_av": "AK",
+      "date": "2026-05-11",
+      "mins": 8,
+      "reads": 12100,
+      "has_detail": false
+    },
+    {
+      "slug": "ag1-q1-retest",
+      "cat": "Behind the score",
+      "title": "Why AG1 lost a full point in our Q1 re-test.",
+      "dek": "Greens powders are the hardest category we cover. We re-tested AG1 against our v3.2 rubric and the score dropped. Here's the chemistry behind it.",
+      "author": "Dr. Park",
+      "author_av": "SP",
+      "date": "2026-05-09",
+      "mins": 6,
+      "reads": 22800,
+      "has_detail": false
+    },
+    {
+      "slug": "dmaa-recalls-2026",
+      "cat": "Recall watch",
+      "title": "FDA recalls three pre-workout brands for undisclosed DMAA derivatives.",
+      "dek": "The substance keeps reappearing in 'clean' brands. A short field guide to what to look for on the label, with structures.",
+      "author": "Adrian K.",
+      "author_av": "AK",
+      "date": "2026-05-06",
+      "mins": 4,
+      "reads": 6900,
+      "has_detail": false
+    }
+  ]
+}

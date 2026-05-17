@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog · Fitlab</title>
+<link rel="stylesheet" href="assets/tokens.css"/>
+<link rel="stylesheet" href="assets/shared.css"/>
+<style>
+  .idx-hero { border-bottom: 1px solid var(--ink); padding: 32px 0 32px; }
+  .idx-hero h1 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(56px, 8vw, 128px);
+    line-height: 0.86; letter-spacing: -0.02em;
+    text-transform: uppercase; margin: 0;
+  }
+  .idx-hero .meta-grid {
+    display: grid; grid-template-columns: 1fr auto auto auto;
+    gap: 32px; align-items: end; margin-top: 18px;
+    padding-top: 18px; border-top: 1px solid var(--line-2);
+  }
+  .idx-hero .lede { max-width: 540px; font-size: 16px; line-height: 1.45; color: var(--ink-2); }
+  .idx-hero .stat { border-left: 1px solid var(--line-2); padding-left: 16px; min-width: 100px; }
+  .idx-hero .stat .v { font-family: var(--f-display); font-weight: 700; font-size: 36px; line-height: 0.95; }
+  .idx-hero .stat .k { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em; color: var(--mute); text-transform: uppercase; margin-top: 4px; }
+
+  /* Feature post (huge) */
+  .feature-post {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    padding: 40px;
+    margin-bottom: 32px;
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 32px;
+    position: relative;
+  }
+  .feature-post::before {
+    content: "FEATURED · MAY 16 · 2026";
+    position: absolute;
+    top: -1px; left: 24px;
+    background: var(--red);
+    color: var(--paper);
+    padding: 6px 12px 5px;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+  }
+  .feature-post .meta {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+    margin-top: 14px;
+  }
+  .feature-post h2 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(36px, 4vw, 64px);
+    line-height: 0.92; letter-spacing: -0.005em;
+    text-transform: uppercase; margin: 0 0 18px;
+  }
+  .feature-post .dek {
+    font-size: 17px; line-height: 1.5; color: var(--ink-2); max-width: 640px;
+    margin: 0 0 24px;
+  }
+  .feature-post .by {
+    display: flex; align-items: center; gap: 12px;
+    font-family: var(--f-mono); font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--mute);
+    padding-top: 16px; border-top: 1px solid var(--line-2);
+  }
+  .feature-post .by .av {
+    width: 28px; height: 28px; background: var(--ink); color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 700; border-radius: 50%;
+  }
+  .feature-post .by b { color: var(--ink); }
+  .feature-post .vis {
+    background: var(--paper-2);
+    border: 1px solid var(--line-2);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+    align-self: stretch;
+  }
+
+  /* Post row */
+  .post-list { display: flex; flex-direction: column; }
+  .post-row {
+    display: grid;
+    grid-template-columns: 70px 1fr 110px;
+    gap: 24px;
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .post-row:hover { background: var(--paper-2); margin: 0 -16px; padding-left: 16px; padding-right: 16px; }
+  .post-row:last-child { border-bottom: 1px solid var(--line); }
+  .post-row .num-id {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--mute);
+  }
+  .post-row .pcat {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .post-row h3 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 28px; line-height: 0.96;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    margin: 0 0 8px;
+    transition: color 0.15s;
+  }
+  .post-row:hover h3 { color: var(--red); }
+  .post-row .pdek {
+    font-size: 14px;
+    color: var(--ink-3);
+    line-height: 1.45;
+    max-width: 640px;
+  }
+  .post-row .pmeta {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-top: 8px;
+  }
+  .post-row .pmeta b { color: var(--ink); font-weight: 600; }
+  .post-row .pdate-col {
+    text-align: right;
+    font-family: var(--f-mono);
+  }
+  .post-row .pdate-col .d {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+  .post-row .pdate-col .min {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.0;
+    margin-top: 6px;
+  }
+  .post-row .pdate-col .min small {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    color: var(--mute);
+    margin-left: 4px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 720px) {
+    .idx-hero { padding: 20px 0 24px; }
+    .idx-hero h1 { font-size: clamp(48px, 14vw, 88px); }
+    .idx-hero .meta-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    .idx-hero .lede {
+      grid-column: 1 / -1;
+      font-size: 14.5px;
+      margin-bottom: 8px;
+    }
+    .idx-hero .stat { min-width: 0; padding-left: 12px; }
+    .idx-hero .stat .v { font-size: 24px; }
+
+    .feature-post {
+      grid-template-columns: 1fr;
+      padding: 28px 20px;
+      gap: 20px;
+    }
+    .feature-post::before {
+      left: 16px;
+      font-size: 9px;
+      padding: 5px 8px 4px;
+    }
+    .feature-post h2 { font-size: clamp(28px, 8vw, 44px); }
+    .feature-post .dek { font-size: 15px; }
+    .feature-post .vis { padding: 16px; align-self: center; }
+    .feature-post .vis svg { width: 100px; height: 120px; }
+    .feature-post .by { flex-wrap: wrap; gap: 8px; font-size: 9.5px; }
+
+    .post-row {
+      grid-template-columns: 50px 1fr;
+      gap: 14px;
+      padding: 20px 0;
+    }
+    .post-row .pdate-col {
+      grid-column: 2;
+      text-align: left;
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+      margin-top: 4px;
+    }
+    .post-row .pdate-col .min { font-size: 14px; display: inline; }
+    .post-row .pdate-col .min small { display: inline; margin-left: 2px; }
+    .post-row .pdate-col .d { font-size: 10px; display: inline; }
+    .post-row h3 { font-size: 22px; }
+    .post-row .pdek { font-size: 13px; }
+  }
+</style>
+</head>
+<body data-page="blog">
+
+<div id="site-head-mount"></div>
+
+<!-- Sub-nav -->
+<div class="sub-nav">
+  <div class="container">
+    <div class="sub-nav-inner">
+      <a href="blog.html" class="active">All posts</a>
+      <a href="#">Opinion</a>
+      <a href="#">Field reports</a>
+      <a href="#">Explainers</a>
+      <a href="#">Recall watch</a>
+      <a href="#">Behind the score</a>
+      <span class="spacer"></span>
+      <span class="meta">112 posts · 5 authors</span>
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="idx-hero">
+  <div class="container">
+    <div class="kicker" style="color: var(--red); margin-bottom: 16px;">FIELD NOTES · UPDATED WEEKLY</div>
+    <h1>The Blog.</h1>
+    <div class="meta-grid">
+      <p class="lede">What's happening behind the scoring. Opinions from our reviewers, field reports from the supplement aisle, and the explainers we wish someone had written for us.</p>
+      <div class="stat"><div class="v">112</div><div class="k">Posts</div></div>
+      <div class="stat"><div class="v">5</div><div class="k">Authors</div></div>
+      <div class="stat"><div class="v">2x</div><div class="k">/ Week</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="container" style="padding-top: 28px; padding-bottom: 56px;">
+  <div class="with-rail">
+
+    <!-- Sidebar -->
+    <aside class="rail" id="rail-host"></aside>
+
+    <!-- Content -->
+    <main>
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="results"><b>112</b> posts · <b>1</b> filter applied</div>
+        <div class="actions">
+          <button class="tabbtn on">List</button>
+          <button class="tabbtn">Grid</button>
+          <span style="width: 8px;"></span>
+          <select>
+            <option>Sort · Most recent</option>
+            <option>Most read</option>
+            <option>Oldest</option>
+            <option>By author</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Featured -->
+      <article class="feature-post">
+        <div>
+          <div class="meta">Opinion · 12 min read · ★ Most-read this week</div>
+          <h2>The 'proprietary blend' is the<br/>cleanest tax on the people who can't afford a chemist.</h2>
+          <p class="dek">Brands hide doses behind the phrase "proprietary blend" because they want to charge clinical-grade prices for sub-clinical doses. The math behind why it works, and a side-by-side reveal of fourteen pre-workout labels we ran through the lab last month.</p>
+          <a href="post.html" class="btn btn-red">Read the piece →</a>
+          <div class="by">
+            <div class="av">AK</div>
+            <span><b>Adrian Kojima</b></span>
+            <span style="opacity: 0.5;">·</span>
+            <span>Published May 16</span>
+            <span style="opacity: 0.5;">·</span>
+            <span><b>14,829</b> reads</span>
+          </div>
+        </div>
+        <div class="vis" id="feat-vis"></div>
+      </article>
+
+      <!-- Post list -->
+      <div class="post-list" id="post-list"></div>
+
+      <!-- Pager -->
+      <div class="pager">
+        <span class="on">1</span>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <span>…</span>
+        <a href="#">12</a>
+        <a href="#">→</a>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div id="site-foot-mount"></div>
+
+<script src="assets/illus.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/sidebar.js"></script>
+<script>
+  window.renderSidebar(document.getElementById('rail-host'), 'blog');
+  document.getElementById('feat-vis').innerHTML = `<svg viewBox="0 0 120 140" width="140" height="160" xmlns="http://www.w3.org/2000/svg">
+    <rect x="14" y="6" width="92" height="128" fill="#0a0a0a"/>
+    <rect x="14" y="30" width="92" height="14" fill="#c8412b"/>
+    <rect x="20" y="56" width="80" height="3" fill="#f6f4ef" opacity="0.4"/>
+    <rect x="20" y="64" width="60" height="3" fill="#f6f4ef" opacity="0.4"/>
+    <rect x="20" y="72" width="68" height="3" fill="#f6f4ef" opacity="0.4"/>
+    <rect x="20" y="80" width="44" height="3" fill="#f6f4ef" opacity="0.4"/>
+    <rect x="20" y="88" width="76" height="3" fill="#f6f4ef" opacity="0.4"/>
+    <rect x="20" y="96" width="56" height="3" fill="#f6f4ef" opacity="0.4"/>
+    <text x="60" y="118" font-family="Antonio" font-size="14" font-weight="700" fill="#c8412b" text-anchor="middle">PROP.</text>
+    <text x="60" y="130" font-family="Antonio" font-size="14" font-weight="700" fill="#c8412b" text-anchor="middle">BLEND</text>
+  </svg>`;
+
+  const posts = [
+    { id: '112', cat: 'Field report', date: 'May 14', mins: 11,
+      title: "I visited four Costco supplement aisles. Here's the dosing spread.",
+      dek: "The big-box channel has a different supply chain than DTC. Some of it is better. Most of it is worse. None of it is what you'd expect from the price tag.",
+      author: 'Mira J.', reads: '8.4k' },
+    { id: '111', cat: 'Explainer', date: 'May 11', mins: 8,
+      title: "Cost-per-clinical-serving — the only supplement metric that matters.",
+      dek: "Why we don't compare on cost-per-scoop, cost-per-pill, or cost-per-bottle. The math of clinical-effect dosing, explained with worked examples from the whey, creatine, and magnesium categories.",
+      author: 'Adrian K.', reads: '12.1k' },
+    { id: '110', cat: 'Behind the score', date: 'May 09', mins: 6,
+      title: "Why AG1 lost a full point in our Q1 re-test.",
+      dek: "Greens powders are the hardest category we cover. We re-tested AG1 against our v3.2 rubric and the score dropped. Here's the chemistry behind it.",
+      author: 'Dr. Park', reads: '22.8k' },
+    { id: '109', cat: 'Recall watch', date: 'May 06', mins: 4,
+      title: "FDA recalls three pre-workout brands for undisclosed DMAA derivatives.",
+      dek: "The substance keeps reappearing in 'clean' brands. A short field guide to what to look for on the label, with structures.",
+      author: 'Adrian K.', reads: '6.9k' },
+    { id: '108', cat: 'Industry', date: 'May 03', mins: 14,
+      title: "The supplement industry's quiet pivot from 'natural' to 'longevity'.",
+      dek: "What changed in the marketing copy of the top-20 brands over the past 18 months — and why it should make you skeptical of every new SKU launched in 2025.",
+      author: 'Mira J.', reads: '11.2k' },
+    { id: '107', cat: 'Opinion', date: 'Apr 30', mins: 7,
+      title: "Stop comparing creatine brands. Comparing creatine is comparing salt.",
+      dek: "Creatine monohydrate is the most boring molecule in sports nutrition. The price differences are pure marketing. The certifications matter; the brand does not.",
+      author: 'Adrian K.', reads: '34.6k' },
+    { id: '106', cat: 'Explainer', date: 'Apr 27', mins: 9,
+      title: "Folate, folic acid, methylfolate — the only B-vitamin confusion that matters.",
+      dek: "If your multivitamin lists folic acid, you may be wasting your money or worse. The pharmacology, the genetics, and the labels to look for.",
+      author: 'Dr. Park', reads: '18.0k' },
+    { id: '105', cat: 'Field report', date: 'Apr 23', mins: 12,
+      title: "I asked twenty supplement reps to defend their proprietary blends. Six answered.",
+      dek: "And four of those six admitted, in writing, that the blend's amounts were chosen 'for cost'. The conversations, lightly edited.",
+      author: 'Sam L.', reads: '14.2k' },
+    { id: '104', cat: 'Behind the score', date: 'Apr 20', mins: 6,
+      title: "Why we don't include taste in our scoring rubric.",
+      dek: "Subjective sensory tests are not what we're good at. Here's how taste actually factors in — and what to do if you hate the highest-scoring product.",
+      author: 'Adrian K.', reads: '5.4k' },
+    { id: '103', cat: 'Opinion', date: 'Apr 16', mins: 8,
+      title: "Influencer 'supplement stacks' are a category we will not review.",
+      dek: "A pre-bundled stack of seven supplements that costs $179/month is not a product. It's a subscription to your own credulity. The reasoning behind our policy.",
+      author: 'Mira J.', reads: '21.7k' },
+  ];
+
+  document.getElementById('post-list').innerHTML = posts.map(p => `
+    <a href="post.html" class="post-row">
+      <div class="num-id">${p.id}</div>
+      <div>
+        <div class="pcat">${p.cat}</div>
+        <h3>${p.title}</h3>
+        <p class="pdek">${p.dek}</p>
+        <div class="pmeta"><b>${p.author}</b> · ${p.reads} reads</div>
+      </div>
+      <div class="pdate-col">
+        <div class="d">${p.date}</div>
+        <div class="min">${p.mins}<small>min</small></div>
+      </div>
+    </a>
+  `).join('');
+</script>
+</body>
+</html>

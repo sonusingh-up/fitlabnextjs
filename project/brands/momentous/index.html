@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function() {
+  var pn = window.location.pathname;
+  var preview = pn.match(/^(.*\/serve\/)/);
+  var base;
+  if (preview) {
+    base = preview[1];
+  } else {
+    var depth = pn.replace(/\/[^\/]*$/, '').split('/').filter(Boolean).length;
+    base = depth === 0 ? './' : new Array(depth + 1).join('../');
+  }
+  document.write('<base href="' + base + '">');
+})();
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Transparent Labs — Independent Brand Audit · Fitlab</title>
+<meta name="description" content="14 products tested over 4 years, zero recalls, ±1.1% average label deviation. The full independent audit of Transparent Labs with per-product scores, CoA practice, manufacturing, and pricing analysis."/>
+<link rel="stylesheet" href="assets/tokens.css"/>
+<link rel="stylesheet" href="assets/shared.css"/>
+<style>
+  /* ===== Hero ===== */
+  .br-hero {
+    border-bottom: 1px solid var(--ink);
+    padding: 28px 0 0;
+    background: var(--paper);
+  }
+  .br-crumbs {
+    display: flex; gap: 8px; align-items: center;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 24px;
+  }
+  .br-crumbs a { color: var(--ink-2); }
+  .br-crumbs a:hover { color: var(--red); }
+  .br-crumbs .sep { opacity: 0.4; }
+
+  .br-id-row {
+    display: grid;
+    grid-template-columns: 240px 1fr 240px;
+    gap: 32px;
+    align-items: stretch;
+    padding-bottom: 32px;
+  }
+
+  /* Big monogram */
+  .br-mark {
+    background: var(--ink);
+    color: var(--paper);
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px;
+    position: relative;
+  }
+  .br-mark .lt {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 196px;
+    line-height: 0.78;
+    letter-spacing: -0.04em;
+    margin-bottom: -8px;
+  }
+  .br-mark .stripe {
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 8px;
+    background: var(--red);
+  }
+  .br-mark .meta {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    color: var(--mute-2);
+    text-transform: uppercase;
+    border-top: 1px solid var(--ink-3);
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+  .br-titles {
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .br-titles .cat {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+  .br-titles h1 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(56px, 7vw, 112px);
+    line-height: 0.86;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .br-titles h1 .small {
+    display: block;
+    font-size: 0.36em;
+    color: var(--mute);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .br-titles .verdict {
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 620px;
+    margin: 0;
+  }
+  .br-titles .verdict b { color: var(--ink); }
+  .br-titles .pills { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  /* Trust grade big block */
+  .br-grade {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .br-grade .top {
+    background: var(--green);
+    color: var(--paper);
+    padding: 18px 20px 16px;
+    text-align: center;
+  }
+  .br-grade .top .gl {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .br-grade .top .gv {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 88px;
+    line-height: 0.86;
+    letter-spacing: -0.02em;
+    margin: 4px 0 2px;
+  }
+  .br-grade .top .gd {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .br-grade .rows { display: flex; flex-direction: column; }
+  .br-grade .rows > div {
+    padding: 8px 16px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    border-top: 1px solid var(--line);
+  }
+  .br-grade .rows .l {
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .br-grade .rows .v {
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .br-grade .rows .v.g { color: var(--green-deep); }
+  .br-grade .rows .v.r { color: var(--red-deep); }
+
+  /* Fact strip */
+  .br-facts {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border: 1px solid var(--ink);
+    border-bottom: 0;
+    background: var(--paper);
+  }
+  .br-facts > div {
+    padding: 16px 18px;
+    border-right: 1px solid var(--ink);
+  }
+  .br-facts > div:last-child { border-right: 0; }
+  .br-facts .k {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 4px;
+  }
+  .br-facts .v {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 0.95;
+  }
+  .br-facts .v.g { color: var(--green-deep); }
+  .br-facts .v.r { color: var(--red-deep); }
+  .br-facts .v small {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--mute);
+    margin-left: 4px;
+    letter-spacing: 0.04em;
+  }
+  .br-facts .vs {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    color: var(--mute);
+    letter-spacing: 0.04em;
+    margin-top: 4px;
+  }
+
+  /* Sub-nav reuses .sub-nav */
+  /* ===== Section ===== */
+  .br-sec {
+    padding: 48px 0;
+    border-top: 1px solid var(--line);
+  }
+  .br-sec h2 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 0.94;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+    letter-spacing: -0.005em;
+  }
+  .br-sec .h-lbl {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .br-sec .h-lbl b {
+    background: var(--red); color: var(--paper); padding: 2px 6px; margin-right: 8px; font-weight: 700;
+  }
+  .br-sec .h-sub {
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 720px;
+    margin: 0 0 24px;
+  }
+  .br-sec .h-sub b { color: var(--ink); }
+  .br-sec .h-sub a { color: var(--red); text-decoration: underline; }
+
+  /* Trust rubric */
+  .trust-rubric {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border: 1px solid var(--ink);
+    background: var(--paper);
+  }
+  .trust-rubric > div {
+    padding: 20px;
+    border-right: 1px solid var(--ink);
+    display: flex; flex-direction: column;
+    gap: 12px;
+  }
+  .trust-rubric > div:last-child { border-right: 0; }
+  .trust-rubric .head {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .trust-rubric .qn {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: var(--red);
+    font-weight: 700;
+  }
+  .trust-rubric .score {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .trust-rubric .score.hi { color: var(--green-deep); }
+  .trust-rubric .score.mid { color: #8a6b00; }
+  .trust-rubric .score.lo { color: var(--red-deep); }
+  .trust-rubric h3 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.0;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .trust-rubric p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .trust-rubric .bar {
+    height: 4px;
+    background: var(--line);
+    position: relative;
+    margin-top: auto;
+  }
+  .trust-rubric .bar i {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    background: var(--ink);
+  }
+  .trust-rubric .bar i.hi { background: var(--green); }
+  .trust-rubric .bar i.mid { background: var(--amber); }
+  .trust-rubric .bar i.lo { background: var(--red); }
+  .trust-rubric .ftn {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.06em;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+
+  /* Portfolio (their products) */
+  .prtfl {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    overflow: hidden;
+  }
+  .prtfl-head {
+    display: grid;
+    grid-template-columns: 80px 1fr 90px 120px 90px 80px;
+    gap: 16px;
+    padding: 12px 22px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .prtfl-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 90px 120px 90px 80px;
+    gap: 16px;
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  .prtfl-row:hover { background: var(--paper-2); }
+  .prtfl-row:last-child { border-bottom: 0; }
+  .prtfl-img {
+    width: 56px; height: 70px;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .prtfl-img svg { width: 38px; height: 48px; }
+  .prtfl-name {
+    display: flex; flex-direction: column; gap: 4px;
+    min-width: 0;
+  }
+  .prtfl-name .pn {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.0;
+    text-transform: uppercase;
+  }
+  .prtfl-name .pc {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+  .prtfl-score {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 0.9;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    text-align: center;
+  }
+  .prtfl-score.hi { color: var(--green-deep); }
+  .prtfl-score.mid { color: #8a6b00; }
+  .prtfl-score small {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--mute);
+    margin-left: 2px;
+  }
+  .prtfl-status {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    line-height: 1.4;
+  }
+  .prtfl-status b { color: var(--ink); }
+  .prtfl-status .pill {
+    display: inline-block;
+    padding: 2px 6px;
+    background: var(--green-soft);
+    color: var(--green-deep);
+    border: 1px solid var(--green);
+    margin-right: 4px;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+  }
+  .prtfl-meta {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+    text-align: right;
+  }
+  .prtfl-meta .pd {
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .prtfl-cta {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    text-transform: uppercase;
+    text-align: right;
+  }
+  .prtfl-cta::after { content: " →"; color: var(--red); }
+
+  /* Verdict (right/wrong) */
+  .verdict-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+  }
+  .verdict-col {
+    padding: 28px;
+    border-right: 1px solid var(--ink);
+  }
+  .verdict-col:last-child { border-right: 0; }
+  .verdict-col h4 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 0.96;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .verdict-col.wrong h4 { color: var(--red); }
+  .verdict-col h4 .mk {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px;
+    background: var(--green);
+    color: var(--paper);
+    border-radius: 50%;
+    font-family: var(--f-mono);
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .verdict-col.wrong h4 .mk { background: var(--red); }
+  .verdict-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .verdict-col li {
+    padding: 12px 0;
+    border-top: 1px dashed var(--line);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .verdict-col li:first-child { border-top: 0; padding-top: 0; }
+  .verdict-col li b { color: var(--ink); font-weight: 700; }
+
+  /* Timeline */
+  .timeline {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    padding: 0;
+  }
+  .tl-row {
+    display: grid;
+    grid-template-columns: 110px 90px 1fr 110px;
+    gap: 24px;
+    align-items: center;
+    padding: 16px 22px;
+    border-bottom: 1px solid var(--line);
+  }
+  .tl-row:last-child { border-bottom: 0; }
+  .tl-row .d {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .tl-row .type {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border: 1px solid var(--line-2);
+    background: var(--paper-2);
+    text-align: center;
+    font-weight: 600;
+  }
+  .tl-row .type.test { background: var(--green-soft); color: var(--green-deep); border-color: var(--green); }
+  .tl-row .type.cert { background: var(--paper-2); color: var(--ink); border-color: var(--line-2); }
+  .tl-row .type.recall { background: var(--red-soft); color: var(--red-deep); border-color: var(--red); }
+  .tl-row .type.launch { background: #fef6e0; color: #6b4d00; border-color: var(--amber); }
+  .tl-row .ev {
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .tl-row .ev b { color: var(--ink); font-weight: 700; }
+  .tl-row .ref {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    text-align: right;
+    color: var(--mute);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .tl-row .ref a { color: var(--red); text-decoration: underline; }
+
+  /* Compare to peers */
+  .peers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--ink);
+    background: var(--paper);
+  }
+  .peer-col { border-right: 1px solid var(--ink); }
+  .peer-col:last-child { border-right: 0; }
+  .peer-head {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .peer-head.this { background: var(--ink); color: var(--paper); }
+  .peer-head .lbl {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 4px;
+  }
+  .peer-head.this .lbl { color: var(--red); }
+  .peer-head .nm {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.0;
+    text-transform: uppercase;
+  }
+  .peer-row {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--line);
+    min-height: 56px;
+  }
+  .peer-row:last-child { border-bottom: 0; }
+  .peer-row .k {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 4px;
+  }
+  .peer-row .v {
+    font-family: var(--f-mono);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .peer-row .v.green { color: var(--green-deep); }
+  .peer-row .v.red { color: var(--red-deep); }
+  .peer-row .v .big {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.0;
+  }
+
+  /* Where they manufacture / what they say */
+  .pull-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .pull-card {
+    border: 1px solid var(--line-2);
+    background: var(--paper);
+    padding: 24px;
+  }
+  .pull-card .qn {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--red);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .pull-card h3 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin: 0 0 14px;
+    letter-spacing: -0.005em;
+  }
+  .pull-card p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0 0 12px;
+  }
+  .pull-card p b { color: var(--ink); font-weight: 700; }
+  .pull-card dl {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    row-gap: 8px;
+    column-gap: 14px;
+    margin: 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+  }
+  .pull-card dt {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mute);
+    padding-top: 2px;
+  }
+  .pull-card dd { margin: 0; color: var(--ink-2); }
+  .pull-card dd b { color: var(--ink); }
+
+  /* Q&A blockquote (claims vs reality) */
+  .claims {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 36px 40px;
+    margin: 0;
+  }
+  .claims .lbl {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .claims h3 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 0.96;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+    letter-spacing: -0.005em;
+  }
+  .claim-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding: 20px 0;
+    border-top: 1px solid var(--ink-3);
+  }
+  .claim-row:last-child { border-bottom: 1px solid var(--ink-3); }
+  .claim-row .side {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .claim-row .tag-lbl {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .claim-row .claim .tag-lbl { color: var(--mute-2); }
+  .claim-row .reality .tag-lbl { color: var(--red); }
+  .claim-row .txt {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--paper);
+    opacity: 0.9;
+  }
+  .claim-row .reality .txt { opacity: 1; }
+  .claim-row .txt b { color: var(--paper); font-weight: 700; }
+
+  /* Where to buy summary */
+  .where-buy {
+    background: var(--paper-2);
+    border: 1px solid var(--line-2);
+    padding: 22px 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 22px;
+  }
+  .where-buy > div { border-right: 1px solid var(--line); padding-right: 22px; }
+  .where-buy > div:last-child { border-right: 0; }
+  .where-buy .k {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 6px;
+  }
+  .where-buy .v {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.05;
+    margin-bottom: 4px;
+  }
+  .where-buy .vd {
+    font-size: 12px;
+    color: var(--ink-3);
+    line-height: 1.45;
+  }
+
+  /* Disclosure note */
+  .br-disc {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 20px;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-left: 3px solid var(--red);
+    line-height: 1.5;
+    margin-top: 14px;
+  }
+  .br-disc b { color: var(--red); font-weight: 700; }
+
+  /* Bottom CTA */
+  .br-cta {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin: 48px 0;
+  }
+  .br-cta h3 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: 0.92;
+    text-transform: uppercase;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+  }
+  .br-cta h3 em { font-style: normal; color: var(--red); }
+  .br-cta p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--paper);
+    opacity: 0.85;
+    margin: 0;
+  }
+
+  /* Updates log */
+  .br-updates {
+    border: 1px solid var(--line);
+    background: var(--paper-2);
+    padding: 22px 26px;
+  }
+  .br-updates h4 {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0 0 14px;
+    color: var(--ink);
+  }
+  .br-updates ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .br-updates li {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 14px;
+    font-size: 13px;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .br-updates li:last-child { border-bottom: 0; }
+  .br-updates li .d {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--mute);
+    letter-spacing: 0.06em;
+  }
+
+  @media (max-width: 980px) {
+    .br-id-row { grid-template-columns: 1fr 1fr; }
+    .br-id-row .br-titles { order: -1; grid-column: 1 / -1; }
+    .br-facts { grid-template-columns: repeat(3, 1fr); }
+    .br-facts > div:nth-child(3n) { border-right: 0; }
+    .br-facts > div:nth-child(-n+3) { border-bottom: 1px solid var(--ink); }
+    .trust-rubric { grid-template-columns: 1fr 1fr; }
+    .trust-rubric > div { border-right: 0 !important; border-bottom: 1px solid var(--ink); }
+    .trust-rubric > div:nth-child(odd) { border-right: 1px solid var(--ink) !important; }
+    .prtfl-head { display: none; }
+    .prtfl-row { grid-template-columns: 56px 1fr 70px; gap: 12px; }
+    .prtfl-row > div:nth-child(4), .prtfl-row > div:nth-child(5), .prtfl-row > div:nth-child(6) { display: none; }
+    .verdict-grid { grid-template-columns: 1fr; }
+    .verdict-col { border-right: 0; border-bottom: 1px solid var(--ink); }
+    .verdict-col:last-child { border-bottom: 0; }
+    .peers-grid { grid-template-columns: 1fr 1fr; }
+    .peer-col:nth-child(2) { border-right: 0; }
+    .peer-col:nth-child(-n+2) { border-bottom: 1px solid var(--ink); }
+    .pull-grid { grid-template-columns: 1fr; }
+    .where-buy { grid-template-columns: 1fr 1fr; }
+    .where-buy > div:nth-child(2) { border-right: 0; padding-right: 0; }
+    .where-buy > div:nth-child(-n+2) { border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 16px; }
+    .br-cta { grid-template-columns: 1fr; padding: 32px; gap: 24px; }
+    .claim-row { grid-template-columns: 1fr; gap: 14px; }
+  }
+
+  @media (max-width: 720px) {
+    .br-hero { padding-top: 18px; }
+    .br-crumbs { font-size: 9.5px; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
+    .br-id-row { grid-template-columns: 1fr; gap: 16px; padding-bottom: 22px; }
+
+    /* Compact horizontal monogram on phone (not full-square) */
+    .br-mark {
+      aspect-ratio: auto;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 24px 22px;
+    }
+    .br-mark .stripe { height: 6px; }
+    .br-mark .lt {
+      font-size: 80px;
+      line-height: 0.85;
+      margin: 0;
+    }
+    .br-mark .meta {
+      font-size: 8.5px;
+      border-top: 0;
+      padding-top: 0;
+      margin-top: 0;
+      text-align: right;
+      max-width: 50%;
+      line-height: 1.5;
+    }
+
+    .br-titles h1 { font-size: clamp(40px, 11vw, 64px); }
+    .br-titles h1 .small { font-size: 0.36em; margin-bottom: 6px; }
+    .br-titles .verdict { font-size: 15px; }
+    .br-titles .pills .tag { font-size: 8.5px; padding: 3px 5px; }
+
+    .br-grade .top { padding: 14px 18px 12px; }
+    .br-grade .top .gv { font-size: 60px; }
+    .br-grade .rows > div { padding: 7px 16px; font-size: 10.5px; }
+
+    .br-facts { grid-template-columns: 1fr 1fr; }
+    .br-facts > div { border-right: 0 !important; border-bottom: 1px solid var(--ink); padding: 12px 14px; }
+    .br-facts > div:nth-child(odd) { border-right: 1px solid var(--ink) !important; }
+    .br-facts > div:nth-child(5), .br-facts > div:nth-child(6) { border-bottom: 0; }
+    .br-facts .v { font-size: 18px; }
+    .br-facts .k { font-size: 9px; }
+    .br-facts .vs { font-size: 9.5px; }
+
+    .br-disc { padding: 12px 16px; font-size: 9.5px; }
+
+    .br-sec { padding: 36px 0; }
+    .br-sec h2 { font-size: clamp(28px, 7vw, 42px); }
+    .br-sec .h-sub { font-size: 14px; }
+
+    .trust-rubric { grid-template-columns: 1fr; }
+    .trust-rubric > div { border-right: 0 !important; border-bottom: 1px solid var(--ink); padding: 16px 18px; gap: 10px; }
+    .trust-rubric > div:last-child { border-bottom: 0; }
+    .trust-rubric .score { font-size: 24px; }
+    .trust-rubric h3 { font-size: 18px; }
+    .trust-rubric p { font-size: 12.5px; }
+    .trust-rubric .ftn { font-size: 9px; }
+
+    /* Portfolio: 2 rows of info per product */
+    .prtfl-row {
+      grid-template-columns: 52px 1fr 64px;
+      gap: 12px;
+      padding: 12px 14px;
+    }
+    .prtfl-row > div:nth-child(4), .prtfl-row > div:nth-child(6) { display: none; }
+    .prtfl-row > div:nth-child(5) {
+      display: block;
+      grid-column: 2;
+      grid-row: 2;
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px dashed var(--line-2);
+    }
+    .prtfl-row .prtfl-img { width: 48px; height: 60px; }
+    .prtfl-row .prtfl-img svg { width: 32px; height: 40px; }
+    .prtfl-row .prtfl-name .pn { font-size: 15px; }
+    .prtfl-row .prtfl-name .pc { font-size: 9.5px; }
+    .prtfl-row .prtfl-score { font-size: 22px; grid-row: 1 / 3; align-self: center; }
+
+    /* Peer comparison: 2-col grid on phone for side-by-side feel */
+    .peers-grid { grid-template-columns: 1fr 1fr; }
+    .peer-col {
+      border-right: 1px solid var(--ink) !important;
+      border-bottom: 1px solid var(--ink);
+    }
+    .peer-col:nth-child(2n) { border-right: 0 !important; }
+    .peer-col:nth-child(-n+2) { border-bottom: 1px solid var(--ink); }
+    .peer-col:last-child, .peer-col:nth-last-child(2):nth-child(odd) { border-bottom: 0; }
+    .peer-head { padding: 12px 14px; }
+    .peer-head .nm { font-size: 14px; }
+    .peer-head .lbl { font-size: 8.5px; }
+    .peer-row { padding: 10px 14px; min-height: auto; }
+    .peer-row .k { font-size: 8.5px; margin-bottom: 4px; }
+    .peer-row .v { font-size: 11.5px; }
+    .peer-row .v .big { font-size: 16px; }
+
+    .pull-grid { grid-template-columns: 1fr; gap: 14px; }
+    .pull-card { padding: 20px 18px; }
+    .pull-card h3 { font-size: 19px; }
+    .pull-card p { font-size: 13.5px; }
+    .pull-card dl { grid-template-columns: 100px 1fr; font-size: 12.5px; }
+    .pull-card dt { font-size: 9.5px; }
+
+    .claims { padding: 22px 18px; }
+    .claims h3 { font-size: clamp(24px, 7vw, 34px); }
+    .claim-row { grid-template-columns: 1fr; gap: 14px; padding: 16px 0; }
+    .claim-row .tag-lbl { font-size: 9px; }
+    .claim-row .txt { font-size: 13.5px; }
+
+    /* Timeline 2-col stacked */
+    .tl-row {
+      grid-template-columns: 1fr auto;
+      gap: 8px 12px;
+      padding: 12px 16px;
+    }
+    .tl-row .d { font-size: 10px; }
+    .tl-row .type { font-size: 8.5px; padding: 3px 7px; }
+    .tl-row .ev { grid-column: 1 / -1; font-size: 13px; line-height: 1.45; }
+    .tl-row .ref { grid-column: 1 / -1; text-align: left; font-size: 9.5px; }
+
+    .verdict-grid { grid-template-columns: 1fr; }
+    .verdict-col { border-right: 0 !important; border-bottom: 1px solid var(--ink); padding: 20px 18px; }
+    .verdict-col:last-child { border-bottom: 0; }
+    .verdict-col h4 { font-size: 22px; }
+    .verdict-col li { font-size: 13px; padding: 10px 0; }
+
+    .where-buy { grid-template-columns: 1fr; padding: 18px 20px; gap: 14px; }
+    .where-buy > div { border-right: 0; padding-right: 0; padding-bottom: 14px; margin-bottom: 0; border-bottom: 1px solid var(--line); }
+    .where-buy > div:last-child { border-bottom: 0; padding-bottom: 0; }
+    .where-buy .v { font-size: 16px; }
+    .where-buy .vd { font-size: 11.5px; }
+
+    .br-updates { padding: 18px 20px; }
+    .br-updates li { grid-template-columns: 80px 1fr; gap: 10px; font-size: 12.5px; }
+
+    .br-cta { grid-template-columns: 1fr; padding: 28px 22px; gap: 22px; }
+    .br-cta h3 { font-size: clamp(28px, 8vw, 40px); }
+    .br-cta p { font-size: 13.5px; }
+  }
+
+  @media (max-width: 480px) {
+    .br-mark { padding: 20px 18px; gap: 12px; }
+    .br-mark .lt { font-size: 64px; }
+    .br-mark .meta { font-size: 8px; max-width: 55%; }
+    .br-titles h1 { font-size: clamp(34px, 13vw, 48px); }
+    .br-facts { grid-template-columns: 1fr; }
+    .br-facts > div { border-right: 0 !important; border-bottom: 1px solid var(--ink); }
+    .br-facts > div:last-child { border-bottom: 0; }
+    .peers-grid { grid-template-columns: 1fr; }
+    .peer-col { border-right: 0 !important; }
+    .peer-col:nth-last-child(2) { border-bottom: 1px solid var(--ink); }
+    .tl-row { grid-template-columns: 1fr; }
+    .tl-row .type { justify-self: start; }
+  }
+</style>
+</head>
+<body data-page="brands">
+
+<div id="site-head-mount"></div>
+
+<!-- Sub-nav -->
+<div class="sub-nav">
+  <div class="container">
+    <div class="sub-nav-inner">
+      <a href="#identity" class="active">Identity</a>
+      <a href="#trust">Trust rubric</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#verdict">Verdict</a>
+      <a href="#peers">Vs. peers</a>
+      <a href="#claims">Claims vs reality</a>
+      <a href="#timeline">Timeline</a>
+      <span class="spacer"></span>
+      <span class="meta">Audit v3.2 · May 12, 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- ======== HERO ======== -->
+<section class="br-hero">
+  <div class="container">
+    <div class="br-crumbs">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <a href="brands.html">Brands</a>
+      <span class="sep">/</span>
+      <span>Transparent Labs</span>
+    </div>
+
+    <div class="br-id-row" id="identity">
+      <div class="br-mark">
+        <div class="stripe"></div>
+        <div class="lt" data-bind="letter">T</div>
+        <div class="meta" data-bind="hq-meta">EST. 2012 · BROOMFIELD, CO<br/>14 PRODUCTS · 4 AUDITS</div>
+      </div>
+
+      <div class="br-titles">
+        <div>
+          <div class="cat" style="margin-bottom: 10px;" data-bind="cat-upper">PROTEIN · PRE-WORKOUT · WHOLE-FOOD MULTIS · CREATINE</div>
+          <h1><span class="small">The fitlab brand audit</span><span data-bind="name">Transparent Labs</span></h1>
+        </div>
+        <p class="verdict">
+          <b>The benchmark.</b> Held Editor's Choice on whey isolate for 15 consecutive quarters of testing. Per-lot CoAs published with manufacturer named. No proprietary blends in any of the 14 SKUs we've tested. ±1.1% mean label deviation across four audits — the lowest figure of any brand in our directory. Pricier than mass-market peers, but the only protein brand we'd recommend without a caveat.
+        </p>
+        <div class="pills">
+          <span class="tag green"><span class="dot"></span>NSF for Sport</span>
+          <span class="tag green"><span class="dot"></span>Informed Sport</span>
+          <span class="tag">cGMP</span>
+          <span class="tag green"><span class="dot"></span>Per-lot CoAs</span>
+          <span class="tag">0 recalls · 4yr</span>
+          <span class="tag">14 products</span>
+        </div>
+      </div>
+
+      <aside class="br-grade">
+        <div class="top">
+          <div class="gl">FITLAB TRUST</div>
+          <div class="gv" data-bind="trust">A+</div>
+          <div class="gd" data-bind="trust-sub">Verified · n = 4</div>
+        </div>
+        <div class="rows">
+          <div><span class="l">Disclosure</span><span class="v g">10.0</span></div>
+          <div><span class="l">Lab verify</span><span class="v g">9.8</span></div>
+          <div><span class="l">Mfg quality</span><span class="v g">9.4</span></div>
+          <div><span class="l">Track record</span><span class="v g">9.9</span></div>
+          <div><span class="l">Pricing</span><span class="v">8.4</span></div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="br-facts">
+      <div>
+        <div class="k">Products tested</div>
+        <div class="v" data-bind="n_prod">14</div>
+        <div class="vs">Across audit window</div>
+      </div>
+      <div>
+        <div class="k">Avg score</div>
+        <div class="v g" data-bind="score">9.2<small>/10</small></div>
+        <div class="vs" data-bind="score-vs" style="color: var(--green-deep);">+1.4 vs cat. avg</div>
+      </div>
+      <div>
+        <div class="k">Editor's picks</div>
+        <div class="v g">9</div>
+        <div class="vs">of 14 SKUs (64%)</div>
+      </div>
+      <div>
+        <div class="k">Label deviation</div>
+        <div class="v g" data-bind="dev_pct">±1.1<small>%</small></div>
+        <div class="vs" data-bind="dev_pct-vs" style="color: var(--green-deep);">Lowest in directory</div>
+      </div>
+      <div>
+        <div class="k">Recalls</div>
+        <div class="v g" data-bind="recalls">0</div>
+        <div class="vs">Cat. avg: 0.8</div>
+      </div>
+      <div>
+        <div class="k">Lab assay window</div>
+        <div class="v">22<small>mo</small></div>
+        <div class="vs">Mar '24 — May '26</div>
+      </div>
+    </div>
+
+    <div class="br-disc">
+      <b>Affiliate disclosure.</b> Fitlab earns $0 from Transparent Labs. We have no commercial relationship with this brand. We bought all 14 audited products at full retail.
+    </div>
+  </div>
+</section>
+
+<!-- ======== TRUST RUBRIC ======== -->
+<section class="br-sec" id="trust" data-bespoke="true">
+  <div class="container">
+    <div class="h-lbl"><b>02</b> THE TRUST RUBRIC</div>
+    <h2>How a brand earns an A.</h2>
+    <p class="h-sub">Brand trust grades aren't the same as product scores. A brand can have honest dosing but bad supply chain, or excellent CoAs but a recall track record. We score five independent dimensions, then derive the letter grade. <a href="methodology.html#brands">Brand methodology →</a></p>
+
+    <div class="trust-rubric">
+      <div>
+        <div class="head">
+          <span class="qn">B.01</span>
+          <span class="score hi">10.0</span>
+        </div>
+        <h3>Disclosure</h3>
+        <p>Are ingredient amounts disclosed? Is the manufacturer named? Are there prop. blends? Is the lab partner publicly identified?</p>
+        <div class="bar"><i class="hi" style="width: 100%"></i></div>
+        <div class="ftn">Weight · 25% · 0 prop. blends · mfr named</div>
+      </div>
+      <div>
+        <div class="head">
+          <span class="qn">B.02</span>
+          <span class="score hi">9.8</span>
+        </div>
+        <h3>Lab verification</h3>
+        <p>Per-lot CoAs published? Lab named and ISO-accredited? Independent re-assays match brand-published data within 5%?</p>
+        <div class="bar"><i class="hi" style="width: 98%"></i></div>
+        <div class="ftn">Weight · 25% · Eurofins · ±1.1% mean Δ</div>
+      </div>
+      <div>
+        <div class="head">
+          <span class="qn">B.03</span>
+          <span class="score hi">9.4</span>
+        </div>
+        <h3>Manufacturing</h3>
+        <p>cGMP audited facility? Single contract mfr or rotating? Heavy metals consistently below Prop. 65 across SKUs and lots?</p>
+        <div class="bar"><i class="hi" style="width: 94%"></i></div>
+        <div class="ftn">Weight · 20% · Single mfr · 4 lots</div>
+      </div>
+      <div>
+        <div class="head">
+          <span class="qn">B.04</span>
+          <span class="score hi">9.9</span>
+        </div>
+        <h3>Track record</h3>
+        <p>Recalls in 5 yrs? FDA warnings? Lawsuits over label fraud? Corrections published when wrong? Re-formulation cadence?</p>
+        <div class="bar"><i class="hi" style="width: 99%"></i></div>
+        <div class="ftn">Weight · 20% · 0 recalls · 0 warnings</div>
+      </div>
+      <div>
+        <div class="head">
+          <span class="qn">B.05</span>
+          <span class="score">8.4</span>
+        </div>
+        <h3>Pricing</h3>
+        <p>Cost-per-clinical-serving vs. category. Subscription pressure? Volume discounting? Auto-ship friction?</p>
+        <div class="bar"><i style="width: 84%"></i></div>
+        <div class="ftn">Weight · 10% · 14% over cat. median</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== PORTFOLIO ======== -->
+<section class="br-sec" id="portfolio">
+  <div class="container">
+    <div class="h-lbl"><b>03</b> EVERY PRODUCT, EVERY TEST</div>
+    <h2>The 14-product audit.</h2>
+    <p class="h-sub">Each row is one product we've reviewed. Score is the most recent. Audits indicates how many independent lab runs we've done over the audit window. <b>9 of 14</b> hold Editor's Choice as of May 2026.</p>
+
+    <div class="prtfl">
+      <div class="prtfl-head">
+        <div></div>
+        <div>Product · Category</div>
+        <div>Score</div>
+        <div>Status</div>
+        <div>Audits</div>
+        <div></div>
+      </div>
+      <div id="portfolio-rows"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== VERDICT (RIGHT / WRONG) ======== -->
+<section class="br-sec" id="verdict" data-bespoke="true">
+  <div class="container">
+    <div class="h-lbl"><b>04</b> EDITORIAL POSITION</div>
+    <h2>What they get right.<br/>What they don't.</h2>
+
+    <div class="verdict-grid" style="margin-top: 24px;">
+      <div class="verdict-col right">
+        <h4><span class="mk">+</span>The case for</h4>
+        <ul>
+          <li><b>Disclosure is best-in-class.</b> Every product has full ingredient amounts on the label. No prop. blends in any SKU.</li>
+          <li><b>Per-lot CoAs</b> are published within 14 days of production at the lab partner (Eurofins) — accessible via QR code on the packaging.</li>
+          <li><b>The manufacturer is named</b> on every label (Allied Manufacturing, TN). cGMP-audited annually.</li>
+          <li><b>Editorial corrections are logged.</b> When they re-formulated 100% Grass-Fed WPI in Q3 2024, they republished the prior CoA and explained the formula change publicly.</li>
+          <li><b>Three independent certifications</b> across the line: NSF for Sport, Informed Sport, and cGMP. Verified by us via re-assay.</li>
+          <li><b>Heavy metals consistently below 0.05ppm</b> on lead, cadmium, arsenic, mercury — across four production lots tested over 18 months.</li>
+        </ul>
+      </div>
+      <div class="verdict-col wrong">
+        <h4><span class="mk">−</span>The case against</h4>
+        <ul>
+          <li><b>Premium pricing.</b> 14% above category median on cost-per-clinical-serving. Mass-market peers are cheaper if dosing accuracy isn't a priority.</li>
+          <li><b>Auto-ship is over-aggressive</b> in the checkout funnel. Default option, with a discount that creates friction to cancel.</li>
+          <li><b>Stevia-heavy in some flavors.</b> The Salted Caramel WPI is over-sweetened; we wish they offered an unflavored across the line.</li>
+          <li><b>Amazon listings sell older stock</b> (3–9 months) than the direct site. Within shelf life but not optimal — buy direct for freshness.</li>
+          <li><b>Marketing leans on physique transformations</b> in their Lean line. The formula is solid; the visual implication is not what the data supports.</li>
+          <li><b>Customer service is slower than the brand size warrants.</b> Response times average 4 business days vs. category 1.8.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== COMPARE TO PEERS ======== -->
+<section class="br-sec" id="peers" data-bespoke="true">
+  <div class="container">
+    <div class="h-lbl"><b>05</b> VS. THE PEER SET</div>
+    <h2>How they compare.</h2>
+    <p class="h-sub">Four protein-led brands in our directory, scored on the same five-question rubric. <b>Transparent Labs</b> is the only one that holds an A grade across every dimension.</p>
+
+    <div class="peers-grid" style="margin-top: 24px;">
+      <div class="peer-col">
+        <div class="peer-head this">
+          <div class="lbl">This brand · Trust A+</div>
+          <div class="nm">Transparent Labs</div>
+        </div>
+        <div class="peer-row"><div class="k">Avg product score</div><div class="v green"><span class="big">9.2</span></div></div>
+        <div class="peer-row"><div class="k">Editor's picks</div><div class="v green">9 of 14 (64%)</div></div>
+        <div class="peer-row"><div class="k">Label deviation</div><div class="v green">±1.1%</div></div>
+        <div class="peer-row"><div class="k">Prop. blends</div><div class="v green">0 SKUs</div></div>
+        <div class="peer-row"><div class="k">Recalls (4 yr)</div><div class="v green">0</div></div>
+        <div class="peer-row"><div class="k">$ / clinical</div><div class="v">$1.86 (mid)</div></div>
+        <div class="peer-row"><div class="k">Certifications</div><div class="v green">NSF · IS · cGMP</div></div>
+        <div class="peer-row"><div class="k">CoA practice</div><div class="v green">Per-lot · public</div></div>
+      </div>
+      <div class="peer-col">
+        <div class="peer-head">
+          <div class="lbl">Trust A · Verified</div>
+          <div class="nm">Dymatize</div>
+        </div>
+        <div class="peer-row"><div class="k">Avg product score</div><div class="v"><span class="big">8.4</span></div></div>
+        <div class="peer-row"><div class="k">Editor's picks</div><div class="v">2 of 4 (50%)</div></div>
+        <div class="peer-row"><div class="k">Label deviation</div><div class="v green">±1.6%</div></div>
+        <div class="peer-row"><div class="k">Prop. blends</div><div class="v green">0 SKUs</div></div>
+        <div class="peer-row"><div class="k">Recalls (4 yr)</div><div class="v green">0</div></div>
+        <div class="peer-row"><div class="k">$ / clinical</div><div class="v green">$1.52 (low)</div></div>
+        <div class="peer-row"><div class="k">Certifications</div><div class="v">Informed Choice</div></div>
+        <div class="peer-row"><div class="k">CoA practice</div><div class="v">On request</div></div>
+      </div>
+      <div class="peer-col">
+        <div class="peer-head">
+          <div class="lbl">Trust C · Mixed</div>
+          <div class="nm">Optimum Nutrition</div>
+        </div>
+        <div class="peer-row"><div class="k">Avg product score</div><div class="v"><span class="big">7.2</span></div></div>
+        <div class="peer-row"><div class="k">Editor's picks</div><div class="v">1 of 12 (8%)</div></div>
+        <div class="peer-row"><div class="k">Label deviation</div><div class="v">±5.8%</div></div>
+        <div class="peer-row"><div class="k">Prop. blends</div><div class="v red">3 SKUs</div></div>
+        <div class="peer-row"><div class="k">Recalls (4 yr)</div><div class="v">1</div></div>
+        <div class="peer-row"><div class="k">$ / clinical</div><div class="v green">$1.40 (low)</div></div>
+        <div class="peer-row"><div class="k">Certifications</div><div class="v">Informed Sport</div></div>
+        <div class="peer-row"><div class="k">CoA practice</div><div class="v">Summary only</div></div>
+      </div>
+      <div class="peer-col">
+        <div class="peer-head">
+          <div class="lbl">Trust D · Flagged</div>
+          <div class="nm">Body Fortress</div>
+        </div>
+        <div class="peer-row"><div class="k">Avg product score</div><div class="v red"><span class="big">5.4</span></div></div>
+        <div class="peer-row"><div class="k">Editor's picks</div><div class="v">0 of 6</div></div>
+        <div class="peer-row"><div class="k">Label deviation</div><div class="v red">±21.6%</div></div>
+        <div class="peer-row"><div class="k">Prop. blends</div><div class="v red">All 6 SKUs</div></div>
+        <div class="peer-row"><div class="k">Recalls (4 yr)</div><div class="v red">1</div></div>
+        <div class="peer-row"><div class="k">$ / clinical</div><div class="v">$2.40 (high)</div></div>
+        <div class="peer-row"><div class="k">Certifications</div><div class="v red">None</div></div>
+        <div class="peer-row"><div class="k">CoA practice</div><div class="v red">Not published</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== WHO / WHERE ======== -->
+<section class="br-sec" data-bespoke="true">
+  <div class="container">
+    <div class="h-lbl"><b>06</b> THE OPERATION</div>
+    <h2>Who runs it. Where it's made.</h2>
+
+    <div class="pull-grid" style="margin-top: 24px;">
+      <div class="pull-card">
+        <div class="qn">// THE OPERATION</div>
+        <h3>Who they are</h3>
+        <p>Founded by Jesse Hamonic (chemistry, Univ. of Saskatchewan) in 2012, the brand was acquired by Cornerstone Health Brands in 2021. The original technical team — <b>including the formulator who designed the WPI assay</b> — remains in place. The acquisition did not visibly change the product line or QA practice.</p>
+        <dl>
+          <dt>Founded</dt><dd>2012, Saskatoon</dd>
+          <dt>Now HQ'd</dt><dd>Broomfield, CO</dd>
+          <dt>Owner</dt><dd>Cornerstone Health Brands (since 2021)</dd>
+          <dt>Employees</dt><dd>~110 (est.)</dd>
+          <dt>Public/Private</dt><dd>Private; not VC-funded</dd>
+          <dt>Verified by</dt><dd>SEC filings, founder LinkedIn, brand confirmation Q1 '26</dd>
+        </dl>
+      </div>
+      <div class="pull-card">
+        <div class="qn">// SUPPLY CHAIN</div>
+        <h3>Where it's made</h3>
+        <p>Single contract manufacturer for protein and pre-workout SKUs: <b>Allied Manufacturing in TN</b>, a 280,000 sq ft cGMP-audited facility. Whey sourced from two Wisconsin grass-fed cooperatives (single-origin). Creatine is Creapure® (AlzChem, Germany). Testing partner is <b>Eurofins-Madison</b>, ISO-17025 accredited.</p>
+        <dl>
+          <dt>Mfg location</dt><dd>Tennessee, USA</dd>
+          <dt>cGMP audit</dt><dd>Annual · last May 2026</dd>
+          <dt>Lab partner</dt><dd>Eurofins-Madison (ISO-17025)</dd>
+          <dt>Whey source</dt><dd>WI grass-fed (2 co-ops)</dd>
+          <dt>Creatine source</dt><dd>Creapure® / AlzChem (DE)</dd>
+          <dt>Verified by</dt><dd>Site visit Jul '24; CoA cross-check; AlzChem confirmation</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CLAIMS VS REALITY ======== -->
+<section style="padding: 0;">
+  <div class="container">
+    <div class="claims" id="claims" data-bespoke="true">
+      <div class="lbl">07 — MARKETING DECOMPRESSION</div>
+      <h3>What the brand says.<br/>What the lab finds.</h3>
+
+      <div class="claim-row">
+        <div class="side claim">
+          <div class="tag-lbl">CLAIM // 100% GRASS-FED WPI</div>
+          <div class="txt">"Cold-processed, grass-fed whey, never subjected to heat. 28g of protein per scoop with no artificial sweeteners or proprietary blends."</div>
+        </div>
+        <div class="side reality">
+          <div class="tag-lbl">LAB // VERIFIED</div>
+          <div class="txt"><b>Confirmed.</b> Cross-flow microfiltered (low-heat); assayed at 90.4% protein by mass — among the highest we've measured. Sweetened with stevia + monk fruit, verified by NMR. No prop. blends present.</div>
+        </div>
+      </div>
+
+      <div class="claim-row">
+        <div class="side claim">
+          <div class="tag-lbl">CLAIM // STIMSERIES PRE-WORKOUT</div>
+          <div class="txt">"Clinical doses of citrulline, beta-alanine, betaine, and caffeine — fully transparent, no proprietary blends."</div>
+        </div>
+        <div class="side reality">
+          <div class="tag-lbl">LAB // VERIFIED, WITH ONE CAVEAT</div>
+          <div class="txt"><b>Doses match label within ±2%.</b> Citrulline at 8g (clinical: 6–8g). Beta-alanine at 4g (clinical: 3.2–6.4g). Caffeine 200mg. Caveat: beta-alanine at 4g causes paresthesia in ~40% of users; the brand does not flag this prominently.</div>
+        </div>
+      </div>
+
+      <div class="claim-row">
+        <div class="side claim">
+          <div class="tag-lbl">CLAIM // WELLNESSSERIES MULTI</div>
+          <div class="txt">"21 essential vitamins and minerals at clinically researched doses. Activated forms of B vitamins."</div>
+        </div>
+        <div class="side reality">
+          <div class="tag-lbl">LAB // MOSTLY VERIFIED · 2 CAVEATS</div>
+          <div class="txt"><b>Mostly confirmed.</b> Methylfolate and methylcobalamin (not synthetic forms). However: vitamin K is K1 (phylloquinone), not the more bioavailable MK-7. Iron is omitted entirely (label disclosed). For most users this is correct; pre-menopausal users should check separately.</div>
+        </div>
+      </div>
+
+      <div class="claim-row">
+        <div class="side claim">
+          <div class="tag-lbl">CLAIM // PROTEINSERIES MASS GAINER</div>
+          <div class="txt">"750 calories of clean mass — no junk fillers, no artificial flavors."</div>
+        </div>
+        <div class="side reality">
+          <div class="tag-lbl">LAB // MARKETING DRIFT</div>
+          <div class="txt"><b>Technically true; misleading in spirit.</b> The carb source is oat flour + tapioca starch, which is fine. But the calories-from-fat are added MCT — at a dose (12g) below any clinical benefit for body composition. The "no junk" framing is honest about what's not there, less so about what's not doing anything.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== TIMELINE ======== -->
+<section class="br-sec" id="timeline" data-bespoke="true">
+  <div class="container">
+    <div class="h-lbl"><b>08</b> AUDIT TIMELINE</div>
+    <h2>Every test. Every cert. Every change.</h2>
+    <p class="h-sub">Date-stamped log of every lab run, certification check, recall, formula change, and corrections we've published. Re-tests fire automatically every 8 months per SKU; recall watch is continuous.</p>
+
+    <div class="timeline" id="timeline-host"></div>
+  </div>
+</section>
+
+<!-- ======== WHERE TO BUY ======== -->
+<section class="br-sec" data-bespoke="true">
+  <div class="container">
+    <div class="h-lbl"><b>09</b> PRICE & AVAILABILITY</div>
+    <h2>Where they sell. What it costs.</h2>
+
+    <div class="where-buy" style="margin-top: 24px;">
+      <div>
+        <div class="k">DIRECT // transparentlabs.com</div>
+        <div class="v">Freshest stock</div>
+        <div class="vd">Best price-per-lb after subscription discount. Watch the auto-ship default; toggle off in cart.</div>
+      </div>
+      <div>
+        <div class="k">AMAZON · PRIME</div>
+        <div class="v">+$2–4 / lb premium</div>
+        <div class="vd">Sold by manufacturer. Inventory turn is slower than direct; stock can be 3–9 months old.</div>
+      </div>
+      <div>
+        <div class="k">IHERB · INTERNATIONAL</div>
+        <div class="v">EU / APAC primary</div>
+        <div class="vd">Where US buyers find them at decent prices internationally. Code FITLAB saves $5; we earn $0.</div>
+      </div>
+      <div>
+        <div class="k">RETAIL // GNC, VITAMIN SHOPPE</div>
+        <div class="v">Limited SKUs</div>
+        <div class="vd">Only flagship Whey Isolate and Stimseries pre-workout are stocked. Mass gainer and creatine are DTC-only.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== UPDATES LOG ======== -->
+<section class="br-sec" data-bespoke="true">
+  <div class="container">
+    <div class="h-lbl"><b>10</b> CORRECTIONS & UPDATES</div>
+    <h2>How this page changes.</h2>
+
+    <div class="br-updates" style="margin-top: 24px;">
+      <h4>What we've changed since publication</h4>
+      <ul>
+        <li><div class="d">May 12, 2026</div><div>Trust grade raised to A+ from A. Fourth audit complete; label deviation now ±1.1% (was ±1.8%). 100% Grass-Fed WPI re-tested.</div></li>
+        <li><div class="d">Feb 18, 2026</div><div>Added BCAA + Glutamine product line to portfolio after Q1 audit. Score 8.6.</div></li>
+        <li><div class="d">Nov 02, 2025</div><div>Corrected typo on Stimseries caffeine dose: was 250mg, actual is 200mg. Brand confirmed.</div></li>
+        <li><div class="d">Aug 14, 2025</div><div>Added Whole-Food Multi (Women's) after launch. Score 8.4.</div></li>
+        <li><div class="d">Jul 09, 2024</div><div>Site visit to Allied Manufacturing facility. cGMP practices verified in-person.</div></li>
+        <li><div class="d">Mar 28, 2024</div><div>Initial brand audit published. Score 9.0. Trust grade A.</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======== BOTTOM CTA ======== -->
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="br-cta">
+      <div>
+        <h3>Brand-audit feed — <em>email me</em><br/>when the score changes.</h3>
+        <p>Quarterly re-audits, recall alerts, and corrections — for this brand and any of the 89 brands in our directory. One email per change. Zero marketing. Unsubscribe in one click.</p>
+      </div>
+      <div>
+        <div style="display: flex; gap: 0; border: 1px solid var(--paper); margin-bottom: 12px;">
+          <input type="email" placeholder="you@domain.com" style="flex: 1; background: transparent; border: 0; padding: 14px 18px; color: var(--paper); font: inherit; font-size: 14px; outline: none;"/>
+          <button style="background: var(--red); color: var(--paper); border: 0; padding: 0 22px; font-family: var(--f-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;">Watch →</button>
+        </div>
+        <div style="font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute-2);">
+          28,412 readers · Free · No tracking
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-foot-mount"></div>
+
+<script src="assets/illus.js"></script>
+<script src="assets/data-loader.js"></script>
+<script src="assets/seo.js"></script>
+<script src="assets/consent.js"></script>
+<script src="assets/chrome.js"></script>
+<script>
+  window.FITLAB.page = { type: 'brand' };
+
+  function setText(sel, text) {
+    document.querySelectorAll('[data-bind="' + sel + '"]').forEach(el => { el.innerHTML = text; });
+  }
+
+  function gradeColorClass(trust) {
+    const c = (trust || '').charAt(0);
+    return c === 'A' ? 'A' : c === 'B' ? 'B' : c === 'C' ? 'C' : 'D';
+  }
+
+  window.FITLAB.ready.then(() => {
+    const slug = window.FITLAB.slugFromPath();
+    const brands = (window.FITLAB.data.brands && window.FITLAB.data.brands.brands) || [];
+    const b = window.FITLAB.findBySlug(brands, slug);
+    if (!b) {
+      // Fallback — render index instead
+      window.location.href = '/brands/';
+      return;
+    }
+
+    // Update document chrome
+    document.title = b.name + ' — Independent Brand Audit · Fitlab';
+    const desc = (b.n_prod || 0) + ' products tested, ' + b.recalls + ' recalls in audit window, ±' + b.dev_pct + '% mean label deviation. The full independent audit of ' + b.name + '.';
+    document.querySelector('meta[name="description"]').setAttribute('content', desc);
+
+    // Update breadcrumb
+    document.querySelectorAll('.br-crumbs span:last-child').forEach(el => { el.textContent = b.name; });
+
+    // Bind fields
+    setText('letter', b.letter || b.initials || b.name[0]);
+    setText('cat-upper', (b.cat || '').toUpperCase());
+    setText('name', b.name);
+    setText('blurb', b.blurb);
+    setText('trust', b.trust);
+    setText('trust-sub', 'Verified · ' + b.region);
+    setText('score', b.score.toFixed(1) + '<small>/10</small>');
+    setText('n_prod', b.n_prod || 0);
+    setText('dev_pct', '±' + b.dev_pct + '<small>%</small>');
+    setText('recalls', b.recalls);
+    setText('hq-meta', `EST. ${b.founded || ''} · ${(b.hq || '').toUpperCase()}<br/>${b.n_prod} PRODUCTS`);
+
+    // Update grade color class
+    const gradeEl = document.querySelector('[data-bind="trust"]');
+    if (gradeEl) {
+      // Reset color via parent's bg if non-A
+      const top = document.querySelector('.br-grade .top');
+      if (top) {
+        const gc = b.trust[0];
+        if (gc === 'A') top.style.background = 'var(--green)';
+        else if (gc === 'B') top.style.background = 'var(--ink)';
+        else if (gc === 'C') top.style.background = 'var(--amber)';
+        else top.style.background = 'var(--red)';
+      }
+    }
+
+    // If this brand has trust_breakdown, update the rubric scores
+    if (b.trust_breakdown) {
+      const rows = document.querySelectorAll('.br-grade .rows > div .v');
+      const breakdown = [
+        b.trust_breakdown.disclosure, b.trust_breakdown.lab_verify,
+        b.trust_breakdown.mfg, b.trust_breakdown.track_record, b.trust_breakdown.pricing
+      ];
+      rows.forEach((el, i) => {
+        if (breakdown[i] !== undefined) el.textContent = breakdown[i].toFixed(1);
+      });
+    }
+
+    // Update portfolio from JSON if present
+    if (b.products && b.products.length) {
+      const tbody = document.getElementById('portfolio-rows');
+      if (tbody) {
+        tbody.innerHTML = b.products.map(p => {
+          const cls = window.FITLAB.scoreClass(p.score);
+          const reviewUrl = p.slug ? '/reviews/' + p.slug + '/' : '#';
+          return `
+            <a href="${reviewUrl}" class="prtfl-row">
+              <div class="prtfl-img">${(window.PROD_ILLUS && window.PROD_ILLUS[p.illus]) || (window.PROD_ILLUS && window.PROD_ILLUS.tub) || ''}</div>
+              <div class="prtfl-name">
+                <span class="pn">${p.name}</span>
+                <span class="pc">${p.cat}</span>
+              </div>
+              <div class="prtfl-score ${cls}">${p.score.toFixed(1)}<small>/10</small></div>
+              <div class="prtfl-status">${p.pick ? '<span class="pill">★ Ed. pick</span>' : '<b>Recommended</b>'}</div>
+              <div class="prtfl-meta">
+                <div class="pd">${p.audits || 1}<small style="font-weight: 500; color: var(--mute); margin-left: 2px;">× audits</small></div>
+                <div style="font-size: 9.5px; color: var(--mute); margin-top: 2px; letter-spacing: 0.08em; text-transform: uppercase;">${p.last || ''}</div>
+              </div>
+              <div class="prtfl-cta">Read</div>
+            </a>
+          `;
+        }).join('');
+      }
+    }
+
+    // For non-bespoke detail brands, hide the rich sections and add a placeholder note
+    if (!b.has_detail) {
+      document.querySelectorAll('[data-bespoke="true"]').forEach(el => { el.style.display = 'none'; });
+      // Show a slim "coming soon" callout after fact strip
+      const note = document.createElement('section');
+      note.className = 'br-sec';
+      note.innerHTML = `
+        <div class="container">
+          <div style="background: var(--paper-2); border: 1px solid var(--line-2); padding: 32px; text-align: center;">
+            <div style="font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--red); font-weight: 700; text-transform: uppercase; margin-bottom: 10px;">// FULL AUDIT IN QUEUE</div>
+            <h3 style="font-family: var(--f-display); font-weight: 700; font-size: 28px; line-height: 1.0; text-transform: uppercase; margin: 0 0 12px;">Bespoke audit report publishes Q${Math.ceil((new Date().getMonth() + 1) / 3) + 1} 2026.</h3>
+            <p style="font-size: 14.5px; color: var(--ink-2); max-width: 560px; margin: 0 auto;">We've completed initial lab audits for ${b.name}. The expanded trust rubric, claims-vs-reality breakdown, and timeline are scheduled for the next quarter. Subscribe below to be notified when this brand's full audit publishes.</p>
+          </div>
+        </div>
+      `;
+      const lastBeforeCta = document.querySelector('.br-cta');
+      if (lastBeforeCta && lastBeforeCta.closest('section')) {
+        lastBeforeCta.closest('section').parentNode.insertBefore(note, lastBeforeCta.closest('section'));
+      }
+    }
+
+    // SEO with this entity
+    window.FITLAB.page = { type: 'brand', entity: b };
+    window.FITLAB.applySEO(window.FITLAB.page);
+  });
+</script>
+</body>
+</html>

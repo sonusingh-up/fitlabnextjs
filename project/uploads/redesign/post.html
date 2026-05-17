@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The 'proprietary blend' is a clean tax · Fitlab Blog</title>
+<link rel="stylesheet" href="assets/tokens.css"/>
+<link rel="stylesheet" href="assets/shared.css"/>
+<style>
+  .post-hero {
+    border-bottom: 1px solid var(--ink);
+    padding: 40px 0 48px;
+    background: var(--paper);
+  }
+  .post-hero .meta {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .post-hero h1 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(48px, 6.5vw, 96px);
+    line-height: 0.88;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+    max-width: 1100px;
+  }
+  .post-hero .dek {
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--ink-2);
+    max-width: 720px;
+    margin: 0 0 28px;
+  }
+  .post-hero .by-row {
+    display: flex; align-items: center; gap: 16px;
+    padding-top: 18px; border-top: 1px solid var(--line-2);
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+  .post-hero .by-row .av {
+    width: 36px; height: 36px;
+    background: var(--ink); color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700; border-radius: 50%;
+  }
+  .post-hero .by-row b { color: var(--ink); font-weight: 700; }
+
+  /* Article body layout */
+  .post-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    gap: 40px;
+    padding: 56px 0;
+    align-items: start;
+  }
+  .post-toc {
+    position: sticky;
+    top: 80px;
+    align-self: start;
+  }
+  .post-toc h4 {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 0 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .post-toc ul { list-style: none; padding: 0; margin: 0; }
+  .post-toc li { margin-bottom: 10px; }
+  .post-toc a {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: flex; gap: 8px;
+    line-height: 1.4;
+  }
+  .post-toc a:hover { color: var(--ink); }
+  .post-toc a .n { color: var(--red); font-weight: 700; }
+  .post-toc a.active { color: var(--ink); }
+
+  .post-side {
+    position: sticky;
+    top: 80px;
+    align-self: start;
+  }
+  .post-side .share {
+    display: flex; flex-direction: column; gap: 6px;
+    margin-bottom: 24px;
+  }
+  .post-side .share-btn {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 10px;
+    border: 1px solid var(--line-2);
+    background: var(--paper);
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--ink-2);
+    text-transform: uppercase;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .post-side .share-btn:hover { border-color: var(--ink); background: var(--paper-2); }
+  .post-side .share-btn .ic {
+    width: 16px; height: 16px;
+    background: var(--ink); color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 700;
+  }
+
+  .meta-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line-2);
+    padding: 14px;
+    margin-bottom: 16px;
+  }
+  .meta-card h5 {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin: 0 0 8px;
+  }
+  .meta-card .v {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.0;
+    text-transform: uppercase;
+  }
+  .meta-card .vs {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  /* Article content */
+  .post-content {
+    max-width: 720px;
+  }
+  .post-content p {
+    font-family: var(--f-body);
+    font-size: 18px;
+    line-height: 1.62;
+    color: var(--ink);
+    margin: 0 0 24px;
+  }
+  .post-content p.lede {
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+  .post-content p.lede::first-letter {
+    font-family: var(--f-display);
+    font-size: 72px;
+    font-weight: 700;
+    float: left;
+    line-height: 0.85;
+    margin: 4px 8px 0 0;
+    color: var(--red);
+  }
+  .post-content h2 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    margin: 48px 0 18px;
+    padding-top: 24px;
+    border-top: 2px solid var(--ink);
+  }
+  .post-content h2 .num-mark {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+  .post-content h3 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 1.0;
+    text-transform: uppercase;
+    margin: 32px 0 12px;
+  }
+  .post-content blockquote {
+    margin: 32px 0;
+    padding: 28px 0 28px 32px;
+    border-left: 4px solid var(--red);
+    font-family: var(--f-display);
+    font-size: 32px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .post-content blockquote cite {
+    display: block;
+    margin-top: 16px;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-style: normal;
+  }
+  .post-content ul, .post-content ol {
+    margin: 0 0 24px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .post-content ul li, .post-content ol li {
+    font-size: 17px;
+    line-height: 1.55;
+    padding: 12px 0 12px 36px;
+    border-top: 1px solid var(--line);
+    position: relative;
+  }
+  .post-content ol { counter-reset: olc; }
+  .post-content ol li { counter-increment: olc; }
+  .post-content ol li::before {
+    content: "0" counter(olc);
+    position: absolute;
+    left: 0; top: 14px;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 0.08em;
+  }
+  .post-content ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 4px; top: 12px;
+    color: var(--red);
+    font-size: 14px;
+  }
+  .post-content a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--red);
+  }
+  .post-content a:hover { color: var(--red); }
+  .post-content .pullout {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 32px;
+    margin: 32px 0;
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 24px;
+    align-items: center;
+  }
+  .post-content .pullout .big {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 0.85;
+    color: var(--red);
+    letter-spacing: -0.02em;
+  }
+  .post-content .pullout .big small { font-size: 0.4em; color: var(--paper); opacity: 0.7; }
+  .post-content .pullout .k {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute-2);
+    margin-bottom: 8px;
+  }
+  .post-content .pullout p {
+    color: var(--paper);
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Embedded data table */
+  .post-table {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    margin: 32px 0;
+  }
+  .post-table .ph {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 18px;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .post-table .ph .n {
+    background: var(--red); padding: 2px 6px;
+  }
+  .ptbl {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .ptbl th, .ptbl td {
+    padding: 12px 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+  .ptbl th {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mute);
+    background: var(--paper-2);
+  }
+  .ptbl tr:last-child td { border-bottom: 0; }
+  .ptbl td.num { font-family: var(--f-mono); font-weight: 600; }
+  .ptbl td.bad { color: var(--red-deep); }
+  .ptbl td.good { color: var(--green-deep); }
+  .ptbl tr:hover { background: var(--paper-2); }
+
+  /* Inline bar */
+  .ibar {
+    display: inline-block;
+    width: 80px;
+    height: 6px;
+    background: var(--line);
+    position: relative;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  .ibar i {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    background: var(--ink);
+  }
+  .ibar i.red { background: var(--red); }
+  .ibar i.green { background: var(--green); }
+
+  /* Author bio */
+  .author-card {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 20px;
+    margin: 48px 0;
+  }
+  .author-card .av {
+    width: 80px; height: 80px;
+    background: var(--ink); color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 28px; border-radius: 50%;
+  }
+  .author-card h4 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 26px; line-height: 1.0;
+    text-transform: uppercase; margin: 0 0 4px;
+  }
+  .author-card .role {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--red);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .author-card p {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 0 0 12px;
+  }
+  .author-card .links {
+    display: flex; gap: 16px;
+    font-family: var(--f-mono); font-size: 10.5px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .author-card .links a { color: var(--ink); }
+
+  /* Related */
+  .related {
+    background: var(--paper-2);
+    padding: 48px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .related h3 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 32px; line-height: 0.95;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .rel-card {
+    display: flex; flex-direction: column;
+    gap: 8px;
+    padding: 16px 0;
+    border-top: 2px solid var(--ink);
+  }
+  .rel-card .cat {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+  .rel-card h4 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 22px; line-height: 0.96;
+    text-transform: uppercase; margin: 0;
+  }
+  .rel-card .meta {
+    font-family: var(--f-mono);
+    font-size: 10px; color: var(--mute);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-top: auto;
+  }
+
+  @media (max-width: 980px) {
+    .post-layout { grid-template-columns: 1fr; }
+    .post-toc, .post-side { position: static; }
+    .related-grid { grid-template-columns: 1fr; }
+    .post-content .pullout { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 720px) {
+    .post-hero { padding: 24px 0 32px; }
+    .post-hero h1 { font-size: clamp(36px, 10vw, 64px); }
+    .post-hero .dek { font-size: 17px; }
+    .post-hero .by-row { flex-wrap: wrap; gap: 8px; font-size: 9.5px; }
+
+    .post-layout { padding: 32px 0; gap: 28px; }
+
+    .post-toc { padding: 16px 18px; background: var(--paper-2); border: 1px solid var(--line); }
+    .post-toc h4 { margin-bottom: 10px; padding-bottom: 8px; }
+    .post-toc ul {
+      display: flex; flex-wrap: wrap; gap: 4px;
+    }
+    .post-toc li { margin-bottom: 0; }
+    .post-toc a {
+      padding: 4px 10px;
+      border: 1px solid var(--line-2);
+      background: var(--paper);
+      gap: 6px;
+    }
+
+    .post-content p { font-size: 16px; }
+    .post-content p.lede { font-size: 19px; }
+    .post-content p.lede::first-letter { font-size: 56px; margin-right: 6px; }
+    .post-content h2 { font-size: 30px; margin-top: 36px; }
+    .post-content h3 { font-size: 22px; }
+    .post-content blockquote { font-size: 24px; padding: 22px 0 22px 24px; }
+    .post-content ul li, .post-content ol li { font-size: 15px; padding-left: 32px; }
+    .post-content .pullout { padding: 24px; }
+    .post-content .pullout .big { font-size: 56px; }
+
+    .post-table { margin: 24px -18px; }
+    .ptbl th, .ptbl td { padding: 10px 12px; font-size: 12px; }
+    .ptbl .ibar { width: 50px; }
+    .post-table .ph { padding: 10px 14px; }
+
+    .author-card { grid-template-columns: 1fr; padding: 22px; gap: 16px; }
+    .author-card .av { width: 64px; height: 64px; font-size: 22px; }
+    .author-card h4 { font-size: 22px; }
+
+    .post-side { display: none; }
+
+    .related { padding: 36px 0; }
+    .related h3 { font-size: 24px; }
+    .rel-card h4 { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .post-hero h1 { font-size: clamp(32px, 11vw, 52px); }
+    .post-table { overflow-x: auto; }
+    .ptbl { min-width: 540px; }
+    .ptbl th, .ptbl td { font-size: 11px; padding: 8px 10px; }
+    .ptbl .ibar { width: 40px; }
+  }
+</style>
+</head>
+<body data-page="blog">
+
+<div id="site-head-mount"></div>
+
+<section class="post-hero">
+  <div class="container">
+    <div class="r-crumbs" style="display: flex; gap: 8px; align-items: center; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); margin-bottom: 28px;">
+      <a href="index.html">Home</a><span style="opacity: 0.4;">/</span>
+      <a href="blog.html">Blog</a><span style="opacity: 0.4;">/</span>
+      <span>Opinion</span><span style="opacity: 0.4;">/</span>
+      <span>The 'proprietary blend' is a clean tax</span>
+    </div>
+    <div class="meta">OPINION · POST №112 · MAY 16, 2026</div>
+    <h1>The 'proprietary blend' is the cleanest tax on the people who can't afford a chemist.</h1>
+    <p class="dek">Brands hide doses behind the phrase "proprietary blend" because they want to charge clinical-grade prices for sub-clinical doses. The math behind why it works — with fourteen pre-workout labels we ran through the lab last month.</p>
+    <div class="by-row">
+      <div class="av">AK</div>
+      <span><b>Adrian Kojima, PhD</b></span>
+      <span style="opacity: 0.5;">·</span>
+      <span>12 min read</span>
+      <span style="opacity: 0.5;">·</span>
+      <span><b>14,829</b> reads</span>
+      <span style="opacity: 0.5;">·</span>
+      <span>Published May 16, 2026</span>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="post-layout">
+
+    <!-- TOC -->
+    <aside class="post-toc">
+      <h4>In this piece</h4>
+      <ul>
+        <li><a href="#sec1" class="active"><span class="n">01</span><span>What a prop. blend is</span></a></li>
+        <li><a href="#sec2"><span class="n">02</span><span>The cost math</span></a></li>
+        <li><a href="#sec3"><span class="n">03</span><span>Fourteen labels</span></a></li>
+        <li><a href="#sec4"><span class="n">04</span><span>The defense</span></a></li>
+        <li><a href="#sec5"><span class="n">05</span><span>What to do</span></a></li>
+        <li><a href="#sec6"><span class="n">06</span><span>Coda</span></a></li>
+      </ul>
+    </aside>
+
+    <!-- Content -->
+    <article class="post-content">
+      <p class="lede">There is a phrase printed on the side of more than half the products we test, and the phrase is "proprietary blend." It is — and I say this with the full benefit of a doctorate in pharmacology — a euphemism. It exists for one reason: to let a brand charge you the price of a clinical dose for an amount of active ingredient that wouldn't move a needle in a calibrated assay, much less a calibrated body.</p>
+
+      <p>Here is what the FDA permits. A supplement label must disclose every ingredient in the product. It must disclose the total amount of any "proprietary blend." It does not have to disclose how much of each ingredient is in the blend. So you get a label that looks like this: "Pump & Performance Matrix™ 4,500mg — L-Citrulline Malate, Beta-Alanine, Betaine, Taurine, L-Tyrosine, Caffeine Anhydrous."</p>
+
+      <p>It looks legitimate. There are five clinically-validated compounds named. There is a number — 4,500mg — that sounds substantial. And the label is, technically, compliant. The problem is that <a href="#">L-Citrulline alone requires 6,000–8,000mg to produce any of the vascular effects the marketing copy describes</a>. So at most you are getting a third of the citrulline dose at most a fifth of the beta-alanine dose, and so on down to caffeine — which, since brands know consumers can feel caffeine, is usually loaded at the top of the blend and is the only ingredient at a real dose.</p>
+
+      <h2 id="sec1"><span class="num-mark">01 — DEFINITION</span>What a proprietary blend actually is</h2>
+
+      <p>A proprietary blend is a list of ingredients with a single combined weight. The FDA requires the ingredients to be listed in descending order by weight. Beyond that, no disclosure is required.</p>
+
+      <p>So if a blend is "5,000mg of Citrulline, Beta-Alanine, Betaine, Taurine, Caffeine" you know that there is more citrulline than beta-alanine, more beta-alanine than betaine, more betaine than taurine, and more taurine than caffeine. You do not know the amounts. You do not know whether the citrulline is 4,900mg with the other four ingredients at 25mg each — a label that is technically compliant and pharmacologically a citrulline-only product.</p>
+
+      <blockquote>
+        The proprietary blend is to ingredient disclosure what a hot dog is to meat labeling: technically descriptive, morally hostile.
+        <cite>— A pharmacist friend, off the record</cite>
+      </blockquote>
+
+      <h2 id="sec2"><span class="num-mark">02 — ECONOMICS</span>The cost math, with numbers</h2>
+
+      <p>Here's the price of the active ingredients at industrial scale, sourced from <a href="#">industry-rate bulk material indices</a>. These are the prices brands pay per kilogram before formulation and packaging:</p>
+
+      <div class="pullout">
+        <div>
+          <div class="k">Per clinical serving · raw material cost</div>
+          <p>L-Citrulline at clinical dose (6g): <b>$0.28</b>. Beta-Alanine at clinical dose (3.2g): <b>$0.09</b>. Creatine Mono (5g): <b>$0.06</b>. Caffeine (200mg): <b>$0.003</b>. The active ingredients of a fully-dosed pre-workout: <b>under fifty cents</b>.</p>
+        </div>
+        <div class="big">$0.42<small>raw</small></div>
+      </div>
+
+      <p>That is the wholesale cost, at clinical doses, of the actives in a properly-dosed pre-workout. The retail price of a "clinical-grade" pre-workout, on average, is $1.93 per serving (n=86 products, Fitlab Q1 2026 dataset). The difference covers packaging, distribution, marketing, and — substantially — margin.</p>
+
+      <p>This is fine. It is fine that a brand makes a margin on actives that cost forty cents and sell for two dollars. <b>What is not fine</b> is when the same brand sells $1.93 per serving of <em>under-dosed</em> actives — citrulline at 1.8g, beta-alanine at 0.9g, creatine at 1.2g — and pretends the dosing is clinical because the math is hidden behind a proprietary blend.</p>
+
+      <h2 id="sec3"><span class="num-mark">03 — DATA</span>Fourteen labels, fourteen labs</h2>
+
+      <p>We ran fourteen pre-workout products through the lab in April 2026. Three are sold with full disclosure (no prop blend) and eleven hide their amounts. Here is what the lab actually found, for the headline ingredients only.</p>
+
+      <div class="post-table">
+        <div class="ph">
+          <span>April 2026 · n=14 · Pre-workout assay</span>
+          <span class="n">04 / 26</span>
+        </div>
+        <table class="ptbl">
+          <thead>
+            <tr>
+              <th>Brand · Product</th>
+              <th>Disclosure</th>
+              <th>Citrulline</th>
+              <th>Beta-Alanine</th>
+              <th>Caffeine</th>
+              <th>Cost / clin. serv.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Legion Pulse</b></td>
+              <td class="good">Full</td>
+              <td class="num good"><span class="ibar"><i class="green" style="width:100%"></i></span>8.0g</td>
+              <td class="num good"><span class="ibar"><i class="green" style="width:100%"></i></span>3.6g</td>
+              <td class="num good">350mg</td>
+              <td class="num good">$2.14</td>
+            </tr>
+            <tr>
+              <td><b>Transparent Labs BULK</b></td>
+              <td class="good">Full</td>
+              <td class="num good"><span class="ibar"><i class="green" style="width:100%"></i></span>6.0g</td>
+              <td class="num good"><span class="ibar"><i class="green" style="width:100%"></i></span>4.0g</td>
+              <td class="num good">180mg</td>
+              <td class="num good">$1.86</td>
+            </tr>
+            <tr>
+              <td><b>Naked Energy</b></td>
+              <td class="good">Full</td>
+              <td class="num"><span class="ibar"><i style="width:62%"></i></span>5.0g</td>
+              <td class="num"><span class="ibar"><i style="width:75%"></i></span>3.0g</td>
+              <td class="num">200mg</td>
+              <td class="num">$1.54</td>
+            </tr>
+            <tr>
+              <td>Pre JYM</td>
+              <td class="good">Full</td>
+              <td class="num good"><span class="ibar"><i class="green" style="width:100%"></i></span>6.0g</td>
+              <td class="num good"><span class="ibar"><i class="green" style="width:80%"></i></span>2.0g</td>
+              <td class="num">300mg</td>
+              <td class="num">$2.06</td>
+            </tr>
+            <tr>
+              <td>C4 Original</td>
+              <td class="bad">Prop. blend</td>
+              <td class="num bad"><span class="ibar"><i class="red" style="width:22%"></i></span>1.4g†</td>
+              <td class="num"><span class="ibar"><i style="width:50%"></i></span>1.6g†</td>
+              <td class="num">150mg</td>
+              <td class="num">$0.69</td>
+            </tr>
+            <tr>
+              <td>Cellucor C4 Ultimate</td>
+              <td class="bad">Prop. blend</td>
+              <td class="num bad"><span class="ibar"><i class="red" style="width:38%"></i></span>2.3g†</td>
+              <td class="num bad"><span class="ibar"><i class="red" style="width:38%"></i></span>1.2g†</td>
+              <td class="num">300mg</td>
+              <td class="num">$1.87</td>
+            </tr>
+            <tr>
+              <td>Ghost Legend V3</td>
+              <td class="bad">Prop. blend</td>
+              <td class="num bad"><span class="ibar"><i class="red" style="width:50%"></i></span>3.0g†</td>
+              <td class="num bad"><span class="ibar"><i class="red" style="width:50%"></i></span>1.6g†</td>
+              <td class="num">200mg</td>
+              <td class="num">$1.99</td>
+            </tr>
+            <tr>
+              <td>Gorilla Mode Pre</td>
+              <td class="bad">Prop. blend</td>
+              <td class="num bad"><span class="ibar"><i class="red" style="width:30%"></i></span>1.8g†</td>
+              <td class="num bad"><span class="ibar"><i class="red" style="width:28%"></i></span>0.9g†</td>
+              <td class="num">175mg</td>
+              <td class="num">$1.78</td>
+            </tr>
+            <tr>
+              <td>5% Nutrition 5150</td>
+              <td class="bad">Prop. blend</td>
+              <td class="num bad"><span class="ibar"><i class="red" style="width:20%"></i></span>1.2g†</td>
+              <td class="num bad"><span class="ibar"><i class="red" style="width:31%"></i></span>1.0g†</td>
+              <td class="num">300mg</td>
+              <td class="num">$2.21</td>
+            </tr>
+            <tr>
+              <td>Bucked Up</td>
+              <td class="bad">Prop. blend</td>
+              <td class="num bad"><span class="ibar"><i class="red" style="width:25%"></i></span>1.5g†</td>
+              <td class="num">2.4g†</td>
+              <td class="num">200mg</td>
+              <td class="num">$1.94</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="padding: 12px 18px; border-top: 1px solid var(--line); font-family: var(--f-mono); font-size: 10.5px; color: var(--mute); letter-spacing: 0.04em;">
+          † = ingredient amounts derived from lab assay since label discloses only blend total. Methodology: <a href="methodology.html" style="color: var(--red);">methodology.html</a>
+        </div>
+      </div>
+
+      <h2 id="sec4"><span class="num-mark">04 — REBUTTAL</span>The defense, and why it fails</h2>
+
+      <p>Industry's defense of proprietary blends comes in two flavors:</p>
+
+      <ol>
+        <li><b>Trade secret protection.</b> If we disclosed our doses, competitors would copy our formula. Counter: dose ratios are not patentable; the ingredients are listed on the label anyway. A competitor with a fifty-dollar lab budget can reverse-engineer the formula in a week. The "trade secret" defense protects against consumers, not competitors.</li>
+        <li><b>Formulation synergy.</b> Our doses are calibrated to work in combination, even at lower individual amounts. Counter: this is a testable claim. We have not seen a single brand publish the human trial data on their "synergistic blend." When asked, all eleven prop-blend brands declined to comment.</li>
+      </ol>
+
+      <h2 id="sec5"><span class="num-mark">05 — PRACTICAL</span>What to do</h2>
+
+      <p>Three things:</p>
+      <ul>
+        <li><b>Never buy a pre-workout that lists a proprietary blend.</b> Full disclosure should be a hard cut. If the brand won't tell you the dose, the brand is telling you the dose isn't there.</li>
+        <li><b>Compute cost-per-clinical-serving</b>, not cost-per-scoop. We have a calculator. The 'cheap' pre-workout is often the most expensive on this metric.</li>
+        <li><b>Read the certifications.</b> NSF, Informed Sport, and USP Verified all require dose disclosure. A certified product with a prop blend on the label is mathematically impossible.</li>
+      </ul>
+
+      <h2 id="sec6"><span class="num-mark">06 — CODA</span>Why this matters</h2>
+
+      <p>Supplements are an asymmetric market. Brands know exactly what's in the bottle; consumers do not. Proprietary blends are not a regulatory grey area — they are the loudest piece of evidence that the asymmetry exists by design. <b>If you take only one thing from this piece</b>: the brands that hide their doses are not protecting trade secrets. They are protecting the price.</p>
+
+      <p>We will keep buying these products at retail. We will keep sending them to the lab. We will keep publishing what we find. If you want to know more about how we calculate the "derived" doses in the table above, our <a href="methodology.html">methodology</a> page has the math. If you've seen another category where this pattern is especially bad, write to us — we keep a list.</p>
+
+      <!-- Author bio -->
+      <div class="author-card">
+        <div class="av">AK</div>
+        <div>
+          <h4>Adrian Kojima, PhD</h4>
+          <div class="role">Head of analytical chemistry · Editor-in-chief</div>
+          <p>Adrian holds a PhD in pharmacology from UCSF and spent six years at the FDA before starting Fitlab. He has no commercial relationships with supplement brands and discloses any potential conflicts on the <a href="about.html" style="color: var(--red);">conflicts page</a>.</p>
+          <div class="links">
+            <a href="#">@adriank · X</a>
+            <a href="#">Mastodon</a>
+            <a href="#">ORCID</a>
+            <a href="#">All 38 posts →</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Side -->
+    <aside class="post-side">
+      <div class="meta-card">
+        <h5>This piece</h5>
+        <div class="v">12 min</div>
+        <div class="vs">14,829 reads · est. 4 min skim</div>
+      </div>
+      <div class="meta-card">
+        <h5>Last updated</h5>
+        <div class="v">May 16</div>
+        <div class="vs">v1.0 · No corrections</div>
+      </div>
+
+      <div class="share">
+        <button class="share-btn"><span class="ic">𝕏</span>Share</button>
+        <button class="share-btn"><span class="ic">in</span>LinkedIn</button>
+        <button class="share-btn"><span class="ic">@</span>Email</button>
+        <button class="share-btn"><span class="ic">⎘</span>Copy link</button>
+      </div>
+
+      <div class="meta-card" style="background: var(--ink); color: var(--paper); border: 0;">
+        <h5 style="color: var(--red);">Get the weekly</h5>
+        <p style="font-size: 12px; color: var(--mute-2); margin: 6px 0 12px; line-height: 1.45;">One email. Field reports, recalls, new lab data. Zero affiliate hype.</p>
+        <a href="#" class="btn btn-red" style="width: 100%; justify-content: center; font-size: 10px;">Subscribe →</a>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- Related -->
+<section class="related">
+  <div class="container">
+    <h3>Related reading</h3>
+    <div class="related-grid">
+      <a href="post.html" class="rel-card">
+        <span class="cat">Explainer</span>
+        <h4>Cost-per-clinical-serving — the only supplement metric that matters.</h4>
+        <div class="meta">May 11 · 8 min · Adrian K.</div>
+      </a>
+      <a href="post.html" class="rel-card">
+        <span class="cat">Field report</span>
+        <h4>I asked twenty supplement reps to defend their proprietary blends.</h4>
+        <div class="meta">Apr 23 · 12 min · Sam L.</div>
+      </a>
+      <a href="post.html" class="rel-card">
+        <span class="cat">Behind the score</span>
+        <h4>Why AG1 lost a full point in our Q1 re-test.</h4>
+        <div class="meta">May 09 · 6 min · Dr. Park</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="site-foot-mount"></div>
+
+<script src="assets/illus.js"></script>
+<script src="assets/chrome.js"></script>
+<script>
+  // TOC scroll spy
+  const tocLinks = document.querySelectorAll('.post-toc a');
+  const tocIds = Array.from(tocLinks).map(a => a.getAttribute('href').slice(1));
+  const tocSections = tocIds.map(id => document.getElementById(id)).filter(Boolean);
+  function spy() {
+    const y = window.scrollY + 200;
+    let active = tocSections[0];
+    for (const s of tocSections) { if (s.offsetTop <= y) active = s; }
+    if (active) {
+      tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + active.id));
+    }
+  }
+  window.addEventListener('scroll', spy, { passive: true });
+</script>
+</body>
+</html>

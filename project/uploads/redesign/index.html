@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fitlab Reviews — Independent supplement testing</title>
+<link rel="stylesheet" href="assets/tokens.css"/>
+<link rel="stylesheet" href="assets/shared.css"/>
+<style>
+  /* ===== Home-specific ===== */
+  .hero {
+    border-bottom: 1px solid var(--ink);
+    padding: 28px 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 56px;
+    align-items: end;
+    padding-bottom: 36px;
+  }
+  .hero-headline {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(72px, 11vw, 196px);
+    line-height: 0.82;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--ink);
+  }
+  .hero-headline .red { color: var(--red); }
+  .hero-headline .out {
+    -webkit-text-stroke: 2px var(--ink);
+    color: transparent;
+  }
+  .hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .hero-meta-row {
+    display: flex; gap: 32px; align-items: start;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line-2);
+  }
+  .hero-meta p {
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--ink-2);
+    max-width: 380px;
+    margin: 0;
+  }
+  .hero-meta p b { font-weight: 700; color: var(--ink); }
+  .hero-cta-row { display: flex; gap: 10px; }
+
+  .live-strip {
+    background: var(--ink);
+    color: var(--paper);
+    border-bottom: 1px solid var(--ink);
+    padding: 18px 0;
+  }
+  .live-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+  }
+  .live-grid > div {
+    padding: 4px 24px;
+    border-right: 1px solid var(--ink-3);
+  }
+  .live-grid > div:last-child { border-right: 0; }
+  .live-grid .k {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .live-dot {
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 var(--green);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(31,138,91,0.6); }
+    70% { box-shadow: 0 0 0 8px rgba(31,138,91,0); }
+    100% { box-shadow: 0 0 0 0 rgba(31,138,91,0); }
+  }
+  .live-grid .v {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 0.9;
+    color: var(--paper);
+  }
+  .live-grid .v .small {
+    font-size: 18px;
+    color: var(--mute-2);
+    margin-left: 4px;
+  }
+
+  .rubric-preview {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border: 1px solid var(--ink);
+  }
+  .rubric-q {
+    padding: 24px;
+    border-right: 1px solid var(--ink);
+    background: var(--paper);
+  }
+  .rubric-q:last-child { border-right: 0; }
+  .rubric-q .qn {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--red);
+  }
+  .rubric-q .qt {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin: 12px 0 12px;
+  }
+  .rubric-q .qd {
+    font-size: 13px;
+    color: var(--ink-3);
+    line-height: 1.45;
+  }
+  .rubric-q .qweight {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--mute);
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--line-2);
+    letter-spacing: 0.1em;
+  }
+
+  /* Manifesto */
+  .manifesto {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 80px 0;
+  }
+  .manifesto .num-mark {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--red);
+    margin-bottom: 24px;
+  }
+  .manifesto h2 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(48px, 7vw, 120px);
+    line-height: 0.88;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+    margin: 0 0 32px;
+    max-width: 1100px;
+  }
+  .manifesto h2 em {
+    font-style: normal;
+    color: var(--red);
+  }
+  .manifesto h2 .strike {
+    text-decoration: line-through;
+    text-decoration-thickness: 4px;
+    text-decoration-color: var(--red);
+    opacity: 0.55;
+  }
+  .manifesto-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-top: 48px;
+    padding-top: 48px;
+    border-top: 1px solid var(--ink-3);
+  }
+  .manifesto-grid h4 {
+    font-family: var(--f-mono);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin: 0 0 12px;
+  }
+  .manifesto-grid p {
+    color: var(--paper);
+    opacity: 0.78;
+    font-size: 15px;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* Category strip */
+  .cat-strip {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    border: 1px solid var(--ink);
+    margin: 0;
+  }
+  .cat-card {
+    padding: 24px;
+    border-right: 1px solid var(--ink);
+    background: var(--paper);
+    display: flex; flex-direction: column;
+    gap: 16px;
+    min-height: 220px;
+    position: relative;
+    transition: background 0.15s;
+  }
+  .cat-card:last-child { border-right: 0; }
+  .cat-card:hover { background: var(--paper-2); }
+  .cat-card .num-mark {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--mute);
+    letter-spacing: 0.1em;
+  }
+  .cat-card .cn {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .cat-card .ct {
+    font-size: 12.5px;
+    color: var(--ink-3);
+    line-height: 1.4;
+  }
+  .cat-card .cb {
+    margin-top: auto;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    color: var(--mute);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .cat-card .cb b { color: var(--ink); font-weight: 700; }
+
+  /* Research card */
+  .rsc-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 16px;
+  }
+  .rsc-card {
+    border: 1px solid var(--line-2);
+    padding: 24px;
+    display: flex; flex-direction: column;
+    gap: 16px;
+    background: var(--paper);
+    transition: border-color 0.15s;
+  }
+  .rsc-card:hover { border-color: var(--ink); }
+  .rsc-card.lead { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .rsc-card.lead .rsc-cat { color: var(--red); }
+  .rsc-card.lead .rsc-meta { color: var(--mute-2); }
+  .rsc-card.lead .rsc-key b { color: var(--paper); }
+  .rsc-cat {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+  .rsc-title {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.0;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+  .rsc-card.lead .rsc-title {
+    font-size: 42px;
+    line-height: 0.96;
+  }
+  .rsc-meta {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    color: var(--mute);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex; gap: 12px; align-items: center;
+  }
+  .rsc-key {
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .rsc-card.lead .rsc-key { color: rgba(246,244,239,0.85); }
+
+  /* Blog list */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .blog-card {
+    display: flex; flex-direction: column;
+    gap: 14px;
+    padding: 24px 0;
+    border-top: 2px solid var(--ink);
+    cursor: pointer;
+  }
+  .blog-card .b-cat {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+  .blog-card h3 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.0;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    margin: 0;
+    transition: color 0.15s;
+  }
+  .blog-card:hover h3 { color: var(--red); }
+  .blog-card p {
+    font-size: 14px;
+    color: var(--ink-3);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .blog-card .b-meta {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    color: var(--mute);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex; gap: 12px;
+    margin-top: auto;
+    padding-top: 12px;
+  }
+
+  /* Fail wall - brands that failed lab */
+  .fail-wall {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .fail-vis {
+    border: 1px solid var(--ink);
+    padding: 32px;
+    background: var(--paper);
+  }
+  .fail-bar-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 60px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-family: var(--f-mono);
+  }
+  .fail-bar-row .fbl {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .fail-bar {
+    height: 18px;
+    background: var(--paper-2);
+    position: relative;
+    border: 1px solid var(--line-2);
+  }
+  .fail-bar i {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    background: var(--red);
+  }
+  .fail-bar i.ok { background: var(--green); }
+  .fail-bar .lbl-inner {
+    position: absolute;
+    right: 6px; top: 50%; transform: translateY(-50%);
+    font-size: 10px;
+    color: var(--paper);
+    font-weight: 700;
+  }
+  .fail-bar .lbl-outer {
+    position: absolute;
+    left: calc(var(--w) + 8px); top: 50%; transform: translateY(-50%);
+    font-size: 10px;
+    color: var(--mute);
+  }
+  .fail-bar-row .fbn {
+    font-size: 12px;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .super-card {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .super-card > * { min-width: 0; }
+  .super-card h2 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(48px, 5.5vw, 84px);
+    line-height: 0.88;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: -0.015em;
+  }
+  .super-card h2 em { font-style: normal; color: var(--red); }
+  .super-card .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .super-card .stat .v {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 0.9;
+  }
+  .super-card .stat .k {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute-2);
+    margin-top: 6px;
+  }
+
+  @media (min-width: 981px) {
+    .hero-grid { grid-template-columns: 1fr 360px; }
+  }
+  @media (min-width: 1300px) { .hero-grid { grid-template-columns: 1fr 420px; } }
+
+  @media (max-width: 980px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .live-grid, .rubric-preview, .cat-strip { grid-template-columns: repeat(2, 1fr); }
+    .live-grid > div, .rubric-q, .cat-card { border-right: 0; border-bottom: 1px solid var(--ink-3); }
+    .rsc-grid, .blog-grid { grid-template-columns: 1fr; }
+    .fail-wall, .super-card { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 720px) {
+    .hero { padding-top: 20px; }
+    .hero-grid { gap: 32px; padding-bottom: 24px; }
+    .hero-headline { font-size: clamp(54px, 14vw, 96px) !important; }
+    .hero-meta-row { padding-bottom: 12px; }
+    .hero-meta p { font-size: 15px; }
+    .hero-cta-row { flex-direction: column; align-items: stretch; }
+    .hero-cta-row .btn { justify-content: center; }
+
+    .live-strip { padding: 12px 0; }
+    .live-grid { grid-template-columns: 1fr 1fr !important; }
+    .live-grid > div { padding: 12px 16px; }
+    .live-grid > div:nth-child(odd) { border-right: 1px solid var(--ink-3); }
+    .live-grid > div:nth-child(-n+4) { border-bottom: 1px solid var(--ink-3); }
+    .live-grid > div:nth-child(5) { grid-column: 1 / -1; }
+    .live-grid .v { font-size: 32px; }
+
+    .rubric-preview { grid-template-columns: 1fr !important; }
+    .rubric-q { padding: 20px; border-right: 0 !important; border-bottom: 1px solid var(--ink); }
+    .rubric-q:last-child { border-bottom: 0; }
+    .rubric-q .qt { font-size: 24px; }
+
+    .cat-strip { grid-template-columns: 1fr 1fr !important; }
+    .cat-card { border-right: 0 !important; border-bottom: 1px solid var(--ink); min-height: 180px; padding: 18px; }
+    .cat-card:nth-child(odd) { border-right: 1px solid var(--ink) !important; }
+    .cat-card:nth-child(-n+4) { border-bottom: 1px solid var(--ink); }
+    .cat-card .cn { font-size: 22px; }
+    .cat-card .ct { font-size: 11.5px; }
+
+    .fail-vis { padding: 20px; }
+    .fail-bar-row { grid-template-columns: 80px 1fr 44px; gap: 8px; }
+    .fail-bar-row .fbl { font-size: 10px; }
+    .fail-bar { height: 14px; }
+    .fail-bar .lbl-outer { display: none; }
+    .fail-bar-row .fbn { font-size: 11px; }
+
+    .manifesto { padding: 56px 0; }
+    .manifesto h2 { font-size: clamp(42px, 11vw, 72px); }
+    .manifesto .strike { text-decoration-thickness: 3px; }
+    .manifesto-grid { grid-template-columns: 1fr; gap: 24px; padding-top: 32px; margin-top: 32px; }
+
+    .rsc-grid { gap: 12px; }
+    .rsc-card { padding: 20px; }
+    .rsc-card.lead { padding: 24px; }
+    .rsc-card.lead .rsc-title { font-size: 30px; }
+    .rsc-title { font-size: 22px; }
+
+    .blog-grid { gap: 0; }
+    .blog-card { padding: 20px 0; }
+    .blog-card h3 { font-size: 22px; }
+    .blog-card p { font-size: 13px; }
+
+    .super-card { padding: 32px 24px; gap: 32px; }
+    .super-card h2 { font-size: clamp(34px, 9vw, 56px); }
+    .super-card .stats { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .super-card .stat .v { font-size: 40px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-meta-row { flex-direction: column; gap: 12px; }
+    .live-grid > div { padding: 10px 14px; }
+    .live-grid .v { font-size: 28px; }
+    .cat-strip { grid-template-columns: 1fr !important; }
+    .cat-card:nth-child(odd), .cat-card:nth-child(-n+4) { border-right: 0 !important; border-bottom: 1px solid var(--ink); }
+    .cat-card:last-child { border-bottom: 0; }
+    .manifesto h2 { font-size: clamp(36px, 13vw, 56px); }
+  }
+</style>
+</head>
+<body data-page="home">
+
+<div id="site-head-mount"></div>
+
+<!-- ======== HERO ======== -->
+<section class="hero">
+  <div class="container">
+    <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 24px;">
+      <span class="kicker" style="color: var(--red);">FILE NO. 24 / 026</span>
+      <span style="height: 1px; background: var(--line-2); flex: 1;"></span>
+      <span class="eyebrow">Updated: May 17, 2026 · 09:14 EDT</span>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-headline">
+          The <span class="red">truth</span><br/>
+          about your<br/>
+          <span class="out">supplements.</span>
+        </h1>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-row">
+          <p><b>We buy 100% of products at retail.</b> No samples. No sponsorships. No affiliate-driven scoring. Just a third-party lab and a five-question rubric.</p>
+        </div>
+        <div class="hero-cta-row">
+          <a href="reviews.html" class="btn btn-lg btn-red">See all 512 reviews →</a>
+          <a href="methodology.html" class="btn btn-lg btn-ghost">How we test</a>
+        </div>
+        <div style="display: flex; gap: 24px; align-items: center; font-family: var(--f-mono); font-size: 11px; color: var(--mute); letter-spacing: 0.1em; text-transform: uppercase;">
+          <span style="display: flex; align-items: center; gap: 8px;">
+            <span class="live-dot" style="background: var(--red);"></span>
+            3 active recalls
+          </span>
+          <span>·</span>
+          <span>28,412 readers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== LIVE STRIP ======== -->
+<section class="live-strip">
+  <div class="container">
+    <div class="live-grid">
+      <div>
+        <div class="k"><span class="live-dot"></span>Tested to date</div>
+        <div class="v">512</div>
+      </div>
+      <div>
+        <div class="k">Brands · Q2 2026</div>
+        <div class="v">68<span class="small">/yr</span></div>
+      </div>
+      <div>
+        <div class="k">Failed lab assay</div>
+        <div class="v" style="color: #ff7a5a;">19<span class="small">%</span></div>
+      </div>
+      <div>
+        <div class="k">Under-dosed vs label</div>
+        <div class="v" style="color: #ffb04a;">34<span class="small">%</span></div>
+      </div>
+      <div>
+        <div class="k">Editor's choice</div>
+        <div class="v" style="color: #6fd8a0;">22</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FEATURED TESTS ======== -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head">
+      <div class="left">
+        <div class="lbl"><span class="num-lbl">01</span> Tested this week</div>
+        <h2 class="d-2">Fresh from the lab</h2>
+      </div>
+      <div class="right">
+        <span>Week 20 · 2026</span>
+        <span>·</span>
+        <a href="reviews.html" class="bcard-link">All reviews</a>
+      </div>
+    </div>
+
+    <div class="bgrid-3" id="featured-grid"></div>
+  </div>
+</section>
+
+<!-- ======== CATEGORY STRIP ======== -->
+<section style="padding: 0 0 56px;">
+  <div class="container">
+    <div class="sec-head">
+      <div class="left">
+        <div class="lbl"><span class="num-lbl">02</span> Best of 2026</div>
+        <h2 class="d-2">By category.<br/>By the lab.</h2>
+      </div>
+      <div class="right">
+        <a href="best.html" class="bcard-link">See all categories</a>
+      </div>
+    </div>
+
+    <div class="cat-strip">
+      <a href="best.html" class="cat-card">
+        <span class="num-mark">/ 01</span>
+        <span class="cn">Whey<br/>Protein</span>
+        <span class="ct">42 brands tested. Only 6 hit ≥24g protein per scoop at <1ppm heavy metals.</span>
+        <div class="cb"><b>Top: Transparent Labs</b><span>9.4</span></div>
+      </a>
+      <a href="best.html" class="cat-card">
+        <span class="num-mark">/ 02</span>
+        <span class="cn">Pre-<br/>Workout</span>
+        <span class="ct">Caffeine, beta-alanine, citrulline doses checked against published clinical ranges.</span>
+        <div class="cb"><b>Top: Legion Pulse</b><span>9.1</span></div>
+      </a>
+      <a href="best.html" class="cat-card">
+        <span class="num-mark">/ 03</span>
+        <span class="cn">Creatine<br/>Mono</span>
+        <span class="ct">Cheapest evidence-backed supplement. Easiest category to fake purity claims.</span>
+        <div class="cb"><b>Top: Thorne</b><span>9.2</span></div>
+      </a>
+      <a href="best.html" class="cat-card">
+        <span class="num-mark">/ 04</span>
+        <span class="cn">Multi-<br/>vitamin</span>
+        <span class="ct">61 brands tested. Mega-dosing common. Folate form matters; B12 form matters more.</span>
+        <div class="cb"><b>Top: Thorne Basic</b><span>8.8</span></div>
+      </a>
+      <a href="best.html" class="cat-card">
+        <span class="num-mark">/ 05</span>
+        <span class="cn">Omega-3</span>
+        <span class="ct">Oxidation, dose form, EPA:DHA ratio. Half the category is rancid on arrival.</span>
+        <div class="cb"><b>Top: Nordic Naturals</b><span>9.0</span></div>
+      </a>
+      <a href="best.html" class="cat-card">
+        <span class="num-mark">/ 06</span>
+        <span class="cn">Greens<br/>Powder</span>
+        <span class="ct">Most expensive per-gram supplement on the market. Most lacking in any evidence.</span>
+        <div class="cb"><b>Top: AG1</b><span>7.4</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== RUBRIC ======== -->
+<section class="section" style="background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="container">
+    <div class="sec-head">
+      <div class="left">
+        <div class="lbl"><span class="num-lbl">03</span> The 5-question rubric</div>
+        <h2 class="d-2">Every product, the same five questions.</h2>
+      </div>
+      <div class="right">
+        <a href="methodology.html" class="bcard-link">Full methodology</a>
+      </div>
+    </div>
+
+    <div class="rubric-preview">
+      <div class="rubric-q">
+        <div class="qn">Q.01</div>
+        <div class="qt">Ingredient quality</div>
+        <div class="qd">Form, source, bioavailability. Magnesium glycinate, not oxide. Methylfolate, not folic acid. The actual molecule on the label.</div>
+        <div class="qweight">Weight · 25%</div>
+      </div>
+      <div class="rubric-q">
+        <div class="qn">Q.02</div>
+        <div class="qt">Clinical dosing</div>
+        <div class="qd">Does the dose match the dose that worked in published human trials? Or is it pixie-dusted at 5% of clinical effect range?</div>
+        <div class="qweight">Weight · 25%</div>
+      </div>
+      <div class="rubric-q">
+        <div class="qn">Q.03</div>
+        <div class="qt">Transparency</div>
+        <div class="qd">Full ingredient amounts disclosed, not hidden behind proprietary blends. CoAs published. Manufacturer named.</div>
+        <div class="qweight">Weight · 20%</div>
+      </div>
+      <div class="rubric-q">
+        <div class="qn">Q.04</div>
+        <div class="qt">Third-party verified</div>
+        <div class="qd">NSF, Informed Sport, USP, or equivalent. We re-test independently and compare to the brand's published CoA.</div>
+        <div class="qweight">Weight · 15%</div>
+      </div>
+      <div class="rubric-q">
+        <div class="qn">Q.05</div>
+        <div class="qt">Value</div>
+        <div class="qd">Cost-per-clinical-serving, not cost-per-scoop. Compared across the category and weighted to dosing accuracy.</div>
+        <div class="qweight">Weight · 15%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FAIL WALL ======== -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head">
+      <div class="left">
+        <div class="lbl"><span class="num-lbl">04</span> The bad news</div>
+        <h2 class="d-2">19% of products<br/>failed lab assay.</h2>
+      </div>
+      <div class="right">
+        <a href="research.html" class="bcard-link">See the data</a>
+      </div>
+    </div>
+
+    <div class="fail-wall">
+      <div class="fail-vis">
+        <div class="eyebrow" style="margin-bottom: 16px;">Failure mode · 2025–2026 testing window · n=512</div>
+
+        <div class="fail-bar-row">
+          <div class="fbl">Under-dosed</div>
+          <div class="fail-bar"><i style="width: 34%"></i><span class="lbl-outer" style="--w: 34%; left: calc(34% + 8px);">175 brands</span></div>
+          <div class="fbn">34%</div>
+        </div>
+        <div class="fail-bar-row">
+          <div class="fbl">Prop. blend</div>
+          <div class="fail-bar"><i style="width: 28%"></i><span class="lbl-outer" style="--w: 28%; left: calc(28% + 8px);">143 brands</span></div>
+          <div class="fbn">28%</div>
+        </div>
+        <div class="fail-bar-row">
+          <div class="fbl">Heavy metals</div>
+          <div class="fail-bar"><i style="width: 11%"></i><span class="lbl-outer" style="--w: 11%; left: calc(11% + 8px);">56 brands</span></div>
+          <div class="fbn">11%</div>
+        </div>
+        <div class="fail-bar-row">
+          <div class="fbl">Rancidity</div>
+          <div class="fail-bar"><i style="width: 8%"></i><span class="lbl-outer" style="--w: 8%; left: calc(8% + 8px);">41 brands</span></div>
+          <div class="fbn">8%</div>
+        </div>
+        <div class="fail-bar-row">
+          <div class="fbl">Mislabeled</div>
+          <div class="fail-bar"><i style="width: 6%"></i><span class="lbl-outer" style="--w: 6%; left: calc(6% + 8px);">31 brands</span></div>
+          <div class="fbn">6%</div>
+        </div>
+        <div class="fail-bar-row">
+          <div class="fbl">Banned subst.</div>
+          <div class="fail-bar"><i style="width: 2%"></i><span class="lbl-outer" style="--w: 2%; left: calc(2% + 8px);">10 brands</span></div>
+          <div class="fbn">2%</div>
+        </div>
+
+        <div style="margin-top: 24px; padding-top: 14px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+          <div><div class="eyebrow">All passes</div><div class="num" style="font-size: 22px; font-weight: 700;">81%</div></div>
+          <div><div class="eyebrow">Any failure</div><div class="num" style="font-size: 22px; font-weight: 700; color: var(--red-deep);">19%</div></div>
+          <div><div class="eyebrow">Recalls issued</div><div class="num" style="font-size: 22px; font-weight: 700;">3</div></div>
+        </div>
+      </div>
+
+      <div>
+        <p style="font-size: 22px; line-height: 1.4; color: var(--ink); margin: 0 0 24px; max-width: 480px;">
+          We've sent <b>512 products</b> to ISO-17025 accredited labs since 2024. The single biggest failure mode isn't contamination — <b>it's under-dosing</b>: brands advertise clinical-grade compounds at half the dose published research used.
+        </p>
+        <ul style="list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 10px;">
+          <li style="display: flex; gap: 12px; align-items: start;"><span class="kicker" style="color: var(--red); min-width: 28px;">01</span><span style="font-size: 14px; color: var(--ink-2);">Dosing failures are concentrated in pre-workout, sleep, and "longevity" categories.</span></li>
+          <li style="display: flex; gap: 12px; align-items: start;"><span class="kicker" style="color: var(--red); min-width: 28px;">02</span><span style="font-size: 14px; color: var(--ink-2);">11% had heavy-metal levels above Prop. 65 limits — mostly greens and protein.</span></li>
+          <li style="display: flex; gap: 12px; align-items: start;"><span class="kicker" style="color: var(--red); min-width: 28px;">03</span><span style="font-size: 14px; color: var(--ink-2);">Brands with NSF certification failed at 4%. Uncertified: 26%.</span></li>
+        </ul>
+        <a href="research.html" class="btn btn-red">Read the full Q2 report →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== RESEARCH ======== -->
+<section class="section" style="background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+  <div class="container">
+    <div class="sec-head">
+      <div class="left">
+        <div class="lbl"><span class="num-lbl">05</span> Research briefs</div>
+        <h2 class="d-2">What the studies actually say.</h2>
+      </div>
+      <div class="right">
+        <a href="research.html" class="bcard-link">All research</a>
+      </div>
+    </div>
+
+    <div class="rsc-grid">
+      <a href="study.html" class="rsc-card lead">
+        <div class="rsc-cat">Meta-analysis · 38 trials</div>
+        <h3 class="rsc-title">Creatine monohydrate at 3g/day — does the loading phase actually matter?</h3>
+        <div class="rsc-key">A re-analysis of muscle PCr saturation studies suggests 28 days at 3g matches a 5-day loading protocol within ±2% on every measured endpoint. Loading is a marketing artifact.</div>
+        <div class="rsc-meta">
+          <span>Posted May 14</span>
+          <span>·</span>
+          <span>14 min read</span>
+          <span>·</span>
+          <span style="color: var(--red);">★ Editor's pick</span>
+        </div>
+      </a>
+      <a href="study.html" class="rsc-card">
+        <div class="rsc-cat">Ingredient deep-dive</div>
+        <h3 class="rsc-title">Magnesium L-threonate — the cognition claim re-examined</h3>
+        <div class="rsc-key">Manufacturer-funded rat studies vs the two human trials. The signal is small and the noise is large.</div>
+        <div class="rsc-meta"><span>May 10</span><span>·</span><span>9 min</span></div>
+      </a>
+      <a href="study.html" class="rsc-card">
+        <div class="rsc-cat">Lab report</div>
+        <h3 class="rsc-title">Heavy metal contamination in greens powders — round 4 data</h3>
+        <div class="rsc-key">17 of 24 greens products tested above CA Prop. 65 cadmium thresholds. Detailed ppm tables.</div>
+        <div class="rsc-meta"><span>May 06</span><span>·</span><span>22 min</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== MANIFESTO ======== -->
+<section class="manifesto">
+  <div class="container">
+    <div class="num-mark">06 — POSITION</div>
+    <h2>
+      We accept <span class="strike">samples</span>,<br/>
+      <span class="strike">affiliate deals</span>,<br/>
+      <span class="strike">sponsorships</span>, or<br/>
+      <em>any other money</em><br/>
+      from brands we cover.
+    </h2>
+    <div class="manifesto-grid">
+      <div>
+        <h4>How we're funded</h4>
+        <p>Reader subscriptions ($6/mo) and one annual report sold to enterprise customers. Zero ad revenue. Zero affiliate income. Every product on this site was purchased at retail.</p>
+      </div>
+      <div>
+        <h4>How we're staffed</h4>
+        <p>Three PhDs (pharmacology, exercise physiology, analytical chemistry), one ISO-17025 lab partner, two journalists. No founders moonlighting as brand consultants.</p>
+      </div>
+      <div>
+        <h4>What we publish</h4>
+        <p>Raw lab reports for every product. Methodology under version control on GitHub. Corrections logged with timestamps. If we're wrong, we say so on the same page where we were wrong.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== BLOG ======== -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head">
+      <div class="left">
+        <div class="lbl"><span class="num-lbl">07</span> Field notes</div>
+        <h2 class="d-2">From the blog.</h2>
+      </div>
+      <div class="right">
+        <a href="blog.html" class="bcard-link">All posts</a>
+      </div>
+    </div>
+
+    <div class="blog-grid">
+      <a href="post.html" class="blog-card">
+        <span class="b-cat">Opinion</span>
+        <h3>Why "proprietary blends" are a tax on the people who can least afford it.</h3>
+        <p>The math behind hiding doses. We bought 14 pre-workouts and ran the numbers. The cheaper the product, the more it hides.</p>
+        <div class="b-meta"><span>May 15</span><span>·</span><span>Adrian K.</span><span>·</span><span>6 min</span></div>
+      </a>
+      <a href="post.html" class="blog-card">
+        <span class="b-cat">Field report</span>
+        <h3>I visited four Costco supplement aisles. Here's the dosing spread.</h3>
+        <p>The big-box channel has a different incentive than DTC. Some of it is better. Most of it is worse. None of it is what you'd expect.</p>
+        <div class="b-meta"><span>May 11</span><span>·</span><span>Mira J.</span><span>·</span><span>11 min</span></div>
+      </a>
+      <a href="post.html" class="blog-card">
+        <span class="b-cat">Explainer</span>
+        <h3>Cost-per-clinical-serving — the only supplement metric that matters.</h3>
+        <p>Why we don't compare on cost-per-scoop, cost-per-pill, or cost-per-bottle. The math of clinical-effect dosing, explained.</p>
+        <div class="b-meta"><span>May 04</span><span>·</span><span>Adrian K.</span><span>·</span><span>8 min</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== SUPER CTA ======== -->
+<section style="padding: 56px 0 96px;">
+  <div class="container">
+    <div class="super-card">
+      <h2>Get the <em>weekly</em> brief.<br/>One email.<br/>Zero affiliate hype.</h2>
+      <div>
+        <div class="stats" style="margin-bottom: 32px;">
+          <div class="stat"><div class="v">28,412</div><div class="k">Subscribers</div></div>
+          <div class="stat"><div class="v">98%</div><div class="k">Open rate · Q1</div></div>
+          <div class="stat"><div class="v">512</div><div class="k">Brands tested</div></div>
+          <div class="stat"><div class="v">$0</div><div class="k">Affiliate income</div></div>
+        </div>
+        <div style="display: flex; gap: 0; border: 1px solid var(--paper);">
+          <input type="email" placeholder="your@email.com" style="flex: 1; background: transparent; border: 0; padding: 16px 20px; color: var(--paper); font: inherit; font-size: 15px; outline: none;"/>
+          <button style="background: var(--red); color: var(--paper); border: 0; padding: 0 28px; font-family: var(--f-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;">Subscribe →</button>
+        </div>
+        <div style="font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute-2); margin-top: 12px;">
+          Free. Unsubscribe in one click. No tracking pixels.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-foot-mount"></div>
+
+<script src="assets/illus.js"></script>
+<script src="assets/chrome.js"></script>
+<script>
+  // Featured grid data
+  const featured = [
+    { brand: 'Transparent Labs', cat: 'Whey Isolate · Grass-fed', tag: 'tub', score: 9.4, badge: 'Editor\'s Choice', badgeC: 'green',
+      rubric: { 'Ingredient': 9.6, 'Dosing': 9.4, 'Transparency': 9.8, 'Value': 8.6 },
+      tags: [{ t: 'Informed Sport', c: 'green'}, { t: 'cGMP'}, { t: '24g protein'}] },
+    { brand: 'Thorne Creatine', cat: 'Creatine Mono · 100% pure', tag: 'bottle', score: 9.2, badge: 'Editor\'s Choice', badgeC: 'green',
+      rubric: { 'Ingredient': 9.7, 'Dosing': 9.5, 'Transparency': 9.0, 'Value': 8.4 },
+      tags: [{ t: 'NSF Certified', c: 'green'}, { t: 'Creapure'}] },
+    { brand: 'Legion Pulse', cat: 'Pre-workout · Clinical doses', tag: 'shaker', score: 9.0, badge: 'Editor\'s Choice', badgeC: 'green',
+      rubric: { 'Ingredient': 9.0, 'Dosing': 9.4, 'Transparency': 9.6, 'Value': 7.8 },
+      tags: [{ t: 'Full transparency', c: 'green'}, { t: 'No prop. blend'}] },
+    { brand: 'Garden of Life', cat: 'Whole-food multi', tag: 'jar', score: 8.6, badge: '', badgeC: '',
+      rubric: { 'Ingredient': 8.8, 'Dosing': 8.0, 'Transparency': 8.6, 'Value': 8.4 },
+      tags: [{ t: 'NSF Certified'}, { t: 'USDA Organic'}] },
+    { brand: 'Momentous', cat: 'Performance · Recovery', tag: 'pouch', score: 8.6, badge: '', badgeC: '',
+      rubric: { 'Ingredient': 8.4, 'Dosing': 8.8, 'Transparency': 8.4, 'Value': 7.8 },
+      tags: [{ t: 'NSF for Sport'}, { t: 'Andrew Huberman'}] },
+    { brand: 'AG1', cat: 'Greens blend · ≥75 ingredients', tag: 'tub', score: 7.4, badge: '', badgeC: '',
+      rubric: { 'Ingredient': 7.8, 'Dosing': 6.2, 'Transparency': 5.4, 'Value': 4.8 },
+      tags: [{ t: 'Prop. blend', c: 'red'}, { t: 'NSF for Sport'}] },
+  ];
+
+  function rubricRow(label, val) {
+    const cls = val >= 8.5 ? 'hi' : (val >= 7 ? 'mid' : 'lo');
+    return `
+      <div class="rb-row">
+        <span class="rb-lbl">${label}</span>
+        <span class="rb-val">${val.toFixed(1)}</span>
+        <div class="rb-bar"><i class="${cls}" style="width: ${val*10}%"></i></div>
+      </div>
+    `;
+  }
+
+  function scoreClass(s) { return s >= 8.5 ? 'hi' : (s >= 7 ? 'mid' : 'lo'); }
+
+  function cardHTML(d) {
+    const ribbon = d.badge ? `<span class="bcard-ribbon ${d.badgeC}">★ ${d.badge}</span>` : '';
+    const rubrics = Object.entries(d.rubric).map(([k,v]) => rubricRow(k, v)).join('');
+    const tags = d.tags.map(t => `<span class="tag ${t.c||''}">${t.c ? '<span class="dot"></span>' : ''}${t.t}</span>`).join('');
+    return `
+      <article class="bcard">
+        ${ribbon}
+        <div class="bcard-head">
+          <div class="bcard-img">${window.PROD_ILLUS[d.tag] || window.PROD_ILLUS.tub}</div>
+          <div class="bcard-id">
+            <div class="bcard-cat">${d.cat}</div>
+            <h3 class="bcard-name">${d.brand}</h3>
+          </div>
+          <div class="bcard-score ${scoreClass(d.score)}">
+            <span class="n">${d.score.toFixed(1)}</span>
+            <span class="sub">/10</span>
+          </div>
+        </div>
+        <div class="bcard-rubric">${rubrics}</div>
+        <div class="bcard-foot">
+          <div class="bcard-tags">${tags}</div>
+          <a href="review.html" class="bcard-link">Analysis</a>
+        </div>
+      </article>
+    `;
+  }
+
+  document.getElementById('featured-grid').innerHTML = featured.map(cardHTML).join('');
+</script>
+</body>
+</html>

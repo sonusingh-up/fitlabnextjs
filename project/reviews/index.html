@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function() {
+  var pn = window.location.pathname;
+  var preview = pn.match(/^(.*\/serve\/)/);
+  var base;
+  if (preview) {
+    base = preview[1];
+  } else {
+    var depth = pn.replace(/\/[^\/]*$/, '').split('/').filter(Boolean).length;
+    base = depth === 0 ? './' : new Array(depth + 1).join('../');
+  }
+  document.write('<base href="' + base + '">');
+})();
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>All Reviews · Fitlab</title>
+<link rel="stylesheet" href="assets/tokens.css"/>
+<link rel="stylesheet" href="assets/shared.css"/>
+<style>
+  /* Page hero (smaller than home) */
+  .idx-hero {
+    border-bottom: 1px solid var(--ink);
+    padding: 32px 0 32px;
+  }
+  .idx-hero h1 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(56px, 8vw, 128px);
+    line-height: 0.86;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .idx-hero .meta-grid {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    gap: 32px;
+    align-items: end;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line-2);
+  }
+  .idx-hero .lede {
+    max-width: 540px;
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .idx-hero .stat {
+    border-left: 1px solid var(--line-2);
+    padding-left: 16px;
+    min-width: 100px;
+  }
+  .idx-hero .stat .v {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 0.95;
+  }
+  .idx-hero .stat .k {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--mute);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .idx-hero .stat .v.red { color: var(--red-deep); }
+  .idx-hero .stat .v.green { color: var(--green-deep); }
+
+  @media (max-width: 720px) {
+    .idx-hero { padding: 20px 0 24px; }
+    .idx-hero h1 { font-size: clamp(48px, 13vw, 88px); }
+    .idx-hero .meta-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .idx-hero .lede {
+      grid-column: 1 / -1;
+      font-size: 14.5px;
+      margin-bottom: 8px;
+    }
+    .idx-hero .stat { min-width: 0; padding-left: 12px; }
+    .idx-hero .stat .v { font-size: 28px; }
+    .idx-hero .stat .k { font-size: 9.5px; }
+
+    /* Wide featured bcard stacks */
+    .bcard > .bcard-head[style*="140px"] {
+      grid-template-columns: 64px 1fr 64px !important;
+    }
+    .bcard > .bcard-head[style*="140px"] .bcard-name {
+      font-size: 18px !important;
+    }
+    .bcard-rubric[style*="1fr 1fr 1fr 1fr"] {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+  @media (max-width: 480px) {
+    .idx-hero .meta-grid { grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    .idx-hero .stat:nth-child(2) { padding-left: 12px; }
+    .idx-hero .stat .v { font-size: 22px; }
+  }
+</style>
+</head>
+<body data-page="reviews">
+
+<div id="site-head-mount"></div>
+
+<!-- Sub-nav -->
+<div class="sub-nav">
+  <div class="container">
+    <div class="sub-nav-inner">
+      <a href="reviews.html" class="active">All reviews</a>
+      <a href="best.html">Best of</a>
+      <a href="reviews.html">Editor's picks</a>
+      <a href="reviews.html">Recently tested</a>
+      <a href="reviews.html">Failed lab</a>
+      <a href="reviews.html">Re-tests due</a>
+      <span class="spacer"></span>
+      <span class="meta">Last lab run · May 12, 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="idx-hero">
+  <div class="container">
+    <div class="kicker" style="color: var(--red); margin-bottom: 16px;">REVIEWS · 512 PRODUCTS · 89 BRANDS</div>
+    <h1>All<br/>reviews.</h1>
+    <div class="meta-grid">
+      <p class="lede">Every supplement we've tested. Bought at retail, sent to an ISO-17025 lab, scored against a five-question rubric. <a href="methodology.html" style="color: var(--red); text-decoration: underline;">How we test →</a></p>
+      <div class="stat"><div class="v">512</div><div class="k">Tested</div></div>
+      <div class="stat"><div class="v green">22</div><div class="k">Editor's pick</div></div>
+      <div class="stat"><div class="v red">97</div><div class="k">Failed lab</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Main with sidebar -->
+<div class="container" style="padding-top: 28px; padding-bottom: 56px;">
+  <div class="with-rail">
+
+    <!-- Mobile filter toggle -->
+    <button class="rail-toggle" id="rail-toggle" aria-expanded="false" type="button">
+      <span class="rt-left">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h10M5 8h6M7 11h2"/></svg>
+        Filters
+        <span class="rt-count">3</span>
+      </span>
+      <span class="rt-arr">▾</span>
+    </button>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="rail" id="rail-host"></aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+      <!-- Featured card (top result, rendered dynamically) -->
+      <article id="featured-card" style="margin-bottom: 16px;"></article>
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="results"><b id="ff-count">—</b> products · <span id="ff-applied">0</span> filters applied</div>
+        <div class="actions">
+          <select id="ff-sort">
+            <option value="score">Sort · Highest scored</option>
+            <option value="recent">Recently tested</option>
+            <option value="alpha">Alphabetical</option>
+            <option value="low">Lowest scored</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Active filters (rendered by engine) -->
+      <div id="ff-active" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px;"></div>
+
+      <!-- Grid -->
+      <div class="bgrid-2" id="ff-results"></div>
+
+      <!-- Empty state -->
+      <div id="ff-empty" style="display: none; padding: 60px 20px; text-align: center; border: 1px dashed var(--line-2); color: var(--mute);">
+        <div style="font-family: var(--f-display); font-weight: 700; font-size: 32px; text-transform: uppercase; color: var(--ink); margin-bottom: 8px;">No products match.</div>
+        <p style="font-size: 14px; max-width: 420px; margin: 0 auto 16px;">Try removing some filters or broadening your search.</p>
+        <button class="ff-reset" style="font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; padding: 10px 18px; background: var(--ink); color: var(--paper); border: 0; cursor: pointer;">Reset filters</button>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pager" id="ff-pager"></div>
+    </main>
+
+  </div>
+</div>
+
+<div id="site-foot-mount"></div>
+
+<script src="assets/illus.js"></script>
+<script src="assets/data-loader.js"></script>
+<script src="assets/filters.js"></script>
+<script src="assets/seo.js"></script>
+<script src="assets/consent.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/sidebar.js"></script>
+<script>
+  window.FITLAB.page = { type: 'index' };
+
+  // Mobile rail toggle
+  const rt = document.getElementById('rail-toggle');
+  const rail = document.querySelector('.rail');
+  if (rt && rail) {
+    rt.addEventListener('click', () => {
+      const open = rail.classList.toggle('open');
+      rt.classList.toggle('open', open);
+      rt.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  // Wide featured-card renderer for the top result
+  function featuredHTML(d) {
+    const rubrics = Object.entries(d.rubric || {}).map(([k,v]) => window.FITLAB.rubricRow(k, v)).join('');
+    const tags = (d.tags || []).map(t => `<span class="tag ${t.c||''}">${t.c ? '<span class="dot"></span>' : ''}${t.t}</span>`).join('');
+    return `
+      <article class="bcard">
+        <span class="bcard-ribbon ${d.pick ? 'green' : ''}">${d.pick ? "★ Editor's Choice · #1 IN CATEGORY" : 'TOP RESULT'}</span>
+        <div class="bcard-head" style="grid-template-columns: 140px 1fr 96px; display: grid;">
+          <div class="bcard-img" style="width: auto;">${(window.PROD_ILLUS && window.PROD_ILLUS[d.illus]) || ''}</div>
+          <div class="bcard-id" style="padding: 18px 22px;">
+            <div class="bcard-cat">${d.cat}</div>
+            <h3 class="bcard-name" style="font-size: 28px;">${d.brand}<br/>${d.product}</h3>
+            <div class="bcard-tag" style="margin-top: 8px; max-width: 520px;">${d.blurb}</div>
+          </div>
+          <div class="bcard-score ${window.FITLAB.scoreClass(d.score)}" style="width: auto;">
+            <span class="n">${d.score.toFixed(1)}</span>
+            <span class="sub">/10</span>
+          </div>
+        </div>
+        <div class="bcard-rubric" style="grid-template-columns: 1fr 1fr 1fr 1fr;">${rubrics}</div>
+        <div class="bcard-foot">
+          <div class="bcard-tags">${tags}</div>
+          <a href="/reviews/${d.slug}/" class="bcard-link">Full analysis</a>
+        </div>
+      </article>
+    `;
+  }
+
+  let filterCtl;
+
+  window.FITLAB.ready.then(() => {
+    const reviews = (window.FITLAB.data.reviews && window.FITLAB.data.reviews.reviews) || [];
+    if (!reviews.length) {
+      document.getElementById('ff-results').innerHTML = '<p style="padding: 40px; text-align: center; color: var(--mute);">Data failed to load.</p>';
+      return;
+    }
+
+    // Sidebar (after data so recent block uses live data)
+    window.renderSidebar(document.getElementById('rail-host'), 'reviews');
+
+    // Featured = highest-scored editor's pick
+    const featured = reviews.filter(r => r.pick).sort((a,b) => b.score - a.score)[0] || reviews[0];
+    document.getElementById('featured-card').innerHTML = featuredHTML(featured);
+
+    filterCtl = window.FITLAB.createFilter({
+      items: reviews.filter(r => r.slug !== (featured && featured.slug)),
+      searchFields: ['brand', 'product', 'cat', 'blurb'],
+      pageSize: 12,
+      gridEl: document.getElementById('ff-results'),
+      pagerEl: document.getElementById('ff-pager'),
+      activeEl: document.getElementById('ff-active'),
+      searchEl: document.querySelector('.rail .ff-search'),
+      sortEl: document.getElementById('ff-sort'),
+      defaultSort: 'score',
+      onCountChange: (n) => {
+        document.getElementById('ff-count').textContent = n;
+        const active = Object.values(filterCtl.state.filters).reduce((s, set) => s + set.size, 0) + (filterCtl.state.query ? 1 : 0);
+        document.getElementById('ff-applied').textContent = active;
+      },
+      render: (visible) => {
+        const empty = document.getElementById('ff-empty');
+        const root = document.getElementById('ff-results');
+        if (!visible.length) { empty.style.display = 'block'; root.innerHTML = ''; return; }
+        empty.style.display = 'none';
+        root.innerHTML = visible.map(window.FITLAB.reviewCardHTML).join('');
+      },
+      filterLabel: (k, v) => v,
+      filters: {
+        cat: (r, v) => (r.cat || '').toLowerCase().includes(v.toLowerCase().split(' ')[0]),
+        cert: (r, v) => (r.tags || []).some(t => (t.t || '').toLowerCase().includes(v.toLowerCase().split(' ')[0])),
+      },
+      sorts: {
+        score: (a, b) => b.score - a.score,
+        recent: (a, b) => (b.last_tested || '').localeCompare(a.last_tested || ''),
+        alpha: (a, b) => (a.brand + a.product).localeCompare(b.brand + b.product),
+        low: (a, b) => a.score - b.score,
+      }
+    });
+
+    window.FITLAB.applySEO({
+      type: 'index',
+      title: 'All Supplement Reviews — Independent Lab Tests · Fitlab',
+      description: 'Every supplement we have lab-tested. ISO-17025 verified. Scored on ingredient quality, clinical dosing, transparency, and value. No paid placements.',
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+/* ============================================================
+   FITLAB — Shared sidebar renderer
+   Adapts per-page (reviews, blog, research, best)
+   ============================================================ */
+
+(function() {
+  const RECENT = [
+    { brand: 'Transparent Labs WPI', cat: 'Whey · Re-tested', score: 9.4, date: 'May 14' },
+    { brand: 'Thorne Creatine', cat: 'Creatine · Re-tested', score: 9.2, date: 'May 11' },
+    { brand: 'AG1', cat: 'Greens · Q2 re-test', score: 7.4, date: 'May 09' },
+    { brand: 'Onnit Alpha Brain', cat: 'Nootropic · First test', score: 6.2, date: 'May 06', cls: 'lo' },
+    { brand: 'Legion Pulse V2', cat: 'Pre-workout · Re-tested', score: 9.0, date: 'May 02' },
+  ];
+
+  const CATS_REVIEWS = [
+    { l: 'Whey protein', n: 42, on: true },
+    { l: 'Plant protein', n: 28 },
+    { l: 'Creatine', n: 18 },
+    { l: 'Pre-workout', n: 36 },
+    { l: 'Multivitamin', n: 61 },
+    { l: 'Omega-3', n: 24 },
+    { l: 'Magnesium', n: 22 },
+    { l: 'Greens', n: 17 },
+    { l: 'Sleep', n: 19 },
+    { l: 'Nootropic', n: 14 },
+    { l: 'Probiotics', n: 26 },
+    { l: 'Vitamin D', n: 21 },
+  ];
+
+  const CATS_BLOG = [
+    { l: 'Opinion', n: 28 },
+    { l: 'Field reports', n: 19, on: true },
+    { l: 'Explainers', n: 34 },
+    { l: 'Recall watch', n: 12 },
+    { l: 'Behind the score', n: 22 },
+    { l: 'Industry', n: 17 },
+  ];
+
+  const CATS_RESEARCH = [
+    { l: 'Meta-analysis', n: 14, on: true },
+    { l: 'Ingredient deep-dive', n: 38 },
+    { l: 'Lab reports', n: 24 },
+    { l: 'Q-reports', n: 8 },
+    { l: 'Pharmacokinetics', n: 11 },
+    { l: 'Recalls & adverse', n: 9 },
+  ];
+
+  const CATS_BRANDS = [
+    { l: 'All categories', n: 89, on: true },
+    { l: 'Protein', n: 22 },
+    { l: 'Pre-workout', n: 18 },
+    { l: 'Creatine', n: 12 },
+    { l: 'Multivitamin', n: 14 },
+    { l: 'Omega-3', n: 9 },
+    { l: 'Sleep', n: 11 },
+    { l: 'Nootropic', n: 8 },
+    { l: 'Greens', n: 7 },
+    { l: 'Probiotics', n: 10 },
+  ];
+
+  const REGIONS = [
+    { l: 'US-based', n: 56, on: true },
+    { l: 'EU', n: 14 },
+    { l: 'UK', n: 9 },
+    { l: 'Canada', n: 6 },
+    { l: 'Australia', n: 4 },
+  ];
+
+  const TRUST_GRADES = [
+    { l: 'A · Verified', n: 18, on: true },
+    { l: 'B · Audited', n: 31 },
+    { l: 'C · Mixed', n: 24 },
+    { l: 'D · Flagged', n: 11 },
+    { l: 'F · Avoid', n: 5 },
+  ];
+
+  const CATS_ING = [
+    { l: 'Amino acids', n: 38, on: true },
+    { l: 'Vitamins', n: 24 },
+    { l: 'Minerals', n: 18 },
+    { l: 'Botanicals', n: 64 },
+    { l: 'Adaptogens', n: 22 },
+    { l: 'Nootropics', n: 31 },
+    { l: 'Probiotics', n: 19 },
+    { l: 'Fatty acids', n: 14 },
+    { l: 'Hormonal', n: 12 },
+    { l: 'Sweeteners', n: 9 },
+    { l: 'Sports performance', n: 28 },
+    { l: 'Sleep', n: 16 },
+  ];
+
+  const EFFECTS = [
+    { l: 'Muscle', n: 42, on: true },
+    { l: 'Cognition', n: 38 },
+    { l: 'Sleep', n: 22 },
+    { l: 'Energy', n: 31 },
+    { l: 'Recovery', n: 28 },
+    { l: 'Fat loss', n: 14 },
+    { l: 'Heart', n: 18 },
+    { l: 'Joints', n: 12 },
+    { l: 'Immune', n: 16 },
+  ];
+
+  const CATS_BEST = [
+    { l: 'Whey Protein', n: 1, on: true },
+    { l: 'Plant Protein', n: 1 },
+    { l: 'Creatine', n: 1 },
+    { l: 'Pre-workout', n: 1 },
+    { l: 'Multivitamin', n: 1 },
+    { l: 'Omega-3', n: 1 },
+    { l: 'Magnesium', n: 1 },
+    { l: 'Greens', n: 1 },
+    { l: 'Sleep', n: 1 },
+    { l: 'Probiotics', n: 1 },
+  ];
+
+  const INGREDIENTS = [
+    'L-Citrulline', 'Beta-Alanine', 'Creatine Mono', 'Caffeine', 'Theanine',
+    'Whey Isolate', 'Casein', 'Pea Protein', 'Magnesium', 'Vit D3',
+    'Omega-3 EPA', 'L-Tyrosine', 'Ashwagandha', 'Melatonin',
+  ];
+
+  const CERTS = [
+    { c: 'green', s: 'NSF', n: 'NSF Certified for Sport', count: 64, on: true },
+    { c: 'blue',  s: 'IS',  n: 'Informed Sport / Choice', count: 88 },
+    { c: 'green', s: 'USP', n: 'USP Verified',           count: 22 },
+    { c: 'amber', s: 'cGMP',n: 'cGMP Audited',           count: 134 },
+    { c: '',      s: 'ORG', n: 'USDA Organic',           count: 38 },
+  ];
+
+  function html(strings, ...vals) {
+    return strings.reduce((acc, s, i) => acc + s + (vals[i] ?? ''), '');
+  }
+
+  function searchBlock(placeholder) {
+    return `
+      <div class="rail-block" style="padding-top: 0;">
+        <div class="search-box">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <input type="text" class="ff-search" placeholder="${placeholder}"/>
+          <span class="kbd">⌘K</span>
+        </div>
+      </div>
+    `;
+  }
+
+  function chipBlock(title, items, filterKey) {
+    const fk = filterKey || 'cat';
+    const chips = items.map(i => `
+      <span class="chip-filter" data-fk="${fk}" data-fv="${i.v || i.l}">${i.l}<span class="n">${i.n}</span></span>
+    `).join('');
+    return `
+      <div class="rail-block">
+        <h4>${title}<span class="count">${items.length}</span></h4>
+        <div class="chips">${chips}</div>
+      </div>
+    `;
+  }
+
+  function rangeBlock() {
+    return `
+      <div class="rail-block">
+        <h4>Score range<span class="count">7.0 – 10</span></h4>
+        <div class="range">
+          <div class="range-track">
+            <div class="range-fill" style="left: 30%; right: 0%;"></div>
+            <div class="range-handle" style="left: 30%;"></div>
+            <div class="range-handle" style="left: 100%;"></div>
+          </div>
+          <div class="range-vals">
+            <span>7.0</span>
+            <span>10.0</span>
+          </div>
+          <div class="range-labels">
+            <span>0</span><span>5</span><span>10</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function certBlock() {
+    const items = CERTS.map(c => `
+      <label class="cert-item" data-fk="cert" data-fv="${c.n}">
+        <span class="cert-mark ${c.c}">${c.s}</span>
+        <span class="cert-name">${c.n}</span>
+        <span class="cert-n">${c.count}</span>
+      </label>
+    `).join('');
+    return `
+      <div class="rail-block">
+        <h4>Certification<span class="count">${CERTS.length}</span></h4>
+        <div class="cert-list">${items}</div>
+      </div>
+    `;
+  }
+
+  function ingredientBlock() {
+    return `
+      <div class="rail-block">
+        <h4>Ingredient<span class="count">14 / 312</span></h4>
+        <div class="chips">
+          ${INGREDIENTS.map(i => `<span class="chip-filter" data-fk="ingredient" data-fv="${i}">${i}</span>`).join('')}
+          <button style="font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; color: var(--red); background: none; border: 0; text-transform: uppercase; padding: 4px 6px; cursor: pointer;">+ 298 more</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function recentBlock(label) {
+    // Try live data; fall back to hardcoded RECENT
+    let list = RECENT;
+    try {
+      const d = (window.FITLAB && window.FITLAB.data && window.FITLAB.data.reviews && window.FITLAB.data.reviews.reviews) || null;
+      if (d && d.length) {
+        list = d.slice(0, 5).map(r => ({
+          brand: r.brand, cat: r.cat.split(' ')[0] + ' · ' + (r.pick ? 'Editor' : 'Tested'),
+          score: r.score, date: window.FITLAB.fmtDateShort(r.last_tested), slug: r.slug
+        }));
+      }
+    } catch (e) {}
+    const items = list.map(r => `
+      <a href="${r.slug ? '/reviews/' + r.slug + '/' : '#'}" class="rail-item">
+        <div class="rail-img">${window.pickIllus ? window.pickIllus(r.brand) : ''}</div>
+        <div class="rail-meta">
+          <div class="rail-name">${r.brand}</div>
+          <div class="rail-date">${r.cat} · ${r.date}</div>
+        </div>
+        <div class="rail-score ${r.cls || (r.score >= 8.5 ? 'hi' : (r.score < 7 ? 'lo' : ''))}">${r.score.toFixed(1)}</div>
+      </a>
+    `).join('');
+    return `
+      <div class="rail-block">
+        <h4>${label || 'Recently tested'}<span class="count">live</span></h4>
+        <div class="rail-list">${items}</div>
+      </div>
+    `;
+  }
+
+  function pickBlock() {
+    return `
+      <div class="rail-block">
+        <h4>Editor's pick</h4>
+        <a href="/reviews/transparent-labs-wpi/" style="display: block; padding: 14px; background: var(--ink); color: var(--paper); border-radius: 2px;">
+          <div style="font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; color: var(--red); margin-bottom: 6px; text-transform: uppercase;">★ #1 WHEY PROTEIN</div>
+          <div style="font-family: var(--f-display); font-weight: 700; font-size: 20px; line-height: 1.0; text-transform: uppercase; margin-bottom: 6px;">Transparent Labs WPI</div>
+          <div style="font-family: var(--f-mono); font-size: 11px; color: var(--mute-2); letter-spacing: 0.05em; margin-bottom: 12px;">9.4/10 · The honest scoop.</div>
+          <div style="font-family: var(--f-mono); font-size: 10px; color: var(--paper); letter-spacing: 0.12em; text-transform: uppercase; border-top: 1px solid var(--ink-3); padding-top: 8px;">Read review →</div>
+        </a>
+      </div>
+    `;
+  }
+
+  function reset() {
+    return `
+      <div class="rail-block" style="padding-bottom: 0;">
+        <button class="ff-reset" style="display: block; width: 100%; padding: 10px; font-family: var(--f-mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); background: transparent; border: 1px solid var(--red); border-radius: 2px; cursor: pointer;">Reset all filters</button>
+      </div>
+    `;
+  }
+
+  window.renderSidebar = function(host, page) {
+    if (!host) return;
+    let cats = CATS_REVIEWS;
+    let label = 'Category';
+    let phold = 'Search 512 reviews';
+    if (page === 'blog') { cats = CATS_BLOG; phold = 'Search posts'; }
+    else if (page === 'research') { cats = CATS_RESEARCH; phold = 'Search briefs'; }
+    else if (page === 'best') { cats = CATS_BEST; phold = 'Search categories'; }
+    else if (page === 'brands') { cats = CATS_BRANDS; phold = 'Search 89 brands'; label = 'Operating in'; }
+    else if (page === 'ingredients') { cats = CATS_ING; phold = 'Search 312 ingredients'; label = 'Category'; }
+
+    let blocks = [];
+    blocks.push(searchBlock(phold));
+    blocks.push(chipBlock(label, cats, page === 'brands' ? 'region' : 'cat'));
+
+    if (page === 'reviews' || page === 'best') {
+      blocks.push(rangeBlock());
+      blocks.push(certBlock());
+      blocks.push(ingredientBlock());
+    }
+    if (page === 'brands') {
+      blocks.push(`
+        <div class="rail-block">
+          <h4>Trust grade<span class="count">A–F</span></h4>
+          <div class="chips">
+            ${TRUST_GRADES.map(g => `<span class="chip-filter" data-fk="trust" data-fv="${g.l.split(' · ')[0]}">${g.l}<span class="n">${g.n}</span></span>`).join('')}
+          </div>
+        </div>
+      `);
+      blocks.push(`
+        <div class="rail-block">
+          <h4>Region<span class="count">${REGIONS.length}</span></h4>
+          <div class="chips">
+            ${REGIONS.map(r => `<span class="chip-filter" data-fk="region" data-fv="${r.l}">${r.l}<span class="n">${r.n}</span></span>`).join('')}
+          </div>
+        </div>
+      `);
+      blocks.push(certBlock());
+    }
+    if (page === 'ingredients') {
+      blocks.push(`
+        <div class="rail-block">
+          <h4>Primary effect<span class="count">${EFFECTS.length}</span></h4>
+          <div class="chips">
+            ${EFFECTS.map(e => `<span class="chip-filter" data-fk="effect" data-fv="${e.l.toLowerCase()}">${e.l}<span class="n">${e.n}</span></span>`).join('')}
+          </div>
+        </div>
+      `);
+      blocks.push(`
+        <div class="rail-block">
+          <h4>Evidence grade<span class="count">A–F</span></h4>
+          <div class="chips">
+            <span class="chip-filter" data-fk="grade" data-fv="A+">A+ <span class="n">12</span></span>
+            <span class="chip-filter" data-fk="grade" data-fv="A">A <span class="n">28</span></span>
+            <span class="chip-filter" data-fk="grade" data-fv="B">B <span class="n">64</span></span>
+            <span class="chip-filter" data-fk="grade" data-fv="C">C <span class="n">82</span></span>
+            <span class="chip-filter" data-fk="grade" data-fv="D">D <span class="n">71</span></span>
+            <span class="chip-filter" data-fk="grade" data-fv="F">F <span class="n">55</span></span>
+          </div>
+        </div>
+      `);
+      blocks.push(`
+        <div class="rail-block">
+          <h4>Risk profile<span class="count">5</span></h4>
+          <div class="chips">
+            <span class="chip-filter" data-fk="risk" data-fv="safe">Safe<span class="n">198</span></span>
+            <span class="chip-filter" data-fk="risk" data-fv="watch">Watch dose<span class="n">64</span></span>
+            <span class="chip-filter" data-fk="risk" data-fv="interacts">Interacts<span class="n">28</span></span>
+            <span class="chip-filter" data-fk="risk" data-fv="rx">Rx caution<span class="n">14</span></span>
+            <span class="chip-filter" data-fk="risk" data-fv="avoid">Avoid<span class="n">8</span></span>
+          </div>
+        </div>
+      `);
+    }
+    if (page === 'research') {
+      blocks.push(rangeBlock());
+      blocks.push(`
+        <div class="rail-block">
+          <h4>Evidence grade<span class="count">A-F</span></h4>
+          <div class="chips">
+            <span class="chip-filter" data-fk="grade" data-fv="A+">A+ <span class="n">8</span></span>
+            <span class="chip-filter" data-fk="grade" data-fv="A">A <span class="n">24</span></span>
+            <span class="chip-filter" data-fk="grade" data-fv="B">B <span class="n">38</span></span>
+            <span class="chip-filter" data-fk="grade" data-fv="C">C <span class="n">21</span></span>
+            <span class="chip-filter" data-fk="grade" data-fv="D">D <span class="n">12</span></span>
+            <span class="chip-filter" data-fk="grade" data-fv="F">F <span class="n">4</span></span>
+          </div>
+        </div>
+      `);
+    }
+    if (page === 'blog') {
+      blocks.push(`
+        <div class="rail-block">
+          <h4>Authors<span class="count">5</span></h4>
+          <div class="chips">
+            <span class="chip-filter" data-fk="author" data-fv="Adrian Kojima">Adrian K. <span class="n">38</span></span>
+            <span class="chip-filter" data-fk="author" data-fv="Mira J.">Mira J. <span class="n">22</span></span>
+            <span class="chip-filter" data-fk="author" data-fv="Dr. Park">Dr. Park <span class="n">14</span></span>
+            <span class="chip-filter" data-fk="author" data-fv="Sam L.">Sam L. <span class="n">12</span></span>
+            <span class="chip-filter" data-fk="author" data-fv="Guest">Guest <span class="n">9</span></span>
+          </div>
+        </div>
+      `);
+    }
+    blocks.push(recentBlock(page === 'blog' ? 'Latest posts' : page === 'research' ? 'Latest briefs' : 'Recently updated'));
+    blocks.push(pickBlock());
+    blocks.push(reset());
+
+    host.innerHTML = blocks.join('');
+  };
+})();

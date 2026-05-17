@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function() {
+  var pn = window.location.pathname;
+  var preview = pn.match(/^(.*\/serve\/)/);
+  var base;
+  if (preview) {
+    base = preview[1];
+  } else {
+    var depth = pn.replace(/\/[^\/]*$/, '').split('/').filter(Boolean).length;
+    base = depth === 0 ? './' : new Array(depth + 1).join('../');
+  }
+  document.write('<base href="' + base + '">');
+})();
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Best Whey Protein 2026 · Fitlab</title>
+<link rel="stylesheet" href="assets/tokens.css"/>
+<link rel="stylesheet" href="assets/shared.css"/>
+<style>
+  .best-hero {
+    border-bottom: 1px solid var(--ink);
+    padding: 32px 0 40px;
+    background: var(--paper);
+  }
+  .best-hero .super {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .best-hero h1 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(64px, 9vw, 152px);
+    line-height: 0.84; letter-spacing: -0.02em;
+    text-transform: uppercase; margin: 0;
+  }
+  .best-hero .meta-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto auto;
+    gap: 28px;
+    align-items: end;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line-2);
+  }
+  .best-hero p {
+    max-width: 560px;
+    font-size: 17px;
+    line-height: 1.45;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .best-hero .stat { border-left: 1px solid var(--line-2); padding-left: 16px; min-width: 96px; }
+  .best-hero .stat .v { font-family: var(--f-display); font-weight: 700; font-size: 38px; line-height: 0.95; }
+  .best-hero .stat .k { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; color: var(--mute); text-transform: uppercase; margin-top: 4px; }
+  .best-hero .stat .v.red { color: var(--red-deep); }
+
+  /* Category tabs */
+  .cat-tabs {
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .cat-tabs .container { padding-top: 0; padding-bottom: 0; }
+  .cat-tabs-inner {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .cat-tabs-inner::-webkit-scrollbar { display: none; }
+  .cat-tabs-inner a {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 0 18px;
+    color: var(--mute);
+    line-height: 56px;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px;
+    letter-spacing: -0.003em;
+  }
+  .cat-tabs-inner a:hover { color: var(--ink); }
+  .cat-tabs-inner a.active {
+    color: var(--ink);
+    border-bottom-color: var(--red);
+  }
+
+  /* Podium */
+  .podium {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1fr;
+    gap: 16px;
+    align-items: end;
+    margin-bottom: 32px;
+  }
+  .podium-card {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    padding: 20px 20px 24px;
+    position: relative;
+  }
+  .podium-card.rank-2 { border-top-width: 6px; border-top-color: var(--mute); }
+  .podium-card.rank-1 { border-top-width: 10px; border-top-color: var(--red); padding: 28px 24px; }
+  .podium-card.rank-3 { border-top-width: 6px; border-top-color: var(--line-3); }
+  .podium-card .rank {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 80px; line-height: 0.8;
+    letter-spacing: -0.03em;
+    color: var(--paper-3);
+    position: absolute;
+    top: 14px; right: 16px;
+  }
+  .podium-card.rank-1 .rank { font-size: 120px; color: var(--red); opacity: 0.18; }
+  .podium-card .cat-mini {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .podium-card h3 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 24px; line-height: 0.96;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+    position: relative;
+  }
+  .podium-card.rank-1 h3 { font-size: 32px; }
+  .podium-card .sub {
+    font-size: 12px;
+    color: var(--ink-3);
+    margin-bottom: 14px;
+  }
+  .podium-card .illus-box {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    margin: 12px 0 16px;
+    padding: 18px;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 130px;
+  }
+  .podium-card.rank-1 .illus-box { min-height: 170px; padding: 24px; }
+  .podium-card .score-row {
+    display: flex; justify-content: space-between; align-items: end;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .podium-card .score-row .score {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 44px; line-height: 0.9;
+    letter-spacing: -0.015em;
+    color: var(--green-deep);
+  }
+  .podium-card.rank-1 .score-row .score { font-size: 60px; }
+  .podium-card .score-row .score small {
+    font-family: var(--f-mono); font-size: 12px;
+    color: var(--mute); font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+  .podium-card .why {
+    font-size: 13px; line-height: 1.45;
+    color: var(--ink-2);
+    margin: 0 0 14px;
+  }
+  .podium-card .price {
+    font-family: var(--f-mono); font-size: 11px;
+    color: var(--mute); letter-spacing: 0.06em;
+    text-align: right;
+  }
+  .podium-card .price b { font-family: var(--f-display); font-size: 16px; color: var(--ink); letter-spacing: 0; }
+
+  /* Quick-pick row */
+  .quick-pick {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    margin-bottom: 32px;
+  }
+  .quick-pick > div {
+    padding: 18px 20px;
+    border-right: 1px solid var(--ink);
+  }
+  .quick-pick > div:last-child { border-right: 0; }
+  .quick-pick .k {
+    font-family: var(--f-mono); font-size: 10px;
+    letter-spacing: 0.14em; color: var(--mute);
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .quick-pick .nm {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 22px; line-height: 0.96;
+    text-transform: uppercase;
+  }
+  .quick-pick .sub {
+    font-family: var(--f-mono); font-size: 11px;
+    color: var(--ink-3); margin-top: 6px;
+    letter-spacing: 0.06em;
+  }
+
+  /* Leaderboard table */
+  .leaderboard {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+  .lb-head {
+    display: grid;
+    grid-template-columns: 50px 1.6fr 70px 1fr 80px 80px 80px;
+    gap: 14px;
+    padding: 12px 20px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .lb-row {
+    display: grid;
+    grid-template-columns: 50px 1.6fr 70px 1fr 80px 80px 80px;
+    gap: 14px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .lb-row:last-child { border-bottom: 0; }
+  .lb-row:hover { background: var(--paper-2); }
+  .lb-row .rank-cell {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 0.9;
+    color: var(--ink);
+  }
+  .lb-row .rank-cell.top { color: var(--red); }
+  .lb-row .nm-cell {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.0;
+    text-transform: uppercase;
+  }
+  .lb-row .nm-cell small {
+    display: block;
+    font-family: var(--f-mono);
+    font-weight: 500;
+    font-size: 10px;
+    color: var(--mute);
+    letter-spacing: 0.06em;
+    margin-top: 3px;
+    text-transform: none;
+  }
+  .lb-row .sc-cell {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 0.95;
+  }
+  .lb-row .sc-cell.hi { color: var(--green-deep); }
+  .lb-row .sc-cell.mid { color: #8a6b00; }
+  .lb-row .sc-cell.lo { color: var(--red-deep); }
+  .lb-row .verdict-cell {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .lb-row .verdict-cell .ind {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: currentColor;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .lb-row .verdict-cell.b { color: var(--green-deep); }
+  .lb-row .verdict-cell.s { color: var(--ink-2); }
+  .lb-row .verdict-cell.a { color: #8a6b00; }
+  .lb-row .verdict-cell.x { color: var(--red-deep); }
+  .lb-row .stat-cell {
+    font-family: var(--f-mono);
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .lb-row .stat-cell small {
+    display: block;
+    font-weight: 500;
+    font-size: 9.5px;
+    color: var(--mute);
+    letter-spacing: 0.06em;
+  }
+
+  /* Failed list */
+  .failed-list {
+    background: var(--paper-2);
+    border: 1px solid var(--line-2);
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+  .failed-list h3 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 24px; line-height: 0.95;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+    display: flex; align-items: center; gap: 12px;
+    color: var(--red-deep);
+  }
+  .failed-list h3 .pill {
+    background: var(--red); color: var(--paper);
+    font-family: var(--f-mono); font-size: 10px;
+    font-weight: 700; letter-spacing: 0.16em;
+    padding: 4px 8px;
+  }
+  .failed-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .failed-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 12px;
+  }
+  .failed-card .fnm {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 14px; line-height: 1.0;
+    text-transform: uppercase;
+  }
+  .failed-card .reason {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    color: var(--red-deep);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+  .failed-card .fsc {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--red-deep);
+  }
+
+  @media (max-width: 980px) {
+    .podium { grid-template-columns: 1fr; }
+    .quick-pick { grid-template-columns: 1fr 1fr; }
+    .quick-pick > div:nth-child(2) { border-right: 0; }
+    .lb-head { display: none; }
+    .lb-row { grid-template-columns: auto 1fr auto; gap: 12px; }
+    .lb-row > .verdict-cell, .lb-row > .stat-cell { display: none; }
+    .failed-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 720px) {
+    .best-hero { padding: 20px 0 28px; }
+    .best-hero h1 { font-size: clamp(56px, 16vw, 96px); }
+    .best-hero .meta-row {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    .best-hero p {
+      grid-column: 1 / -1;
+      font-size: 14.5px;
+      margin-bottom: 8px;
+    }
+    .best-hero .stat { min-width: 0; padding-left: 10px; }
+    .best-hero .stat .v { font-size: 24px; }
+
+    .cat-tabs-inner { height: 48px; }
+    .cat-tabs-inner a { font-size: 13px; padding: 0 12px; line-height: 48px; }
+
+    .quick-pick { grid-template-columns: 1fr 1fr !important; }
+    .quick-pick > div { padding: 14px 16px; border-bottom: 1px solid var(--ink); }
+    .quick-pick > div:nth-child(odd) { border-right: 1px solid var(--ink); }
+    .quick-pick > div:nth-child(-n+2) { border-bottom: 1px solid var(--ink); }
+    .quick-pick .nm { font-size: 18px; }
+    .quick-pick .sub { font-size: 10px; }
+
+    .podium-card { padding: 18px; }
+    .podium-card.rank-1 { padding: 22px; }
+    .podium-card .rank { font-size: 56px; }
+    .podium-card.rank-1 .rank { font-size: 84px; }
+    .podium-card h3 { font-size: 20px; }
+    .podium-card.rank-1 h3 { font-size: 26px; }
+    .podium-card .illus-box { min-height: 120px; padding: 14px; }
+    .podium-card .score-row .score { font-size: 36px; }
+    .podium-card.rank-1 .score-row .score { font-size: 48px; }
+
+    .lb-row { padding: 12px 16px; }
+    .lb-row .rank-cell { font-size: 22px; }
+    .lb-row .nm-cell { font-size: 15px; }
+    .lb-row .sc-cell { font-size: 18px; }
+
+    .failed-list { padding: 18px; }
+    .failed-list h3 { font-size: 20px; }
+  }
+
+  @media (max-width: 480px) {
+    .quick-pick { grid-template-columns: 1fr !important; }
+    .quick-pick > div { border-right: 0 !important; border-bottom: 1px solid var(--ink); }
+    .quick-pick > div:last-child { border-bottom: 0; }
+    .best-hero .meta-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body data-page="best">
+
+<div id="site-head-mount"></div>
+
+<!-- Sub-nav -->
+<div class="sub-nav">
+  <div class="container">
+    <div class="sub-nav-inner">
+      <a href="/best/" class="active">Best of 2026</a>
+      <a href="#">2025 archive</a>
+      <a href="#">2024 archive</a>
+      <a href="#">Methodology</a>
+      <span class="spacer"></span>
+      <span class="meta">Re-tested · May 12, 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- Category tabs -->
+<div class="cat-tabs">
+  <div class="container">
+    <div class="cat-tabs-inner">
+      <a href="/best/" class="active">Whey Protein</a>
+      <a href="#">Plant Protein</a>
+      <a href="#">Creatine</a>
+      <a href="#">Pre-workout</a>
+      <a href="#">Multivitamin</a>
+      <a href="#">Omega-3</a>
+      <a href="#">Magnesium</a>
+      <a href="#">Greens</a>
+      <a href="#">Sleep</a>
+      <a href="#">Probiotics</a>
+      <a href="#">Vitamin D</a>
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="best-hero">
+  <div class="container">
+    <div class="super">★ BEST WHEY PROTEIN · 2026 EDITION · UPDATED MAY 12</div>
+    <h1>Whey<br/>Protein.</h1>
+    <div class="meta-row">
+      <p>42 brands tested over 18 months. Lab-verified protein content, heavy metal screen, leucine assay, dosing audit. Re-tested quarterly. Updated whenever a brand reformulates or fails a lot test.</p>
+      <div class="stat"><div class="v">42</div><div class="k">Brands tested</div></div>
+      <div class="stat"><div class="v">12</div><div class="k">Recommended</div></div>
+      <div class="stat"><div class="v red">9</div><div class="k">Failed lab</div></div>
+      <div class="stat"><div class="v">4</div><div class="k">Editor's pick</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="container" style="padding-top: 28px; padding-bottom: 56px;">
+  <div class="with-rail">
+
+    <aside class="rail" id="rail-host"></aside>
+
+    <main>
+      <!-- Quick picks -->
+      <div class="quick-pick">
+        <div>
+          <div class="k">⭐ Best overall</div>
+          <div class="nm">Transparent<br/>Labs WPI</div>
+          <div class="sub">9.4/10 · $59/lb · NSF Sport</div>
+        </div>
+        <div>
+          <div class="k">💰 Best value</div>
+          <div class="nm">Dymatize<br/>ISO-100</div>
+          <div class="sub">9.0/10 · $48/lb · Informed Choice</div>
+        </div>
+        <div>
+          <div class="k">🌱 Best minimalist</div>
+          <div class="nm">Naked<br/>Whey</div>
+          <div class="sub">9.0/10 · $54/lb · 1 ingredient</div>
+        </div>
+        <div>
+          <div class="k">🏃 Best for athletes</div>
+          <div class="nm">Klean<br/>Athlete Iso</div>
+          <div class="sub">8.8/10 · $64/lb · NSF Sport</div>
+        </div>
+      </div>
+
+      <!-- Podium -->
+      <div class="sec-head" style="margin-bottom: 16px;">
+        <div class="left">
+          <div class="lbl"><span class="num-lbl">01</span> The podium</div>
+          <h2 class="d-3">Top 3, head-to-head.</h2>
+        </div>
+        <div class="right">
+          <span>Scored · v3.2 rubric</span>
+        </div>
+      </div>
+
+      <div class="podium" id="podium"></div>
+
+      <!-- Leaderboard -->
+      <div class="sec-head" style="margin-bottom: 0;">
+        <div class="left">
+          <div class="lbl"><span class="num-lbl">02</span> The full leaderboard</div>
+          <h2 class="d-3">All 12 we recommend.</h2>
+        </div>
+        <div class="right">
+          <select style="font-family: var(--f-mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 28px 6px 10px; border: 1px solid var(--line-2); border-radius: 2px; background: var(--paper); color: var(--ink-2);">
+            <option>Sort · Total score</option>
+            <option>Cheapest per clinical</option>
+            <option>Highest protein density</option>
+            <option>Most certifications</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="leaderboard">
+        <div class="lb-head">
+          <span>#</span>
+          <span>Brand · Product</span>
+          <span>Score</span>
+          <span>Verdict</span>
+          <span>Protein</span>
+          <span>$/lb</span>
+          <span>$/25g</span>
+        </div>
+        <div id="lb-rows"></div>
+      </div>
+
+      <!-- Failed list -->
+      <div class="failed-list">
+        <h3>Didn't make the list <span class="pill">9 FAILED LAB</span></h3>
+        <p style="margin: 0 0 18px; font-size: 13px; color: var(--ink-2); line-height: 1.45;">These products either under-dosed against label by &gt;20%, failed heavy-metal screening above Prop. 65 limits, or contained ingredients undisclosed on the label.</p>
+        <div class="failed-grid">
+          <a href="/reviews/transparent-labs-wpi/" class="failed-card"><div><div class="fnm">Body Fortress Iso</div><div class="reason">Lead 0.38ppm · Under-dosed 28%</div></div><div class="fsc">5.4</div></a>
+          <a href="/reviews/transparent-labs-wpi/" class="failed-card"><div><div class="fnm">CVS Whey Iso</div><div class="reason">Prop. blend · Protein −22%</div></div><div class="fsc">4.8</div></a>
+          <a href="/reviews/transparent-labs-wpi/" class="failed-card"><div><div class="fnm">Six Star Whey</div><div class="reason">Lead 0.42ppm · Mislabeled</div></div><div class="fsc">5.1</div></a>
+          <a href="/reviews/transparent-labs-wpi/" class="failed-card"><div><div class="fnm">Muscletech Premium</div><div class="reason">Under-dosed leucine</div></div><div class="fsc">5.8</div></a>
+          <a href="/reviews/transparent-labs-wpi/" class="failed-card"><div><div class="fnm">JYM Pro</div><div class="reason">Rancid · 2024 lot</div></div><div class="fsc">6.0</div></a>
+          <a href="/reviews/transparent-labs-wpi/" class="failed-card"><div><div class="fnm">Walmart Equate</div><div class="reason">Cadmium · Under-dosed</div></div><div class="fsc">5.0</div></a>
+          <a href="/reviews/transparent-labs-wpi/" class="failed-card"><div><div class="fnm">Bowmar Whey</div><div class="reason">Off-label sweetener</div></div><div class="fsc">5.9</div></a>
+          <a href="/reviews/transparent-labs-wpi/" class="failed-card"><div><div class="fnm">Animal Whey</div><div class="reason">Prop. blend · Protein −18%</div></div><div class="fsc">6.2</div></a>
+          <a href="/reviews/transparent-labs-wpi/" class="failed-card"><div><div class="fnm">Bare Performance</div><div class="reason">Lead 0.31ppm</div></div><div class="fsc">6.4</div></a>
+        </div>
+      </div>
+
+      <!-- Buying guide -->
+      <div style="background: var(--ink); color: var(--paper); padding: 40px; margin-bottom: 32px;">
+        <div class="kicker" style="color: var(--red); margin-bottom: 14px;">03 — HOW TO PICK · 4 RULES</div>
+        <h2 class="d-3" style="color: var(--paper); margin: 0 0 20px;">If you're buying whey for the first time.</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+          <div>
+            <div style="font-family: var(--f-mono); font-size: 11px; color: var(--red); margin-bottom: 6px; letter-spacing: 0.16em;">01</div>
+            <p style="font-size: 15px; line-height: 1.55; color: rgba(246,244,239,0.85); margin: 0;">Look for <b style="color: var(--paper);">"isolate"</b> on the label if you're lactose-sensitive. Otherwise, concentrate is fine and 30% cheaper.</p>
+          </div>
+          <div>
+            <div style="font-family: var(--f-mono); font-size: 11px; color: var(--red); margin-bottom: 6px; letter-spacing: 0.16em;">02</div>
+            <p style="font-size: 15px; line-height: 1.55; color: rgba(246,244,239,0.85); margin: 0;">Compute <b style="color: var(--paper);">cost-per-25g-protein</b>, not cost-per-scoop. The scoop size lies more often than the price.</p>
+          </div>
+          <div>
+            <div style="font-family: var(--f-mono); font-size: 11px; color: var(--red); margin-bottom: 6px; letter-spacing: 0.16em;">03</div>
+            <p style="font-size: 15px; line-height: 1.55; color: rgba(246,244,239,0.85); margin: 0;">Prefer brands with <b style="color: var(--paper);">third-party certification</b> — NSF, Informed Sport, or USP. Uncertified brands fail lab at 4× the rate.</p>
+          </div>
+          <div>
+            <div style="font-family: var(--f-mono); font-size: 11px; color: var(--red); margin-bottom: 6px; letter-spacing: 0.16em;">04</div>
+            <p style="font-size: 15px; line-height: 1.55; color: rgba(246,244,239,0.85); margin: 0;">Ignore "<b style="color: var(--paper);">grass-fed</b>" marketing for protein content. Amino acid profile is identical. The premium pays for sourcing transparency, not nutrition.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Updates -->
+      <div style="border: 1px solid var(--line); padding: 20px 24px; background: var(--paper-2);">
+        <h4 style="font-family: var(--f-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 12px;">04 — REVISION LOG</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+          <li><b style="font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--mute);">MAY 12 ·</b> Re-tested Transparent Labs and Dymatize. Both scores stable.</li>
+          <li><b style="font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--mute);">APR 18 ·</b> Removed BSN Syntha-6 from "recommended" tier; moved to "did not make the list."</li>
+          <li><b style="font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--mute);">MAR 02 ·</b> Added Now Sports Whey and Klean Athlete Iso.</li>
+          <li><b style="font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--mute);">FEB 10 ·</b> v3.2 rubric rolled out. All scores recalibrated; ranking unchanged.</li>
+        </ul>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<div id="site-foot-mount"></div>
+
+<script src="assets/illus.js"></script>
+<script src="assets/data-loader.js"></script>
+<script src="assets/seo.js"></script>
+<script src="assets/consent.js"></script>
+<script src="assets/data-loader.js"></script>
+<script src="assets/seo.js"></script>
+<script src="assets/consent.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/sidebar.js"></script>
+<script>
+  window.renderSidebar(document.getElementById('rail-host'), 'best');
+
+  // Podium
+  const podium = [
+    { rank: 2, name: 'Dymatize<br/>ISO-100', sub: 'Whey Isolate · Hydrolyzed', illus: 'tub', score: 9.0, price: '$48/lb', why: 'Pricing wins. Hydrolyzed isolate, full disclosure, Informed Choice. The right answer for most lifters under 30.' },
+    { rank: 1, name: 'Transparent Labs<br/>100% Grass-fed WPI', sub: 'Whey Isolate · Cross-flow', illus: 'tub', score: 9.4, price: '$59/lb', why: '90.4% protein by mass. Heavy metals <0.05ppm across four lots. Best-in-class transparency. The honest scoop.' },
+    { rank: 3, name: 'Naked<br/>Whey', sub: 'Whey Concentrate · Single-ingredient', illus: 'pouch', score: 9.0, price: '$54/lb', why: 'One ingredient: whey. No sweetener, no flavor, no lecithin. The minimalist pick that won the no-additive bracket.' },
+  ];
+  document.getElementById('podium').innerHTML = podium.map(p => `
+    <article class="podium-card rank-${p.rank}">
+      <div class="cat-mini">${p.rank === 1 ? '★ #1 OVERALL · EDITOR\'S PICK' : `#${p.rank} · WHEY ISOLATE`}</div>
+      <div class="rank">${p.rank}</div>
+      <h3>${p.name}</h3>
+      <div class="sub">${p.sub}</div>
+      <div class="illus-box">${window.PROD_ILLUS[p.illus]}</div>
+      <p class="why">${p.why}</p>
+      <div class="score-row">
+        <div class="score">${p.score.toFixed(1)}<small>/10</small></div>
+        <div class="price"><div style="font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px;">FROM</div><b>${p.price}</b></div>
+      </div>
+      <a href="/reviews/transparent-labs-wpi/" style="display: block; margin-top: 14px; padding: 8px 0; text-align: center; font-family: var(--f-mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); border: 1px solid var(--ink);">Full review →</a>
+    </article>
+  `).join('');
+
+  // Leaderboard
+  const lb = [
+    { rank: 4, brand: 'Now Sports Whey', sub: 'Whey Isolate · Unflavored', score: 8.8, sc: 'hi', verdict: 'Buy', vc: 'b', protein: '25g', pl: 'per 32g scoop', dpl: '$42', dpc: '$1.46' },
+    { rank: 5, brand: 'Klean Athlete Iso', sub: 'Whey Isolate · NSF Sport', score: 8.8, sc: 'hi', verdict: 'Buy · athletes', vc: 'b', protein: '24g', pl: 'per 30g scoop', dpl: '$64', dpc: '$2.21' },
+    { rank: 6, brand: 'Momentous Essential', sub: 'Whey Isolate · Performance', score: 8.6, sc: 'hi', verdict: 'Buy', vc: 'b', protein: '24g', pl: 'per 30g scoop', dpl: '$58', dpc: '$2.04' },
+    { rank: 7, brand: 'Optimum Nutrition Gold', sub: 'Whey Blend · Established 1987', score: 8.4, sc: 'mid', verdict: 'Solid', vc: 's', protein: '24g', pl: 'per 31g scoop', dpl: '$36', dpc: '$1.20' },
+    { rank: 8, brand: 'Garden of Life Sport', sub: 'Whey Iso · Grass-fed organic', score: 8.4, sc: 'mid', verdict: 'Solid', vc: 's', protein: '24g', pl: 'per 32g scoop', dpl: '$48', dpc: '$1.68' },
+    { rank: 9, brand: 'Bulk Powders WPI', sub: 'Whey Isolate · EU sourced', score: 7.8, sc: 'mid', verdict: 'Solid', vc: 's', protein: '23g', pl: 'per 30g scoop', dpl: '$32', dpc: '$1.16' },
+    { rank: 10, brand: 'Promix Standard', sub: 'Whey Concentrate · Bulk', score: 7.2, sc: 'mid', verdict: 'Acceptable', vc: 'a', protein: '24g', pl: 'per 30g scoop', dpl: '$38', dpc: '$1.32' },
+    { rank: 11, brand: 'Ghost Whey', sub: 'Whey · Flavor-forward', score: 7.4, sc: 'mid', verdict: 'Acceptable', vc: 'a', protein: '25g', pl: 'per 36g scoop', dpl: '$52', dpc: '$1.74' },
+    { rank: 12, brand: 'MuscleTech NitroTech', sub: 'Whey blend · Creatine added', score: 7.0, sc: 'mid', verdict: 'Acceptable', vc: 'a', protein: '30g', pl: 'per 46g scoop', dpl: '$36', dpc: '$1.05' },
+  ];
+
+  document.getElementById('lb-rows').innerHTML = lb.map(r => `
+    <div class="lb-row">
+      <div class="rank-cell ${r.rank <= 5 ? 'top' : ''}">${r.rank}</div>
+      <div class="nm-cell">${r.brand}<small>${r.sub}</small></div>
+      <div class="sc-cell ${r.sc}">${r.score.toFixed(1)}</div>
+      <div class="verdict-cell ${r.vc}"><span class="ind"></span>${r.verdict}</div>
+      <div class="stat-cell">${r.protein}<small>${r.pl}</small></div>
+      <div class="stat-cell">${r.dpl}</div>
+      <div class="stat-cell">${r.dpc}<small>per 25g</small></div>
+    </div>
+  `).join('');
+</script>
+</body>
+</html>

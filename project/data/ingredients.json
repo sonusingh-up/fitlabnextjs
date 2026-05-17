@@ -1,0 +1,263 @@
+{
+  "meta": {
+    "count": 312,
+    "grade_a_count": 40,
+    "citations": 412,
+    "avoid": 8
+  },
+  "ingredients": [
+    {
+      "slug": "creatine-monohydrate",
+      "name": "Creatine Monohydrate",
+      "sym": "Cr",
+      "cat": "Sports performance · ATP regeneration",
+      "primary_effect": "muscle",
+      "formula": "C₄H₉N₃O₂·H₂O",
+      "mw": "149.15",
+      "alt_names": "CrM · Methylguanidoacetic acid",
+      "grade": "A+",
+      "verdict": "Use it",
+      "meta": "A+ · 38 RCTs",
+      "dose": "3–5g/d",
+      "dose_unit": "Maintenance",
+      "dose_range": {
+        "low": 3,
+        "high": 5,
+        "unit": "g/day"
+      },
+      "nprod": 62,
+      "summary": "The most-studied ergogenic on the market. Effective at 3–5g/day for ATP regeneration in high-intensity exercise. Mechanism is well-characterized; the loading-phase question is more interesting than the \"does it work\" question.",
+      "featured": true,
+      "has_detail": true,
+      "mech_short": "Increases muscle phosphocreatine stores, buffering ATP regeneration during ≤30s maximal efforts.",
+      "side_effects": "Mild GI in ~6% at 5g+. Generally safe; avoid in CKD stage 3+.",
+      "stack_with": [
+        "whey-isolate",
+        "beta-alanine",
+        "betaine",
+        "leucine"
+      ]
+    },
+    {
+      "slug": "whey-isolate",
+      "name": "Whey Protein Isolate",
+      "sym": "Wh",
+      "cat": "Protein · Amino acids",
+      "primary_effect": "muscle",
+      "formula": "—",
+      "mw": "~14 kDa",
+      "alt_names": "WPI · CFM whey",
+      "grade": "A",
+      "verdict": "Use it",
+      "meta": "A · 24 RCTs",
+      "dose": "25–40g",
+      "dose_unit": "per serving",
+      "dose_range": {
+        "low": 25,
+        "high": 40,
+        "unit": "g/serving"
+      },
+      "nprod": 89,
+      "summary": "Effective for MPS. Higher leucine content per gram than concentrate. Best per-serving cost vs. clinical dose. Cross-flow microfiltered preferred over ion-exchange.",
+      "has_detail": false,
+      "stack_with": [
+        "creatine-monohydrate",
+        "leucine"
+      ]
+    },
+    {
+      "slug": "beta-alanine",
+      "name": "Beta-Alanine",
+      "sym": "βA",
+      "cat": "Amino · Buffering",
+      "primary_effect": "muscle",
+      "formula": "C₃H₇NO₂",
+      "mw": "89.09",
+      "alt_names": "β-Alanine · CarnoSyn®",
+      "grade": "A",
+      "verdict": "Use it",
+      "meta": "A · 19 RCTs",
+      "dose": "3.2–6.4g/d",
+      "dose_unit": "Divided 2x",
+      "dose_range": {
+        "low": 3.2,
+        "high": 6.4,
+        "unit": "g/day"
+      },
+      "nprod": 48,
+      "summary": "Effective for 60–240s efforts. Increases muscle carnosine, buffering acid. Paresthesia at 4g+ doses is harmless but worth disclosing.",
+      "has_detail": false,
+      "stack_with": [
+        "creatine-monohydrate",
+        "caffeine"
+      ]
+    },
+    {
+      "slug": "l-citrulline",
+      "name": "L-Citrulline Malate",
+      "sym": "Cit",
+      "cat": "Amino · NO precursor",
+      "primary_effect": "muscle",
+      "formula": "C₆H₁₃N₃O₃",
+      "mw": "175.19",
+      "alt_names": "Citrulline · 2:1 Malate",
+      "grade": "A",
+      "verdict": "Use it",
+      "meta": "A · 16 RCTs",
+      "dose": "6–8g",
+      "dose_unit": "pre-workout",
+      "dose_range": {
+        "low": 6,
+        "high": 8,
+        "unit": "g pre-WO"
+      },
+      "nprod": 54,
+      "summary": "Effective for power output. Raises arginine more reliably than arginine itself. NO precursor; modest pump effect.",
+      "has_detail": false
+    },
+    {
+      "slug": "caffeine",
+      "name": "Caffeine Anhydrous",
+      "sym": "Caf",
+      "cat": "Stimulant · CNS",
+      "primary_effect": "energy",
+      "formula": "C₈H₁₀N₄O₂",
+      "mw": "194.19",
+      "alt_names": "USP-grade · 99.9%",
+      "grade": "A+",
+      "verdict": "Use it",
+      "meta": "A+ · 41 RCTs",
+      "dose": "100–400mg",
+      "dose_unit": "pre-effort",
+      "dose_range": {
+        "low": 100,
+        "high": 400,
+        "unit": "mg/dose"
+      },
+      "nprod": 96,
+      "summary": "A1 adenosine antagonist. Performance + cognition effects clinical at 3–6 mg/kg. The most-studied and most-used ergogenic on the market.",
+      "has_detail": false,
+      "stack_with": [
+        "l-theanine"
+      ]
+    },
+    {
+      "slug": "magnesium-bisglycinate",
+      "name": "Magnesium Bisglycinate",
+      "sym": "Mg",
+      "cat": "Mineral · Chelated",
+      "primary_effect": "sleep",
+      "formula": "C₄H₈MgN₂O₄",
+      "mw": "172.42",
+      "alt_names": "Magnesium glycinate · Chelate",
+      "grade": "A",
+      "verdict": "Use it",
+      "meta": "A · 14 RCTs",
+      "dose": "200–400mg",
+      "dose_unit": "evening",
+      "dose_range": {
+        "low": 200,
+        "high": 400,
+        "unit": "mg/day"
+      },
+      "nprod": 64,
+      "summary": "Effective for sleep onset in deficient individuals. Glycinate form well-tolerated; oxide is not. Used clinically for muscle cramps and migraine prophylaxis.",
+      "has_detail": false
+    },
+    {
+      "slug": "vitamin-d3",
+      "name": "Vitamin D3",
+      "sym": "D3",
+      "cat": "Vitamin · Fat-soluble",
+      "primary_effect": "heart",
+      "formula": "C₂₇H₄₄O",
+      "mw": "384.64",
+      "alt_names": "Cholecalciferol",
+      "grade": "A",
+      "verdict": "Use it",
+      "meta": "A · 16 RCTs",
+      "dose": "1000–4000IU",
+      "dose_unit": "daily",
+      "dose_range": {
+        "low": 1000,
+        "high": 4000,
+        "unit": "IU/day"
+      },
+      "nprod": 71,
+      "summary": "D3 raises 25(OH)D approximately 1.4× more efficiently than D2 at oral doses ≤2,000 IU/day. We do not recommend D2 supplementation outside of vegan formulations.",
+      "has_detail": false
+    },
+    {
+      "slug": "omega-3",
+      "name": "Omega-3 (EPA + DHA)",
+      "sym": "Ω3",
+      "cat": "Fatty acid · Marine",
+      "primary_effect": "heart",
+      "formula": "EPA + DHA",
+      "mw": "—",
+      "alt_names": "Fish oil · IFOS 5-star",
+      "grade": "A",
+      "verdict": "Use it",
+      "meta": "A · 22 RCTs",
+      "dose": "1–3g",
+      "dose_unit": "combined EPA+DHA",
+      "dose_range": {
+        "low": 1,
+        "high": 3,
+        "unit": "g EPA+DHA"
+      },
+      "nprod": 58,
+      "summary": "Cardiovascular and triglyceride evidence is solid. Oxidation status (TOTOX < 26) matters more than dose; half the category is rancid on arrival.",
+      "has_detail": false
+    },
+    {
+      "slug": "l-theanine",
+      "name": "L-Theanine",
+      "sym": "Thn",
+      "cat": "Amino · Nootropic",
+      "primary_effect": "cog",
+      "formula": "C₇H₁₄N₂O₃",
+      "mw": "174.20",
+      "alt_names": "Suntheanine® · L-isomer",
+      "grade": "A",
+      "verdict": "Use it",
+      "meta": "A · 18 RCTs",
+      "dose": "100–200mg",
+      "dose_unit": "pre-task",
+      "dose_range": {
+        "low": 100,
+        "high": 200,
+        "unit": "mg/dose"
+      },
+      "nprod": 38,
+      "summary": "Effective for calm-alertness. Synergistic with caffeine — reduces jitters and improves attention.",
+      "has_detail": false,
+      "stack_with": [
+        "caffeine"
+      ]
+    },
+    {
+      "slug": "ashwagandha",
+      "name": "Ashwagandha",
+      "sym": "Ash",
+      "cat": "Adaptogen · Botanical",
+      "primary_effect": "cog",
+      "formula": "Multi (withanolides)",
+      "mw": "—",
+      "alt_names": "KSM-66® · Sensoril",
+      "grade": "B",
+      "verdict": "Maybe",
+      "meta": "B · 11 RCTs · funding bias",
+      "dose": "300–600mg",
+      "dose_unit": "daily, 8wk+",
+      "dose_range": {
+        "low": 300,
+        "high": 600,
+        "unit": "mg/day"
+      },
+      "nprod": 41,
+      "summary": "Modest cortisol reduction. Most literature funded by KSM-66 patent holder; effect smaller than marketed.",
+      "has_detail": false
+    }
+  ]
+}

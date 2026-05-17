@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function() {
+  var pn = window.location.pathname;
+  var preview = pn.match(/^(.*\/serve\/)/);
+  var base;
+  if (preview) {
+    base = preview[1];
+  } else {
+    var depth = pn.replace(/\/[^\/]*$/, '').split('/').filter(Boolean).length;
+    base = depth === 0 ? './' : new Array(depth + 1).join('../');
+  }
+  document.write('<base href="' + base + '">');
+})();
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Supplement Ingredients Library — Evidence-Based Guides · Fitlab</title>
+<meta name="description" content="312 supplement ingredients indexed with evidence grades, clinical dose ranges, mechanism summaries, and the products that contain them. Independent. No paid placements."/>
+<link rel="stylesheet" href="assets/tokens.css"/>
+<link rel="stylesheet" href="assets/shared.css"/>
+<style>
+  /* Hero (reuse pattern) */
+  .idx-hero { border-bottom: 1px solid var(--ink); padding: 32px 0; }
+  .idx-hero h1 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(56px, 8vw, 128px);
+    line-height: 0.86; letter-spacing: -0.02em;
+    text-transform: uppercase; margin: 0;
+  }
+  .idx-hero .meta-grid {
+    display: grid; grid-template-columns: 1fr auto auto auto auto;
+    gap: 28px; align-items: end; margin-top: 18px;
+    padding-top: 18px; border-top: 1px solid var(--line-2);
+  }
+  .idx-hero .lede { max-width: 560px; font-size: 16px; line-height: 1.45; color: var(--ink-2); }
+  .idx-hero .stat { border-left: 1px solid var(--line-2); padding-left: 16px; min-width: 90px; }
+  .idx-hero .stat .v { font-family: var(--f-display); font-weight: 700; font-size: 36px; line-height: 0.95; }
+  .idx-hero .stat .v.green { color: var(--green-deep); }
+  .idx-hero .stat .v.red { color: var(--red-deep); }
+  .idx-hero .stat .k { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.16em; color: var(--mute); text-transform: uppercase; margin-top: 4px; }
+
+  /* ===== Periodic-table style featured grid ===== */
+  .periodic {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .pell {
+    aspect-ratio: 1;
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+  .pell:hover {
+    background: var(--ink);
+    color: var(--paper);
+    transform: translateY(-2px);
+  }
+  .pell:hover .pn, .pell:hover .ev, .pell:hover .sub { color: var(--paper); }
+  .pell:hover .ev .gv { color: var(--paper); }
+  .pell:hover .sym { color: var(--paper); }
+  .pell.featured { background: var(--ink); color: var(--paper); }
+  .pell.featured .sym { color: var(--paper); }
+  .pell.featured .pn, .pell.featured .ev, .pell.featured .sub { color: var(--paper); }
+  .pell.featured .ev .gv { color: var(--paper); }
+  .pell.featured:hover { background: var(--red); }
+  .pell.featured:hover .ev .gv { color: var(--paper); }
+  .pell .top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+  }
+  .pell .num {
+    font-weight: 700;
+    color: var(--mute);
+    font-size: 9.5px;
+  }
+  .pell.featured .num, .pell:hover .num { color: var(--mute-2); }
+  .pell .ev {
+    text-align: right;
+    line-height: 0.9;
+  }
+  .pell .ev .gv {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+  }
+  .pell .ev .gv.A { color: var(--green-deep); }
+  .pell .ev .gv.B { color: var(--ink); }
+  .pell .ev .gv.C { color: #8a6b00; }
+  .pell .ev .gv.D { color: var(--red-deep); }
+  .pell .ev .gl {
+    font-size: 8px;
+    color: var(--mute);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+  .pell .sym {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(36px, 4vw, 64px);
+    line-height: 0.85;
+    text-align: center;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-top: -4px;
+  }
+  .pell.featured .sym, .pell:hover .sym {
+    color: var(--paper);
+  }
+  .pell .pn {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-align: center;
+    letter-spacing: 0;
+  }
+  .pell .sub {
+    font-family: var(--f-mono);
+    font-size: 8.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mute);
+    text-align: center;
+    margin-top: 2px;
+  }
+  .pell .acc {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .pell .acc.muscle { background: var(--red); }
+  .pell .acc.energy { background: var(--amber); }
+  .pell .acc.sleep { background: var(--blue); }
+  .pell .acc.cog { background: var(--green); }
+  .pell .acc.heart { background: #c2185b; }
+  .pell .acc.recovery { background: var(--mute-2); }
+
+  /* Featured ingredient spotlight */
+  .ing-spot {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    margin-bottom: 28px;
+    display: grid;
+    grid-template-columns: 220px 1fr 240px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ing-spot::before {
+    content: "INGREDIENT OF THE QUARTER";
+    position: absolute;
+    top: -1px; left: 24px;
+    background: var(--red);
+    color: var(--paper);
+    padding: 6px 12px 5px;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    z-index: 2;
+  }
+  .ing-spot .sym-block {
+    background: var(--ink);
+    color: var(--paper);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 28px 18px;
+    border-right: 1px solid var(--ink);
+    position: relative;
+  }
+  .ing-spot .sym-block .num {
+    position: absolute;
+    top: 12px; left: 14px;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    color: var(--mute-2);
+    letter-spacing: 0.12em;
+  }
+  .ing-spot .sym-block .mw {
+    position: absolute;
+    top: 12px; right: 14px;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    color: var(--mute-2);
+    letter-spacing: 0.04em;
+  }
+  .ing-spot .sym-block .sym {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 124px;
+    line-height: 0.86;
+    letter-spacing: -0.04em;
+  }
+  .ing-spot .sym-block .nm {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 8px;
+    text-align: center;
+  }
+  .ing-spot .body {
+    padding: 36px 32px 26px;
+    display: flex; flex-direction: column;
+    gap: 14px;
+  }
+  .ing-spot .body .cat {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+  .ing-spot .body h2 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(36px, 4.4vw, 64px);
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .ing-spot .body .summary {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 560px;
+    margin: 0;
+  }
+  .ing-spot .body .summary b { color: var(--ink); }
+  .ing-spot .key-pairs {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+    margin-top: 6px;
+  }
+  .ing-spot .key-pairs > div { padding-right: 14px; border-right: 1px solid var(--line); }
+  .ing-spot .key-pairs > div:last-child { border-right: 0; }
+  .ing-spot .key-pairs .v {
+    font-family: var(--f-display); font-weight: 700; font-size: 22px; line-height: 0.95;
+  }
+  .ing-spot .key-pairs .k {
+    font-family: var(--f-mono); font-size: 9.5px; letter-spacing: 0.12em; color: var(--mute); text-transform: uppercase; margin-top: 4px;
+  }
+  .ing-spot .side {
+    background: var(--paper-2);
+    border-left: 1px solid var(--ink);
+    padding: 24px 22px;
+    display: flex; flex-direction: column;
+    gap: 14px;
+  }
+  .ing-spot .side .grade-box {
+    text-align: center;
+    padding: 12px 0 14px;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+  }
+  .ing-spot .side .grade-box .gl {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+  .ing-spot .side .grade-box .gv {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 0.9;
+    color: var(--green-deep);
+    margin-top: 2px;
+  }
+  .ing-spot .side .grade-box .gd {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    color: var(--mute);
+    letter-spacing: 0.06em;
+    margin-top: 4px;
+  }
+  .ing-spot .side .verdict-tag {
+    background: var(--green);
+    color: var(--paper);
+    text-align: center;
+    padding: 10px;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .ing-spot .side .read {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: 1px solid var(--ink);
+    margin-top: auto;
+  }
+  .ing-spot .side .read:hover { background: var(--red); border-color: var(--red); }
+
+  /* Category-of-effect strip */
+  .effect-strip {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border: 1px solid var(--ink);
+    margin-bottom: 28px;
+    background: var(--paper);
+  }
+  .effect-strip a {
+    padding: 18px 18px;
+    border-right: 1px solid var(--ink);
+    display: flex; flex-direction: column;
+    gap: 4px;
+    transition: background 0.1s;
+  }
+  .effect-strip a:last-child { border-right: 0; }
+  .effect-strip a:hover { background: var(--ink); color: var(--paper); }
+  .effect-strip a:hover .nm { color: var(--paper); }
+  .effect-strip a:hover .ct, .effect-strip a:hover .top { color: var(--mute-2); }
+  .effect-strip .top {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    color: var(--red);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .effect-strip .nm {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .effect-strip .ct {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    color: var(--mute);
+    letter-spacing: 0.06em;
+    margin-top: auto;
+    padding-top: 8px;
+    text-transform: uppercase;
+  }
+  .effect-strip .ct b { color: var(--ink); }
+
+  /* Ingredient table rows */
+  .ing-tbl {
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    overflow: hidden;
+  }
+  .ing-tbl-head {
+    display: grid;
+    grid-template-columns: 60px 1.2fr 140px 1fr 100px 80px 80px;
+    gap: 16px;
+    padding: 12px 22px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .ing-tbl-row {
+    display: grid;
+    grid-template-columns: 60px 1.2fr 140px 1fr 100px 80px 80px;
+    gap: 16px;
+    padding: 16px 22px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  .ing-tbl-row:hover { background: var(--paper-2); }
+  .ing-tbl-row:last-child { border-bottom: 0; }
+  .ing-tbl-row .mini-sym {
+    width: 48px; height: 48px;
+    background: var(--ink);
+    color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    position: relative;
+  }
+  .ing-tbl-row .mini-sym .acc {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .ing-tbl-row .mini-sym .acc.muscle { background: var(--red); }
+  .ing-tbl-row .mini-sym .acc.energy { background: var(--amber); }
+  .ing-tbl-row .mini-sym .acc.sleep { background: var(--blue); }
+  .ing-tbl-row .mini-sym .acc.cog { background: var(--green); }
+  .ing-tbl-row .mini-sym .acc.heart { background: #c2185b; }
+  .ing-tbl-row .mini-sym .acc.recovery { background: var(--mute-2); }
+  .ing-tbl-row .nm {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.0;
+    text-transform: uppercase;
+  }
+  .ing-tbl-row .nm small {
+    display: block;
+    font-family: var(--f-mono);
+    font-weight: 500;
+    font-size: 10.5px;
+    color: var(--mute);
+    letter-spacing: 0.06em;
+    margin-top: 4px;
+    text-transform: none;
+  }
+  .ing-tbl-row .ev-grade {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .ing-tbl-row .ev-grade .g {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .ing-tbl-row .ev-grade .g.A { color: var(--green-deep); }
+  .ing-tbl-row .ev-grade .g.B { color: var(--ink); }
+  .ing-tbl-row .ev-grade .g.C { color: #8a6b00; }
+  .ing-tbl-row .ev-grade .g.D { color: var(--red-deep); }
+  .ing-tbl-row .ev-grade .ml {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    color: var(--mute);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .ing-tbl-row .verdict {
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.45;
+  }
+  .ing-tbl-row .verdict b { color: var(--ink); font-weight: 700; }
+  .ing-tbl-row .dose {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .ing-tbl-row .dose small {
+    font-weight: 500;
+    color: var(--mute);
+    font-size: 10px;
+    display: block;
+    margin-top: 2px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .ing-tbl-row .n-prod {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 700;
+    text-align: right;
+  }
+  .ing-tbl-row .n-prod small {
+    display: block;
+    font-weight: 500;
+    font-size: 9.5px;
+    color: var(--mute);
+    margin-top: 2px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .ing-tbl-row .cta {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    text-transform: uppercase;
+    text-align: right;
+  }
+  .ing-tbl-row .cta::after { content: " →"; color: var(--red); }
+
+  /* Section heads w/ category lead */
+  .cat-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin: 36px 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .cat-head .l {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 0.95;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+  }
+  .cat-head .l .num {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    color: var(--red);
+    margin-right: 12px;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+  }
+  .cat-head .n {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+
+  /* Trending callout */
+  .trending {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 28px;
+    margin-bottom: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .trending h3 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 0.96;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+  .trending h3 em { color: var(--red); font-style: normal; }
+  .trending ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+  .trending li {
+    display: grid;
+    grid-template-columns: 26px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-top: 1px solid var(--ink-3);
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+  .trending li:first-child { border-top: 0; }
+  .trending li .n {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--red);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .trending li .nm {
+    text-transform: uppercase;
+    color: var(--paper);
+    letter-spacing: 0.04em;
+  }
+  .trending li .d {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    color: var(--mute-2);
+    letter-spacing: 0.08em;
+  }
+  .trending li .d.up { color: #6fd8a0; }
+  .trending li .d.dn { color: #ff7a5a; }
+
+  @media (max-width: 980px) {
+    .periodic { grid-template-columns: repeat(6, 1fr); }
+    .ing-spot { grid-template-columns: 160px 1fr; }
+    .ing-spot .side { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--ink); }
+    .effect-strip { grid-template-columns: repeat(3, 1fr); }
+    .effect-strip a:nth-child(3n) { border-right: 0; }
+    .effect-strip a:nth-child(-n+3) { border-bottom: 1px solid var(--ink); }
+    .ing-tbl-head { display: none; }
+    .ing-tbl-row { grid-template-columns: 48px 1fr 60px; gap: 12px; padding: 14px 16px; }
+    .ing-tbl-row > div:nth-child(4), .ing-tbl-row > div:nth-child(5), .ing-tbl-row > div:nth-child(6), .ing-tbl-row > div:nth-child(7) { display: none; }
+    .trending { grid-template-columns: 1fr; gap: 18px; padding: 22px; }
+  }
+
+  @media (max-width: 720px) {
+    .idx-hero { padding: 20px 0 24px; }
+    .idx-hero h1 { font-size: clamp(48px, 14vw, 88px); }
+    .idx-hero .meta-grid { grid-template-columns: 1fr 1fr; gap: 14px 12px; }
+    .idx-hero .lede { grid-column: 1 / -1; font-size: 14.5px; margin-bottom: 4px; }
+    .idx-hero .stat { min-width: 0; padding-left: 10px; }
+    .idx-hero .stat .v { font-size: 24px; }
+    .idx-hero .stat .k { font-size: 9px; }
+
+    /* Periodic table — taller cells, not square */
+    .periodic { grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .pell { aspect-ratio: 0.92; padding: 8px 6px; }
+    .pell .top { font-size: 9px; }
+    .pell .num { font-size: 9px; }
+    .pell .ev .gv { font-size: 13px; }
+    .pell .ev .gl { font-size: 7px; }
+    .pell .sym { font-size: 30px; line-height: 0.9; }
+    .pell .pn { font-size: 10px; line-height: 1.0; }
+    .pell .sub { font-size: 7.5px; }
+    .pell .acc { height: 3px; }
+
+    /* Featured ingredient stack */
+    .ing-spot { grid-template-columns: 1fr; }
+    .ing-spot .sym-block {
+      padding: 22px 18px;
+      border-right: 0;
+      border-bottom: 1px solid var(--ink);
+    }
+    .ing-spot .sym-block .sym { font-size: 80px; }
+    .ing-spot .sym-block .nm { font-size: 10px; }
+    .ing-spot .sym-block .num, .ing-spot .sym-block .mw { font-size: 9px; }
+    .ing-spot .body { padding: 20px 18px; gap: 12px; }
+    .ing-spot .body h2 { font-size: clamp(30px, 9vw, 44px); }
+    .ing-spot .body .summary { font-size: 13.5px; }
+    .ing-spot .key-pairs { grid-template-columns: 1fr 1fr; gap: 12px 8px; }
+    .ing-spot .key-pairs > div { padding-right: 8px; }
+    .ing-spot .key-pairs > div:nth-child(2) { border-right: 0; }
+    .ing-spot .key-pairs > div:nth-child(-n+2) { padding-bottom: 8px; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
+    .ing-spot .key-pairs .v { font-size: 18px; }
+    .ing-spot .side { padding: 16px 18px; gap: 12px; }
+    .ing-spot .side .grade-box .gv { font-size: 44px; }
+    .ing-spot::before { left: 16px; font-size: 9px; padding: 5px 8px 4px; }
+
+    /* Effect strip */
+    .effect-strip { grid-template-columns: 1fr 1fr; }
+    .effect-strip a { padding: 14px 16px; }
+    .effect-strip a:nth-child(2n) { border-right: 0; }
+    .effect-strip a:nth-child(-n+4) { border-bottom: 1px solid var(--ink); }
+    .effect-strip .nm { font-size: 18px; }
+    .effect-strip .ct { font-size: 9px; }
+
+    /* Trending */
+    .trending { padding: 22px 18px; gap: 18px; grid-template-columns: 1fr; }
+    .trending h3 { font-size: clamp(22px, 6.5vw, 32px); }
+    .trending li { font-size: 11px; gap: 10px; padding: 6px 0; }
+
+    /* Cat heads */
+    .cat-head { margin: 24px 0 12px; padding-bottom: 8px; }
+    .cat-head .l { font-size: 20px; }
+    .cat-head .l .num { font-size: 10px; margin-right: 8px; }
+    .cat-head .n { font-size: 9.5px; }
+
+    /* Ingredient table — show grade column on mobile */
+    .ing-tbl-row {
+      grid-template-columns: 44px 1fr 56px;
+      gap: 10px;
+      padding: 12px 14px;
+    }
+    .ing-tbl-row > div:nth-child(4),
+    .ing-tbl-row > div:nth-child(5),
+    .ing-tbl-row > div:nth-child(6),
+    .ing-tbl-row > div:nth-child(7) { display: none; }
+    .ing-tbl-row .mini-sym { width: 44px; height: 44px; font-size: 18px; }
+    .ing-tbl-row .nm { font-size: 15px; }
+    .ing-tbl-row .nm small { font-size: 9.5px; margin-top: 3px; }
+    /* surface the evidence grade as compact right-rail badge */
+    .ing-tbl-row .ev-grade {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      align-items: flex-end;
+      text-align: right;
+    }
+    .ing-tbl-row .ev-grade .g { font-size: 22px; }
+    .ing-tbl-row .ev-grade .ml { font-size: 8.5px; letter-spacing: 0.04em; }
+
+    /* Toolbar */
+    .toolbar { flex-direction: column; align-items: stretch; gap: 10px; }
+    .toolbar .actions { flex-wrap: wrap; }
+    .toolbar .actions select { width: 100%; }
+  }
+
+  @media (max-width: 480px) {
+    .periodic { grid-template-columns: repeat(3, 1fr); }
+    .pell { aspect-ratio: 0.95; padding: 10px 8px; }
+    .pell .sym { font-size: 34px; }
+    .pell .pn { font-size: 11px; }
+    .ing-spot .sym-block .sym { font-size: 68px; }
+    .effect-strip { grid-template-columns: 1fr; }
+    .effect-strip a { border-right: 0; border-bottom: 1px solid var(--ink); }
+    .effect-strip a:last-child { border-bottom: 0; }
+    .ing-tbl-row { grid-template-columns: 40px 1fr 48px; gap: 10px; }
+    .ing-tbl-row .mini-sym { width: 40px; height: 40px; font-size: 16px; }
+  }
+</style>
+</head>
+<body data-page="ingredients">
+
+<div id="site-head-mount"></div>
+
+<!-- Sub-nav -->
+<div class="sub-nav">
+  <div class="container">
+    <div class="sub-nav-inner">
+      <a href="ingredients.html" class="active">All ingredients</a>
+      <a href="#">Periodic view</a>
+      <a href="#">By evidence</a>
+      <a href="#">Most-asked</a>
+      <a href="#">Interactions</a>
+      <a href="#">Avoid list</a>
+      <span class="spacer"></span>
+      <span class="meta">312 ingredients · 412 citations · Re-graded quarterly</span>
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="idx-hero">
+  <div class="container">
+    <div class="kicker" style="color: var(--red); margin-bottom: 16px;">INGREDIENTS · EVIDENCE-GRADED · Q2 2026</div>
+    <h1>Ingredients<br/>library.</h1>
+    <div class="meta-grid">
+      <p class="lede">Every supplement ingredient we cover, scored on a modified GRADE framework. Plain-language summaries, clinical dose ranges, and the products that actually contain a useful dose. <a href="methodology.html" style="color: var(--red); text-decoration: underline;">How we grade evidence →</a></p>
+      <div class="stat"><div class="v">312</div><div class="k">Ingredients</div></div>
+      <div class="stat"><div class="v green">40</div><div class="k">Grade A / A+</div></div>
+      <div class="stat"><div class="v">412</div><div class="k">Citations</div></div>
+      <div class="stat"><div class="v red">8</div><div class="k">Avoid list</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Main with sidebar -->
+<div class="container" style="padding-top: 28px; padding-bottom: 56px;">
+  <div class="with-rail">
+
+    <!-- Mobile filter toggle -->
+    <button class="rail-toggle" id="rail-toggle" aria-expanded="false" type="button">
+      <span class="rt-left">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5h10M5 8h6M7 11h2"/></svg>
+        Filters
+        <span class="rt-count">3</span>
+      </span>
+      <span class="rt-arr">▾</span>
+    </button>
+
+    <aside class="rail" id="rail-host"></aside>
+
+    <main>
+
+      <!-- Featured ingredient -->
+      <article class="ing-spot" id="ing-spotlight"></article>
+
+      <!-- "Top by effect" strip -->
+      <div class="effect-strip">
+        <a href="#effect-muscle">
+          <div class="top">/ 01 · MUSCLE</div>
+          <div class="nm">Muscle &<br/>Strength</div>
+          <div class="ct"><b>42</b> · 4 A-grade</div>
+        </a>
+        <a href="#effect-energy">
+          <div class="top">/ 02 · ENERGY</div>
+          <div class="nm">Energy</div>
+          <div class="ct"><b>31</b> · 3 A-grade</div>
+        </a>
+        <a href="#effect-cog">
+          <div class="top">/ 03 · COG.</div>
+          <div class="nm">Cognition</div>
+          <div class="ct"><b>38</b> · 5 A-grade</div>
+        </a>
+        <a href="#effect-sleep">
+          <div class="top">/ 04 · SLEEP</div>
+          <div class="nm">Sleep</div>
+          <div class="ct"><b>22</b> · 4 A-grade</div>
+        </a>
+        <a href="#effect-heart">
+          <div class="top">/ 05 · HEART</div>
+          <div class="nm">Heart</div>
+          <div class="ct"><b>18</b> · 6 A-grade</div>
+        </a>
+        <a href="#effect-recovery">
+          <div class="top">/ 06 · RECOV.</div>
+          <div class="nm">Recovery</div>
+          <div class="ct"><b>28</b> · 3 A-grade</div>
+        </a>
+      </div>
+
+      <!-- Periodic-style featured grid -->
+      <div class="cat-head">
+        <div class="l"><span class="num">/ 01</span> The top 32</div>
+        <div class="n">Evidence grade &ge; B · most-asked</div>
+      </div>
+      <div class="periodic" id="periodic"></div>
+
+      <!-- Trending -->
+      <div class="trending">
+        <h3>What people <em>are</em><br/>searching this week.</h3>
+        <ul>
+          <li><span class="n">01</span><span class="nm">Creatine &mdash; does loading matter?</span><span class="d up">&uarr; 84%</span></li>
+          <li><span class="n">02</span><span class="nm">Ashwagandha &mdash; KSM-66 vs Sensoril</span><span class="d up">&uarr; 41%</span></li>
+          <li><span class="n">03</span><span class="nm">Magnesium L-threonate &mdash; cognition claim</span><span class="d up">&uarr; 36%</span></li>
+          <li><span class="n">04</span><span class="nm">Berberine &mdash; Ozempic comparison</span><span class="d up">&uarr; 28%</span></li>
+          <li><span class="n">05</span><span class="nm">Melatonin &mdash; pediatric labeling</span><span class="d dn">&darr; 12%</span></li>
+        </ul>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="results"><b id="ff-count">&mdash;</b> ingredients &middot; <span id="ff-applied">0</span> filters applied</div>
+        <div class="actions">
+          <select id="ff-sort">
+            <option value="grade">Sort · Evidence &darr;</option>
+            <option value="products">Most products</option>
+            <option value="alpha">Alphabetical</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Active filters -->
+      <div id="ff-active" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px;"></div>
+
+      <!-- Results grouped by primary effect -->
+      <div id="ff-results"></div>
+
+      <!-- Empty -->
+      <div id="ff-empty" style="display: none; padding: 60px 20px; text-align: center; border: 1px dashed var(--line-2); color: var(--mute);">
+        <div style="font-family: var(--f-display); font-weight: 700; font-size: 32px; text-transform: uppercase; color: var(--ink); margin-bottom: 8px;">No ingredients match.</div>
+        <p style="font-size: 14px; max-width: 420px; margin: 0 auto 16px;">Try removing some filters or broadening your search.</p>
+        <button class="ff-reset" style="font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; padding: 10px 18px; background: var(--ink); color: var(--paper); border: 0; cursor: pointer;">Reset filters</button>
+      </div>
+
+      <div class="pager" id="ff-pager"></div>
+    </main>
+
+  </div>
+</div>
+
+<div id="site-foot-mount"></div>
+
+<script src="assets/illus.js"></script>
+<script src="assets/data-loader.js"></script>
+<script src="assets/filters.js"></script>
+<script src="assets/seo.js"></script>
+<script src="assets/consent.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/sidebar.js"></script>
+<script>
+  window.FITLAB.page = { type: 'index' };
+
+  const rt = document.getElementById('rail-toggle');
+  const rail = document.querySelector('.rail');
+  if (rt && rail) rt.addEventListener('click', () => {
+    const open = rail.classList.toggle('open');
+    rt.classList.toggle('open', open);
+    rt.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // Effect → display label mapping
+  const EFFECT_LABEL = {
+    muscle: { num: 02, title: 'Muscle & strength' },
+    energy: { num: 03, title: 'Energy' },
+    cog:    { num: 04, title: 'Cognition & focus' },
+    sleep:  { num: 05, title: 'Sleep & relaxation' },
+    heart:  { num: 06, title: 'Heart & metabolism' },
+    recovery:{num: 07, title: 'Recovery' },
+  };
+
+  function renderSpotlight(i) {
+    if (!i) return;
+    const gradeClass = i.grade.replace('+','');
+    document.getElementById('ing-spotlight').innerHTML = `
+      <div class="sym-block">
+        <span class="num">// 01</span>
+        <span class="mw">${i.mw} g/mol</span>
+        <span class="sym">${i.sym}</span>
+        <span class="nm">${i.name}</span>
+      </div>
+      <div class="body">
+        <span class="cat">${i.cat.toUpperCase()}</span>
+        <h2>${i.name.replace(/ /, '<br/>')}</h2>
+        <p class="summary">${i.summary}</p>
+        <div class="key-pairs">
+          <div><div class="v">${i.dose}</div><div class="k">Clinical dose</div></div>
+          <div><div class="v">${(i.meta || '').match(/\d+/)?.[0] || '—'}</div><div class="k">RCTs pooled</div></div>
+          <div><div class="v">${i.nprod}</div><div class="k">Products w/it</div></div>
+          <div><div class="v" style="color: var(--green-deep);">${i.grade}</div><div class="k">Evidence</div></div>
+        </div>
+      </div>
+      <div class="side">
+        <div class="verdict-tag">${(i.verdict || 'USE IT').toUpperCase()}</div>
+        <div class="grade-box">
+          <div class="gl">Evidence</div>
+          <div class="gv">${i.grade}</div>
+          <div class="gd">${i.meta}</div>
+        </div>
+        <a href="/ingredients/${i.slug}/" class="read">Full ingredient guide &rarr;</a>
+      </div>
+    `;
+  }
+
+  function rowHTML(d) {
+    return `
+      <a href="/ingredients/${d.slug}/" class="ing-tbl-row">
+        <div class="mini-sym">${d.sym}<span class="acc ${d.primary_effect}"></span></div>
+        <div class="nm">${d.name}<small>${d.cat}</small></div>
+        <div class="ev-grade">
+          <span class="g ${d.grade.replace('+', '')}">${d.grade}</span>
+          <span class="ml">${d.meta}</span>
+        </div>
+        <div class="verdict">${d.summary}</div>
+        <div class="dose">${d.dose}<small>${d.dose_unit}</small></div>
+        <div class="n-prod">${d.nprod}<small>products</small></div>
+        <div class="cta">Read</div>
+      </a>
+    `;
+  }
+
+  function periodicHTML(d, idx) {
+    const sub = (d.cat || '').split('·')[0].trim();
+    return `
+      <a href="/ingredients/${d.slug}/" class="pell ${d.featured ? 'featured' : ''}">
+        <div class="top">
+          <span class="num">${String(idx + 1).padStart(2, '0')}</span>
+          <span class="ev">
+            <div class="gv ${d.grade.replace('+','')}">${d.grade}</div>
+            <div class="gl">EVID</div>
+          </span>
+        </div>
+        <div class="sym">${d.sym}</div>
+        <div class="pn">${d.name.split(' ')[0]}</div>
+        <div class="sub">${sub}</div>
+        <div class="acc ${d.primary_effect}"></div>
+      </a>
+    `;
+  }
+
+  let filterCtl;
+
+  window.FITLAB.ready.then(() => {
+    const items = (window.FITLAB.data.ingredients && window.FITLAB.data.ingredients.ingredients) || [];
+    if (!items.length) { document.getElementById('ff-results').innerHTML = '<p style="padding:40px;text-align:center;">Data failed to load.</p>'; return; }
+
+    window.renderSidebar(document.getElementById('rail-host'), 'ingredients');
+
+    // Spotlight
+    const featured = items.find(i => i.featured) || items[0];
+    renderSpotlight(featured);
+
+    // Periodic grid (top by evidence)
+    const top = items.slice().sort((a,b) => {
+      const o = { 'A+': 0, A: 1, B: 2, C: 3, D: 4 };
+      return (o[a.grade] || 9) - (o[b.grade] || 9);
+    }).slice(0, 32);
+    document.getElementById('periodic').innerHTML = top.map(periodicHTML).join('');
+
+    filterCtl = window.FITLAB.createFilter({
+      items: items.filter(i => i.slug !== featured.slug),
+      searchFields: ['name', 'cat', 'sym', 'alt_names', 'summary'],
+      pageSize: 30,
+      gridEl: document.getElementById('ff-results'),
+      pagerEl: document.getElementById('ff-pager'),
+      activeEl: document.getElementById('ff-active'),
+      searchEl: document.querySelector('.rail .ff-search'),
+      sortEl: document.getElementById('ff-sort'),
+      defaultSort: 'grade',
+      onCountChange: (n) => {
+        document.getElementById('ff-count').textContent = n;
+        const active = Object.values(filterCtl.state.filters).reduce((s, set) => s + set.size, 0) + (filterCtl.state.query ? 1 : 0);
+        document.getElementById('ff-applied').textContent = active;
+      },
+      render: (visible) => {
+        const empty = document.getElementById('ff-empty');
+        const root = document.getElementById('ff-results');
+        if (!visible.length) { empty.style.display = 'block'; root.innerHTML = ''; return; }
+        empty.style.display = 'none';
+
+        // Group by primary_effect
+        const groups = {};
+        visible.forEach(i => {
+          const k = i.primary_effect || 'other';
+          (groups[k] = groups[k] || []).push(i);
+        });
+        const html = Object.entries(groups).map(([eff, list]) => {
+          const lbl = EFFECT_LABEL[eff] || { num: '99', title: eff };
+          return `
+            <div class="cat-head" id="effect-${eff}">
+              <div class="l"><span class="num">/ ${String(lbl.num).padStart(2,'0')}</span> ${lbl.title}</div>
+              <div class="n">${list.length} entries</div>
+            </div>
+            <div class="ing-tbl">
+              <div class="ing-tbl-head">
+                <div></div>
+                <div>Ingredient &middot; Form</div>
+                <div>Evidence</div>
+                <div>What it does</div>
+                <div>Clinical dose</div>
+                <div>Products</div>
+                <div></div>
+              </div>
+              ${list.map(rowHTML).join('')}
+            </div>
+          `;
+        }).join('');
+        root.innerHTML = html;
+      },
+      filterLabel: (k, v) => v,
+      filters: {
+        cat: (i, v) => (i.cat || '').toLowerCase().includes(v.toLowerCase().split(' ')[0]),
+        effect: (i, v) => i.primary_effect === v,
+        grade: (i, v) => (i.grade || '').toUpperCase() === v.toUpperCase(),
+      },
+      sorts: {
+        grade: (a, b) => {
+          const o = { 'A+': 0, A: 1, B: 2, C: 3, D: 4, F: 5 };
+          return (o[a.grade] || 9) - (o[b.grade] || 9);
+        },
+        products: (a, b) => (b.nprod || 0) - (a.nprod || 0),
+        alpha: (a, b) => a.name.localeCompare(b.name),
+      }
+    });
+
+    window.FITLAB.applySEO({
+      type: 'index',
+      title: 'Supplement Ingredients Library — Evidence-Based Guides · Fitlab',
+      description: '312 supplement ingredients indexed with evidence grades, clinical dose ranges, mechanism summaries, and the products that contain them. Independent. No paid placements.',
+    });
+  });
+</script>
+</body>
+</html>

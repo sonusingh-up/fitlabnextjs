@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Research · Fitlab</title>
+<link rel="stylesheet" href="assets/tokens.css"/>
+<link rel="stylesheet" href="assets/shared.css"/>
+<style>
+  .idx-hero { border-bottom: 1px solid var(--ink); padding: 32px 0; }
+  .idx-hero h1 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: clamp(56px, 8vw, 128px);
+    line-height: 0.86; letter-spacing: -0.02em;
+    text-transform: uppercase; margin: 0;
+  }
+  .idx-hero .meta-grid {
+    display: grid; grid-template-columns: 1fr auto auto auto auto;
+    gap: 28px; align-items: end; margin-top: 18px;
+    padding-top: 18px; border-top: 1px solid var(--line-2);
+  }
+  .idx-hero .lede { max-width: 540px; font-size: 16px; line-height: 1.45; color: var(--ink-2); }
+  .idx-hero .stat { border-left: 1px solid var(--line-2); padding-left: 16px; min-width: 84px; }
+  .idx-hero .stat .v { font-family: var(--f-display); font-weight: 700; font-size: 32px; line-height: 0.95; }
+  .idx-hero .stat .k { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; color: var(--mute); text-transform: uppercase; margin-top: 4px; }
+
+  /* Research paper card */
+  .paper {
+    background: var(--paper);
+    border: 1px solid var(--line-2);
+    padding: 24px;
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: 70px 1fr 140px;
+    gap: 24px;
+    transition: all 0.15s;
+  }
+  .paper:hover { border-color: var(--ink); }
+  .paper.lead {
+    grid-template-columns: 80px 1fr 200px;
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+    padding: 32px;
+  }
+  .paper.lead .pid, .paper.lead .meta-row, .paper.lead .key { color: var(--mute-2); }
+  .paper.lead .key b { color: var(--paper); }
+  .paper .pid {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+  .paper .ptype {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .paper h3 {
+    font-family: var(--f-display); font-weight: 700;
+    font-size: 26px; line-height: 0.96;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    margin: 0 0 10px;
+  }
+  .paper.lead h3 { font-size: 40px; line-height: 0.94; }
+  .paper .key {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 0 0 12px;
+    max-width: 620px;
+  }
+  .paper.lead .key { font-size: 17px; color: rgba(246,244,239,0.85); }
+  .paper .meta-row {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    color: var(--mute);
+    text-transform: uppercase;
+    display: flex; gap: 12px; align-items: center;
+    flex-wrap: wrap;
+  }
+  .paper .meta-row b { color: var(--ink); font-weight: 600; }
+  .paper.lead .meta-row b { color: var(--paper); }
+
+  .grade {
+    text-align: center;
+    align-self: start;
+    padding: 14px;
+    background: var(--paper-2);
+    border: 1px solid var(--line-2);
+  }
+  .paper.lead .grade { background: rgba(255,255,255,0.04); border-color: var(--ink-3); }
+  .grade .gl {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    color: var(--mute);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .grade .gv {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .grade .gv.A { color: var(--green-deep); }
+  .grade .gv.B { color: var(--ink); }
+  .grade .gv.C { color: #8a6b00; }
+  .grade .gv.D { color: var(--red-deep); }
+  .paper.lead .grade .gv.A { color: var(--green); }
+  .grade .gd {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--mute);
+    text-transform: uppercase;
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--line-2);
+  }
+  .paper.lead .grade .gd { border-color: var(--ink-3); }
+
+  @media (max-width: 720px) {
+    .idx-hero { padding: 20px 0 24px; }
+    .idx-hero h1 { font-size: clamp(48px, 14vw, 88px); }
+    .idx-hero .meta-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    .idx-hero .lede {
+      grid-column: 1 / -1;
+      font-size: 14.5px;
+      margin-bottom: 8px;
+    }
+    .idx-hero .stat { min-width: 0; padding-left: 10px; }
+    .idx-hero .stat .v { font-size: 22px; }
+    .idx-hero .stat .k { font-size: 9px; }
+
+    .paper {
+      grid-template-columns: 50px 1fr 90px;
+      gap: 14px;
+      padding: 18px;
+    }
+    .paper.lead {
+      grid-template-columns: 50px 1fr 90px;
+      padding: 22px 18px;
+      gap: 14px;
+    }
+    .paper h3 { font-size: 20px; }
+    .paper.lead h3 { font-size: 26px; }
+    .paper .key { font-size: 13px; }
+    .paper.lead .key { font-size: 14.5px; }
+    .paper .meta-row { font-size: 9.5px; gap: 8px; }
+    .paper .pid { font-size: 10px; }
+    .grade { padding: 10px; }
+    .grade .gv { font-size: 32px; }
+    .grade .gd { font-size: 9px; }
+  }
+
+  @media (max-width: 480px) {
+    .paper, .paper.lead {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .paper .pid { font-size: 10.5px; }
+    .grade { padding: 12px; display: flex; gap: 16px; justify-content: center; align-items: center; }
+    .grade .gl { margin: 0; }
+    .grade .gv { font-size: 28px; }
+    .grade .gd { margin-top: 0; padding-top: 0; border-top: 0; }
+  }
+</style>
+</head>
+<body data-page="research">
+
+<div id="site-head-mount"></div>
+
+<div class="sub-nav">
+  <div class="container">
+    <div class="sub-nav-inner">
+      <a href="research.html" class="active">All briefs</a>
+      <a href="#">Meta-analysis</a>
+      <a href="#">Ingredient deep-dives</a>
+      <a href="#">Lab reports</a>
+      <a href="#">Q-reports</a>
+      <a href="#">Pharmacokinetics</a>
+      <span class="spacer"></span>
+      <span class="meta">102 briefs · 412 citations</span>
+    </div>
+  </div>
+</div>
+
+<section class="idx-hero">
+  <div class="container">
+    <div class="kicker" style="color: var(--red); margin-bottom: 16px;">RESEARCH · PEER-REVIEWED · INTERNAL</div>
+    <h1>Research<br/>briefs.</h1>
+    <div class="meta-grid">
+      <p class="lede">Plain-language summaries of the studies behind our scoring. Every brief is graded on evidence strength (A–F) using a modified GRADE framework. We re-grade quarterly.</p>
+      <div class="stat"><div class="v">102</div><div class="k">Briefs</div></div>
+      <div class="stat"><div class="v">412</div><div class="k">Citations</div></div>
+      <div class="stat"><div class="v">38</div><div class="k">Ingredients</div></div>
+      <div class="stat"><div class="v" style="color: var(--green-deep);">12</div><div class="k">Grade A+</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="container" style="padding-top: 28px; padding-bottom: 56px;">
+  <div class="with-rail">
+    <aside class="rail" id="rail-host"></aside>
+
+    <main>
+      <div class="toolbar">
+        <div class="results"><b>102</b> briefs · <b>2</b> filters applied</div>
+        <div class="actions">
+          <select>
+            <option>Sort · Newest first</option>
+            <option>Highest evidence grade</option>
+            <option>Most cited</option>
+            <option>Most read</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Lead -->
+      <article class="paper lead">
+        <div class="pid">R<br/>102</div>
+        <div>
+          <div class="ptype">Meta-analysis · 38 trials · ★ Editor's pick</div>
+          <h3>Creatine monohydrate at 3g/day — does the loading phase actually matter?</h3>
+          <p class="key">A re-analysis of muscle PCr saturation studies suggests <b>28 days at 3g matches a 5-day loading protocol within ±2%</b> on every measured endpoint. Loading is a marketing artifact, not a pharmacological necessity. We include a worked example for athletes with a competition window.</p>
+          <div class="meta-row">
+            <span><b>Adrian Kojima, PhD</b></span><span>·</span>
+            <span>Posted <b>May 14</b></span><span>·</span>
+            <span><b>14 min</b> read</span><span>·</span>
+            <span>38 citations</span><span>·</span>
+            <span style="color: var(--red);">12,481 reads</span>
+          </div>
+        </div>
+        <div class="grade">
+          <div class="gl">Evidence</div>
+          <div class="gv A">A+</div>
+          <div class="gd">High · 38 RCTs<br/>n = 1,847</div>
+        </div>
+      </article>
+
+      <!-- Standard papers -->
+      <article class="paper">
+        <div class="pid">R<br/>101</div>
+        <div>
+          <div class="ptype">Ingredient deep-dive · Magnesium</div>
+          <h3>Magnesium L-threonate — the cognition claim re-examined</h3>
+          <p class="key">Manufacturer-funded rat studies vs. the two existing human trials. The signal is small, the noise is large, and the dose-response curve does not behave the way the marketing suggests. Practical recommendation included.</p>
+          <div class="meta-row">
+            <span><b>Dr. Park</b></span><span>·</span>
+            <span>May 10</span><span>·</span>
+            <span>9 min</span><span>·</span>
+            <span>14 citations</span>
+          </div>
+        </div>
+        <div class="grade">
+          <div class="gl">Evidence</div>
+          <div class="gv C">C</div>
+          <div class="gd">Limited<br/>2 human RCTs</div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <div class="pid">R<br/>100</div>
+        <div>
+          <div class="ptype">Lab report · Q2 2026</div>
+          <h3>Heavy metal contamination in greens powders — round 4 data</h3>
+          <p class="key"><b>17 of 24 greens products</b> tested above CA Prop. 65 cadmium thresholds at recommended serving size. Detailed ppm tables for lead, cadmium, arsenic, and mercury. Methodology, lab partner (Eurofins), and all chain-of-custody documentation included.</p>
+          <div class="meta-row">
+            <span><b>Adrian K. + lab team</b></span><span>·</span>
+            <span>May 06</span><span>·</span>
+            <span>22 min</span><span>·</span>
+            <span>Raw data CSV</span><span>·</span>
+            <span style="color: var(--red);">19,402 reads</span>
+          </div>
+        </div>
+        <div class="grade">
+          <div class="gl">Evidence</div>
+          <div class="gv A">A</div>
+          <div class="gd">Direct assay<br/>n = 24, k = 4</div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <div class="pid">R<br/>099</div>
+        <div>
+          <div class="ptype">Pharmacokinetics · Vitamin D</div>
+          <h3>Vitamin D3 vs. D2 — bioequivalence at typical supplement doses</h3>
+          <p class="key">D3 raises 25(OH)D approximately <b>1.4× more efficiently than D2</b> at oral doses ≤2,000 IU/day. We do not recommend D2 supplementation outside of vegan formulations. Discussion of K2 co-administration and the deeply confused "longevity" recommendations.</p>
+          <div class="meta-row">
+            <span><b>Dr. Park</b></span><span>·</span>
+            <span>May 02</span><span>·</span>
+            <span>11 min</span><span>·</span>
+            <span>18 citations</span>
+          </div>
+        </div>
+        <div class="grade">
+          <div class="gl">Evidence</div>
+          <div class="gv A">A</div>
+          <div class="gd">High · 16 RCTs<br/>n = 2,104</div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <div class="pid">R<br/>098</div>
+        <div>
+          <div class="ptype">Ingredient deep-dive · Adaptogens</div>
+          <h3>Ashwagandha (KSM-66 vs Sensoril) — the cortisol claim, examined</h3>
+          <p class="key">Both extracts modestly reduce salivary cortisol in stressed subjects at ≥600mg/day for 8+ weeks. KSM-66 has slightly more replication. Effect sizes are <b>smaller than the marketing suggests</b> and the literature is funded almost entirely by manufacturers.</p>
+          <div class="meta-row">
+            <span><b>Adrian K.</b></span><span>·</span>
+            <span>Apr 28</span><span>·</span>
+            <span>13 min</span><span>·</span>
+            <span>11 citations</span>
+          </div>
+        </div>
+        <div class="grade">
+          <div class="gl">Evidence</div>
+          <div class="gv B">B</div>
+          <div class="gd">Moderate<br/>Funding bias risk</div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <div class="pid">R<br/>097</div>
+        <div>
+          <div class="ptype">Meta-analysis · BCAAs</div>
+          <h3>BCAAs in resistance training — do they do anything if you eat enough protein?</h3>
+          <p class="key"><b>No.</b> The signal disappears once total daily protein crosses 1.6 g/kg. BCAAs may have utility in fasted training contexts or for athletes hitting calorie deficits. They are not a general-purpose supplement.</p>
+          <div class="meta-row">
+            <span><b>Adrian K.</b></span><span>·</span>
+            <span>Apr 24</span><span>·</span>
+            <span>16 min</span><span>·</span>
+            <span>29 citations</span>
+          </div>
+        </div>
+        <div class="grade">
+          <div class="gl">Evidence</div>
+          <div class="gv A">A</div>
+          <div class="gd">14 RCTs<br/>n = 1,128</div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <div class="pid">R<br/>096</div>
+        <div>
+          <div class="ptype">Pharmacokinetics · Caffeine</div>
+          <h3>The CYP1A2 polymorphism — should you adjust your pre-workout caffeine?</h3>
+          <p class="key">Slow metabolizers (~50% of the population, depending on ancestry) show elevated peak plasma caffeine and prolonged half-life. Practical recommendation: 100mg ceiling pre-workout if you don't tolerate it. Genotyping is not necessary to figure this out empirically.</p>
+          <div class="meta-row">
+            <span><b>Dr. Park</b></span><span>·</span>
+            <span>Apr 19</span><span>·</span>
+            <span>9 min</span><span>·</span>
+            <span>22 citations</span>
+          </div>
+        </div>
+        <div class="grade">
+          <div class="gl">Evidence</div>
+          <div class="gv B">B</div>
+          <div class="gd">Observational<br/>strong signal</div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <div class="pid">R<br/>095</div>
+        <div>
+          <div class="ptype">Q-report · Q1 2026</div>
+          <h3>The Q1 testing window in one chart: 128 products, 19% failure rate.</h3>
+          <p class="key">Failure breakdown by category, with detailed methodology comparisons quarter-over-quarter. Pre-workout remains the worst-performing category; multivitamins have improved meaningfully since 2024.</p>
+          <div class="meta-row">
+            <span><b>Adrian K. + team</b></span><span>·</span>
+            <span>Apr 14</span><span>·</span>
+            <span>26 min</span><span>·</span>
+            <span>Open dataset</span>
+          </div>
+        </div>
+        <div class="grade">
+          <div class="gl">Evidence</div>
+          <div class="gv A">A</div>
+          <div class="gd">Direct assay<br/>n = 128</div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <div class="pid">R<br/>094</div>
+        <div>
+          <div class="ptype">Recalls & adverse · Sleep</div>
+          <h3>The melatonin labeling problem — independent assay of 17 retail brands</h3>
+          <p class="key">Label-stated dose vs. assayed dose. <b>Median deviation: +71%</b>, with one brand at +478%. Implications for pediatric use are non-trivial. Recommendations for label-reform advocacy at the end.</p>
+          <div class="meta-row">
+            <span><b>Dr. Park + lab team</b></span><span>·</span>
+            <span>Apr 09</span><span>·</span>
+            <span>14 min</span><span>·</span>
+            <span>Cited by ABC News</span>
+          </div>
+        </div>
+        <div class="grade">
+          <div class="gl">Evidence</div>
+          <div class="gv A">A</div>
+          <div class="gd">Direct assay<br/>n = 17</div>
+        </div>
+      </article>
+
+      <div class="pager">
+        <span class="on">1</span>
+        <a href="#">2</a><a href="#">3</a><a href="#">4</a><span>…</span><a href="#">12</a><a href="#">→</a>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div id="site-foot-mount"></div>
+
+<script src="assets/illus.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/sidebar.js"></script>
+<script>
+  window.renderSidebar(document.getElementById('rail-host'), 'research');
+</script>
+</body>
+</html>

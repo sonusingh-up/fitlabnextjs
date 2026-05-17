@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "count": 512,
+    "picks": 22,
+    "failed": 97,
+    "n_brands": 89
+  },
+  "reviews": [
+    {
+      "slug": "transparent-labs-wpi",
+      "brand_slug": "transparent-labs",
+      "brand": "Transparent Labs",
+      "product": "100% Grass-Fed Whey Isolate",
+      "cat": "Whey Isolate · Grass-fed",
+      "illus": "tub",
+      "score": 9.4,
+      "pick": true,
+      "blurb": "The benchmark protein powder. 28g protein/scoop, 90.4% by mass, heavy metals <0.05ppm across 4 lots. The honest scoop.",
+      "rubric": {
+        "Ingredient": 9.6,
+        "Dosing": 9.4,
+        "Transparency": 9.8,
+        "Value": 8.6
+      },
+      "tags": [
+        {
+          "t": "Informed Sport",
+          "c": "green"
+        },
+        {
+          "t": "NSF Certified",
+          "c": "green"
+        },
+        {
+          "t": "cGMP"
+        },
+        {
+          "t": "$59/lb"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-05-14"
+    },
+    {
+      "slug": "dymatize-iso100",
+      "brand_slug": "dymatize",
+      "brand": "Dymatize",
+      "product": "ISO-100 Hydrolyzed",
+      "cat": "Whey Isolate · Hydrolyzed",
+      "illus": "tub",
+      "score": 9,
+      "pick": true,
+      "blurb": "Sub-$50/lb whey isolate with strong dosing accuracy. The benchmark on per-clinical-serving cost.",
+      "rubric": {
+        "Ingredient": 9,
+        "Dosing": 9.2,
+        "Transparency": 8.8,
+        "Value": 9.6
+      },
+      "tags": [
+        {
+          "t": "Informed Choice",
+          "c": "green"
+        },
+        {
+          "t": "$48/lb"
+        },
+        {
+          "t": "25g protein"
+        }
+      ],
+      "has_detail": false,
+      "last_tested": "2026-04-18"
+    },
+    {
+      "slug": "thorne-creatine",
+      "brand_slug": "thorne",
+      "brand": "Thorne",
+      "product": "Creatine Monohydrate",
+      "cat": "Creatine Mono · 100% pure",
+      "illus": "bottle",
+      "score": 9.2,
+      "pick": true,
+      "blurb": "Pharmaceutical-grade Creapure®. NSF Certified for Sport. Best for drug-tested athletes.",
+      "rubric": {
+        "Ingredient": 9.7,
+        "Dosing": 9.5,
+        "Transparency": 9,
+        "Value": 8.4
+      },
+      "tags": [
+        {
+          "t": "NSF Certified",
+          "c": "green"
+        },
+        {
+          "t": "Creapure"
+        }
+      ],
+      "has_detail": false,
+      "last_tested": "2026-04-08"
+    },
+    {
+      "slug": "legion-pulse",
+      "brand_slug": "legion-athletics",
+      "brand": "Legion Athletics",
+      "product": "Pulse Pre-Workout",
+      "cat": "Pre-workout · Clinical doses",
+      "illus": "shaker",
+      "score": 9,
+      "pick": true,
+      "blurb": "8g citrulline, 300mg caffeine, zero prop blends. Clinical benchmark for pre-workouts.",
+      "rubric": {
+        "Ingredient": 9,
+        "Dosing": 9.4,
+        "Transparency": 9.6,
+        "Value": 7.8
+      },
+      "tags": [
+        {
+          "t": "Full transparency",
+          "c": "green"
+        },
+        {
+          "t": "No prop. blend"
+        }
+      ],
+      "has_detail": false,
+      "last_tested": "2026-04-22"
+    },
+    {
+      "slug": "optimum-gold-standard",
+      "brand_slug": "optimum-nutrition",
+      "brand": "Optimum Nutrition",
+      "product": "Gold Standard 100% Whey",
+      "cat": "Whey Blend · Established 1987",
+      "illus": "tub",
+      "score": 8.4,
+      "pick": false,
+      "blurb": "WPI-first blend, Informed Sport certified, 24g protein. The benchmark protein powder for 15 years.",
+      "rubric": {
+        "Ingredient": 8.6,
+        "Dosing": 8.4,
+        "Transparency": 7.6,
+        "Value": 9.4
+      },
+      "tags": [
+        {
+          "t": "Informed Sport"
+        },
+        {
+          "t": "Sm. prop. blend",
+          "c": "amber"
+        },
+        {
+          "t": "$36/lb"
+        }
+      ],
+      "has_detail": false,
+      "last_tested": "2026-03-30"
+    },
+    {
+      "slug": "garden-of-life-mens-multi",
+      "brand_slug": "garden-of-life",
+      "brand": "Garden of Life",
+      "product": "mykind Men's Multi",
+      "cat": "Whole-food Multivitamin",
+      "illus": "jar",
+      "score": 8.6,
+      "pick": false,
+      "blurb": "Whole-food sourced. NSF Certified for Sport. Methylated B12 and folate; not synthetic.",
+      "rubric": {
+        "Ingredient": 8.8,
+        "Dosing": 8,
+        "Transparency": 8.6,
+        "Value": 8.4
+      },
+      "tags": [
+        {
+          "t": "NSF Certified"
+        },
+        {
+          "t": "USDA Organic"
+        }
+      ],
+      "has_detail": false,
+      "last_tested": "2026-03-12"
+    },
+    {
+      "slug": "ag1-greens",
+      "brand_slug": "athletic-greens",
+      "brand": "AG1",
+      "product": "Greens Blend · 75 ingredients",
+      "cat": "Greens blend · ≥75 ingredients",
+      "illus": "tub",
+      "score": 7.4,
+      "pick": false,
+      "blurb": "Single-product brand. Marketing exceeds the evidence; the formulation itself is well-made. NSF Sport-certified.",
+      "rubric": {
+        "Ingredient": 7.8,
+        "Dosing": 6.2,
+        "Transparency": 5.4,
+        "Value": 4.8
+      },
+      "tags": [
+        {
+          "t": "Prop. blend",
+          "c": "red"
+        },
+        {
+          "t": "NSF for Sport"
+        }
+      ],
+      "has_detail": false,
+      "last_tested": "2026-05-09"
+    },
+    {
+      "slug": "body-fortress-iso",
+      "brand_slug": "body-fortress",
+      "brand": "Body Fortress",
+      "product": "Super Advanced ISO",
+      "cat": "Whey Iso · Mass-market",
+      "illus": "tub",
+      "score": 5.4,
+      "pick": false,
+      "blurb": "Under-dosed against label by 21%. The \"ISO-100\" naming is misleading on protein percentage by mass.",
+      "rubric": {
+        "Ingredient": 6,
+        "Dosing": 4.2,
+        "Transparency": 3.8,
+        "Value": 7.8
+      },
+      "tags": [
+        {
+          "t": "Prop. blend",
+          "c": "red"
+        },
+        {
+          "t": "No cert.",
+          "c": "red"
+        },
+        {
+          "t": "$22/lb"
+        }
+      ],
+      "has_detail": false,
+      "last_tested": "2026-04-04",
+      "flag": "fail"
+    }
+  ]
+}
