@@ -1,0 +1,10 @@
+# Robots
+User-agent: *
+Allow: /
+
+# Disallow draft / staging paths
+Disallow: /_drafts/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://fitlabreviews.com/sitemap.xml

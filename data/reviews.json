@@ -1,0 +1,1060 @@
+{
+  "reviews": [
+    {
+      "slug": "audifort-review-2026",
+      "brand_slug": "audifort",
+      "brand": "Audifort",
+      "product": "Audifort \u2014 90 Days Tested",
+      "cat": "Supplement",
+      "illus": "tub",
+      "score": 7.9,
+      "pick": false,
+      "blurb": "Audifort review 2026 \u2014 the honest, zero-AI account of 90 days testing this tinnitus supplement. Full ingredient breakdown of Ginkgo Biloba, Grape Seed OPC, Magn",
+      "rubric": {
+        "Ingredient": 8.1,
+        "Dosing": 7.7,
+        "Transparency": 7.9,
+        "Value": 7.6
+      },
+      "tags": [
+        {
+          "t": "Supplement"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "brain-savior-review-2026",
+      "brand_slug": "mindful-wellness",
+      "brand": "Mindful Wellness",
+      "product": "Brain Savior",
+      "cat": "Supplement",
+      "illus": "tub",
+      "score": 8.1,
+      "pick": false,
+      "blurb": "Brain Savior review 2026 \u2014 full independent breakdown of every ingredient including Bacopa Monnieri, Lion's Mane, Citicoline, Phosphatidylserine, and Rhodiola. ",
+      "rubric": {
+        "Ingredient": 8.3,
+        "Dosing": 7.9,
+        "Transparency": 8.1,
+        "Value": 7.8
+      },
+      "tags": [
+        {
+          "t": "Supplement"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "bulksupplements-creatine-monohydrate-review-2026",
+      "brand_slug": "bulksupplements.com",
+      "brand": "BulkSupplements.com",
+      "product": "BulkSupplements Creatine Monohydrate",
+      "cat": "Creatine",
+      "illus": "tub",
+      "score": 8.7,
+      "pick": false,
+      "blurb": "BulkSupplements Creatine Monohydrate review 2026 \u2014 $0.10\u2013$0.22/serving, 5g pure micronized creatine, NSF-certified facility, COA available. The best budget crea",
+      "rubric": {
+        "Ingredient": 8.9,
+        "Dosing": 8.5,
+        "Transparency": 8.7,
+        "Value": 8.4
+      },
+      "tags": [
+        {
+          "t": "Creatine"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "c4-original-pre-workout-review-2026",
+      "brand_slug": "cellucor-(nutrabolt)",
+      "brand": "Cellucor (Nutrabolt)",
+      "product": "Cellucor C4 Original Pre-Workout",
+      "cat": "Pre-Workout",
+      "illus": "tub",
+      "score": 7.8,
+      "pick": false,
+      "blurb": "Cellucor C4 Original pre-workout review 2026 \u2014 200mg caffeine, 2g CarnoSyn beta-alanine, 1g creatine nitrate, PeptiPump. Honest analysis of America's #1 selling",
+      "rubric": {
+        "Ingredient": 8.0,
+        "Dosing": 7.6,
+        "Transparency": 7.8,
+        "Value": 7.5
+      },
+      "tags": [
+        {
+          "t": "Pre-Workout"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "cellunax-review-2026",
+      "brand_slug": "cellunax",
+      "brand": "Cellunax",
+      "product": "Cellunax",
+      "cat": "Supplement",
+      "illus": "tub",
+      "score": 6.8,
+      "pick": false,
+      "blurb": "Cellunax transdermal patch review 2026 \u2014 herbal weight management patch with Peony Root, Glycerin, and natural GLP-1 support claims. Full FitLab formula analysi",
+      "rubric": {
+        "Ingredient": 6.9,
+        "Dosing": 6.7,
+        "Transparency": 6.8,
+        "Value": 6.5
+      },
+      "tags": [
+        {
+          "t": "Supplement"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "citrus-burn-review-2026",
+      "brand_slug": "citrus-burn",
+      "brand": "Citrus Burn",
+      "product": "Citrus Burn",
+      "cat": "Fat Burner",
+      "illus": "tub",
+      "score": 7.1,
+      "pick": false,
+      "blurb": "Citrus Burn review 2026 \u2014 full independent breakdown of p-synephrine, berberine, green tea, cayenne and all 10 ingredients. Does the 'orange peel trick' actuall",
+      "rubric": {
+        "Ingredient": 7.2,
+        "Dosing": 7.0,
+        "Transparency": 7.1,
+        "Value": 6.8
+      },
+      "tags": [
+        {
+          "t": "Fat Burner"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "derila-ergo-pillow-review-2026",
+      "brand_slug": "derila",
+      "brand": "Derila",
+      "product": "Derila Ergo Pillow",
+      "cat": "Supplement",
+      "illus": "tub",
+      "score": 8.3,
+      "pick": false,
+      "blurb": "Derila Ergo Pillow review 2026 \u2014 we tested the ergonomic memory foam pillow for 8 weeks, analysed its cervical spine support, cooling properties, materials, and",
+      "rubric": {
+        "Ingredient": 8.5,
+        "Dosing": 8.1,
+        "Transparency": 8.3,
+        "Value": 8.0
+      },
+      "tags": [
+        {
+          "t": "Supplement"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "dymatize-iso100-review-2026",
+      "brand_slug": "dymatize",
+      "brand": "Dymatize",
+      "product": "Dymatize ISO100 Hydrolyzed Whey",
+      "cat": "Supplement",
+      "illus": "tub",
+      "score": 9.0,
+      "pick": false,
+      "blurb": "Dymatize ISO100 Hydrolyzed Whey full review 2026 \u2014 zero lactose, 25g pure hydrolysed WPI per scoop, Fudge Brownie ranked best in class, full cost breakdown, and",
+      "rubric": {
+        "Ingredient": 9.2,
+        "Dosing": 8.8,
+        "Transparency": 9.0,
+        "Value": 8.6
+      },
+      "tags": [
+        {
+          "t": "Supplement"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "garden-of-life-sport-plant-protein-review",
+      "brand_slug": "garden-of-life",
+      "brand": "Garden of Life",
+      "product": "Garden of Life Sport Organic Plant Protein",
+      "cat": "Protein",
+      "illus": "tub",
+      "score": 8.2,
+      "pick": false,
+      "blurb": "Garden of Life Sport Organic Plant Protein full review 2026 \u2014 30g protein per scoop, full amino acid analysis vs whey, NSF Certified for Sport, all flavours ran",
+      "rubric": {
+        "Ingredient": 8.4,
+        "Dosing": 8.0,
+        "Transparency": 8.2,
+        "Value": 7.9
+      },
+      "tags": [
+        {
+          "t": "Protein"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "glycoharmony-review-2026",
+      "brand_slug": "glycoharmony",
+      "brand": "GlycoHarmony",
+      "product": "GlycoHarmony",
+      "cat": "Supplement",
+      "illus": "tub",
+      "score": 7.4,
+      "pick": false,
+      "blurb": "GlycoHarmony review 2026 \u2014 6-ingredient blood sugar supplement with Chromium Picolinate, Gymnema, Berberine, and Green Tea. FitLab Score, dosing analysis, and h",
+      "rubric": {
+        "Ingredient": 7.5,
+        "Dosing": 7.3,
+        "Transparency": 7.4,
+        "Value": 7.1
+      },
+      "tags": [
+        {
+          "t": "Supplement"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "gorilla-mode-pre-workout-review-2026",
+      "brand_slug": "gorilla-mind",
+      "brand": "Gorilla Mind",
+      "product": "Gorilla Mode Pre-Workout",
+      "cat": "Pre-Workout",
+      "illus": "tub",
+      "score": 8.8,
+      "pick": true,
+      "blurb": "Gorilla Mode pre-workout review 2026 \u2014 9g L-Citrulline, 5g Creatine, 400mg caffeine (2 scoops), Kanna, Huperzine A. Full formula science, real-world testing, ho",
+      "rubric": {
+        "Ingredient": 9.0,
+        "Dosing": 8.6,
+        "Transparency": 8.8,
+        "Value": 8.4
+      },
+      "tags": [
+        {
+          "t": "Editor's Choice"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "instant-knockout-cut-review-2026",
+      "brand_slug": "roar-ambition",
+      "brand": "Roar Ambition",
+      "product": "Instant Knockout Cut",
+      "cat": "Fat Burner",
+      "illus": "tub",
+      "score": 8.4,
+      "pick": false,
+      "blurb": "Instant Knockout Cut review 2026 \u2014 full independent analysis of all 9 ingredients with exact doses, the MMA fighter origin story, glucomannan science, caffeine ",
+      "rubric": {
+        "Ingredient": 8.6,
+        "Dosing": 8.2,
+        "Transparency": 8.4,
+        "Value": 8.1
+      },
+      "tags": [
+        {
+          "t": "Fat Burner"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "java-burn-review-2026",
+      "brand_slug": "john-barban",
+      "brand": "John Barban",
+      "product": "Java Burn 2.0 \u2014 Honest Metabolism Analysis",
+      "cat": "Supplement",
+      "illus": "tub",
+      "score": 8.1,
+      "pick": false,
+      "blurb": "Java Burn 2.0 review 2026 \u2014 deep analysis of L-Theanine, EGCG, Chromium, Chlorogenic Acid and the coffee synergy mechanism by John Barban. Honest evidence-based",
+      "rubric": {
+        "Ingredient": 8.3,
+        "Dosing": 7.9,
+        "Transparency": 8.1,
+        "Value": 7.8
+      },
+      "tags": [
+        {
+          "t": "Supplement"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "kaged-creatine-hcl-review-2026",
+      "brand_slug": "kaged",
+      "brand": "Kaged",
+      "product": "Kaged Creatine HCl",
+      "cat": "Creatine",
+      "illus": "tub",
+      "score": 7.8,
+      "pick": false,
+      "blurb": "Kaged Creatine HCl review 2026 \u2014 CON-CRET\u00ae patented form, solubility advantage, 750mg dosing claim vs monohydrate, GI tolerability, and honest comparison: when ",
+      "rubric": {
+        "Ingredient": 8.0,
+        "Dosing": 7.6,
+        "Transparency": 7.8,
+        "Value": 7.5
+      },
+      "tags": [
+        {
+          "t": "Creatine"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "leanbiome-review-2026",
+      "brand_slug": "",
+      "brand": "",
+      "product": "LeanBiome \u2014 Does the Gut-Weight Connection Really Work?",
+      "cat": "Health",
+      "illus": "tub",
+      "score": 7.0,
+      "pick": false,
+      "blurb": "LeanBiome review 2026 \u2014 deep analysis of L. gasseri, L. rhamnosus, GreenSelect Phytosome, DRcaps technology. Honest gut-weight science with comparison table and",
+      "rubric": {
+        "Ingredient": 7.1,
+        "Dosing": 6.9,
+        "Transparency": 7.0,
+        "Value": 6.7
+      },
+      "tags": [
+        {
+          "t": "Health"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "legion-pulse-pre-workout-review-2026",
+      "brand_slug": "legion-athletics",
+      "brand": "Legion Athletics",
+      "product": "Legion Pulse Pre-Workout",
+      "cat": "Pre-Workout",
+      "illus": "tub",
+      "score": 9.2,
+      "pick": true,
+      "blurb": "Legion Pulse pre-workout review 2026 \u2014 8g Citrulline Malate, 3.6g CarnoSyn Beta-Alanine, 2.5g Betaine, 350mg caffeine, 350mg L-Theanine, 300mg Alpha-GPC. No art",
+      "rubric": {
+        "Ingredient": 9.4,
+        "Dosing": 9.0,
+        "Transparency": 9.2,
+        "Value": 8.8
+      },
+      "tags": [
+        {
+          "t": "Editor's Choice"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "life-extension-melatonin-5mg-review-2026",
+      "brand_slug": "life-extension",
+      "brand": "Life Extension",
+      "product": "Life Extension Melatonin 5mg",
+      "cat": "Sleep",
+      "illus": "bottle",
+      "score": 8.3,
+      "pick": false,
+      "blurb": "Life Extension Melatonin 5mg review 2026 \u2014 the dose paradox explained, jet lag and shift work evidence, who actually needs 5mg vs 0.3-1mg, Life Extension QA aud",
+      "rubric": {
+        "Ingredient": 8.5,
+        "Dosing": 8.1,
+        "Transparency": 8.3,
+        "Value": 8.0
+      },
+      "tags": [
+        {
+          "t": "Sleep"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "lipovive-review",
+      "brand_slug": "lipovive",
+      "brand": "Lipovive",
+      "product": "Lipovive \u2014 Independent Analysis",
+      "cat": "Fat Burner",
+      "illus": "tub",
+      "score": 5.8,
+      "pick": false,
+      "blurb": "Independent Lipovive review 2025 \u2014 we examine every ingredient, the real science, Trustpilot complaints, fake celebrity endorsements, pricing, and whether it's ",
+      "rubric": {
+        "Ingredient": 5.9,
+        "Dosing": 5.7,
+        "Transparency": 5.8,
+        "Value": 5.6
+      },
+      "tags": [
+        {
+          "t": "Fat Burner"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "momentous-creatine-monohydrate-review-2026",
+      "brand_slug": "momentous",
+      "brand": "Momentous",
+      "product": "Momentous Creatine Monohydrate",
+      "cat": "Creatine",
+      "illus": "tub",
+      "score": 8.8,
+      "pick": false,
+      "blurb": "Momentous Creatine Monohydrate review 2026 \u2014 Creapure\u00ae German-source creatine, NSF Certified for Sport, 8-week parallel test vs Thorne, who actually needs the p",
+      "rubric": {
+        "Ingredient": 9.0,
+        "Dosing": 8.6,
+        "Transparency": 8.8,
+        "Value": 8.4
+      },
+      "tags": [
+        {
+          "t": "Creatine"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "momentous-magtein-magnesium-l-threonate-review-2026",
+      "brand_slug": "momentous",
+      "brand": "Momentous",
+      "product": "Momentous Magtein Magnesium L-Threonate",
+      "cat": "Cognitive",
+      "illus": "tub",
+      "score": 8.7,
+      "pick": false,
+      "blurb": "Momentous Magtein review 2026 \u2014 2,000mg Magtein\u00ae MIT-developed form, blood-brain barrier evidence, cognitive RCTs, NSF Certified for Sport, 8-week testing, and ",
+      "rubric": {
+        "Ingredient": 8.9,
+        "Dosing": 8.5,
+        "Transparency": 8.7,
+        "Value": 8.4
+      },
+      "tags": [
+        {
+          "t": "Cognitive"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "muscleblaze-biozyme-whey-review-2026",
+      "brand_slug": "muscleblaze",
+      "brand": "MuscleBlaze",
+      "product": "MuscleBlaze Biozyme Performance Whey",
+      "cat": "Protein",
+      "illus": "tub",
+      "score": 8.4,
+      "pick": false,
+      "blurb": "MuscleBlaze Biozyme Performance Whey full review 2026 \u2014 EAF enzyme formula explained, honest counterfeit warning, all flavours ranked, India vs international pr",
+      "rubric": {
+        "Ingredient": 8.6,
+        "Dosing": 8.2,
+        "Transparency": 8.4,
+        "Value": 8.1
+      },
+      "tags": [
+        {
+          "t": "Protein"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "muscleblaze-creatine-monohydrate-review-2026",
+      "brand_slug": "muscleblaze-(bright-lifecare-pvt.-ltd.)",
+      "brand": "MuscleBlaze (Bright Lifecare Pvt. Ltd.)",
+      "product": "MuscleBlaze CreAMP Creatine Monohydrate",
+      "cat": "Creatine",
+      "illus": "tub",
+      "score": 8.3,
+      "pick": false,
+      "blurb": "MuscleBlaze CreAMP Creatine Monohydrate review 2026 \u2014 3g + CreAbsorb\u2122 patent, Labdoor USA certified, published clinical RCT. India's most credibly tested creati",
+      "rubric": {
+        "Ingredient": 8.5,
+        "Dosing": 8.1,
+        "Transparency": 8.3,
+        "Value": 8.0
+      },
+      "tags": [
+        {
+          "t": "Creatine"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "myprotein-impact-whey-review-2026",
+      "brand_slug": "myprotein",
+      "brand": "MyProtein",
+      "product": "MyProtein Impact Whey Protein",
+      "cat": "Protein",
+      "illus": "tub",
+      "score": 8.5,
+      "pick": false,
+      "blurb": "MyProtein Impact Whey Protein full review 2026 \u2014 honest look at value, 80+ flavours ranked, WPC-80 ingredient analysis, the sale strategy to get it at $0.78/ser",
+      "rubric": {
+        "Ingredient": 8.7,
+        "Dosing": 8.3,
+        "Transparency": 8.5,
+        "Value": 8.2
+      },
+      "tags": [
+        {
+          "t": "Protein"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "now-foods-l-theanine-200mg-review-2026",
+      "brand_slug": "now-foods",
+      "brand": "NOW Foods",
+      "product": "NOW Foods L-Theanine 200mg",
+      "cat": "Cognitive",
+      "illus": "bottle",
+      "score": 8.9,
+      "pick": false,
+      "blurb": "NOW Foods L-Theanine 200mg review 2026 \u2014 alpha wave science, caffeine synergy (2:1 ratio), sleep and anxiety evidence, NOW Foods quality audit, dosing protocols",
+      "rubric": {
+        "Ingredient": 9.1,
+        "Dosing": 8.7,
+        "Transparency": 8.9,
+        "Value": 8.5
+      },
+      "tags": [
+        {
+          "t": "Cognitive"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "old-school-labs-vintage-burn-review-2026",
+      "brand_slug": "old-school-labs",
+      "brand": "Old School Labs",
+      "product": "Old School Labs Vintage Burn",
+      "cat": "Fat Burner",
+      "illus": "tub",
+      "score": 8.2,
+      "pick": false,
+      "blurb": "Old School Labs Vintage Burn review 2026 \u2014 9-ingredient thermogenic analysis, EGCG/caffeine synergy evidence, 8-week real-world testing, and honest verdict from",
+      "rubric": {
+        "Ingredient": 8.4,
+        "Dosing": 8.0,
+        "Transparency": 8.2,
+        "Value": 7.9
+      },
+      "tags": [
+        {
+          "t": "Fat Burner"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "on-essential-amino-energy-review-2026",
+      "brand_slug": "optimum-nutrition",
+      "brand": "Optimum Nutrition",
+      "product": "ON Essential Amino Energy",
+      "cat": "Amino Acids",
+      "illus": "tub",
+      "score": 7.6,
+      "pick": false,
+      "blurb": "ON Essential Amino Energy review 2026 \u2014 5g amino acid blend (proprietary), 100mg natural caffeine, 0g sugar. Full ingredient analysis, who it actually benefits,",
+      "rubric": {
+        "Ingredient": 7.8,
+        "Dosing": 7.4,
+        "Transparency": 7.6,
+        "Value": 7.3
+      },
+      "tags": [
+        {
+          "t": "Amino Acids"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "on-gold-standard-100-isolate-review-2026",
+      "brand_slug": "optimum-nutrition",
+      "brand": "Optimum Nutrition",
+      "product": "ON Gold Standard 100% Isolate",
+      "cat": "Supplement",
+      "illus": "tub",
+      "score": 8.8,
+      "pick": false,
+      "blurb": "Optimum Nutrition Gold Standard 100% Isolate review 2026 \u2014 25g hydrolyzed + ultra-filtered WPI, 1g carbs, 0g fat, lactose-free analysis, macro comparison vs GS ",
+      "rubric": {
+        "Ingredient": 9.0,
+        "Dosing": 8.6,
+        "Transparency": 8.8,
+        "Value": 8.4
+      },
+      "tags": [
+        {
+          "t": "Supplement"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "on-gold-standard-casein-review-2026",
+      "brand_slug": "optimum-nutrition",
+      "brand": "Optimum Nutrition",
+      "product": "ON Gold Standard 100% Casein",
+      "cat": "Protein",
+      "illus": "tub",
+      "score": 9.2,
+      "pick": true,
+      "blurb": "ON Gold Standard 100% Casein review 2026 \u2014 complete breakdown of micellar casein science, 24g protein, 5g BCAAs, Aminogen enzymes, nighttime recovery research, ",
+      "rubric": {
+        "Ingredient": 9.4,
+        "Dosing": 9.0,
+        "Transparency": 9.2,
+        "Value": 8.8
+      },
+      "tags": [
+        {
+          "t": "Editor's Choice"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "on-gold-standard-plant-protein-review-2026",
+      "brand_slug": "optimum-nutrition",
+      "brand": "Optimum Nutrition",
+      "product": "ON Gold Standard 100% Plant Protein",
+      "cat": "Protein",
+      "illus": "tub",
+      "score": 8.6,
+      "pick": true,
+      "blurb": "ON Gold Standard 100% Plant Protein review 2026 \u2014 full analysis of pea, brown rice and sacha inchi blend, 24g complete protein, DIAAS/PDCAAS scoring, leucine co",
+      "rubric": {
+        "Ingredient": 8.8,
+        "Dosing": 8.4,
+        "Transparency": 8.6,
+        "Value": 8.3
+      },
+      "tags": [
+        {
+          "t": "Editor's Choice"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "on-gold-standard-pre-workout-review-2026",
+      "brand_slug": "optimum-nutrition",
+      "brand": "Optimum Nutrition",
+      "product": "ON Gold Standard Pre-Workout",
+      "cat": "Pre-Workout",
+      "illus": "tub",
+      "score": 7.8,
+      "pick": false,
+      "blurb": "ON Gold Standard Pre-Workout review 2026 \u2014 175mg caffeine, 3g creatine (Creapure\u00ae), 1.5g beta-alanine, 750mg citrulline. Full ingredient dose analysis, comparis",
+      "rubric": {
+        "Ingredient": 8.0,
+        "Dosing": 7.6,
+        "Transparency": 7.8,
+        "Value": 7.5
+      },
+      "tags": [
+        {
+          "t": "Pre-Workout"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "on-gold-standard-whey-review-2026",
+      "brand_slug": "optimum-nutrition",
+      "brand": "Optimum Nutrition",
+      "product": "Optimum Nutrition Gold Standard 100% Whey",
+      "cat": "Protein",
+      "illus": "tub",
+      "score": 9.8,
+      "pick": true,
+      "blurb": "Optimum Nutrition Gold Standard 100% Whey full review 2026 \u2014 9 years of personal use, full amino acid profile, all 20 flavours ranked, macros, pricing breakdown",
+      "rubric": {
+        "Ingredient": 10.0,
+        "Dosing": 9.6,
+        "Transparency": 9.8,
+        "Value": 9.4
+      },
+      "tags": [
+        {
+          "t": "Editor's Choice"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "on-micronized-creatine-review-2026",
+      "brand_slug": "optimum-nutrition",
+      "brand": "Optimum Nutrition",
+      "product": "ON Micronized Creatine",
+      "cat": "Creatine",
+      "illus": "tub",
+      "score": 8.7,
+      "pick": false,
+      "blurb": "ON Micronized Creatine complete review 2026 \u2014 all four formats compared (Powder, Capsules, Gummies, Creatine+), 5g pharmaceutical-grade monohydrate, price compa",
+      "rubric": {
+        "Ingredient": 8.9,
+        "Dosing": 8.5,
+        "Transparency": 8.7,
+        "Value": 8.4
+      },
+      "tags": [
+        {
+          "t": "Creatine"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "on-opti-men-multivitamin-review-2026",
+      "brand_slug": "optimum-nutrition",
+      "brand": "Optimum Nutrition",
+      "product": "ON Opti-Men Multivitamin",
+      "cat": "Vitamins",
+      "illus": "bottle",
+      "score": 8.1,
+      "pick": false,
+      "blurb": "ON Opti-Men multivitamin review 2026 \u2014 75+ active ingredients in 4 blends (vitamins/minerals/amino acids/botanicals). Honest analysis of what those 75 ingredien",
+      "rubric": {
+        "Ingredient": 8.3,
+        "Dosing": 7.9,
+        "Transparency": 8.1,
+        "Value": 7.8
+      },
+      "tags": [
+        {
+          "t": "Vitamins"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "on-platinum-hydrowhey-review-2026",
+      "brand_slug": "optimum-nutrition",
+      "brand": "Optimum Nutrition",
+      "product": "ON Platinum Hydrowhey",
+      "cat": "Protein",
+      "illus": "tub",
+      "score": 8.9,
+      "pick": false,
+      "blurb": "Optimum Nutrition Platinum Hydrowhey review 2026 \u2014 30g 100% hydrolyzed whey protein isolate, added BCAAs, fastest absorption in the ON lineup, who benefits from",
+      "rubric": {
+        "Ingredient": 9.1,
+        "Dosing": 8.7,
+        "Transparency": 8.9,
+        "Value": 8.5
+      },
+      "tags": [
+        {
+          "t": "Protein"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "on-serious-mass-review-2026",
+      "brand_slug": "optimum-nutrition",
+      "brand": "Optimum Nutrition",
+      "product": "ON Serious Mass",
+      "cat": "Mass Gainer",
+      "illus": "tub",
+      "score": 8.3,
+      "pick": false,
+      "blurb": "Optimum Nutrition Serious Mass review 2026 \u2014 1,260 calories, 50g protein, 253g carbs, 5g creatine, 25 vitamins per serving. Honest verdict on when a mass gainer",
+      "rubric": {
+        "Ingredient": 8.5,
+        "Dosing": 8.1,
+        "Transparency": 8.3,
+        "Value": 8.0
+      },
+      "tags": [
+        {
+          "t": "Mass Gainer"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "on-superior-amino-2222-review-2026",
+      "brand_slug": "optimum-nutrition",
+      "brand": "Optimum Nutrition",
+      "product": "ON Superior Amino 2222 Tablets",
+      "cat": "Amino Acids",
+      "illus": "bottle",
+      "score": 7.2,
+      "pick": false,
+      "blurb": "ON Superior Amino 2222 review 2026 \u2014 2.2g of 18 amino acids per 2-tablet serving, sourced from whey/casein/egg/soy hydrolysates. Honest verdict on whether amino",
+      "rubric": {
+        "Ingredient": 7.3,
+        "Dosing": 7.1,
+        "Transparency": 7.2,
+        "Value": 6.9
+      },
+      "tags": [
+        {
+          "t": "Amino Acids"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "phenq-review-2026",
+      "brand_slug": "wolfson-brands",
+      "brand": "Wolfson Brands",
+      "product": "PhenQ Fat Burner",
+      "cat": "Fat Burner",
+      "illus": "tub",
+      "score": 8.0,
+      "pick": false,
+      "blurb": "PhenQ fat burner review 2026 \u2014 full independent breakdown of \u03b1-Lacys Reset\u00ae, Capsimax, caffeine, InnoSlim, and all 11 ingredients. Exact doses, honest science v",
+      "rubric": {
+        "Ingredient": 8.2,
+        "Dosing": 7.8,
+        "Transparency": 8.0,
+        "Value": 7.7
+      },
+      "tags": [
+        {
+          "t": "Fat Burner"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "prodentim-review-2026",
+      "brand_slug": "",
+      "brand": "",
+      "product": "ProDentim \u2014 The Oral Probiotic Revolution, Honestly Reviewed",
+      "cat": "Health",
+      "illus": "tub",
+      "score": 7.0,
+      "pick": false,
+      "blurb": "ProDentim review 2026 \u2014 deep analysis of L. Reuteri, B. lactis BL-04, Malic Acid, TCP and the chewable delivery mechanism. Why oral probiotic delivery format de",
+      "rubric": {
+        "Ingredient": 7.1,
+        "Dosing": 6.9,
+        "Transparency": 7.0,
+        "Value": 6.7
+      },
+      "tags": [
+        {
+          "t": "Health"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "prostavive-review-2026",
+      "brand_slug": "prostavive",
+      "brand": "ProstaVive",
+      "product": "ProstaVive",
+      "cat": "Supplement",
+      "illus": "tub",
+      "score": 7.4,
+      "pick": false,
+      "blurb": "ProstaVive review 2026 \u2014 full independent breakdown of all 11 ingredients including Tongkat Ali, Nettle Root, Ashwagandha, Boron, and Zinc. Does this prostate p",
+      "rubric": {
+        "Ingredient": 7.5,
+        "Dosing": 7.3,
+        "Transparency": 7.4,
+        "Value": 7.1
+      },
+      "tags": [
+        {
+          "t": "Supplement"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "thorne-creatine-review-2026",
+      "brand_slug": "thorne-research",
+      "brand": "Thorne Research",
+      "product": "Thorne Creatine",
+      "cat": "Creatine",
+      "illus": "tub",
+      "score": 9.1,
+      "pick": true,
+      "blurb": "Thorne Creatine review 2026 \u2014 deep-dive into 5g micronized creatine monohydrate, NSF Certified for Sport, Mayo Clinic partnership, cognitive and muscle science,",
+      "rubric": {
+        "Ingredient": 9.3,
+        "Dosing": 8.9,
+        "Transparency": 9.1,
+        "Value": 8.7
+      },
+      "tags": [
+        {
+          "t": "Editor's Choice"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "transparent-labs-bulk-black-review",
+      "brand_slug": "transparent-labs",
+      "brand": "Transparent Labs",
+      "product": "Transparent Labs BULK Black Pre-Workout",
+      "cat": "Pre-Workout",
+      "illus": "tub",
+      "score": 9.4,
+      "pick": true,
+      "blurb": "Transparent Labs BULK Black pre-workout review 2026 \u2014 complete breakdown of all 16 ingredients at clinical doses: 8,000mg citrulline malate, 4,000mg beta-alanin",
+      "rubric": {
+        "Ingredient": 9.6,
+        "Dosing": 9.2,
+        "Transparency": 9.4,
+        "Value": 9.0
+      },
+      "tags": [
+        {
+          "t": "Editor's Choice"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "transparent-labs-creatine-hmb-review-2026",
+      "brand_slug": "transparent-labs",
+      "brand": "Transparent Labs",
+      "product": "Transparent Labs Creatine HMB",
+      "cat": "Creatine",
+      "illus": "tub",
+      "score": 8.6,
+      "pick": false,
+      "blurb": "Transparent Labs Creatine HMB review 2026 \u2014 5g creatine monohydrate + 1.5g HMB + 5,000 IU Vitamin D3. Deep analysis: who benefits from HMB, Informed Sport certi",
+      "rubric": {
+        "Ingredient": 8.8,
+        "Dosing": 8.4,
+        "Transparency": 8.6,
+        "Value": 8.3
+      },
+      "tags": [
+        {
+          "t": "Creatine"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "trimology-review-2026",
+      "brand_slug": "trimology",
+      "brand": "Trimology",
+      "product": "Trimology",
+      "cat": "Supplement",
+      "illus": "tub",
+      "score": 7.4,
+      "pick": true,
+      "blurb": "Trimology review 2026 \u2014 the gut-based weight loss capsule with RS2 resistant starch, Akkermansia, and Clostridium butyricum. Honest ingredient breakdown, scienc",
+      "rubric": {
+        "Ingredient": 7.5,
+        "Dosing": 7.3,
+        "Transparency": 7.4,
+        "Value": 7.1
+      },
+      "tags": [
+        {
+          "t": "Editor's Choice"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    },
+    {
+      "slug": "yu-sleep-review",
+      "brand_slug": "yusleep",
+      "brand": "YuSleep",
+      "product": "Yu Sleep",
+      "cat": "Sleep",
+      "illus": "tub",
+      "score": 8.7,
+      "pick": false,
+      "blurb": "Yu Sleep review 2025 \u2014 we break down ingredients, nano-emulsion delivery, real sleep tracker data, and whether this tincture actually fixes your sleep pressure ",
+      "rubric": {
+        "Ingredient": 8.9,
+        "Dosing": 8.5,
+        "Transparency": 8.7,
+        "Value": 8.4
+      },
+      "tags": [
+        {
+          "t": "Sleep"
+        }
+      ],
+      "has_detail": true,
+      "last_tested": "2026-04-15"
+    }
+  ]
+}

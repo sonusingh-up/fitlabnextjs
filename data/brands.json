@@ -1,0 +1,2410 @@
+{
+  "brands": [
+    {
+      "slug": "1st-phorm",
+      "name": "1St Phorm",
+      "letter": "1",
+      "initials": "1P",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "1st Phorm brand review 2026 \u2014 0 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 7.6,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "Medium",
+      "certs": [],
+      "featured": false,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 7.6,
+        "lab_verify": 7.4,
+        "mfg": 7.3,
+        "track_record": 7.6,
+        "pricing": 7.1
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "1st Phorm brand review 2026 \u2014 0 products across all categories. 0 independently reviewed with scores",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "applied-nutrition",
+      "name": "Applied Nutrition",
+      "letter": "A",
+      "initials": "AN",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Applied Nutrition brand review 2026 \u2014 0 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 7.8,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "Medium",
+      "certs": [],
+      "featured": false,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 7.8,
+        "lab_verify": 7.6,
+        "mfg": 7.5,
+        "track_record": 7.8,
+        "pricing": 7.3
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Applied Nutrition brand review 2026 \u2014 0 products across all categories. 0 independently reviewed wit",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "bsn",
+      "name": "Bsn",
+      "letter": "B",
+      "initials": "B",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "BSN brand review 2026 \u2014 4 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 7.8,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "Medium",
+      "certs": [],
+      "featured": false,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 7.8,
+        "lab_verify": 7.6,
+        "mfg": 7.5,
+        "track_record": 7.8,
+        "pricing": 7.3
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "BSN brand review 2026 \u2014 4 products across all categories. 0 independently reviewed with scores. Full",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "cellucor",
+      "name": "Cellucor",
+      "letter": "C",
+      "initials": "C",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Cellucor brand review 2026 \u2014 4 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 7.2,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "Medium",
+      "certs": [],
+      "featured": false,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 7.2,
+        "lab_verify": 7.1,
+        "mfg": 6.9,
+        "track_record": 7.2,
+        "pricing": 6.8
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Cellucor brand review 2026 \u2014 4 products across all categories. 0 independently reviewed with scores.",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "dymatize",
+      "name": "Dymatize",
+      "letter": "D",
+      "initials": "D",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Dymatize brand review 2026 \u2014 7 products across all categories. 1 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 9.6,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "High",
+      "certs": [],
+      "featured": true,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 9.6,
+        "lab_verify": 9.4,
+        "mfg": 9.2,
+        "track_record": 9.6,
+        "pricing": 9.0
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Dymatize brand review 2026 \u2014 7 products across all categories. 1 independently reviewed with scores.",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "garden-of-life",
+      "name": "Garden Of Life",
+      "letter": "G",
+      "initials": "GO",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Garden of Life brand review 2026 \u2014 10 products across all categories. 1 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 9.4,
+      "n_prod": 7,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "High",
+      "certs": [],
+      "featured": true,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 9.4,
+        "lab_verify": 9.2,
+        "mfg": 9.0,
+        "track_record": 9.4,
+        "pricing": 8.8
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Garden of Life brand review 2026 \u2014 10 products across all categories. 1 independently reviewed with ",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "garden-of-life-sport-plant-protein-review",
+          "name": "Garden of Life Sport Organic Plant Protein",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 8.2,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "ghost-lifestyle",
+      "name": "Ghost Lifestyle",
+      "letter": "G",
+      "initials": "GL",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Ghost Lifestyle brand review 2026 \u2014 4 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 7.8,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "Medium",
+      "certs": [],
+      "featured": false,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 7.8,
+        "lab_verify": 7.6,
+        "mfg": 7.5,
+        "track_record": 7.8,
+        "pricing": 7.3
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Ghost Lifestyle brand review 2026 \u2014 4 products across all categories. 0 independently reviewed with ",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "gorilla-mind",
+      "name": "Gorilla Mind",
+      "letter": "G",
+      "initials": "GM",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Gorilla Mind brand review 2026 \u2014 6 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 8.8,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "High",
+      "certs": [],
+      "featured": true,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 8.8,
+        "lab_verify": 8.6,
+        "mfg": 8.4,
+        "track_record": 8.8,
+        "pricing": 8.3
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Gorilla Mind brand review 2026 \u2014 6 products across all categories. 0 independently reviewed with sco",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "isopure",
+      "name": "Isopure",
+      "letter": "I",
+      "initials": "I",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Isopure brand review 2026 \u2014 4 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 8.4,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "Medium",
+      "certs": [],
+      "featured": false,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 8.4,
+        "lab_verify": 8.2,
+        "mfg": 8.1,
+        "track_record": 8.4,
+        "pricing": 7.9
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Isopure brand review 2026 \u2014 4 products across all categories. 0 independently reviewed with scores. ",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "kaged",
+      "name": "Kaged",
+      "letter": "K",
+      "initials": "K",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Kaged brand review 2026 \u2014 7 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 8.4,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "Medium",
+      "certs": [],
+      "featured": false,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 8.4,
+        "lab_verify": 8.2,
+        "mfg": 8.1,
+        "track_record": 8.4,
+        "pricing": 7.9
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Kaged brand review 2026 \u2014 7 products across all categories. 0 independently reviewed with scores. Fu",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "legion-athletics",
+      "name": "Legion Athletics",
+      "letter": "L",
+      "initials": "LA",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Legion Athletics brand review 2026 \u2014 8 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 9.2,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "High",
+      "certs": [],
+      "featured": true,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 9.2,
+        "lab_verify": 9.0,
+        "mfg": 8.8,
+        "track_record": 9.2,
+        "pricing": 8.6
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Legion Athletics brand review 2026 \u2014 8 products across all categories. 0 independently reviewed with",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "momentous",
+      "name": "Momentous",
+      "letter": "M",
+      "initials": "M",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Momentous brand review 2026 \u2014 7 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 9.4,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "High",
+      "certs": [],
+      "featured": true,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 9.4,
+        "lab_verify": 9.2,
+        "mfg": 9.0,
+        "track_record": 9.4,
+        "pricing": 8.8
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Momentous brand review 2026 \u2014 7 products across all categories. 0 independently reviewed with scores",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "muscleblaze",
+      "name": "Muscleblaze",
+      "letter": "M",
+      "initials": "M",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "MuscleBlaze brand review 2026 \u2014 17 products across all categories. 1 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 8.6,
+      "n_prod": 7,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "High",
+      "certs": [],
+      "featured": true,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 8.6,
+        "lab_verify": 8.4,
+        "mfg": 8.3,
+        "track_record": 8.6,
+        "pricing": 8.1
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "MuscleBlaze brand review 2026 \u2014 17 products across all categories. 1 independently reviewed with sco",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "muscleblaze-biozyme-whey-review-2026",
+          "name": "MuscleBlaze Biozyme Performance Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "musclepharm",
+      "name": "Musclepharm",
+      "letter": "M",
+      "initials": "M",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "MusclePharm brand review 2026 \u2014 0 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 7.4,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "Medium",
+      "certs": [],
+      "featured": false,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 7.4,
+        "lab_verify": 7.3,
+        "mfg": 7.1,
+        "track_record": 7.4,
+        "pricing": 7.0
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "MusclePharm brand review 2026 \u2014 0 products across all categories. 0 independently reviewed with scor",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "muscletech",
+      "name": "Muscletech",
+      "letter": "M",
+      "initials": "M",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "MuscleTech brand review 2026 \u2014 5 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 8.2,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "Medium",
+      "certs": [],
+      "featured": false,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 8.2,
+        "lab_verify": 8.0,
+        "mfg": 7.9,
+        "track_record": 8.2,
+        "pricing": 7.7
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "MuscleTech brand review 2026 \u2014 5 products across all categories. 0 independently reviewed with score",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "myprotein",
+      "name": "Myprotein",
+      "letter": "M",
+      "initials": "M",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "MyProtein brand review 2026 \u2014 14 products across all categories. 1 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 7.8,
+      "n_prod": 7,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "Medium",
+      "certs": [],
+      "featured": false,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 7.8,
+        "lab_verify": 7.6,
+        "mfg": 7.5,
+        "track_record": 7.8,
+        "pricing": 7.3
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "MyProtein brand review 2026 \u2014 14 products across all categories. 1 independently reviewed with score",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "myprotein-impact-whey-review-2026",
+          "name": "MyProtein Impact Whey Protein",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 8.5,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "now-foods",
+      "name": "Now Foods",
+      "letter": "N",
+      "initials": "NF",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "NOW Foods brand review 2026 \u2014 8 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 8.8,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "High",
+      "certs": [],
+      "featured": true,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 8.8,
+        "lab_verify": 8.6,
+        "mfg": 8.4,
+        "track_record": 8.8,
+        "pricing": 8.3
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "NOW Foods brand review 2026 \u2014 8 products across all categories. 0 independently reviewed with scores",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "old-school-labs",
+      "name": "Old School Labs",
+      "letter": "O",
+      "initials": "OS",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Old School Labs brand review 2026 \u2014 0 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 7.6,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "Medium",
+      "certs": [],
+      "featured": false,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 7.6,
+        "lab_verify": 7.4,
+        "mfg": 7.3,
+        "track_record": 7.6,
+        "pricing": 7.1
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Old School Labs brand review 2026 \u2014 0 products across all categories. 0 independently reviewed with ",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "optimum-nutrition",
+      "name": "Optimum Nutrition",
+      "letter": "O",
+      "initials": "ON",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Optimum Nutrition brand review 2026 \u2014 13 products across all categories. 2 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 9.5,
+      "n_prod": 7,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "High",
+      "certs": [],
+      "featured": true,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 9.5,
+        "lab_verify": 9.3,
+        "mfg": 9.1,
+        "track_record": 9.5,
+        "pricing": 8.9
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Optimum Nutrition brand review 2026 \u2014 13 products across all categories. 2 independently reviewed wi",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "on-gold-standard-casein-review-2026",
+          "name": "ON Gold Standard 100% Casein",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.2,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "redcon1",
+      "name": "Redcon1",
+      "letter": "R",
+      "initials": "R",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Redcon1 brand review 2026 \u2014 0 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 8.2,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "Medium",
+      "certs": [],
+      "featured": false,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 8.2,
+        "lab_verify": 8.0,
+        "mfg": 7.9,
+        "track_record": 8.2,
+        "pricing": 7.7
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Redcon1 brand review 2026 \u2014 0 products across all categories. 0 independently reviewed with scores. ",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "roar-ambition",
+      "name": "Roar Ambition",
+      "letter": "R",
+      "initials": "RA",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Roar Ambition brand review 2026 \u2014 2 products across all categories. 1 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 9.0,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "High",
+      "certs": [],
+      "featured": true,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 9.0,
+        "lab_verify": 8.8,
+        "mfg": 8.6,
+        "track_record": 9.0,
+        "pricing": 8.5
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Roar Ambition brand review 2026 \u2014 2 products across all categories. 1 independently reviewed with sc",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "thorne",
+      "name": "Thorne",
+      "letter": "T",
+      "initials": "T",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Thorne brand review 2026 \u2014 10 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 9.8,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "High",
+      "certs": [],
+      "featured": true,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 9.8,
+        "lab_verify": 9.6,
+        "mfg": 9.4,
+        "track_record": 9.8,
+        "pricing": 9.2
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Thorne brand review 2026 \u2014 10 products across all categories. 0 independently reviewed with scores. ",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "transparent-labs",
+      "name": "Transparent Labs",
+      "letter": "T",
+      "initials": "TL",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Transparent Labs brand review 2026 \u2014 11 products across all categories. 1 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 9.8,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "High",
+      "certs": [],
+      "featured": true,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 9.8,
+        "lab_verify": 9.6,
+        "mfg": 9.4,
+        "track_record": 9.8,
+        "pricing": 9.2
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Transparent Labs brand review 2026 \u2014 11 products across all categories. 1 independently reviewed wit",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "usn",
+      "name": "Usn",
+      "letter": "U",
+      "initials": "U",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "USN brand review 2026 \u2014 0 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 7.4,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "Medium",
+      "certs": [],
+      "featured": false,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 7.4,
+        "lab_verify": 7.3,
+        "mfg": 7.1,
+        "track_record": 7.4,
+        "pricing": 7.0
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "USN brand review 2026 \u2014 0 products across all categories. 0 independently reviewed with scores. Full",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "vega-sport",
+      "name": "Vega Sport",
+      "letter": "V",
+      "initials": "VS",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Vega Sport brand review 2026 \u2014 4 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 8.0,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "Medium",
+      "certs": [],
+      "featured": false,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 8.0,
+        "lab_verify": 7.8,
+        "mfg": 7.7,
+        "track_record": 8.0,
+        "pricing": 7.5
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Vega Sport brand review 2026 \u2014 4 products across all categories. 0 independently reviewed with score",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "slug": "wolfson-brands",
+      "name": "Wolfson Brands",
+      "letter": "W",
+      "initials": "WB",
+      "cat": "Sports Nutrition",
+      "region": "US",
+      "hq": "",
+      "founded": 2000,
+      "blurb": "Wolfson Brands (PhenQ) brand review 2026 \u2014 0 products across all categories. 0 independently reviewed with scores. Full brand analysis, lab testing history, and FAQs.",
+      "score": 8.0,
+      "n_prod": 6,
+      "recalls": 0,
+      "dev_pct": "0%",
+      "trust": "Medium",
+      "certs": [],
+      "featured": false,
+      "has_detail": true,
+      "trust_breakdown": {
+        "disclosure": 8.0,
+        "lab_verify": 7.8,
+        "mfg": 7.7,
+        "track_record": 8.0,
+        "pricing": 7.5
+      },
+      "mfg": "",
+      "mfg_blurb": "",
+      "who_blurb": "Wolfson Brands (PhenQ) brand review 2026 \u2014 0 products across all categories. 0 independently reviewe",
+      "products": [
+        {
+          "slug": "on-gold-standard-whey-review-2026",
+          "name": "Optimum Nutrition Gold Standard 100% Whey",
+          "cat": "Protein",
+          "illus": "tub",
+          "score": 9.8,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "transparent-labs-bulk-black-review",
+          "name": "Transparent Labs BULK Black Pre-Workout",
+          "cat": "Pre-Workout",
+          "illus": "tub",
+          "score": 9.4,
+          "pick": true,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "phenq-review-2026",
+          "name": "PhenQ Fat Burner",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "dymatize-iso100-review-2026",
+          "name": "Dymatize ISO100 Hydrolyzed Whey",
+          "cat": "Supplement",
+          "illus": "tub",
+          "score": 9.0,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "instant-knockout-cut-review-2026",
+          "name": "Instant Knockout Cut",
+          "cat": "Fat Burner",
+          "illus": "tub",
+          "score": 8.4,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        },
+        {
+          "slug": "yu-sleep-review",
+          "name": "Yu Sleep",
+          "cat": "Sleep",
+          "illus": "tub",
+          "score": 8.7,
+          "pick": false,
+          "audits": 1,
+          "last": "2026-04-15"
+        }
+      ]
+    }
+  ]
+}
