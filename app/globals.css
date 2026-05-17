@@ -212,7 +212,7 @@ button { font: inherit; cursor: pointer; }
 
 /* ===== Layout: list with sidebar ===== */
 .with-rail { display: grid; grid-template-columns: var(--rail) 1fr; gap: 32px; align-items: flex-start; }
-.rail { position: sticky; top: 80px; align-self: start; border-right: 1px solid var(--line); padding-right: 32px; margin-right: -16px; }
+.rail { position: sticky; top: 80px; align-self: flex-start; border-right: 1px solid var(--line); padding-right: 32px; margin-right: -16px; }
 .rail-block { padding: 22px 0; border-bottom: 1px solid var(--line); }
 .rail-block:first-child { padding-top: 8px; }
 .rail-block:last-child { border-bottom: 0; }
